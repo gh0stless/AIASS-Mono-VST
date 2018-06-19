@@ -34,7 +34,7 @@ The original SIDBlaster-USB was created by Davey:
 
 https://github.com/stg/SIDBlaster-USB
 
-hardsid.dll for SidBlaster-US is by Stein Petersen:
+hardsid.dll for SidBlaster-USB is by Stein Petersen:
 
 https://csdb.dk/release/?id=136549
 
