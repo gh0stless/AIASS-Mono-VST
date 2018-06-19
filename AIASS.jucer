@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="xAsfkL" name="AIASS" displaySplashScreen="1" reportAppUsage="1"
+              splashScreenColour="Dark" projectType="audioplug" version="0.1.0"
+              bundleIdentifier="com.crazy-midi.AIASS" includeBinaryInAppConfig="1"
+              cppLanguageStandard="11" companyCopyright="crazy-midi" buildVST="1"
+              buildVST3="1" buildAU="0" buildAUv3="0" buildRTAS="0" buildAAX="0"
+              buildStandalone="1" enableIAA="0" pluginName="AIASS" pluginDesc="AIASS Is A SID Synthesizer"
+              pluginManufacturer="crazy-midi.de" pluginManufacturerCode="CRMI"
+              pluginCode="Aias" pluginChannelConfigs="" pluginIsSynth="1" pluginWantsMidiIn="1"
+              pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="AIASSAU" pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS"
+              pluginAAXCategory="2" jucerVersion="5.3.2" companyName="crazy-midi"
+              companyWebsite="www.crazy-midi.de" companyEmail="info@crazy-midi.de"
+              pluginFormats="buildVST,buildVST3,buildStandalone" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
+  <MAINGROUP id="wcvXYs" name="AIASS">
+    <GROUP id="{A833233E-AA9A-81CB-EE47-6EDEE7A913DD}" name="Source">
+      <FILE id="dyEJNU" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="xrsG2j" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="OGjafb" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="xea755" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="X3DTcp" name="Sid.cpp" compile="1" resource="0" file="Source/Sid.cpp"/>
+      <FILE id="o2CCZE" name="Sid.h" compile="0" resource="0" file="Source/Sid.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2017 targetFolder="Builds/VisualStudio2017" vst3Folder="" windowsTargetPlatformVersion="10.0.16299.0">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
+                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="AIASS"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
+                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="AIASS"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../Frameworks/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <LIVE_SETTINGS>
+    <WINDOWS buildEnabled="0" continuousRebuildEnabled="0"/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>

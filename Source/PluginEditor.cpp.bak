@@ -1,0 +1,58 @@
+/*
+  ==============================================================================
+
+    This file was auto-generated!
+
+    It contains the basic framework code for a JUCE plugin editor.
+
+  ==============================================================================
+*/
+
+#include "PluginProcessor.h"
+#include "PluginEditor.h"
+
+
+//==============================================================================
+AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p)
+    : AudioProcessorEditor (&p), processor (p)
+{
+    // Make sure that before the constructor has finished, you've set the
+    // editor's size to whatever you need it to be.
+    setSize (800, 600);
+    
+    // these define the parameters of our slider object
+    sidVolume.setSliderStyle (Slider::RotaryVerticalDrag);
+    sidVolume.setRange(0, 15, 1);
+    //sidVolume.setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    sidVolume.setPopupDisplayEnabled (true, true, this);
+    sidVolume.setTextValueSuffix (" Volume");
+    sidVolume.setValue(1.0);
+    
+    // this function adds the slider to the editor
+    addAndMakeVisible (&sidVolume);
+    
+}
+
+AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
+{
+}
+
+//==============================================================================
+void AiassAudioProcessorEditor::paint (Graphics& g)
+{
+    // (Our component is opaque, so we must completely fill the background with a solid colour)
+    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
+
+    g.setColour (Colours::white);
+    g.setFont (15.0f);
+    //g.drawFittedText ("SID Volume", getLocalBounds(), Justification::centred, 1);
+}
+
+void AiassAudioProcessorEditor::resized()
+{
+    // This is generally where you'll want to lay out the positions of any
+    // subcomponents in your editor..
+    
+    // sets the position and size of the slider with arguments (x, y, width, height)
+    sidVolume.setBounds (100, 100, 150, 150);
+}
