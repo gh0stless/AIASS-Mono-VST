@@ -4,8 +4,6 @@
 
 I hope that the source code can be a basis to create more VST plugins for the SidBlaster-USB. 
 
-***-Andreas Schumm (gh0stless) in June 2018***
-
 
 
 ## Description
@@ -45,3 +43,6 @@ Thanks a lot: Wilfred Bos & Stein Pedersen for your help.
 Thanks Davey for the SidBlaster-USB.
 
 And to my bride-to-be, Borjana Konstantinowa,  for your patience with me 
+
+***-Andreas Schumm (gh0stless) in June 2018***
+
