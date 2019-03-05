@@ -3,14 +3,14 @@
 <JUCERPROJECT id="xAsfkL" name="AIASS" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="0.1.0"
               bundleIdentifier="com.crazy-midi.AIASS" includeBinaryInAppConfig="1"
-              cppLanguageStandard="11" companyCopyright="crazy-midi" buildVST="1"
-              buildVST3="1" buildAU="0" buildAUv3="0" buildRTAS="0" buildAAX="0"
-              buildStandalone="1" enableIAA="0" pluginName="AIASS" pluginDesc="AIASS Is A SID Synthesizer"
+              companyCopyright="crazy-midi" buildVST="1" buildVST3="1" buildAU="0"
+              buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
+              enableIAA="0" pluginName="AIASS" pluginDesc="AIASS Is A SID Synthesizer"
               pluginManufacturer="crazy-midi.de" pluginManufacturerCode="CRMI"
               pluginCode="Aias" pluginChannelConfigs="" pluginIsSynth="1" pluginWantsMidiIn="1"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AIASSAU" pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS"
-              pluginAAXCategory="2" jucerVersion="5.3.2" companyName="crazy-midi"
+              pluginAAXCategory="2" jucerVersion="5.4.3" companyName="crazy-midi"
               companyWebsite="www.crazy-midi.de" companyEmail="info@crazy-midi.de"
               pluginFormats="buildVST,buildVST3,buildStandalone" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
   <MAINGROUP id="wcvXYs" name="AIASS">
@@ -27,7 +27,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2017 targetFolder="Builds/VisualStudio2017" vst3Folder="" windowsTargetPlatformVersion="10.0.16299.0">
+    <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
@@ -75,6 +75,7 @@
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
   <LIVE_SETTINGS>
-    <WINDOWS buildEnabled="0" continuousRebuildEnabled="0"/>
+    <WINDOWS buildEnabled="0" continuousRebuildEnabled="0" warningsEnabled="0"
+             windowsTargetPlatformVersion="10.0.16299.0"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>

@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.3.2
+  Created with Projucer version: 5.4.3
 
   ------------------------------------------------------------------------------
 
@@ -915,10 +915,9 @@ BEGIN_JUCER_METADATA
                  snapPixels="10" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="800" initialHeight="525">
   <BACKGROUND backgroundColour="ff323e44">
-    <IMAGE pos="0 0 800 525" resource="aiassmonoHintergrund4_png" opacity="1.00000000000000000000"
+    <IMAGE pos="0 0 800 525" resource="aiassmonoHintergrund4_png" opacity="1"
            mode="0"/>
-    <IMAGE pos="26 13 307 51" resource="commoFinal2_png" opacity="1.00000000000000000000"
-           mode="2"/>
+    <IMAGE pos="26 13 307 51" resource="commoFinal2_png" opacity="1" mode="2"/>
   </BACKGROUND>
   <GROUPCOMPONENT name="new group" id="f28a7389bff6ea97" memberName="groupComponent5"
                   virtualName="" explicitFocusOrder="0" pos="15 80 245 210" title="Control"/>
@@ -933,150 +932,128 @@ BEGIN_JUCER_METADATA
                   virtualName="" explicitFocusOrder="0" pos="512 80 270 210" title="Filter"/>
   <SLIDER name="new slider" id="d351edf4789a40e0" memberName="sidvolume"
           virtualName="" explicitFocusOrder="0" pos="64 111 66 66" tooltip="SID-Volume"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="26c4155703d3dafe" memberName="Octave1"
           virtualName="" explicitFocusOrder="0" pos="315 90 66 66" tooltip="Octave1 Up/Down"
-          min="-4.00000000000000000000" max="4.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-4" max="4" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="7808b9c1fb74ccc8" memberName="Octave2"
           virtualName="" explicitFocusOrder="0" pos="315 153 66 66" tooltip="Octave2 Up/Down"
-          min="-4.00000000000000000000" max="4.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-4" max="4" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="d3e4a1e141ca77b6" memberName="Octave3"
           virtualName="" explicitFocusOrder="0" pos="315 218 66 66" tooltip="Octave3 Up/Down"
-          min="-4.00000000000000000000" max="4.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-4" max="4" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="4297018af851022d" memberName="Semi1" virtualName=""
           explicitFocusOrder="0" pos="375 90 66 66" tooltip="Semitone1 Up/Down"
-          min="-12.00000000000000000000" max="12.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-1.2e1" max="1.2e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="4e87cf183b0e0e77" memberName="Semi2" virtualName=""
           explicitFocusOrder="0" pos="375 153 66 66" tooltip="Semitone2 Up/Down"
-          min="-12.00000000000000000000" max="12.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-1.2e1" max="1.2e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="f03b15fac2d0a403" memberName="Semi3" virtualName=""
           explicitFocusOrder="0" pos="375 218 66 66" tooltip="Semitone3 Up/Down"
-          min="-12.00000000000000000000" max="12.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-1.2e1" max="1.2e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="b0bba6848acec451" memberName="Cent1" virtualName=""
           explicitFocusOrder="0" pos="435 90 66 66" tooltip="Cent1 Up/Down"
-          min="-100.00000000000000000000" max="100.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-1e2" max="1e2" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="873ffcdb55231a19" memberName="Cent2" virtualName=""
           explicitFocusOrder="0" pos="435 153 66 66" tooltip="Cent2 Up/Down"
-          min="-100.00000000000000000000" max="100.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-1e2" max="1e2" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="77eb6b6e2092a08c" memberName="Cent3" virtualName=""
           explicitFocusOrder="0" pos="435 218 66 66" tooltip="Cent3 Up/Down"
-          min="-100.00000000000000000000" max="100.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="-1e2" max="1e2" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="53619e38d7835c9d" memberName="Attack1"
           virtualName="" explicitFocusOrder="0" pos="30 300 66 66" tooltip="Attack 1"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="40a979315f74e3a" memberName="Attack2" virtualName=""
           explicitFocusOrder="0" pos="30 365 66 66" tooltip="Attack 2"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="7e38002dde33164c" memberName="Attack3"
           virtualName="" explicitFocusOrder="0" pos="30 430 66 66" tooltip="Attack 3"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="49642dbf385beee8" memberName="Decay1" virtualName=""
-          explicitFocusOrder="0" pos="90 300 66 66" tooltip="Decay 1" min="0.00000000000000000000"
-          max="15.00000000000000000000" int="1.00000000000000000000" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.00000000000000000000" needsCallback="0"/>
+          explicitFocusOrder="0" pos="90 300 66 66" tooltip="Decay 1" min="0"
+          max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
+          needsCallback="0"/>
   <SLIDER name="new slider" id="379b886c43a29254" memberName="Decay2" virtualName=""
-          explicitFocusOrder="0" pos="90 365 66 66" tooltip="Decay 2" min="0.00000000000000000000"
-          max="15.00000000000000000000" int="1.00000000000000000000" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.00000000000000000000" needsCallback="0"/>
+          explicitFocusOrder="0" pos="90 365 66 66" tooltip="Decay 2" min="0"
+          max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
+          needsCallback="0"/>
   <SLIDER name="new slider" id="ff55788389bcec83" memberName="Decay3" virtualName=""
-          explicitFocusOrder="0" pos="90 430 66 66" tooltip="Decay 3" min="0.00000000000000000000"
-          max="15.00000000000000000000" int="1.00000000000000000000" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.00000000000000000000" needsCallback="0"/>
+          explicitFocusOrder="0" pos="90 430 66 66" tooltip="Decay 3" min="0"
+          max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
+          needsCallback="0"/>
   <SLIDER name="new slider" id="2793e34c7a6a6286" memberName="Sustain1"
           virtualName="" explicitFocusOrder="0" pos="150 300 66 66" tooltip="Sustain 1"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="25e905e8830bd418" memberName="Sustain2"
           virtualName="" explicitFocusOrder="0" pos="150 365 66 66" tooltip="Sustain 2"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="740735c3d8776e72" memberName="Sustain3"
           virtualName="" explicitFocusOrder="0" pos="150 430 66 66" tooltip="Sustain 3"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="26b01f2c9f0fcbd4" memberName="Release1"
           virtualName="" explicitFocusOrder="0" pos="210 300 66 66" tooltip="Release 1"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="cede2f433ff54882" memberName="Release2"
           virtualName="" explicitFocusOrder="0" pos="210 365 66 66" tooltip="Release 2"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="a6cb93496f682a4d" memberName="Release3"
           virtualName="" explicitFocusOrder="0" pos="210 430 66 66" tooltip="Release 3"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="0"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="a63bd08caa77c655" memberName="Pulsew1"
           virtualName="" explicitFocusOrder="0" pos="280 300 66 66" tooltip="Pulswidth 1"
-          min="1.00000000000000000000" max="4094.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="1" max="4.094e3" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="c761eb76e90133c8" memberName="Pulsew2"
           virtualName="" explicitFocusOrder="0" pos="280 365 66 66" tooltip="Pulsewidth 2"
-          min="1.00000000000000000000" max="4094.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="1" max="4.094e3" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="c9edf691a324176f" memberName="Pulsew3"
           virtualName="" explicitFocusOrder="0" pos="280 430 66 66" tooltip="Pulswidth 3"
-          min="1.00000000000000000000" max="4094.00000000000000000000"
-          int="1.00000000000000000000" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="1" max="4.094e3" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <TOGGLEBUTTON name="new toggle button" id="498d1ccffc218a3e" memberName="Velvol"
                 virtualName="" explicitFocusOrder="0" pos="156 130 56 32" tooltip="maps Velocity to Volume"
@@ -1131,16 +1108,14 @@ BEGIN_JUCER_METADATA
                 buttonText="8085" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <SLIDER name="new slider" id="b104465dc77b15ae" memberName="CutOff" virtualName=""
-          explicitFocusOrder="0" pos="632 216 66 66" tooltip="Cutoff" min="0.00000000000000000000"
-          max="2047.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          explicitFocusOrder="0" pos="632 216 66 66" tooltip="Cutoff" min="0"
+          max="2.047e3" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <SLIDER name="new slider" id="b18e0fc28c589ec5" memberName="Resonace"
           virtualName="" explicitFocusOrder="0" pos="702 216 66 66" tooltip="Resonance"
-          min="0.00000000000000000000" max="15.00000000000000000000" int="1.00000000000000000000"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
-          textBoxWidth="40" textBoxHeight="12" skewFactor="1.00000000000000000000"
+          min="0" max="1.5e1" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1"
           needsCallback="0"/>
   <TOGGLEBUTTON name="new toggle button" id="53248eb179f92afc" memberName="Noise1"
                 virtualName="" explicitFocusOrder="0" pos="374 319 66 30" buttonText="Noise"
@@ -1212,9 +1187,9 @@ BEGIN_JUCER_METADATA
                explicitFocusOrder="0" pos="691 16 90 40" tooltip="midi-activity and  blinks when error-status"
                buttonText="new button" connectedEdges="0" needsCallback="0"
                radioGroupId="0" keepProportions="1" resourceNormal="ledredoffth_png"
-               opacityNormal="1.00000000000000000000" colourNormal="0" resourceOver="ledredoffth_png"
-               opacityOver="1.00000000000000000000" colourOver="0" resourceDown="redledonth_png"
-               opacityDown="1.00000000000000000000" colourDown="0"/>
+               opacityNormal="1" colourNormal="0" resourceOver="ledredoffth_png"
+               opacityOver="1" colourOver="0" resourceDown="redledonth_png"
+               opacityDown="1" colourDown="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -2181,3 +2156,4 @@ const int AiassAudioProcessorEditor::commoFinal2_pngSize = 21153;
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
+
