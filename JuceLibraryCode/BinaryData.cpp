@@ -124,6 +124,7 @@ static const unsigned char temp_binary_data_1[] =
 "\r\n"
 "History\r\n"
 "-------\r\n"
+"-2020/02/13 - releasing 0.1b\r\n"
 "-2020/02/12 - changing depricaded juce code\r\n"
 "-2018/10/27 - releasing 0.1a\r\n"
 "-2017/10/28 - starting to code";
@@ -142,7 +143,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4162; return hardsid_dll_how_to_and_hints_txt;
-        case 0x6efe362a:  numBytes = 173; return history_and_todo_txt;
+        case 0x6efe362a:  numBytes = 203; return history_and_todo_txt;
         default: break;
     }
 

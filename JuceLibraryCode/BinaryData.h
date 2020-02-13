@@ -12,7 +12,7 @@ namespace BinaryData
     const int            hardsid_dll_how_to_and_hints_txtSize = 4162;
 
     extern const char*   history_and_todo_txt;
-    const int            history_and_todo_txtSize = 173;
+    const int            history_and_todo_txtSize = 203;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 2;
