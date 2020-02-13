@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.3
+  Created with Projucer version: 5.4.7
 
   ------------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ class AiassAudioProcessorEditor  : public AudioProcessorEditor,
 public:
     //==============================================================================
     AiassAudioProcessorEditor (AiassAudioProcessor& p, AudioProcessorValueTreeState& vts);
-    ~AiassAudioProcessorEditor();
+    ~AiassAudioProcessorEditor() override;
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -89,66 +89,66 @@ private:
 
        //AiassAudioProcessor& processor;
 	   AudioProcessorValueTreeState& valueTreeState;
-	   ScopedPointer<SliderAttachment>SidVolAttachment;
-	   ScopedPointer<ButtonAttachment>VelvolAttachment;
-	   ScopedPointer<SliderAttachment>Attack1Attachment;
-	   ScopedPointer<SliderAttachment>Attack2Attachment;
-	   ScopedPointer<SliderAttachment>Attack3Attachment;
-	   ScopedPointer<SliderAttachment>Decay1Attachment;
-	   ScopedPointer<SliderAttachment>Decay2Attachment;
-	   ScopedPointer<SliderAttachment>Decay3Attachment;
-	   ScopedPointer<SliderAttachment>Sustain1Attachment;
-	   ScopedPointer<SliderAttachment>Sustain2Attachment;
-	   ScopedPointer<SliderAttachment>Sustain3Attachment;
-	   ScopedPointer<SliderAttachment>Release1Attachment;
-	   ScopedPointer<SliderAttachment>Release2Attachment;
-	   ScopedPointer<SliderAttachment>Release3Attachment;
-	   ScopedPointer<SliderAttachment>Pulsw1Attachment;
-	   ScopedPointer<SliderAttachment>Pulsw2Attachment;
-	   ScopedPointer<SliderAttachment>Pulsw3Attachment;
-	   ScopedPointer<ButtonAttachment>Voice1Attachment;
-	   ScopedPointer<ButtonAttachment>Voice2Attachment;
-	   ScopedPointer<ButtonAttachment>Voice3Attachment;
-	   ScopedPointer<SliderAttachment>Octave1Attachment;
-	   ScopedPointer<SliderAttachment>Octave2Attachment;
-	   ScopedPointer<SliderAttachment>Octave3Attachment;
-	   ScopedPointer<SliderAttachment>Semi1Attachment;
-	   ScopedPointer<SliderAttachment>Semi2Attachment;
-	   ScopedPointer<SliderAttachment>Semi3Attachment;
-	   ScopedPointer<SliderAttachment>Cent1Attachment;
-	   ScopedPointer<SliderAttachment>Cent2Attachment;
-	   ScopedPointer<SliderAttachment>Cent3Attachment;
-	   ScopedPointer<ButtonAttachment>Noise1Attachment;
-	   ScopedPointer<ButtonAttachment>Noise2Attachment;
-	   ScopedPointer<ButtonAttachment>Noise3Attachment;
-	   ScopedPointer<ButtonAttachment>Pulse1Attachment;
-	   ScopedPointer<ButtonAttachment>Pulse2Attachment;
-	   ScopedPointer<ButtonAttachment>Pulse3Attachment;
-	   ScopedPointer<ButtonAttachment>Saw1Attachment;
-	   ScopedPointer<ButtonAttachment>Saw2Attachment;
-	   ScopedPointer<ButtonAttachment>Saw3Attachment;
-	   ScopedPointer<ButtonAttachment>Tria1Attachment;
-	   ScopedPointer<ButtonAttachment>Tria2Attachment;
-	   ScopedPointer<ButtonAttachment>Tria3Attachment;
-	   ScopedPointer<ButtonAttachment>Ringmod1Attachment;
-	   ScopedPointer<ButtonAttachment>Ringmod2Attachment;
-	   ScopedPointer<ButtonAttachment>Ringmod3Attachment;
-	   ScopedPointer<ButtonAttachment>Sync1Attachment;
-	   ScopedPointer<ButtonAttachment>Sync2Attachment;
-	   ScopedPointer<ButtonAttachment>Sync3Attachment;
-	   ScopedPointer<SliderAttachment>FilterfreqAttachment;
-	   ScopedPointer<SliderAttachment>ResonanceAttachment;
-	   ScopedPointer<ButtonAttachment>Filter8085Attachment;
-	   ScopedPointer<ButtonAttachment>Filter1Attachment;
-	   ScopedPointer<ButtonAttachment>Filter2Attachment;
-	   ScopedPointer<ButtonAttachment>Filter3Attachment;
-	   ScopedPointer<ButtonAttachment>FilterinAttachment;
-	   ScopedPointer<ButtonAttachment>FilterLPAttachment;
-	   ScopedPointer<ButtonAttachment>FilterBPAttachment;
-	   ScopedPointer<ButtonAttachment>FilterHPAttachment;
-	   ScopedPointer<ButtonAttachment>Filter3OFFAttachment;
-	   ScopedPointer<ComboBoxAttachment>LegatoModeAttachment;
-	   ScopedPointer<ComboBoxAttachment>NotePrioritymodeAttachment;
+	   std::unique_ptr<SliderAttachment>SidVolAttachment;
+       std::unique_ptr<ButtonAttachment>VelvolAttachment;
+	   std::unique_ptr<SliderAttachment>Attack1Attachment;
+	   std::unique_ptr<SliderAttachment>Attack2Attachment;
+	   std::unique_ptr<SliderAttachment>Attack3Attachment;
+	   std::unique_ptr<SliderAttachment>Decay1Attachment;
+	   std::unique_ptr<SliderAttachment>Decay2Attachment;
+	   std::unique_ptr<SliderAttachment>Decay3Attachment;
+	   std::unique_ptr<SliderAttachment>Sustain1Attachment;
+	   std::unique_ptr<SliderAttachment>Sustain2Attachment;
+	   std::unique_ptr<SliderAttachment>Sustain3Attachment;
+	   std::unique_ptr<SliderAttachment>Release1Attachment;
+	   std::unique_ptr<SliderAttachment>Release2Attachment;
+	   std::unique_ptr<SliderAttachment>Release3Attachment;
+	   std::unique_ptr<SliderAttachment>Pulsw1Attachment;
+	   std::unique_ptr<SliderAttachment>Pulsw2Attachment;
+	   std::unique_ptr<SliderAttachment>Pulsw3Attachment;
+	   std::unique_ptr<ButtonAttachment>Voice1Attachment;
+	   std::unique_ptr<ButtonAttachment>Voice2Attachment;
+	   std::unique_ptr<ButtonAttachment>Voice3Attachment;
+	   std::unique_ptr<SliderAttachment>Octave1Attachment;
+	   std::unique_ptr<SliderAttachment>Octave2Attachment;
+	   std::unique_ptr<SliderAttachment>Octave3Attachment;
+	   std::unique_ptr<SliderAttachment>Semi1Attachment;
+	   std::unique_ptr<SliderAttachment>Semi2Attachment;
+	   std::unique_ptr<SliderAttachment>Semi3Attachment;
+	   std::unique_ptr<SliderAttachment>Cent1Attachment;
+	   std::unique_ptr<SliderAttachment>Cent2Attachment;
+	   std::unique_ptr<SliderAttachment>Cent3Attachment;
+	   std::unique_ptr<ButtonAttachment>Noise1Attachment;
+	   std::unique_ptr<ButtonAttachment>Noise2Attachment;
+	   std::unique_ptr<ButtonAttachment>Noise3Attachment;
+	   std::unique_ptr<ButtonAttachment>Pulse1Attachment;
+	   std::unique_ptr<ButtonAttachment>Pulse2Attachment;
+	   std::unique_ptr<ButtonAttachment>Pulse3Attachment;
+	   std::unique_ptr<ButtonAttachment>Saw1Attachment;
+	   std::unique_ptr<ButtonAttachment>Saw2Attachment;
+	   std::unique_ptr<ButtonAttachment>Saw3Attachment;
+	   std::unique_ptr<ButtonAttachment>Tria1Attachment;
+	   std::unique_ptr<ButtonAttachment>Tria2Attachment;
+	   std::unique_ptr<ButtonAttachment>Tria3Attachment;
+	   std::unique_ptr<ButtonAttachment>Ringmod1Attachment;
+	   std::unique_ptr<ButtonAttachment>Ringmod2Attachment;
+	   std::unique_ptr<ButtonAttachment>Ringmod3Attachment;
+	   std::unique_ptr<ButtonAttachment>Sync1Attachment;
+	   std::unique_ptr<ButtonAttachment>Sync2Attachment;
+	   std::unique_ptr<ButtonAttachment>Sync3Attachment;
+	   std::unique_ptr<SliderAttachment>FilterfreqAttachment;
+	   std::unique_ptr<SliderAttachment>ResonanceAttachment;
+	   std::unique_ptr<ButtonAttachment>Filter8085Attachment;
+	   std::unique_ptr<ButtonAttachment>Filter1Attachment;
+	   std::unique_ptr<ButtonAttachment>Filter2Attachment;
+	   std::unique_ptr<ButtonAttachment>Filter3Attachment;
+	   std::unique_ptr<ButtonAttachment>FilterinAttachment;
+	   std::unique_ptr<ButtonAttachment>FilterLPAttachment;
+	   std::unique_ptr<ButtonAttachment>FilterBPAttachment;
+	   std::unique_ptr<ButtonAttachment>FilterHPAttachment;
+	   std::unique_ptr<ButtonAttachment>Filter3OFFAttachment;
+	   std::unique_ptr<ComboBoxAttachment>LegatoModeAttachment;
+	   std::unique_ptr<ComboBoxAttachment>NotePrioritymodeAttachment;
 
 
 	   TooltipWindow tooltipWindow; // to add tooltips to an application, you

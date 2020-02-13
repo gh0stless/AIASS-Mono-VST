@@ -26,16 +26,17 @@
 		
 		,parameters(*this, nullptr)
 	{
+		using Parameter = AudioProcessorValueTreeState::Parameter;
 		
-		parameters.createAndAddParameter("SidVol",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SidVol",       // parameterID
 			"SIDVolume",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			15.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("VelVol",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("VelVol",       // parameterID
 			"Velocity",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -51,127 +52,129 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("AttAck1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("AttAck1",       // parameterID
 			"Attack 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			1.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("AttAck2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("AttAck2",       // parameterID
 			"Attack 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			1.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("AttAck3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("AttAck3",       // parameterID
 			"Attack 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			1.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("DeCay1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("DeCay1",       // parameterID
 			"Decay 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("DeCay2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("DeCay2",       // parameterID
 			"Decay 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("DeCay3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("DeCay3",       // parameterID
 			"Decay 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("SuStain1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SuStain1",       // parameterID
 			"Sustain 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("SuStain2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SuStain2",       // parameterID
 			"Sustain 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("SuStain3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SuStain3",       // parameterID
 			"Sustain 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("ReLease1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("ReLease1",       // parameterID
 			"Release 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
-		parameters.createAndAddParameter("ReLease2",       // parameterID
+			nullptr));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("ReLease2",       // parameterID
 			"Release 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
-		parameters.createAndAddParameter("ReLease3",       // parameterID
+			nullptr));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("ReLease3",       // parameterID
 			"Release 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			7.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("PulsW1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PulsW1",       // parameterID
 			"Pulswith 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(1.0f, 4094.0f, 1.0f),    // range
 			1024.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("PulsW2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PulsW2",       // parameterID
 			"Pulswith 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(1.0f, 4094.0f, 1.0f),    // range
 			1024.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("PulsW3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PulsW3",       // parameterID
 			"Pulswith 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(1.0f, 4094.0f, 1.0f),    // range
 			1024.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("VoiCe1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("VoiCe1",       // parameterID
 			"Voice 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -187,9 +190,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("VoiCe2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("VoiCe2",       // parameterID
 			"Voice 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -205,9 +208,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("VoiCe3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("VoiCe3",       // parameterID
 			"Voice 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -223,81 +226,81 @@
 				if (text == "Off") return 0.0f;
 				if (text == "On")  return 1.0f;
 				return 0.0f;
-			});
+			}));
 
-		parameters.createAndAddParameter("OcTave1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("OcTave1",       // parameterID
 			"Octave 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-4.0f, 4.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("OcTave2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("OcTave2",       // parameterID
 			"Octave 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-4.0f, 4.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("OcTave3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("OcTave3",       // parameterID
 			"Octave 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-4.0f, 4.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("SeMi1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SeMi1",       // parameterID
 			"Semitone 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-12.0f, 12.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("SeMi2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SeMi2",       // parameterID
 			"Semitone 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-12.0f, 12.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("SeMi3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SeMi3",       // parameterID
 			"Semitone 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-12.0f, 12.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("CenT1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("CenT1",       // parameterID
 			"Cent 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-100.0f, 100.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("CenT2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("CenT2",       // parameterID
 			"Cent 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-100.0f, 100.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("CenT3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("CenT3",       // parameterID
 			"Cent 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(-100.0f, 100.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("NoiSe1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("NoiSe1",       // parameterID
 			"Noise 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -313,9 +316,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("NoiSe2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("NoiSe2",       // parameterID
 			"Noise 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -331,9 +334,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("NoiSe3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("NoiSe3",       // parameterID
 			"Noise 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -349,9 +352,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("PulSe1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PulSe1",       // parameterID
 			"Pulse 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -367,9 +370,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("PulSe2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PulSe2",       // parameterID
 			"Pulse 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -385,9 +388,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("PulSe3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PulSe3",       // parameterID
 			"Pulse 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -403,9 +406,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("SaW1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SaW1",       // parameterID
 			"Saw 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -421,9 +424,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("SaW2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SaW2",       // parameterID
 			"Saw 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -439,9 +442,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("SaW3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SaW3",       // parameterID
 			"Saw 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -457,9 +460,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("TriA1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("TriA1",       // parameterID
 			"Tria 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -475,9 +478,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("TriA2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("TriA2",       // parameterID
 			"Tria 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -493,9 +496,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("TriA3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("TriA3",       // parameterID
 			"Tria 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -511,9 +514,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("RingMod1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("RingMod1",       // parameterID
 			"Ringmod 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -529,9 +532,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("RingMod2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("RingMod2",       // parameterID
 			"Ringmod 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -547,9 +550,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("RingMod3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("RingMod3",       // parameterID
 			"Ringmod 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -565,9 +568,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("SynC1",      // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SynC1",      // parameterID
 			"Sync 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -583,9 +586,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("SynC2",      // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SynC2",      // parameterID
 			"Sync 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -601,9 +604,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("SynC3",      // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("SynC3",      // parameterID
 			"Sync 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -619,25 +622,25 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 		
-		parameters.createAndAddParameter("FilterFreq",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilterFreq",       // parameterID
 			"Cutoff",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 2047.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 		
-		parameters.createAndAddParameter("ResoNance",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("ResoNance",       // parameterID
 			"Resonance",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 15.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("FilTer8085",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer8085",       // parameterID
 			"8085",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -653,9 +656,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTer1",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer1",       // parameterID
 			"Filter 1",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -671,9 +674,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTer2",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer2",       // parameterID
 			"Filter 2",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -689,9 +692,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTer3",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer3",       // parameterID
 			"Filter 3",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -707,9 +710,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTerIn",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTerIn",       // parameterID
 			"Filter In",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -725,9 +728,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTerLP",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTerLP",       // parameterID
 			"Low Pass",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -743,9 +746,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTerBP",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTerBP",       // parameterID
 			"Band Pass",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -761,9 +764,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTerHP",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTerHP",       // parameterID
 			"High Pass",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -779,9 +782,9 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("FilTer3OFF",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer3OFF",       // parameterID
 			"3OFF",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
@@ -797,23 +800,23 @@
 			if (text == "Off") return 0.0f;
 			if (text == "On")  return 1.0f;
 			return 0.0f;
-		});
+		}));
 
-		parameters.createAndAddParameter("LegatoMode",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("LegatoMode",       // parameterID
 			"Legatomode",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 2.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 
-		parameters.createAndAddParameter("NotePrioritymode",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("NotePrioritymode",       // parameterID
 			"Notepriority",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 2.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
-			nullptr);
+			nullptr));
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
@@ -1125,7 +1128,7 @@
 		// You should use this method to store your parameters in the memory block.
 		// You could do that either as raw data, or use the XML or ValueTree classes
 		// as intermediaries to make it easy to save and load complex data.
-		ScopedPointer<XmlElement> xml(parameters.state.createXml());
+		std::unique_ptr<XmlElement> xml(parameters.state.createXml());
 		copyXmlToBinary(*xml, destData);
 	}
 
@@ -1133,7 +1136,7 @@
 	{
 		// You should use this method to restore your parameters from this memory block,
 		// whose contents will have been created by the getStateInformation() call.
-		ScopedPointer<XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
+		std::unique_ptr<XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
 
 		if (xmlState != nullptr)
 			if (xmlState->hasTagName(parameters.state.getType()))

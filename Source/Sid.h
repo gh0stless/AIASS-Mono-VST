@@ -10,7 +10,6 @@
 
 #pragma once
 
-//#include <stddef.h>
 #include <Windows.h>
 
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -59,8 +58,7 @@ class Sid
 		int error_state = 0;
 
 	private:
-
-		//global variables
+				
 		int Nr_Of_Instances = 0;
 		int Number_Of_Devices = 0;
 		int DLL_Version = 0;

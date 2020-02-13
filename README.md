@@ -1,10 +1,10 @@
-# AIASS Mono VST
+# AIASS-Mono VST
 
 ... is a quick and dirty VST-Plugin for use with SidBlaster-USB, made by Juce Framework.
 
 I hope that the source code can be a basis to create more VST plugins for the SidBlaster-USB. 
 
-
+![](./doc/AIASS-Mono VST Preview.jpg)
 
 ## Description
 

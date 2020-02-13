@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="xAsfkL" name="AIASS" displaySplashScreen="1" reportAppUsage="1"
+<JUCERPROJECT id="xAsfkL" name="AIASS-Mono" displaySplashScreen="1" reportAppUsage="1"
               splashScreenColour="Dark" projectType="audioplug" version="0.1.0"
-              bundleIdentifier="com.crazy-midi.AIASS" includeBinaryInAppConfig="1"
-              companyCopyright="crazy-midi" buildVST="1" buildVST3="1" buildAU="0"
-              buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="0" pluginName="AIASS" pluginDesc="AIASS Is A SID Synthesizer"
+              bundleIdentifier="com.crazy-midi.AIASS-Mono" includeBinaryInAppConfig="1"
+              companyCopyright="crazy-midi.de 2017-2020" buildVST="1" buildVST3="1"
+              buildAU="0" buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
+              enableIAA="0" pluginName="AIASS-Mono" pluginDesc="AIASS Is A SID Synthesizer"
               pluginManufacturer="crazy-midi.de" pluginManufacturerCode="CRMI"
               pluginCode="Aias" pluginChannelConfigs="" pluginIsSynth="1" pluginWantsMidiIn="1"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
-              pluginAUExportPrefix="AIASSAU" pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS"
-              pluginAAXCategory="2" jucerVersion="5.4.3" companyName="crazy-midi"
+              pluginAUExportPrefix="AIASSAU" pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS-Mono"
+              pluginAAXCategory="2" jucerVersion="5.4.7" companyName="crazy-midi.de"
               companyWebsite="www.crazy-midi.de" companyEmail="info@crazy-midi.de"
-              pluginFormats="buildVST,buildVST3,buildStandalone" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
-  <MAINGROUP id="wcvXYs" name="AIASS">
+              pluginFormats="buildVST,buildVST3,buildStandalone" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              userNotes="AIASS was coded by Andreas Schumm (gh0stless) for www-crazy-midi.de 2017-2020">
+  <MAINGROUP id="wcvXYs" name="AIASS-Mono">
     <GROUP id="{A833233E-AA9A-81CB-EE47-6EDEE7A913DD}" name="Source">
       <FILE id="dyEJNU" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -25,16 +26,26 @@
       <FILE id="X3DTcp" name="Sid.cpp" compile="1" resource="0" file="Source/Sid.cpp"/>
       <FILE id="o2CCZE" name="Sid.h" compile="0" resource="0" file="Source/Sid.h"/>
     </GROUP>
+    <FILE id="ks6had" name="hardsid.dll how to and hints.txt" compile="0"
+          resource="1" file="doc/hardsid.dll how to and hints.txt"/>
+    <FILE id="Q8goSN" name="history and todo.txt" compile="0" resource="1"
+          file="doc/history and todo.txt"/>
   </MAINGROUP>
   <EXPORTFORMATS>
     <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+        <CONFIGURATION name="Debug 64" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
-                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="AIASS"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="AIASS-Mono"/>
+        <CONFIGURATION name="Release 64" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
                        debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
-                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="AIASS"/>
+                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="AIASS-Mono"/>
+        <CONFIGURATION name="Debug 32" winWarningLevel="4" generateManifest="1" winArchitecture="Win32"
+                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
+                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="AIASS-Mono"/>
+        <CONFIGURATION name="Release 32" winWarningLevel="4" generateManifest="1" winArchitecture="Win32"
+                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
+                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="AIASS-Mono"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../../../../../Frameworks/JUCE/modules"/>
@@ -75,7 +86,7 @@
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
   <LIVE_SETTINGS>
-    <WINDOWS buildEnabled="0" continuousRebuildEnabled="0" warningsEnabled="0"
+    <WINDOWS buildEnabled="0" continuousRebuildEnabled="0" warningsEnabled="1"
              windowsTargetPlatformVersion="10.0.16299.0"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
