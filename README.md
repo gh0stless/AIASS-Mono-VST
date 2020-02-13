@@ -4,7 +4,7 @@
 
 I hope that the source code can be a basis to create more VST plugins for the SidBlaster-USB. 
 
-![](./doc/AIASS-Mono VST Preview.jpg)
+![](https://github.com/gh0stless/AIASS-Mono-VST/blob/master/doc/AIASS-Mono%20VST%20Preview.jpg)
 
 ## Description
 
