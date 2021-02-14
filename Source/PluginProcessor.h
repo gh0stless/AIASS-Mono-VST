@@ -109,7 +109,7 @@ private:
 	bool PULSE3 = true;
 	bool NOISE3 = false;
 
-	bool FILTER8085 = true;
+	bool FILTER8580 = true;
 
 	bool FILTER1 = false;
 	bool FILTER2 = false;

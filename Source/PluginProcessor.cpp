@@ -640,8 +640,8 @@
 			nullptr,
 			nullptr));
 
-		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer8085",       // parameterID
-			"8085",       // parameter name
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer8580",       // parameterID
+			"8580",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
 			1.0f,         // default value
@@ -869,7 +869,7 @@
 		parameters.addParameterListener("SynC3", this);
 		parameters.addParameterListener("FilterFreq", this);
 		parameters.addParameterListener("ResoNance", this);
-		parameters.addParameterListener("FilTer8085", this);
+		parameters.addParameterListener("FilTer8580", this);
 		parameters.addParameterListener("FilTer1", this);
 		parameters.addParameterListener("FilTer2", this);
 		parameters.addParameterListener("FilTer3", this);
@@ -1352,7 +1352,7 @@
 		}
 		else if (parameterID == "FilterFreq") 
 		{
-			if (!FILTER8085) {
+			if (!FILTER8580) {
 				m_sid->set_filterfreq((Uint16)newValue);
 			}
 			else { //scale
@@ -1363,9 +1363,9 @@
 		{
 			m_sid->set_filterres((Uint8)newValue);
 		}
-		else if (parameterID == "FilTer8085")
+		else if (parameterID == "FilTer8580")
 		{
-			FILTER8085 = newValue;
+			FILTER8580 = newValue;
 		}
 		else if (parameterID == "FilTer1")
 		{

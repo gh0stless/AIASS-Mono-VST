@@ -10,10 +10,11 @@
               pluginCode="Aias" pluginChannelConfigs="" pluginIsSynth="1" pluginWantsMidiIn="1"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AIASSAU" pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS-Mono"
-              pluginAAXCategory="2" jucerVersion="5.4.7" companyName="crazy-midi.de"
-              companyWebsite="www.crazy-midi.de" companyEmail="info@crazy-midi.de"
-              pluginFormats="buildVST,buildVST3,buildStandalone" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
-              userNotes="AIASS was coded by Andreas Schumm (gh0stless) for www-crazy-midi.de 2017-2020">
+              pluginAAXCategory="2" companyName="crazy-midi.de" companyWebsite="www.crazy-midi.de"
+              companyEmail="info@crazy-midi.de" pluginFormats="buildVST,buildVST3,buildStandalone"
+              pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
+              userNotes="AIASS was coded by Andreas Schumm (gh0stless) for www-crazy-midi.de 2017-2020"
+              jucerFormatVersion="1">
   <MAINGROUP id="wcvXYs" name="AIASS-Mono">
     <GROUP id="{A833233E-AA9A-81CB-EE47-6EDEE7A913DD}" name="Source">
       <FILE id="dyEJNU" name="PluginProcessor.cpp" compile="1" resource="0"
@@ -32,42 +33,31 @@
           file="doc/history and todo.txt"/>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <VS2017 targetFolder="VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
+    <VS2019 targetFolder="VisualStudio2019" toolset="v141" windowsTargetPlatformVersion="10.0.16299.0">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
-                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="AIASS-Mono"/>
-        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
-                       debugInformationFormat="ProgramDatabase" linkTimeOptimisation="1"
-                       isDebug="0" optimisation="3" targetName="AIASS-Mono" binaryPath="Build_x64"
-                       vst3BinaryLocation="VST3_x64" vstBinaryLocation="vstplugins_x64"/>
-        <CONFIGURATION name="Debug x86" winWarningLevel="4" generateManifest="1" winArchitecture="Win32"
-                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
-                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="AIASS-Mono"/>
-        <CONFIGURATION name="Release x86" winWarningLevel="4" generateManifest="1" winArchitecture="Win32"
-                       debugInformationFormat="ProgramDatabase" linkTimeOptimisation="1"
-                       isDebug="0" optimisation="3" targetName="AIASS-Mono" binaryPath="Build_x86"
-                       enablePluginBinaryCopyStep="0" vst3BinaryLocation="VST3_x86"
-                       vstBinaryLocation="vstplugins_x86"/>
+        <CONFIGURATION isDebug="1" name="Debug" binaryPath="build\x64\debug"/>
+        <CONFIGURATION isDebug="0" name="Release" binaryPath="build\x64\release"/>
+        <CONFIGURATION isDebug="1" name="Debug x86" winArchitecture="Win32" binaryPath="build\x86\debug"/>
+        <CONFIGURATION isDebug="0" name="Release x86" winArchitecture="Win32" binaryPath="build\x86\release"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_video" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../../Frameworks/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../../../Frameworks/JUCE/modules"/>
+        <MODULEPATH id="juce_video"/>
+        <MODULEPATH id="juce_opengl"/>
+        <MODULEPATH id="juce_gui_extra"/>
+        <MODULEPATH id="juce_gui_basics"/>
+        <MODULEPATH id="juce_graphics"/>
+        <MODULEPATH id="juce_events"/>
+        <MODULEPATH id="juce_data_structures"/>
+        <MODULEPATH id="juce_cryptography"/>
+        <MODULEPATH id="juce_core"/>
+        <MODULEPATH id="juce_audio_utils"/>
+        <MODULEPATH id="juce_audio_processors"/>
+        <MODULEPATH id="juce_audio_plugin_client"/>
+        <MODULEPATH id="juce_audio_formats"/>
+        <MODULEPATH id="juce_audio_devices"/>
+        <MODULEPATH id="juce_audio_basics"/>
       </MODULEPATHS>
-    </VS2017>
+    </VS2019>
   </EXPORTFORMATS>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
