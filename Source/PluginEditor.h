@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 6.0.7
+  Created with Projucer version: 5.4.7
 
   ------------------------------------------------------------------------------
 
   The Projucer is part of the JUCE library.
-  Copyright (c) 2020 - Raw Material Software Limited.
+  Copyright (c) 2017 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -36,7 +36,7 @@
 */
 class AiassAudioProcessorEditor  : public AudioProcessorEditor,
                                    private Timer,
-                                   public juce::ComboBox::Listener
+                                   public ComboBox::Listener
 {
 public:
     //==============================================================================
@@ -67,21 +67,19 @@ public:
 
     //[/UserMethods]
 
-    void paint (juce::Graphics& g) override;
+    void paint (Graphics& g) override;
     void resized() override;
-    void comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged) override;
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
 
     // Binary resources:
-    static const char* aiassmonoHintergrund4_png;
-    static const int aiassmonoHintergrund4_pngSize;
-    static const char* commoFinal3_png;
-    static const int commoFinal3_pngSize;
-    static const char* redledonth_png;
-    static const int redledonth_pngSize;
-    static const char* ledredoffth_png;
-    static const int ledredoffth_pngSize;
-    static const char* commoFinal2_png;
-    static const int commoFinal2_pngSize;
+    static const char* redledoff_png;
+    static const int redledoff_pngSize;
+    static const char* redledon_png;
+    static const int redledon_pngSize;
+    static const char* aiasshintergrund_png;
+    static const int aiasshintergrund_pngSize;
+    static const char* aiass_mono_typenschild_png;
+    static const int aiass_mono_typenschild_pngSize;
 
 
 private:
@@ -163,75 +161,75 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<juce::GroupComponent> groupComponent5;
-    std::unique_ptr<juce::GroupComponent> groupComponent4;
-    std::unique_ptr<juce::GroupComponent> groupComponent2;
-    std::unique_ptr<juce::GroupComponent> groupComponent;
-    std::unique_ptr<juce::GroupComponent> groupComponent3;
-    std::unique_ptr<juce::Slider> sidvolume;
-    std::unique_ptr<juce::Slider> Octave1;
-    std::unique_ptr<juce::Slider> Octave2;
-    std::unique_ptr<juce::Slider> Octave3;
-    std::unique_ptr<juce::Slider> Semi1;
-    std::unique_ptr<juce::Slider> Semi2;
-    std::unique_ptr<juce::Slider> Semi3;
-    std::unique_ptr<juce::Slider> Cent1;
-    std::unique_ptr<juce::Slider> Cent2;
-    std::unique_ptr<juce::Slider> Cent3;
-    std::unique_ptr<juce::Slider> Attack1;
-    std::unique_ptr<juce::Slider> Attack2;
-    std::unique_ptr<juce::Slider> Attack3;
-    std::unique_ptr<juce::Slider> Decay1;
-    std::unique_ptr<juce::Slider> Decay2;
-    std::unique_ptr<juce::Slider> Decay3;
-    std::unique_ptr<juce::Slider> Sustain1;
-    std::unique_ptr<juce::Slider> Sustain2;
-    std::unique_ptr<juce::Slider> Sustain3;
-    std::unique_ptr<juce::Slider> Release1;
-    std::unique_ptr<juce::Slider> Release2;
-    std::unique_ptr<juce::Slider> Release3;
-    std::unique_ptr<juce::Slider> Pulsew1;
-    std::unique_ptr<juce::Slider> Pulsew2;
-    std::unique_ptr<juce::Slider> Pulsew3;
-    std::unique_ptr<juce::ToggleButton> Velvol;
-    std::unique_ptr<juce::ComboBox> legatomode;
-    std::unique_ptr<juce::ComboBox> noteprioritymode;
-    std::unique_ptr<juce::HyperlinkButton> hyperlinkButton;
-    std::unique_ptr<juce::ToggleButton> Filter1;
-    std::unique_ptr<juce::ToggleButton> Filter2;
-    std::unique_ptr<juce::ToggleButton> Filter3off;
-    std::unique_ptr<juce::ToggleButton> Filter3;
-    std::unique_ptr<juce::ToggleButton> Filterin;
-    std::unique_ptr<juce::ToggleButton> Filterlp;
-    std::unique_ptr<juce::ToggleButton> Filterhp;
-    std::unique_ptr<juce::ToggleButton> Filterbp;
-    std::unique_ptr<juce::ToggleButton> Filter8580;
-    std::unique_ptr<juce::Slider> CutOff;
-    std::unique_ptr<juce::Slider> Resonace;
-    std::unique_ptr<juce::ToggleButton> Noise1;
-    std::unique_ptr<juce::ToggleButton> Noise2;
-    std::unique_ptr<juce::ToggleButton> Noise3;
-    std::unique_ptr<juce::ToggleButton> Pulse1;
-    std::unique_ptr<juce::ToggleButton> Pulse2;
-    std::unique_ptr<juce::ToggleButton> Pulse3;
-    std::unique_ptr<juce::ToggleButton> Saw1;
-    std::unique_ptr<juce::ToggleButton> Saw2;
-    std::unique_ptr<juce::ToggleButton> Saw3;
-    std::unique_ptr<juce::ToggleButton> Tria1;
-    std::unique_ptr<juce::ToggleButton> Tria2;
-    std::unique_ptr<juce::ToggleButton> Tria3;
-    std::unique_ptr<juce::ToggleButton> Ringmod1;
-    std::unique_ptr<juce::ToggleButton> Ringmod2;
-    std::unique_ptr<juce::ToggleButton> Ringmod3;
-    std::unique_ptr<juce::ToggleButton> Sync1;
-    std::unique_ptr<juce::ToggleButton> Sync2;
-    std::unique_ptr<juce::ToggleButton> Sync3;
-    std::unique_ptr<juce::ToggleButton> Voice1;
-    std::unique_ptr<juce::ToggleButton> Voice2;
-    std::unique_ptr<juce::ToggleButton> Voice3;
-    std::unique_ptr<juce::ImageButton> Led;
-    juce::Image cachedImage_aiassmonoHintergrund4_png_1;
-    juce::Image cachedImage_commoFinal2_png_2;
+    std::unique_ptr<GroupComponent> groupComponent5;
+    std::unique_ptr<GroupComponent> groupComponent4;
+    std::unique_ptr<GroupComponent> groupComponent2;
+    std::unique_ptr<GroupComponent> groupComponent;
+    std::unique_ptr<GroupComponent> groupComponent3;
+    std::unique_ptr<Slider> sidvolume;
+    std::unique_ptr<Slider> Octave1;
+    std::unique_ptr<Slider> Octave2;
+    std::unique_ptr<Slider> Octave3;
+    std::unique_ptr<Slider> Semi1;
+    std::unique_ptr<Slider> Semi2;
+    std::unique_ptr<Slider> Semi3;
+    std::unique_ptr<Slider> Cent1;
+    std::unique_ptr<Slider> Cent2;
+    std::unique_ptr<Slider> Cent3;
+    std::unique_ptr<Slider> Attack1;
+    std::unique_ptr<Slider> Attack2;
+    std::unique_ptr<Slider> Attack3;
+    std::unique_ptr<Slider> Decay1;
+    std::unique_ptr<Slider> Decay2;
+    std::unique_ptr<Slider> Decay3;
+    std::unique_ptr<Slider> Sustain1;
+    std::unique_ptr<Slider> Sustain2;
+    std::unique_ptr<Slider> Sustain3;
+    std::unique_ptr<Slider> Release1;
+    std::unique_ptr<Slider> Release2;
+    std::unique_ptr<Slider> Release3;
+    std::unique_ptr<Slider> Pulsew1;
+    std::unique_ptr<Slider> Pulsew2;
+    std::unique_ptr<Slider> Pulsew3;
+    std::unique_ptr<ToggleButton> Velvol;
+    std::unique_ptr<ComboBox> legatomode;
+    std::unique_ptr<ComboBox> noteprioritymode;
+    std::unique_ptr<HyperlinkButton> hyperlinkButton;
+    std::unique_ptr<ToggleButton> Filter1;
+    std::unique_ptr<ToggleButton> Filter2;
+    std::unique_ptr<ToggleButton> Filter3off;
+    std::unique_ptr<ToggleButton> Filter3;
+    std::unique_ptr<ToggleButton> Filterin;
+    std::unique_ptr<ToggleButton> Filterlp;
+    std::unique_ptr<ToggleButton> Filterhp;
+    std::unique_ptr<ToggleButton> Filterbp;
+    std::unique_ptr<ToggleButton> Filter8580;
+    std::unique_ptr<Slider> CutOff;
+    std::unique_ptr<Slider> Resonace;
+    std::unique_ptr<ToggleButton> Noise1;
+    std::unique_ptr<ToggleButton> Noise2;
+    std::unique_ptr<ToggleButton> Noise3;
+    std::unique_ptr<ToggleButton> Pulse1;
+    std::unique_ptr<ToggleButton> Pulse2;
+    std::unique_ptr<ToggleButton> Pulse3;
+    std::unique_ptr<ToggleButton> Saw1;
+    std::unique_ptr<ToggleButton> Saw2;
+    std::unique_ptr<ToggleButton> Saw3;
+    std::unique_ptr<ToggleButton> Tria1;
+    std::unique_ptr<ToggleButton> Tria2;
+    std::unique_ptr<ToggleButton> Tria3;
+    std::unique_ptr<ToggleButton> Ringmod1;
+    std::unique_ptr<ToggleButton> Ringmod2;
+    std::unique_ptr<ToggleButton> Ringmod3;
+    std::unique_ptr<ToggleButton> Sync1;
+    std::unique_ptr<ToggleButton> Sync2;
+    std::unique_ptr<ToggleButton> Sync3;
+    std::unique_ptr<ToggleButton> Voice1;
+    std::unique_ptr<ToggleButton> Voice2;
+    std::unique_ptr<ToggleButton> Voice3;
+    std::unique_ptr<ImageButton> Led;
+    Image cachedImage_aiasshintergrund_png_1;
+    Image cachedImage_aiass_mono_typenschild_png_2;
 
 
     //==============================================================================
