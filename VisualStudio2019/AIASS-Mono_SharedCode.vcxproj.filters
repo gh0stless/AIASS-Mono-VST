@@ -445,6 +445,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Source\interproc.cpp">
+      <Filter>AIASS-Mono\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\Source\PluginProcessor.cpp">
       <Filter>AIASS-Mono\Source</Filter>
     </ClCompile>
@@ -2463,6 +2466,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Source\interproc.h">
+      <Filter>AIASS-Mono\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\Source\PluginProcessor.h">
       <Filter>AIASS-Mono\Source</Filter>
     </ClInclude>
