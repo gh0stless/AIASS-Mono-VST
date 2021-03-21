@@ -3,16 +3,26 @@
 
     Sid.cpp
     Created: 31 Oct 2017 5:48:50pm
-    Author:  andreas schumm (gh0stless)
+    Author:  Andreas Schumm (gh0stless)
 
   ==============================================================================
 */
 
 #include "Sid.h"
+#include <chrono>
+#include <thread>
+
+#if defined(LINUX)
+#include "libhardsid.h"
+#endif
+
 //------------------------------------------------------------------------------
 
 	Sid::Sid()
 	{
+		
+
+		#if defined(_WIN32) || defined(_WIN64)
 		hardsiddll = LoadLibrary("hardsid.dll");
 		// Check to see if the library was loaded successfully 
 		if (hardsiddll != 0) {
@@ -38,11 +48,10 @@
 			HardSID_Unlock = (lpHardSID_Unlock)GetProcAddress(hardsiddll, "HardSID_Unlock");
 			HardSID_Try_Write = (lpHardSID_Try_Write)GetProcAddress(hardsiddll, "HardSID_Try_Write");
 			HardSID_ExternalTiming = (lpHardSID_ExternalTiming)GetProcAddress(hardsiddll, "HardSID_ExternalTiming");
-
 			//Check Version & Device-count
 			DLL_Version = (int)HardSID_Version();
-			if (DLL_Version < 512) {
-				dll_initialized = FALSE;
+			if (DLL_Version < 515) {
+				dll_initialized = false;
 				error_state = 2;
 			}
 			else {
@@ -51,18 +60,30 @@
 				{
 					error_state = 3;
 				}
-				dll_initialized = TRUE;
+				dll_initialized = true;
 			}
 		}
 		else {
-			dll_initialized = FALSE;
+			dll_initialized = false;
 			error_state = 1;
 		}
+		#endif
+		
+		#if defined(LINUX)
+		dll_initialized = true;
+		error_state = 0;
+		DLL_Version = (int)HardSID_Version();
+		if (DLL_Version < 515) {
+			error_state = 2;
+		}
+		#endif
 	}
 
 	Sid::~Sid()
 	{
+		#if defined(_WIN32) || defined(_WIN64)
 		if (hardsiddll != 0) FreeLibrary(hardsiddll);
+		#endif
 	}
 
 //------------------------------------------------------------------------------
@@ -78,7 +99,7 @@
 
 			//Init Registers
 			push_event(0, 0x00);
-			Sleep(300);
+			std::this_thread::sleep_for(std::chrono::milliseconds(300));
 			BYTE r;
 			for (r = 0; r <= NUMSIDREGS; r++) {
 				push_event(r, 0x00);
@@ -146,7 +167,7 @@
 			while (RS != HSID_USB_WSTATE_OK)
 			{
 				RS = HardSID_Try_Write(My_Device, 0, reg, val);
-				if (RS == HSID_USB_WSTATE_BUSY) Sleep(20);
+				if (RS == HSID_USB_WSTATE_BUSY) std::this_thread::sleep_for(std::chrono::milliseconds(20));
 			}
 			HardSID_SoftFlush(My_Device);
 		}
@@ -209,7 +230,7 @@
 			;
 		}
 	}
-	void Sid::set_r(Uint8 Voice, UINT8 r)
+	void Sid::set_r(Uint8 Voice, Uint8 r)
 	{
 		Uint8 h = 0;
 		switch (Voice)

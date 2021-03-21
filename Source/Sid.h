@@ -9,8 +9,9 @@
 */
 
 #pragma once
-
+#if defined(_WIN32) || defined(_WIN64)
 #include <Windows.h>
+#endif
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
@@ -27,6 +28,7 @@
 
 typedef unsigned char Uint8;
 typedef unsigned short Uint16;
+typedef unsigned char  BYTE;
 
 class Sid
 {
@@ -62,14 +64,16 @@ class Sid
 		int Nr_Of_Instances = 0;
 		int Number_Of_Devices = 0;
 		int DLL_Version = 0;
+		#if defined(_WIN32) || defined(_WIN64)
 		HINSTANCE hardsiddll = 0;
-		bool dll_initialized = FALSE;
+		#endif
+		bool dll_initialized = false;
 
 		enum HSID_STATES{
 			HSID_USB_WSTATE_OK = 1, HSID_USB_WSTATE_BUSY,
 			HSID_USB_WSTATE_ERROR, HSID_USB_WSTATE_END
 		};
-	
+	    #if defined(_WIN32) || defined(_WIN64)
 		typedef Uint16  (CALLBACK* lpHardSID_Version)(void);
 		typedef Uint8   (CALLBACK* lpHardSID_Devices)(void);
 		typedef void    (CALLBACK* lpHardSID_Delay)(Uint8 DeviceID, Uint16 Cycles);
@@ -116,7 +120,7 @@ class Sid
 		lpHardSID_Unlock HardSID_Unlock = NULL;
 		lpHardSID_Try_Write HardSID_Try_Write = NULL;
 		lpHardSID_ExternalTiming HardSID_ExternalTiming = NULL;
-
+		#endif
 		struct SID_Voice {
 			Uint8 FREQ_LO;
 			Uint8 FREQ_HI;
