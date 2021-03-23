@@ -12,7 +12,7 @@
 #include <chrono>
 #include <thread>
 
-#if defined(LINUX)
+#if defined(LINUX) || defined(__APPLE__)
 #include "libhardsid.h"
 #endif
 
@@ -69,14 +69,19 @@
 		}
 		#endif
 		
-		#if defined(LINUX)
+		#if defined(LINUX) || defined(__APPLE__)
 		dll_initialized = true;
 		error_state = 0;
 		DLL_Version = (int)HardSID_Version();
 		if (DLL_Version < 515) {
 			error_state = 2;
 		}
-		#endif
+        Number_Of_Devices = (int)HardSID_Devices();
+        if (Number_Of_Devices == 0)
+        {
+            error_state = 3;
+        }
+        #endif
 	}
 
 	Sid::~Sid()
