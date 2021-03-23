@@ -860,8 +860,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -913,8 +912,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -966,8 +964,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1019,8 +1016,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1069,8 +1065,7 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1116,8 +1111,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1164,8 +1158,7 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1212,8 +1205,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/andreas/Frameworks/VST_SDK/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",

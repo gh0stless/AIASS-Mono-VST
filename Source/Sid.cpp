@@ -12,7 +12,7 @@
 #include <chrono>
 #include <thread>
 
-#if defined(LINUX) || defined(__APPLE__)
+#if defined(__linux) || defined(__APPLE__)
 #include "libhardsid.h"
 #endif
 
@@ -69,7 +69,7 @@
 		}
 		#endif
 		
-		#if defined(LINUX) || defined(__APPLE__)
+		#if defined(__linux) || defined(__APPLE__)
 		dll_initialized = true;
 		error_state = 0;
 		DLL_Version = (int)HardSID_Version();
