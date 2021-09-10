@@ -99,7 +99,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_1558DB3C=1;JUCE_APP_VERSION=0.1.1;JUCE_APP_VERSION_HEX=0x101;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader/>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
@@ -139,7 +139,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_1558DB3C=1;JUCE_APP_VERSION=0.1.1;JUCE_APP_VERSION_HEX=0x101;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader/>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
@@ -161,6 +161,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -182,7 +183,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_1558DB3C=1;JUCE_APP_VERSION=0.1.1;JUCE_APP_VERSION_HEX=0x101;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader/>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
@@ -226,7 +227,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_1558DB3C=1;JUCE_APP_VERSION=0.1.1;JUCE_APP_VERSION_HEX=0x101;JucePlugin_Build_VST=1;JucePlugin_Build_VST3=1;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;JUCE_SHARED_CODE=1;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <PrecompiledHeader/>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <AssemblerListingLocation>$(IntDir)\</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)\</ObjectFileName>
       <ProgramDataBaseFileName>$(IntDir)\</ProgramDataBaseFileName>
@@ -249,6 +250,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LargeAddressAware>true</LargeAddressAware>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -347,16 +349,19 @@
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\synthesisers\juce_Synthesiser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_CatmullRomInterpolator.cpp">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_IIRFilter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_IIRFilter.cpp">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_Interpolators.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_LagrangeInterpolator.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_SmoothedValue.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_WindowedSincInterpolator.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_basics\juce_audio_basics.cpp">
@@ -371,10 +376,178 @@
     <ClCompile Include="C:\JUCE\modules\juce_audio_devices\audio_io\juce_AudioIODeviceType.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPMidi1ToMidi2DefaultTranslator.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPSysEx7.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPTests.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPUtils.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPView.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\juce_MidiDevices.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_devices\midi_io\juce_MidiMessageCollector.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\aaudio\AAudioLoader.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\aaudio\AudioStreamAAudio.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\AudioSourceCaller.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\AudioStream.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\AudioStreamBuilder.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\DataConversionFlowGraph.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FilterAudioStream.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FixedBlockAdapter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FixedBlockReader.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FixedBlockWriter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\LatencyTuner.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\QuirksManager.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\SourceFloatCaller.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\SourceI16Caller.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\StabilizedCallback.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\Trace.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\Utilities.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\Version.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoBuffer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoController.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoControllerBase.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoControllerIndirect.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\IntegerRatio.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\LinearResampler.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\MultiChannelResampler.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\PolyphaseResampler.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\PolyphaseResamplerMono.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\PolyphaseResamplerStereo.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\SincResampler.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\SincResamplerStereo.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\ChannelCountConverter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\ClipToRange.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\FlowGraphNode.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\ManyToMultiConverter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\MonoToMultiConverter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\MultiToMonoConverter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\RampLinear.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SampleRateConverter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SinkFloat.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SinkI16.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SinkI24.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SourceFloat.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SourceI16.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SourceI24.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioInputStreamOpenSLES.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioOutputStreamOpenSLES.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioStreamBuffered.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioStreamOpenSLES.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\EngineOpenSLES.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\OpenSLESUtilities.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\OutputMixerOpenSLES.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\juce_android_Audio.cpp">
@@ -405,9 +578,6 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\juce_mac_CoreAudio.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\juce_mac_CoreMidi.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_devices\native\juce_win32_ASIO.cpp">
@@ -476,70 +646,73 @@
     <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\libFLAC\window_flac.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\analysis.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\analysis.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\bitrate.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\bitrate.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\block.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\block.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\codebook.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\codebook.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\envelope.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\envelope.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\floor0.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\floor0.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\floor1.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\floor1.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\info.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\info.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lookup.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lookup.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lpc.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lpc.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lsp.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lsp.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\mapping0.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\mapping0.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\mdct.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\mdct.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\psy.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\misc.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\registry.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\psy.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\res0.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\registry.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\sharedbook.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\res0.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\smallft.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\sharedbook.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\synthesis.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\smallft.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\vorbisenc.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\synthesis.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\vorbisfile.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\vorbisenc.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\window.c">
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\vorbisfile.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\window.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\bitwise.c">
@@ -599,73 +772,7 @@
     <ClCompile Include="C:\JUCE\modules\juce_audio_formats\juce_audio_formats.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBuffer.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewControl.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUMIDIBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUPlugInDispatch.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUScopeElement.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAudioChannelLayout.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAUParameter.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMutex.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CarbonEventHandler.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAStreamBasicDescription.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnit.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\ComponentBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\MusicDeviceBase.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\Standalone\juce_StandaloneFilterApp.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client_utils.cpp">
@@ -806,6 +913,12 @@
     <ClCompile Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_AudioProcessorValueTreeState.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_ParameterAttachments.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_PluginHostType.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_RangedAudioParameter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -908,6 +1021,9 @@
     <ClCompile Include="C:\JUCE\modules\juce_core\files\juce_FileSearchPath.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_core\files\juce_RangedDirectoryIterator.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_core\files\juce_TemporaryFile.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -933,6 +1049,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_core\maths\juce_Random.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_core\memory\juce_AllocationHooks.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_core\memory\juce_MemoryBlock.cpp">
@@ -990,6 +1109,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_core\native\juce_posix_NamedPipe.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_core\native\juce_wasm_SystemStats.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_core\native\juce_win32_Files.cpp">
@@ -1820,6 +1942,15 @@
     <ClCompile Include="C:\JUCE\modules\juce_gui_basics\mouse\juce_MouseListener.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\x11\juce_linux_X11_DragAndDrop.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\x11\juce_linux_X11_Symbols.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\x11\juce_linux_XWindowSystem.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_android_ContentSharer.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1838,13 +1969,7 @@
     <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_linux_FileChooser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_linux_X11.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_linux_X11_Clipboard.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_linux_X11_Windowing.cpp">
+    <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_linux_Windowing.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_gui_basics\native\juce_win32_DragAndDrop.cpp">
@@ -2048,6 +2173,9 @@
     <ClCompile Include="C:\JUCE\modules\juce_gui_extra\native\juce_win32_ActiveXComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_gui_extra\native\juce_win32_HWNDComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_gui_extra\native\juce_win32_SystemTrayIcon.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2152,24 +2280,102 @@
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\sources\juce_ToneGeneratorAudioSource.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\synthesisers\juce_Synthesiser.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_ADSR.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_CatmullRomInterpolator.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_Decibels.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_GenericInterpolator.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_IIRFilter.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_LagrangeInterpolator.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_Interpolators.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_Reverb.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_basics\utilities\juce_SmoothedValue.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\audio_io\juce_AudioDeviceManager.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\audio_io\juce_AudioIODevice.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\audio_io\juce_AudioIODeviceType.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\audio_io\juce_SystemAudioVolume.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPacket.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPackets.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPBytestreamInputHandler.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPConversion.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPConverters.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPDispatcher.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPFactory.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPIterator.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPMidi1ToBytestreamTranslator.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPMidi1ToMidi2DefaultTranslator.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPProtocols.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPReceiver.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPSysEx7.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPU32InputHandler.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPUtils.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\ump\juce_UMPView.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\juce_MidiDevices.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\midi_io\juce_MidiMessageCollector.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\AudioStream.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\AudioStreamBase.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\AudioStreamBuilder.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\AudioStreamCallback.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\Definitions.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\LatencyTuner.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\Oboe.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\ResultWithValue.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\StabilizedCallback.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\Utilities.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\include\oboe\Version.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\aaudio\AAudioLoader.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\aaudio\AudioStreamAAudio.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\AudioClock.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\AudioSourceCaller.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\DataConversionFlowGraph.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FilterAudioStream.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FixedBlockAdapter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FixedBlockReader.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\FixedBlockWriter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\MonotonicCounter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\OboeDebug.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\QuirksManager.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\SourceFloatCaller.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\SourceI16Caller.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\common\Trace.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoBuffer.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoController.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoControllerBase.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\fifo\FifoControllerIndirect.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\HyperbolicCosineWindow.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\IntegerRatio.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\KaiserWindow.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\LinearResampler.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\MultiChannelResampler.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\PolyphaseResampler.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\PolyphaseResamplerMono.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\PolyphaseResamplerStereo.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\SincResampler.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\resampler\SincResamplerStereo.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\ChannelCountConverter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\ClipToRange.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\FlowGraphNode.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\ManyToMultiConverter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\MonoToMultiConverter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\MultiToMonoConverter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\RampLinear.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SampleRateConverter.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SinkFloat.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SinkI16.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SinkI24.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SourceFloat.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SourceI16.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\flowgraph\SourceI24.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioInputStreamOpenSLES.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioOutputStreamOpenSLES.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioStreamBuffered.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\AudioStreamOpenSLES.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\EngineOpenSLES.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\OpenSLESUtilities.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\oboe\src\opensles\OutputMixerOpenSLES.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\juce_android_HighPerformanceAudioHelpers.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\juce_ios_Audio.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\native\juce_MidiDataConcatenator.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\sources\juce_AudioSourcePlayer.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_devices\sources\juce_AudioTransportSource.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\libFLAC\include\private\all.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\libFLAC\include\private\bitmath.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\libFLAC\include\private\bitreader.h"/>
@@ -2202,50 +2408,51 @@
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\stream_decoder.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\stream_encoder.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\win_utf8_io.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\books\coupled\res_books_51.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\books\coupled\res_books_stereo.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\books\floor\floor_books.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\books\uncoupled\res_books_uncoupled.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\floor_all.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\psych_8.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\psych_11.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\psych_16.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\psych_44.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\residue_8.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\residue_16.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\residue_44.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\residue_44p51.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\residue_44u.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_8.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_11.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_16.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_22.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_32.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_44.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_44p51.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_44u.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\modes\setup_X.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\backends.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\bitrate.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\codebook.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\codec_internal.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\envelope.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\highlevel.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lookup.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lookup_data.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lpc.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\lsp.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\masking.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\mdct.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\misc.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\os.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\psy.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\registry.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\scales.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\smallft.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.2\lib\window.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\books\coupled\res_books_51.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\books\coupled\res_books_stereo.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\books\floor\floor_books.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\books\uncoupled\res_books_uncoupled.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\floor_all.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\psych_8.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\psych_11.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\psych_16.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\psych_44.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\residue_8.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\residue_16.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\residue_44.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\residue_44p51.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\residue_44u.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_8.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_11.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_16.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_22.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_32.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_44.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_44p51.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_44u.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\modes\setup_X.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\backends.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\bitrate.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\codebook.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\codec_internal.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\envelope.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\highlevel.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lookup.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lookup_data.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lpc.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\lsp.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\masking.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\mdct.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\misc.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\os.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\psy.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\registry.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\scales.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\smallft.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\lib\window.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\codec.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\config_types.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\crctable.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\ogg.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\os_types.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\vorbisenc.h"/>
@@ -2267,54 +2474,15 @@
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\format\juce_BufferingAudioFormatReader.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\format\juce_MemoryMappedAudioFormatReader.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_formats\sampler\juce_Sampler.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBaseHelper.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUBuffer.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUCarbonViewControl.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUDispatch.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputElement.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUInputFormatConverter.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUMIDIBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUOutputElement.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUPlugInDispatch.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUScopeElement.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUSilentTimeout.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUTimestampGenerator.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\AUViewLocalizedStringKeys.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAtomic.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAtomicStack.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAudioChannelLayout.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAUParameter.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAAutoDisposer.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CADebugMacros.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CADebugPrintf.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAException.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAHostTimeBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMath.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAMutex.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CarbonEventHandler.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAReferenceCounted.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAStreamBasicDescription.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAThreadSafeList.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnit.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAVectorUnitTypes.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\CAXException.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\ComponentBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\AU\CoreAudioUtilityClasses\MusicDeviceBase.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\Standalone\juce_StandaloneFilterWindow.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\Unity\juce_UnityPluginInterface.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_CarbonVisibility.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_CheckSettingMacros.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_CreatePluginFilter.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_FakeMouseMoveGenerator.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_IncludeModuleHeaders.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_IncludeSystemHeaders.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_PluginHostType.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\utility\juce_WindowsHooks.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\VST\juce_VSTCallbackHandler.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format\juce_AudioPluginFormat.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format\juce_AudioPluginFormatManager.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK\base\source\classfactoryhelpers.h"/>
@@ -2381,6 +2549,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vsteditcontroller.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vstparameters.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK\public.sdk\source\vst\vstpresetfile.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\juce_AU_Shared.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\juce_AudioUnitPluginFormat.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\juce_LADSPAPluginFormat.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\format_types\juce_VST3Common.h"/>
@@ -2407,8 +2576,10 @@
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_AudioParameterInt.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_AudioProcessorParameterWithID.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_AudioProcessorValueTreeState.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_ParameterAttachments.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_PluginHostType.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_processors\utilities\juce_RangedAudioParameter.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_utils\audio_cd\juce_AudioCDBurner.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_utils\audio_cd\juce_AudioCDReader.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_utils\gui\juce_AudioAppComponent.h"/>
@@ -2421,7 +2592,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_audio_utils\players\juce_SoundPlayer.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_audio_utils\juce_audio_utils.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_utils\juce_audio_utils.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_AbstractFifo.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_Array.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_ArrayAllocationBase.h"/>
@@ -2446,6 +2617,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_core\files\juce_FileOutputStream.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\files\juce_FileSearchPath.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\files\juce_MemoryMappedFile.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_core\files\juce_RangedDirectoryIterator.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\files\juce_TemporaryFile.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\files\juce_WildcardFileFilter.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\javascript\juce_Javascript.h"/>
@@ -2459,6 +2631,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_core\maths\juce_Random.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\maths\juce_Range.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\maths\juce_StatisticsAccumulator.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_core\memory\juce_AllocationHooks.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\memory\juce_Atomic.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\memory\juce_ByteOrder.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\memory\juce_ContainerDeletePolicy.h"/>
@@ -2501,6 +2674,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_core\streams\juce_SubregionStream.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\streams\juce_URLInputSource.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\system\juce_CompilerSupport.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_core\system\juce_CompilerWarnings.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\system\juce_PlatformDefs.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\system\juce_StandardHeader.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\system\juce_SystemStats.h"/>
@@ -2557,14 +2731,14 @@
     <ClInclude Include="C:\JUCE\modules\juce_core\zip\juce_GZIPCompressorOutputStream.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\zip\juce_GZIPDecompressorInputStream.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\zip\juce_ZipFile.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_core\juce_core.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_core\juce_core.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_cryptography\encryption\juce_BlowFish.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_cryptography\encryption\juce_Primes.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_cryptography\encryption\juce_RSAKey.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_cryptography\hashing\juce_MD5.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_cryptography\hashing\juce_SHA256.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_cryptography\hashing\juce_Whirlpool.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_cryptography\juce_cryptography.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_cryptography\juce_cryptography.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\app_properties\juce_ApplicationProperties.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\app_properties\juce_PropertiesFile.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\undomanager\juce_UndoableAction.h"/>
@@ -2574,7 +2748,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_ValueTree.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_data_structures\values\juce_ValueWithDefault.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\broadcasters\juce_ActionBroadcaster.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\broadcasters\juce_ActionListener.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\broadcasters\juce_AsyncUpdater.h"/>
@@ -2599,7 +2773,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_events\native\juce_win32_WinRTWrapper.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\timers\juce_MultiTimer.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_events\timers\juce_Timer.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_events\juce_events.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_events\juce_events.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\colour\juce_Colour.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\colour\juce_ColourGradient.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\colour\juce_Colours.h"/>
@@ -2658,7 +2832,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_graphics\native\juce_win32_Direct2DGraphicsContext.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\placement\juce_Justification.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_graphics\placement\juce_RectanglePlacement.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_graphics\juce_graphics.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_graphics\juce_graphics.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\application\juce_Application.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\buttons\juce_ArrowButton.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\buttons\juce_Button.h"/>
@@ -2757,8 +2931,10 @@
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\mouse\juce_SelectedItemSet.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\mouse\juce_TextDragAndDropTarget.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\mouse\juce_TooltipClient.h"/>
-    <ClInclude Include="C:\JUCE\modules\juce_gui_basics\native\juce_linux_X11.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_gui_basics\native\x11\juce_linux_X11_Symbols.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_gui_basics\native\x11\juce_linux_XWindowSystem.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\native\juce_MultiTouchMapper.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_gui_basics\native\juce_win32_ScopedThreadDPIAwarenessSetter.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\positioning\juce_MarkerList.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\positioning\juce_RelativeCoordinate.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\positioning\juce_RelativeCoordinatePositioner.h"/>
@@ -2798,7 +2974,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\windows\juce_ThreadWithProgressWindow.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\windows\juce_TooltipWindow.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_basics\windows\juce_TopLevelWindow.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\code_editor\juce_CodeDocument.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\code_editor\juce_CodeEditorComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\code_editor\juce_CodeTokeniser.h"/>
@@ -2809,6 +2985,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\documents\juce_FileBasedDocument.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\embedding\juce_ActiveXControlComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\embedding\juce_AndroidViewComponent.h"/>
+    <ClInclude Include="C:\JUCE\modules\juce_gui_extra\embedding\juce_HWNDComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\embedding\juce_NSViewComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\embedding\juce_ScopedDPIAwarenessDisabler.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\embedding\juce_UIViewComponent.h"/>
@@ -2826,7 +3003,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\misc\juce_SystemTrayIconComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\misc\juce_WebBrowserComponent.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_gui_extra\native\juce_mac_CarbonViewWrapperComponent.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_opengl\geometry\juce_Draggable3DOrientation.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_opengl\geometry\juce_Matrix3D.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_opengl\geometry\juce_Quaternion.h"/>
@@ -2848,7 +3025,7 @@
     <ClInclude Include="C:\JUCE\modules\juce_opengl\opengl\juce_OpenGLShaderProgram.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_opengl\opengl\juce_OpenGLTexture.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_opengl\utils\juce_OpenGLAppComponent.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_opengl\juce_opengl.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_opengl\juce_opengl.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_video\capture\juce_CameraDevice.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_video\native\juce_android_CameraDevice.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_video\native\juce_android_Video.h"/>
@@ -2858,15 +3035,19 @@
     <ClInclude Include="C:\JUCE\modules\juce_video\native\juce_win32_CameraDevice.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_video\native\juce_win32_Video.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_video\playback\juce_VideoComponent.h"/>
-    <ClInclude Include="..\..\..\JUCE\modules\juce_video\juce_video.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_video\juce_video.h"/>
     <ClInclude Include="..\JuceLibraryCode\AppConfig.h"/>
     <ClInclude Include="..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\JuceLibraryCode\JuceHeader.h"/>
+    <ClInclude Include="..\JuceLibraryCode\JucePluginDefines.h"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\doc\hardsid.dll how to and hints.txt"/>
     <None Include="..\doc\history and todo.txt"/>
+    <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
+    <None Include="C:\JUCE\modules\juce_audio_devices\native\oboe\readme.md"/>
     <None Include="C:\JUCE\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
+    <None Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\libvorbis-1.3.7\README.md"/>
     <None Include="C:\JUCE\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK\base\LICENSE.txt"/>
     <None Include="C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK\base\README.md"/>

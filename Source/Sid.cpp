@@ -13,7 +13,7 @@
 #include <thread>
 
 #if defined(__linux) || defined(__APPLE__)
-#include "libhardsid.h"
+#include "hardsid.hpp"
 #endif
 
 //------------------------------------------------------------------------------

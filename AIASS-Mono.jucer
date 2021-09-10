@@ -14,7 +14,7 @@
               companyEmail="info@crazy-midi.de" pluginFormats="buildVST,buildVST3,buildStandalone"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               userNotes="AIASS was coded by Andreas Schumm (gh0stless) for www-crazy-midi.de 2017-2021"
-              jucerFormatVersion="1" jucerVersion="5.4.7">
+              jucerFormatVersion="1">
   <MAINGROUP id="wcvXYs" name="AIASS-Mono">
     <GROUP id="{A833233E-AA9A-81CB-EE47-6EDEE7A913DD}" name="Source">
       <FILE id="CcWDhU" name="interproc.cpp" compile="1" resource="0" file="Source/interproc.cpp"/>
@@ -84,10 +84,13 @@
         <MODULEPATH id="juce_audio_basics" path="../../juce"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <XCODE_MAC targetFolder="Builds/MacOSX" extraLinkerFlags="/usr/local/lib/libhardsid.dylib">
+    <XCODE_MAC targetFolder="Builds/MacOSX" extraLinkerFlags="/usr/local/lib/libhardsid.dylib&#10;-rpath /usr/local/lib"
+               xcodeValidArchs="x86_64">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
+        <CONFIGURATION isDebug="1" name="Debug" osxSDK="11.1 SDK" osxCompatibility="10.9 SDK"
+                       osxArchitecture="64BitIntel"/>
+        <CONFIGURATION isDebug="0" name="Release" osxSDK="11.1 SDK" osxArchitecture="64BitIntel"
+                       osxCompatibility="10.9 SDK"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_video" path="../../juce"/>
@@ -131,6 +134,6 @@
     <WINDOWS buildEnabled="0" continuousRebuildEnabled="0" warningsEnabled="1"
              systemHeaderPath="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.16.27023\include"/>
     <LINUX buildEnabled="1"/>
-    <OSX/>
+    <OSX buildEnabled="0"/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
