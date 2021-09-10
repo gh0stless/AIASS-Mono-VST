@@ -45,7 +45,11 @@
 
 #define JUCE_USE_DARK_SPLASH_SCREEN 1
 
+<<<<<<< HEAD
+#define JUCE_PROJUCER_VERSION 0x60008
+=======
 #define JUCE_PROJUCER_VERSION 0x60101
+>>>>>>> 444b83e5b84d0c0c50ab472139b79df068a66b2b
 
 //==============================================================================
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics             1

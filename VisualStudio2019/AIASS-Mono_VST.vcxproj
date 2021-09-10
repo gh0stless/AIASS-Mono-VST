@@ -275,15 +275,24 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST2.cpp">
+=======
     <ClCompile Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\juce_audio_plugin_client_VST2.cpp">
+>>>>>>> 444b83e5b84d0c0c50ab472139b79df068a66b2b
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\JuceLibraryCode\include_juce_audio_plugin_client_VST2.cpp"/>
   </ItemGroup>
-  <ItemGroup/>
+  <ItemGroup>
+    <ClInclude Include="C:\JUCE\modules\juce_audio_plugin_client\VST\juce_VSTCallbackHandler.h"/>
+  </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc"/>
   </ItemGroup>
