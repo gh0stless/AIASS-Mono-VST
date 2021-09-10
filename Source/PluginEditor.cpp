@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.7
+  Created with Projucer version: 6.1.1
 
   ------------------------------------------------------------------------------
 
   The Projucer is part of the JUCE library.
-  Copyright (c) 2017 - ROLI Ltd.
+  Copyright (c) 2020 - Raw Material Software Limited.
 
   ==============================================================================
 */
@@ -41,275 +41,275 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     //[/Constructor_pre]
 
-    groupComponent5.reset (new GroupComponent ("new group",
-                                               TRANS("Control")));
+    groupComponent5.reset (new juce::GroupComponent ("new group",
+                                                     TRANS("Control")));
     addAndMakeVisible (groupComponent5.get());
 
     groupComponent5->setBounds (15, 80, 245, 210);
 
-    groupComponent4.reset (new GroupComponent ("new group",
-                                               TRANS("Waveform")));
+    groupComponent4.reset (new juce::GroupComponent ("new group",
+                                                     TRANS("Waveform")));
     addAndMakeVisible (groupComponent4.get());
 
     groupComponent4->setBounds (362, 292, 421, 210);
 
-    groupComponent2.reset (new GroupComponent ("new group",
-                                               TRANS("Tone")));
+    groupComponent2.reset (new juce::GroupComponent ("new group",
+                                                     TRANS("Tone")));
     addAndMakeVisible (groupComponent2.get());
 
     groupComponent2->setBounds (270, 80, 236, 210);
 
-    groupComponent.reset (new GroupComponent ("new group",
-                                              TRANS("Sound")));
+    groupComponent.reset (new juce::GroupComponent ("new group",
+                                                    TRANS("Sound")));
     addAndMakeVisible (groupComponent.get());
-    groupComponent->setTextLabelPosition (Justification::centred);
+    groupComponent->setTextLabelPosition (juce::Justification::centred);
 
     groupComponent->setBounds (15, 292, 340, 210);
 
-    groupComponent3.reset (new GroupComponent ("new group",
-                                               TRANS("Filter")));
+    groupComponent3.reset (new juce::GroupComponent ("new group",
+                                                     TRANS("Filter")));
     addAndMakeVisible (groupComponent3.get());
 
     groupComponent3->setBounds (512, 80, 270, 210);
 
-    sidvolume.reset (new Slider ("new slider"));
+    sidvolume.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (sidvolume.get());
     sidvolume->setTooltip (TRANS("SID-Volume"));
     sidvolume->setRange (0, 15, 1);
-    sidvolume->setSliderStyle (Slider::RotaryVerticalDrag);
-    sidvolume->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    sidvolume->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     sidvolume->setBounds (64, 111, 66, 66);
 
-    Octave1.reset (new Slider ("new slider"));
+    Octave1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Octave1.get());
     Octave1->setTooltip (TRANS("Octave1 Up/Down"));
     Octave1->setRange (-4, 4, 1);
-    Octave1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Octave1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Octave1->setBounds (315, 90, 66, 66);
 
-    Octave2.reset (new Slider ("new slider"));
+    Octave2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Octave2.get());
     Octave2->setTooltip (TRANS("Octave2 Up/Down"));
     Octave2->setRange (-4, 4, 1);
-    Octave2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Octave2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Octave2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Octave2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Octave2->setBounds (315, 153, 66, 66);
 
-    Octave3.reset (new Slider ("new slider"));
+    Octave3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Octave3.get());
     Octave3->setTooltip (TRANS("Octave3 Up/Down"));
     Octave3->setRange (-4, 4, 1);
-    Octave3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Octave3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Octave3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Octave3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Octave3->setBounds (315, 218, 66, 66);
 
-    Semi1.reset (new Slider ("new slider"));
+    Semi1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Semi1.get());
     Semi1->setTooltip (TRANS("Semitone1 Up/Down"));
     Semi1->setRange (-12, 12, 1);
-    Semi1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Semi1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Semi1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Semi1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Semi1->setBounds (375, 90, 66, 66);
 
-    Semi2.reset (new Slider ("new slider"));
+    Semi2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Semi2.get());
     Semi2->setTooltip (TRANS("Semitone2 Up/Down"));
     Semi2->setRange (-12, 12, 1);
-    Semi2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Semi2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Semi2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Semi2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Semi2->setBounds (375, 153, 66, 66);
 
-    Semi3.reset (new Slider ("new slider"));
+    Semi3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Semi3.get());
     Semi3->setTooltip (TRANS("Semitone3 Up/Down"));
     Semi3->setRange (-12, 12, 1);
-    Semi3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Semi3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Semi3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Semi3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Semi3->setBounds (375, 218, 66, 66);
 
-    Cent1.reset (new Slider ("new slider"));
+    Cent1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Cent1.get());
     Cent1->setTooltip (TRANS("Cent1 Up/Down"));
     Cent1->setRange (-100, 100, 1);
-    Cent1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Cent1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Cent1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Cent1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Cent1->setBounds (435, 90, 66, 66);
 
-    Cent2.reset (new Slider ("new slider"));
+    Cent2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Cent2.get());
     Cent2->setTooltip (TRANS("Cent2 Up/Down"));
     Cent2->setRange (-100, 100, 1);
-    Cent2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Cent2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Cent2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Cent2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Cent2->setBounds (435, 153, 66, 66);
 
-    Cent3.reset (new Slider ("new slider"));
+    Cent3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Cent3.get());
     Cent3->setTooltip (TRANS("Cent3 Up/Down"));
     Cent3->setRange (-100, 100, 1);
-    Cent3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Cent3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Cent3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Cent3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Cent3->setBounds (435, 218, 66, 66);
 
-    Attack1.reset (new Slider ("new slider"));
+    Attack1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Attack1.get());
     Attack1->setTooltip (TRANS("Attack 1"));
     Attack1->setRange (0, 15, 1);
-    Attack1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Attack1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Attack1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Attack1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Attack1->setBounds (30, 300, 66, 66);
 
-    Attack2.reset (new Slider ("new slider"));
+    Attack2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Attack2.get());
     Attack2->setTooltip (TRANS("Attack 2"));
     Attack2->setRange (0, 15, 1);
-    Attack2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Attack2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Attack2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Attack2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Attack2->setBounds (30, 365, 66, 66);
 
-    Attack3.reset (new Slider ("new slider"));
+    Attack3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Attack3.get());
     Attack3->setTooltip (TRANS("Attack 3"));
     Attack3->setRange (0, 15, 1);
-    Attack3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Attack3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Attack3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Attack3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Attack3->setBounds (30, 430, 66, 66);
 
-    Decay1.reset (new Slider ("new slider"));
+    Decay1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Decay1.get());
     Decay1->setTooltip (TRANS("Decay 1"));
     Decay1->setRange (0, 15, 1);
-    Decay1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Decay1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Decay1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Decay1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Decay1->setBounds (90, 300, 66, 66);
 
-    Decay2.reset (new Slider ("new slider"));
+    Decay2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Decay2.get());
     Decay2->setTooltip (TRANS("Decay 2"));
     Decay2->setRange (0, 15, 1);
-    Decay2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Decay2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Decay2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Decay2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Decay2->setBounds (90, 365, 66, 66);
 
-    Decay3.reset (new Slider ("new slider"));
+    Decay3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Decay3.get());
     Decay3->setTooltip (TRANS("Decay 3"));
     Decay3->setRange (0, 15, 1);
-    Decay3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Decay3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Decay3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Decay3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Decay3->setBounds (90, 430, 66, 66);
 
-    Sustain1.reset (new Slider ("new slider"));
+    Sustain1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Sustain1.get());
     Sustain1->setTooltip (TRANS("Sustain 1"));
     Sustain1->setRange (0, 15, 1);
-    Sustain1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Sustain1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Sustain1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Sustain1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Sustain1->setBounds (150, 300, 66, 66);
 
-    Sustain2.reset (new Slider ("new slider"));
+    Sustain2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Sustain2.get());
     Sustain2->setTooltip (TRANS("Sustain 2"));
     Sustain2->setRange (0, 15, 1);
-    Sustain2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Sustain2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Sustain2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Sustain2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Sustain2->setBounds (150, 365, 66, 66);
 
-    Sustain3.reset (new Slider ("new slider"));
+    Sustain3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Sustain3.get());
     Sustain3->setTooltip (TRANS("Sustain 3"));
     Sustain3->setRange (0, 15, 1);
-    Sustain3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Sustain3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Sustain3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Sustain3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Sustain3->setBounds (150, 430, 66, 66);
 
-    Release1.reset (new Slider ("new slider"));
+    Release1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Release1.get());
     Release1->setTooltip (TRANS("Release 1"));
     Release1->setRange (0, 15, 1);
-    Release1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Release1->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Release1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Release1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Release1->setBounds (210, 300, 66, 66);
 
-    Release2.reset (new Slider ("new slider"));
+    Release2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Release2.get());
     Release2->setTooltip (TRANS("Release 2"));
     Release2->setRange (0, 15, 1);
-    Release2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Release2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Release2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Release2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Release2->setBounds (210, 365, 66, 66);
 
-    Release3.reset (new Slider ("new slider"));
+    Release3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Release3.get());
     Release3->setTooltip (TRANS("Release 3"));
     Release3->setRange (0, 15, 1);
-    Release3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Release3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Release3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Release3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Release3->setBounds (210, 430, 66, 66);
 
-    Pulsew1.reset (new Slider ("new slider"));
+    Pulsew1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Pulsew1.get());
     Pulsew1->setTooltip (TRANS("Pulswidth 1"));
     Pulsew1->setRange (1, 4094, 1);
-    Pulsew1->setSliderStyle (Slider::RotaryVerticalDrag);
-    Pulsew1->setTextBoxStyle (Slider::TextBoxBelow, false, 40, 12);
+    Pulsew1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pulsew1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Pulsew1->setBounds (280, 300, 66, 66);
 
-    Pulsew2.reset (new Slider ("new slider"));
+    Pulsew2.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Pulsew2.get());
     Pulsew2->setTooltip (TRANS("Pulsewidth 2"));
     Pulsew2->setRange (1, 4094, 1);
-    Pulsew2->setSliderStyle (Slider::RotaryVerticalDrag);
-    Pulsew2->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Pulsew2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pulsew2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Pulsew2->setBounds (280, 365, 66, 66);
 
-    Pulsew3.reset (new Slider ("new slider"));
+    Pulsew3.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Pulsew3.get());
     Pulsew3->setTooltip (TRANS("Pulswidth 3"));
     Pulsew3->setRange (1, 4094, 1);
-    Pulsew3->setSliderStyle (Slider::RotaryVerticalDrag);
-    Pulsew3->setTextBoxStyle (Slider::TextBoxBelow, true, 40, 12);
+    Pulsew3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pulsew3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Pulsew3->setBounds (280, 430, 66, 66);
 
-    Velvol.reset (new ToggleButton ("new toggle button"));
+    Velvol.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Velvol.get());
     Velvol->setTooltip (TRANS("maps Velocity to Volume"));
     Velvol->setButtonText (TRANS("Vel."));
 
     Velvol->setBounds (156, 130, 66, 30);
 
-    legatomode.reset (new ComboBox ("legatomode"));
+    legatomode.reset (new juce::ComboBox ("legatomode"));
     addAndMakeVisible (legatomode.get());
     legatomode->setTooltip (TRANS("not implemented yet"));
     legatomode->setEditableText (false);
-    legatomode->setJustificationType (Justification::centredLeft);
-    legatomode->setTextWhenNothingSelected (String());
+    legatomode->setJustificationType (juce::Justification::centredLeft);
+    legatomode->setTextWhenNothingSelected (juce::String());
     legatomode->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     legatomode->addItem (TRANS("Retrigger"), 1);
     legatomode->addItem (TRANS("Legato"), 2);
@@ -318,12 +318,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     legatomode->setBounds (64, 191, 150, 24);
 
-    noteprioritymode.reset (new ComboBox ("noteprioritymode"));
+    noteprioritymode.reset (new juce::ComboBox ("noteprioritymode"));
     addAndMakeVisible (noteprioritymode.get());
     noteprioritymode->setTooltip (TRANS("not implemented yet"));
     noteprioritymode->setEditableText (false);
-    noteprioritymode->setJustificationType (Justification::centredLeft);
-    noteprioritymode->setTextWhenNothingSelected (String());
+    noteprioritymode->setJustificationType (juce::Justification::centredLeft);
+    noteprioritymode->setTextWhenNothingSelected (juce::String());
     noteprioritymode->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     noteprioritymode->addItem (TRANS("Last Note"), 1);
     noteprioritymode->addItem (TRANS("High Note"), 2);
@@ -332,248 +332,248 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     noteprioritymode->setBounds (64, 241, 150, 24);
 
-    hyperlinkButton.reset (new HyperlinkButton (TRANS("crazy-midi.de"),
-                                                URL ("http://www.crazy-midi.de")));
+    hyperlinkButton.reset (new juce::HyperlinkButton (TRANS("crazy-midi.de"),
+                                                      URL ("http://www.crazy-midi.de")));
     addAndMakeVisible (hyperlinkButton.get());
     hyperlinkButton->setTooltip (TRANS("http://www.crazy-midi.de"));
     hyperlinkButton->setButtonText (TRANS("crazy-midi.de"));
-    hyperlinkButton->setColour (HyperlinkButton::textColourId, Colours::green);
+    hyperlinkButton->setColour (juce::HyperlinkButton::textColourId, juce::Colours::green);
 
     hyperlinkButton->setBounds (660, 500, 150, 24);
 
-    Filter1.reset (new ToggleButton ("new toggle button"));
+    Filter1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filter1.get());
     Filter1->setTooltip (TRANS("Voice 1 to Filter"));
     Filter1->setButtonText (TRANS("1"));
 
     Filter1->setBounds (710, 109, 66, 30);
 
-    Filter2.reset (new ToggleButton ("new toggle button"));
+    Filter2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filter2.get());
     Filter2->setTooltip (TRANS("Voice 2 to Filter"));
     Filter2->setButtonText (TRANS("2"));
 
     Filter2->setBounds (650, 109, 66, 30);
 
-    Filter3off.reset (new ToggleButton ("new toggle button"));
+    Filter3off.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filter3off.get());
     Filter3off->setTooltip (TRANS("Mute Voice 3"));
     Filter3off->setButtonText (TRANS("3off"));
 
     Filter3off->setBounds (530, 159, 66, 30);
 
-    Filter3.reset (new ToggleButton ("new toggle button"));
+    Filter3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filter3.get());
     Filter3->setTooltip (TRANS("Voice 3 to Filter"));
     Filter3->setButtonText (TRANS("3"));
 
     Filter3->setBounds (590, 109, 66, 30);
 
-    Filterin.reset (new ToggleButton ("new toggle button"));
+    Filterin.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filterin.get());
     Filterin->setTooltip (TRANS("extern In"));
     Filterin->setButtonText (TRANS("in"));
 
     Filterin->setBounds (530, 109, 66, 30);
 
-    Filterlp.reset (new ToggleButton ("new toggle button"));
+    Filterlp.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filterlp.get());
     Filterlp->setTooltip (TRANS("Low Pass"));
     Filterlp->setButtonText (TRANS("LP"));
 
     Filterlp->setBounds (710, 159, 66, 30);
 
-    Filterhp.reset (new ToggleButton ("new toggle button"));
+    Filterhp.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filterhp.get());
     Filterhp->setTooltip (TRANS("High Pass"));
     Filterhp->setButtonText (TRANS("HP"));
 
     Filterhp->setBounds (590, 159, 66, 30);
 
-    Filterbp.reset (new ToggleButton ("new toggle button"));
+    Filterbp.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filterbp.get());
     Filterbp->setTooltip (TRANS("Band Pass"));
     Filterbp->setButtonText (TRANS("BP"));
 
     Filterbp->setBounds (650, 159, 66, 30);
 
-    Filter8580.reset (new ToggleButton ("new toggle button"));
+    Filter8580.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Filter8580.get());
     Filter8580->setTooltip (TRANS("scales filterfreq. to 0-71"));
     Filter8580->setButtonText (TRANS("8580"));
-    Filter8580->setToggleState (true, dontSendNotification);
+    Filter8580->setToggleState (true, juce::dontSendNotification);
 
     Filter8580->setBounds (532, 236, 90, 30);
 
-    CutOff.reset (new Slider ("new slider"));
+    CutOff.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (CutOff.get());
     CutOff->setTooltip (TRANS("Cutoff"));
     CutOff->setRange (0, 2047, 1);
-    CutOff->setSliderStyle (Slider::RotaryVerticalDrag);
-    CutOff->setTextBoxStyle (Slider::TextBoxBelow, false, 40, 12);
+    CutOff->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    CutOff->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     CutOff->setBounds (632, 216, 66, 66);
 
-    Resonace.reset (new Slider ("new slider"));
+    Resonace.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Resonace.get());
     Resonace->setTooltip (TRANS("Resonance"));
     Resonace->setRange (0, 15, 1);
-    Resonace->setSliderStyle (Slider::RotaryVerticalDrag);
-    Resonace->setTextBoxStyle (Slider::TextBoxBelow, false, 40, 12);
+    Resonace->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Resonace->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Resonace->setBounds (702, 216, 66, 66);
 
-    Noise1.reset (new ToggleButton ("new toggle button"));
+    Noise1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Noise1.get());
     Noise1->setButtonText (TRANS("Noise"));
-    Noise1->setConnectedEdges (Button::ConnectedOnBottom);
+    Noise1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Noise1->setBounds (374, 319, 66, 30);
 
-    Noise2.reset (new ToggleButton ("new toggle button"));
+    Noise2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Noise2.get());
     Noise2->setButtonText (TRANS("Noise"));
 
     Noise2->setBounds (373, 389, 66, 30);
 
-    Noise3.reset (new ToggleButton ("new toggle button"));
+    Noise3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Noise3.get());
     Noise3->setButtonText (TRANS("Noise"));
 
     Noise3->setBounds (375, 459, 66, 30);
 
-    Pulse1.reset (new ToggleButton ("new toggle button"));
+    Pulse1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Pulse1.get());
     Pulse1->setButtonText (TRANS("Pulse"));
-    Pulse1->setConnectedEdges (Button::ConnectedOnBottom);
+    Pulse1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Pulse1->setBounds (443, 319, 66, 30);
 
-    Pulse2.reset (new ToggleButton ("new toggle button"));
+    Pulse2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Pulse2.get());
     Pulse2->setButtonText (TRANS("Pulse"));
 
     Pulse2->setBounds (443, 389, 66, 30);
 
-    Pulse3.reset (new ToggleButton ("new toggle button"));
+    Pulse3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Pulse3.get());
     Pulse3->setButtonText (TRANS("Pulse"));
 
     Pulse3->setBounds (443, 459, 66, 30);
 
-    Saw1.reset (new ToggleButton ("new toggle button"));
+    Saw1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Saw1.get());
     Saw1->setButtonText (TRANS("Saw"));
-    Saw1->setConnectedEdges (Button::ConnectedOnBottom);
+    Saw1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Saw1->setBounds (509, 319, 66, 30);
 
-    Saw2.reset (new ToggleButton ("new toggle button"));
+    Saw2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Saw2.get());
     Saw2->setButtonText (TRANS("Saw"));
 
     Saw2->setBounds (509, 389, 66, 30);
 
-    Saw3.reset (new ToggleButton ("new toggle button"));
+    Saw3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Saw3.get());
     Saw3->setButtonText (TRANS("Saw"));
 
     Saw3->setBounds (509, 459, 66, 30);
 
-    Tria1.reset (new ToggleButton ("new toggle button"));
+    Tria1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Tria1.get());
     Tria1->setButtonText (TRANS("Tria"));
-    Tria1->setConnectedEdges (Button::ConnectedOnBottom);
+    Tria1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Tria1->setBounds (572, 319, 66, 30);
 
-    Tria2.reset (new ToggleButton ("new toggle button"));
+    Tria2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Tria2.get());
     Tria2->setButtonText (TRANS("Tria"));
 
     Tria2->setBounds (570, 390, 66, 30);
 
-    Tria3.reset (new ToggleButton ("new toggle button"));
+    Tria3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Tria3.get());
     Tria3->setButtonText (TRANS("Tria"));
 
     Tria3->setBounds (572, 459, 66, 30);
 
-    Ringmod1.reset (new ToggleButton ("new toggle button"));
+    Ringmod1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Ringmod1.get());
     Ringmod1->setButtonText (TRANS("Ringmod"));
-    Ringmod1->setConnectedEdges (Button::ConnectedOnBottom);
+    Ringmod1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Ringmod1->setBounds (629, 319, 66, 30);
 
-    Ringmod2.reset (new ToggleButton ("new toggle button"));
+    Ringmod2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Ringmod2.get());
     Ringmod2->setButtonText (TRANS("Ringmod"));
 
     Ringmod2->setBounds (629, 389, 66, 30);
 
-    Ringmod3.reset (new ToggleButton ("new toggle button"));
+    Ringmod3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Ringmod3.get());
     Ringmod3->setButtonText (TRANS("Ringmod"));
 
     Ringmod3->setBounds (629, 459, 66, 30);
 
-    Sync1.reset (new ToggleButton ("new toggle button"));
+    Sync1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Sync1.get());
     Sync1->setButtonText (TRANS("Sync."));
-    Sync1->setConnectedEdges (Button::ConnectedOnBottom);
+    Sync1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Sync1->setBounds (705, 319, 66, 30);
 
-    Sync2.reset (new ToggleButton ("new toggle button"));
+    Sync2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Sync2.get());
     Sync2->setButtonText (TRANS("Sync."));
 
     Sync2->setBounds (705, 389, 66, 30);
 
-    Sync3.reset (new ToggleButton ("new toggle button"));
+    Sync3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Sync3.get());
     Sync3->setButtonText (TRANS("Sync."));
 
     Sync3->setBounds (705, 459, 66, 30);
 
-    Voice1.reset (new ToggleButton ("new toggle button"));
+    Voice1.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Voice1.get());
     Voice1->setTooltip (TRANS("Voice 1 On/Off"));
     Voice1->setButtonText (TRANS("1"));
-    Voice1->setToggleState (true, dontSendNotification);
+    Voice1->setToggleState (true, juce::dontSendNotification);
 
     Voice1->setBounds (285, 105, 66, 30);
 
-    Voice2.reset (new ToggleButton ("new toggle button"));
+    Voice2.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Voice2.get());
     Voice2->setTooltip (TRANS("Voice 2 On/Off"));
     Voice2->setButtonText (TRANS("2"));
-    Voice2->setToggleState (true, dontSendNotification);
+    Voice2->setToggleState (true, juce::dontSendNotification);
 
     Voice2->setBounds (285, 167, 66, 30);
 
-    Voice3.reset (new ToggleButton ("new toggle button"));
+    Voice3.reset (new juce::ToggleButton ("new toggle button"));
     addAndMakeVisible (Voice3.get());
     Voice3->setTooltip (TRANS("Voice 3 On/Off"));
     Voice3->setButtonText (TRANS("3"));
-    Voice3->setToggleState (true, dontSendNotification);
+    Voice3->setToggleState (true, juce::dontSendNotification);
 
     Voice3->setBounds (285, 230, 66, 30);
 
-    Led.reset (new ImageButton ("Power_LED"));
+    Led.reset (new juce::ImageButton ("Power_LED"));
     addAndMakeVisible (Led.get());
     Led->setTooltip (TRANS("midi-activity and  blinks when error-status"));
-    Led->setButtonText (String());
+    Led->setButtonText (juce::String());
 
     Led->setImages (false, true, true,
-                    ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, Colour (0x00ffffff),
-                    ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, Colour (0x00ffffff),
-                    ImageCache::getFromMemory (redledon_png, redledon_pngSize), 1.000f, Colour (0x00ffffff));
+                    juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
+                    juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
+                    juce::ImageCache::getFromMemory (redledon_png, redledon_pngSize), 1.000f, juce::Colour (0x00ffffff));
     Led->setBounds (710, 26, 40, 40);
 
-    cachedImage_aiasshintergrund_png_1 = ImageCache::getFromMemory (aiasshintergrund_png, aiasshintergrund_pngSize);
-    cachedImage_aiass_mono_typenschild_png_2 = ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
+    cachedImage_aiasshintergrund_png_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png, aiasshintergrund_pngSize);
+    cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
 
     //[UserPreSize]
 	legatomode->setSelectedItemIndex(0);
@@ -811,18 +811,18 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 }
 
 //==============================================================================
-void AiassAudioProcessorEditor::paint (Graphics& g)
+void AiassAudioProcessorEditor::paint (juce::Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff5a5d9d));
+    g.fillAll (juce::Colour (0xff5a5d9d));
 
     {
         int x = 0, y = 0, width = 800, height = 520;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
-        g.setColour (Colours::black.withAlpha (0.597f));
+        g.setColour (juce::Colours::black.withAlpha (0.597f));
         g.drawImage (cachedImage_aiasshintergrund_png_1,
                      x, y, width, height,
                      0, 0, cachedImage_aiasshintergrund_png_1.getWidth(), cachedImage_aiasshintergrund_png_1.getHeight());
@@ -832,7 +832,7 @@ void AiassAudioProcessorEditor::paint (Graphics& g)
         int x = 25, y = 29, width = 315, height = 41;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
-        g.setColour (Colours::black);
+        g.setColour (juce::Colours::black);
         g.drawImage (cachedImage_aiass_mono_typenschild_png_2,
                      x, y, width, height,
                      0, 0, cachedImage_aiass_mono_typenschild_png_2.getWidth(), cachedImage_aiass_mono_typenschild_png_2.getHeight());
@@ -851,7 +851,7 @@ void AiassAudioProcessorEditor::resized()
     //[/UserResized]
 }
 
-void AiassAudioProcessorEditor::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
+void AiassAudioProcessorEditor::comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged)
 {
     //[UsercomboBoxChanged_Pre]
     //[/UsercomboBoxChanged_Pre]

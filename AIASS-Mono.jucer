@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="xAsfkL" name="AIASS-Mono" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Dark" projectType="audioplug" version="0.1.1"
-              bundleIdentifier="com.crazy-midi.AIASS-Mono" includeBinaryInAppConfig="1"
-              companyCopyright="crazy-midi.de 2017-2021" buildVST="1" buildVST3="1"
-              buildAU="0" buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
-              enableIAA="0" pluginName="AIASS-Mono" pluginDesc="AIASS Is A SID Synthesizer"
-              pluginManufacturer="crazy-midi.de" pluginManufacturerCode="CRMI"
-              pluginCode="Aias" pluginChannelConfigs="" pluginIsSynth="1" pluginWantsMidiIn="1"
-              pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
-              pluginAUExportPrefix="AIASSAU" pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS-Mono"
+<JUCERPROJECT id="xAsfkL" name="AIASS-Mono" reportAppUsage="1" splashScreenColour="Dark"
+              projectType="audioplug" version="0.1.2" bundleIdentifier="com.crazy-midi.AIASS-Mono"
+              includeBinaryInAppConfig="1" companyCopyright="crazy-midi.de 2017-2021"
+              buildVST="1" buildVST3="1" buildAU="0" buildAUv3="0" buildRTAS="0"
+              buildAAX="0" buildStandalone="1" enableIAA="0" pluginName="AIASS-Mono"
+              pluginDesc="AIASS Is A SID Synthesizer" pluginManufacturer="crazy-midi.de"
+              pluginManufacturerCode="CRMI" pluginCode="Aias" pluginChannelConfigs=""
+              pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="AIASSAU"
+              pluginRTASCategory="" aaxIdentifier="com.crazy-midi.AIASS-Mono"
               pluginAAXCategory="2" companyName="crazy-midi.de" companyWebsite="www.crazy-midi.de"
               companyEmail="info@crazy-midi.de" pluginFormats="buildVST,buildVST3,buildStandalone"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               userNotes="AIASS was coded by Andreas Schumm (gh0stless) for www-crazy-midi.de 2017-2021"
-              jucerFormatVersion="1" jucerVersion="5.4.7">
+              jucerFormatVersion="1" displaySplashScreen="1">
   <MAINGROUP id="wcvXYs" name="AIASS-Mono">
     <GROUP id="{A833233E-AA9A-81CB-EE47-6EDEE7A913DD}" name="Source">
       <FILE id="CcWDhU" name="interproc.cpp" compile="1" resource="0" file="Source/interproc.cpp"/>

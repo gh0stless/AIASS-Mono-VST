@@ -3,7 +3,7 @@
 
     Sid.h
     Created: 31 Oct 2017 5:48:50pm
-    Author:  andreas schumm
+    Author:  Andreas Schumm (gh0stless)
 
   ==============================================================================
 */
