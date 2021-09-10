@@ -45,7 +45,7 @@ static const unsigned char temp_binary_data_0[] =
 "next frame starts 20 milliseconds later.\r\n"
 "\r\n"
 "Make sure you use the HardSID_Try_Write method and check the return\r\n"
-"value to see if the software or hardware buffer is full. If that\x92s the\r\n"
+"value to see if the software or hardware buffer is full. If that\xe2\x80\x99s the\r\n"
 "case you need to wait a few milliseconds and try again.\r\n"
 "\r\n"
 "You need to make sure the buffer is always filled so that the timing is always correct.\r\n"
@@ -143,7 +143,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
 
     switch (hash)
     {
-        case 0xc1b26097:  numBytes = 4162; return hardsid_dll_how_to_and_hints_txt;
+        case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
         case 0x6efe362a:  numBytes = 203; return history_and_todo_txt;
         default: break;
     }

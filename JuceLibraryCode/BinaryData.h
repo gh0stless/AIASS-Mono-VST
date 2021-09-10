@@ -9,7 +9,7 @@
 namespace BinaryData
 {
     extern const char*   hardsid_dll_how_to_and_hints_txt;
-    const int            hardsid_dll_how_to_and_hints_txtSize = 4162;
+    const int            hardsid_dll_how_to_and_hints_txtSize = 4164;
 
     extern const char*   history_and_todo_txt;
     const int            history_and_todo_txtSize = 203;
