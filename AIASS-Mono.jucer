@@ -40,8 +40,6 @@
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" binaryPath="build\x64\debug"/>
         <CONFIGURATION isDebug="0" name="Release" binaryPath="build\x64\release"/>
-        <CONFIGURATION isDebug="1" name="Debug x86" winArchitecture="Win32" binaryPath="build\x86\debug"/>
-        <CONFIGURATION isDebug="0" name="Release x86" winArchitecture="Win32" binaryPath="build\x86\release"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_video"/>
