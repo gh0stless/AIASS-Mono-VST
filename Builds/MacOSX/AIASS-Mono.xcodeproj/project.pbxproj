@@ -716,7 +716,6 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -727,7 +726,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/VST3/";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lAIASS-Mono /usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -779,7 +778,6 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -791,7 +789,7 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lAIASS-Mono /usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -835,7 +833,6 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -847,7 +844,7 @@
 				LIBRARY_STYLE = Bundle;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lAIASS-Mono /usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -945,7 +942,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -955,7 +951,7 @@
 				INFOPLIST_PREPROCESS = NO;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-lAIASS-Mono /usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -995,7 +991,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1004,7 +999,7 @@
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
 				INFOPLIST_PREPROCESS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-lAIASS-Mono /usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -1045,7 +1040,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1054,7 +1048,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "/usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -1096,7 +1090,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1104,7 +1097,7 @@
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "/usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
@@ -1148,7 +1141,6 @@
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"/Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK",
 					"$(SRCROOT)/../../JuceLibraryCode",
 					"$(HOME)/JUCE/modules",
 					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
@@ -1159,7 +1151,7 @@
 				INSTALL_PATH = "$(HOME)/Library/Audio/Plug-Ins/VST/";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK /Users/andreas/Frameworks/VST_SDK_legacy/VST2_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
+				MTL_HEADER_SEARCH_PATHS = "$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK $(SRCROOT)/../../JuceLibraryCode $(HOME)/JUCE/modules $(HOME)/JUCE/modules/juce_audio_plugin_client";
 				OTHER_LDFLAGS = "-bundle -lAIASS-Mono /usr/local/lib/libhardsid.dylib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy-midi.AIASS-Mono;
 				PRODUCT_NAME = "AIASS-Mono";
