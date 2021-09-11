@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================================================================
 
    This is an auto-generated file: Any edits you make may be overwritten!
@@ -31,3 +32,38 @@ namespace BinaryData
     // return the corresponding original, non-mangled filename (or a null pointer if the name isn't found).
     const char* getNamedResourceOriginalFilename (const char* resourceNameUTF8);
 }
+=======
+/* =========================================================================================
+
+   This is an auto-generated file: Any edits you make may be overwritten!
+
+*/
+
+#pragma once
+
+namespace BinaryData
+{
+    extern const char*   hardsid_dll_how_to_and_hints_txt;
+    const int            hardsid_dll_how_to_and_hints_txtSize = 4162;
+
+    extern const char*   history_and_todo_txt;
+    const int            history_and_todo_txtSize = 203;
+
+    // Number of elements in the namedResourceList and originalFileNames arrays.
+    const int namedResourceListSize = 2;
+
+    // Points to the start of a list of resource names.
+    extern const char* namedResourceList[];
+
+    // Points to the start of a list of resource filenames.
+    extern const char* originalFilenames[];
+
+    // If you provide the name of one of the binary resource variables above, this function will
+    // return the corresponding data and its size (or a null pointer if the name isn't found).
+    const char* getNamedResource (const char* resourceNameUTF8, int& dataSizeInBytes);
+
+    // If you provide the name of one of the binary resource variables above, this function will
+    // return the corresponding original, non-mangled filename (or a null pointer if the name isn't found).
+    const char* getNamedResourceOriginalFilename (const char* resourceNameUTF8);
+}
+>>>>>>> 52b97a8abe8f4cd7646d94e9943444d741fd0613
