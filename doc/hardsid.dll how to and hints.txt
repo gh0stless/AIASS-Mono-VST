@@ -34,7 +34,7 @@ So the above writes write to device 0. First write writes to register
 next frame starts 20 milliseconds later.
 
 Make sure you use the HardSID_Try_Write method and check the return
-value to see if the software or hardware buffer is full. If that’s the
+value to see if the software or hardware buffer is full. If thatâ€™s the
 case you need to wait a few milliseconds and try again.
 
 You need to make sure the buffer is always filled so that the timing is always correct.
