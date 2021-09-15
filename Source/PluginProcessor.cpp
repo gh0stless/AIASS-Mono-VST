@@ -1077,10 +1077,10 @@
 			else if (m.isNoteOff())
 			{
 				const int noteNumberToRemove = m.getNoteNumber();
-				for (int i = 0; i < heldNotesList.size(); ++i) //find the released note in the notes list
+				for (int j = 0; j < heldNotesList.size(); ++j) //find the released note in the notes list
 				{
 					//if there is only one voice (monophonic operation) play a previously held note
-					if (heldNotesList[i].getNoteNumber() == noteNumberToRemove)
+					if (heldNotesList[j].getNoteNumber() == noteNumberToRemove)
 					{
 						//can't compare MidiMessages, so comparing their note numbers instead.
 						int lastInList = heldNotesList.getLast().getNoteNumber();
@@ -1094,7 +1094,7 @@
 								noteOn(previousNote);
 							}
 						}
-						else heldNotesList.remove(i);
+						else heldNotesList.remove(j);
 					}
 				}
 				//send note off message to corresponding voice
@@ -1365,7 +1365,8 @@
 		}
 		else if (parameterID == "FilTer8580")
 		{
-			FILTER8580 = newValue;
+			if (newValue == 0) FILTER8580 = false;
+			else FILTER8580 = true;
 		}
 		else if (parameterID == "FilTer1")
 		{
@@ -1409,7 +1410,8 @@
 		}
 		else if (parameterID == "VelVol")
 		{
-			VELVOL = newValue;
+			if (newValue == 0) VELVOL = false;
+			else VELVOL = true;
 		}
 	}
 
