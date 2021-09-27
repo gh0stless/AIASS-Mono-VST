@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 6.1.1
+  Created with Projucer version: 6.1.2
 
   ------------------------------------------------------------------------------
 
@@ -146,7 +146,9 @@ private:
 	   std::unique_ptr<ButtonAttachment>FilterHPAttachment;
 	   std::unique_ptr<ButtonAttachment>Filter3OFFAttachment;
 	   std::unique_ptr<ComboBoxAttachment>LegatoModeAttachment;
-	   std::unique_ptr<ComboBoxAttachment>NotePrioritymodeAttachment;
+	   std::unique_ptr<ComboBoxAttachment>NotePriorityModeAttachment;
+       std::unique_ptr<ComboBoxAttachment>MidiChannelAttachment;
+
 
 
 	   TooltipWindow tooltipWindow; // to add tooltips to an application, you
@@ -228,6 +230,7 @@ private:
     std::unique_ptr<juce::ToggleButton> Voice2;
     std::unique_ptr<juce::ToggleButton> Voice3;
     std::unique_ptr<juce::ImageButton> Led;
+    std::unique_ptr<juce::ComboBox> midichannel;
     juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
 

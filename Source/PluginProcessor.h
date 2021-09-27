@@ -77,6 +77,9 @@ private:
 	void noteOff(MidiMessage m);
 	
     //==============================================================================
+
+	enum PlayModes {Retrigger,Legato,LastStep};
+	enum PriorityModes {LastNote, HighNote, LowNote};
 	
 	Sid  * m_sid;
 
@@ -121,6 +124,11 @@ private:
 	bool HIGHPASS = false;
 	bool F3OFF = false;
 	bool VELVOL = false;
+
+	PlayModes LEGATOMODE = Retrigger;
+	PriorityModes NOTEPRIORITYMODE = LastNote;
+
+	int	MIDICHANNEL = 0;
 
 	Array<MidiMessage> heldNotesList{};
 

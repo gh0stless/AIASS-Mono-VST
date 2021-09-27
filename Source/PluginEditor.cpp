@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 6.1.1
+  Created with Projucer version: 6.1.2
 
   ------------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     sidvolume->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
-    sidvolume->setBounds (64, 111, 66, 66);
+    sidvolume->setBounds (64, 90, 66, 66);
 
     Octave1.reset (new juce::Slider ("new slider"));
     addAndMakeVisible (Octave1.get());
@@ -302,7 +302,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Velvol->setTooltip (TRANS("maps Velocity to Volume"));
     Velvol->setButtonText (TRANS("Vel."));
 
-    Velvol->setBounds (156, 130, 66, 30);
+    Velvol->setBounds (156, 109, 66, 30);
 
     legatomode.reset (new juce::ComboBox ("legatomode"));
     addAndMakeVisible (legatomode.get());
@@ -316,7 +316,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     legatomode->addItem (TRANS("Last Step"), 3);
     legatomode->addListener (this);
 
-    legatomode->setBounds (64, 191, 150, 24);
+    legatomode->setBounds (64, 209, 150, 24);
 
     noteprioritymode.reset (new juce::ComboBox ("noteprioritymode"));
     addAndMakeVisible (noteprioritymode.get());
@@ -330,7 +330,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     noteprioritymode->addItem (TRANS("Low Note"), 3);
     noteprioritymode->addListener (this);
 
-    noteprioritymode->setBounds (64, 241, 150, 24);
+    noteprioritymode->setBounds (64, 254, 150, 24);
 
     hyperlinkButton.reset (new juce::HyperlinkButton (TRANS("crazy-midi.de"),
                                                       URL ("http://www.crazy-midi.de")));
@@ -572,14 +572,44 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                     juce::ImageCache::getFromMemory (redledon_png, redledon_pngSize), 1.000f, juce::Colour (0x00ffffff));
     Led->setBounds (710, 26, 40, 40);
 
+    midichannel.reset (new juce::ComboBox ("midichannel"));
+    addAndMakeVisible (midichannel.get());
+    midichannel->setTooltip (TRANS("MIDI channel"));
+    midichannel->setEditableText (false);
+    midichannel->setJustificationType (juce::Justification::centredLeft);
+    midichannel->setTextWhenNothingSelected (juce::String());
+    midichannel->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    midichannel->addItem (TRANS("all"), 1);
+    midichannel->addItem (TRANS("1"), 2);
+    midichannel->addItem (TRANS("2"), 3);
+    midichannel->addItem (TRANS("3"), 4);
+    midichannel->addItem (TRANS("4"), 5);
+    midichannel->addItem (TRANS("5"), 6);
+    midichannel->addItem (TRANS("6"), 7);
+    midichannel->addItem (TRANS("7"), 8);
+    midichannel->addItem (TRANS("8"), 9);
+    midichannel->addItem (TRANS("9"), 10);
+    midichannel->addItem (TRANS("10"), 11);
+    midichannel->addItem (TRANS("11"), 12);
+    midichannel->addItem (TRANS("12"), 13);
+    midichannel->addItem (TRANS("13"), 14);
+    midichannel->addItem (TRANS("14"), 15);
+    midichannel->addItem (TRANS("15"), 16);
+    midichannel->addItem (TRANS("16"), 17);
+    midichannel->addListener (this);
+
+    midichannel->setBounds (64, 162, 150, 24);
+
     cachedImage_aiasshintergrund_png_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png, aiasshintergrund_pngSize);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
 
     //[UserPreSize]
 	legatomode->setSelectedItemIndex(0);
 	noteprioritymode->setSelectedItemIndex(0);
+    midichannel->setSelectedItemIndex(0);
 	legatomode->setEnabled(false);
 	noteprioritymode->setEnabled(false);
+    midichannel->setEnabled(true);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
@@ -652,8 +682,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	Filter3OFFAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "FilTer3OFF", *Filter3off);
 
 	LegatoModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "LegatoMode", *legatomode);
-	NotePrioritymodeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "NotePrioritymode", *noteprioritymode);
-
+	NotePriorityModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "NotePriorityMode", *noteprioritymode);
+    MidiChannelAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "MidiChannel", *midichannel);
     //[/UserPreSize]
 
     setSize (800, 525);
@@ -729,7 +759,8 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 	FilterHPAttachment = nullptr;
 	Filter3OFFAttachment = nullptr;
 	LegatoModeAttachment = nullptr;
-	NotePrioritymodeAttachment = nullptr;
+	NotePriorityModeAttachment = nullptr;
+    MidiChannelAttachment = nullptr;
 
 
     //[/Destructor_pre]
@@ -801,6 +832,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Voice2 = nullptr;
     Voice3 = nullptr;
     Led = nullptr;
+    midichannel = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -865,6 +897,11 @@ void AiassAudioProcessorEditor::comboBoxChanged (juce::ComboBox* comboBoxThatHas
     {
         //[UserComboBoxCode_noteprioritymode] -- add your combo box handling code here..
         //[/UserComboBoxCode_noteprioritymode]
+    }
+    else if (comboBoxThatHasChanged == midichannel.get())
+    {
+        //[UserComboBoxCode_midichannel] -- add your combo box handling code here..
+        //[/UserComboBoxCode_midichannel]
     }
 
     //[UsercomboBoxChanged_Post]
@@ -931,7 +968,7 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="new group" id="5844d35c6980f98d" memberName="groupComponent3"
                   virtualName="" explicitFocusOrder="0" pos="512 80 270 210" title="Filter"/>
   <SLIDER name="new slider" id="d351edf4789a40e0" memberName="sidvolume"
-          virtualName="" explicitFocusOrder="0" pos="64 111 66 66" tooltip="SID-Volume"
+          virtualName="" explicitFocusOrder="0" pos="64 90 66 66" tooltip="SID-Volume"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
@@ -1056,15 +1093,15 @@ BEGIN_JUCER_METADATA
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <TOGGLEBUTTON name="new toggle button" id="498d1ccffc218a3e" memberName="Velvol"
-                virtualName="" explicitFocusOrder="0" pos="156 130 66 30" tooltip="maps Velocity to Volume"
+                virtualName="" explicitFocusOrder="0" pos="156 109 66 30" tooltip="maps Velocity to Volume"
                 buttonText="Vel." connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <COMBOBOX name="legatomode" id="185cc42c904fe921" memberName="legatomode"
-            virtualName="" explicitFocusOrder="0" pos="64 191 150 24" tooltip="not implemented yet"
+            virtualName="" explicitFocusOrder="0" pos="64 209 150 24" tooltip="not implemented yet"
             editable="0" layout="33" items="Retrigger&#10;Legato&#10;Last Step"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <COMBOBOX name="noteprioritymode" id="c728000aa37b04a3" memberName="noteprioritymode"
-            virtualName="" explicitFocusOrder="0" pos="64 241 150 24" tooltip="not implemented yet"
+            virtualName="" explicitFocusOrder="0" pos="64 254 150 24" tooltip="not implemented yet"
             editable="0" layout="33" items="Last Note&#10;High Note&#10;Low Note"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <HYPERLINKBUTTON name="new hyperlink" id="27b1f728dfa971d5" memberName="hyperlinkButton"
@@ -1190,6 +1227,10 @@ BEGIN_JUCER_METADATA
                colourNormal="ffffff" resourceOver="redledoff_png" opacityOver="1.0"
                colourOver="ffffff" resourceDown="redledon_png" opacityDown="1.0"
                colourDown="ffffff"/>
+  <COMBOBOX name="midichannel" id="62ff9b6ec5b8843e" memberName="midichannel"
+            virtualName="" explicitFocusOrder="0" pos="64 162 150 24" tooltip="MIDI channel"
+            editable="0" layout="33" items="all&#10;1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10&#10;11&#10;12&#10;13&#10;14&#10;15&#10;16"
+            textWhenNonSelected="" textWhenNoItems="(no choices)"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

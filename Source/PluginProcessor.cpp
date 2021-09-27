@@ -810,10 +810,18 @@
 			nullptr,
 			nullptr));
 
-		parameters.createAndAddParameter(std::make_unique<Parameter>("NotePrioritymode",       // parameterID
+		parameters.createAndAddParameter(std::make_unique<Parameter>("NotePriorityMode",       // parameterID
 			"Notepriority",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 2.0f, 1.0f),    // range
+			0.0f,         // default value
+			nullptr,
+			nullptr));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("MidiChannel",       // parameterID
+			"Midichannel",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 16.0f, 1.0f),    // range
 			0.0f,         // default value
 			nullptr,
 			nullptr));
@@ -880,6 +888,7 @@
 		parameters.addParameterListener("FilTer3OFF", this);
 		parameters.addParameterListener("LegatoMode", this);
 		parameters.addParameterListener("NotePrioritymode", this);
+		parameters.addParameterListener("MidiChannel", this);
 		
 		m_sid = new Sid();
 
@@ -1069,36 +1078,41 @@
 		{
 		
 			if (m.isNoteOn())
-			{
-				heldNotesList.add(m);  //add held notes to a Juce Array so we can use for note memory, arpeggiator or other 
-
-				noteOn(m);
+			{	
+				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
+				{
+					heldNotesList.add(m);  //add held notes to a Juce Array so we can use for note memory, arpeggiator or other 
+					noteOn(m);
+				}
 			}
 			else if (m.isNoteOff())
 			{
-				const int noteNumberToRemove = m.getNoteNumber();
-				for (int j = 0; j < heldNotesList.size(); ++j) //find the released note in the notes list
+				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
 				{
-					//if there is only one voice (monophonic operation) play a previously held note
-					if (heldNotesList[j].getNoteNumber() == noteNumberToRemove)
+					const int noteNumberToRemove = m.getNoteNumber();
+					for (int j = 0; j < heldNotesList.size(); ++j) //find the released note in the notes list
 					{
-						//can't compare MidiMessages, so comparing their note numbers instead.
-						int lastInList = heldNotesList.getLast().getNoteNumber();
-						//if the note removed was the last in the list, play a previously held note (if any)
-						if (noteNumberToRemove == lastInList)
+						//if there is only one voice (monophonic operation) play a previously held note
+						if (heldNotesList[j].getNoteNumber() == noteNumberToRemove)
 						{
-							heldNotesList.removeLast(1);
-							if (heldNotesList.size() > 0)
+							//can't compare MidiMessages, so comparing their note numbers instead.
+							int lastInList = heldNotesList.getLast().getNoteNumber();
+							//if the note removed was the last in the list, play a previously held note (if any)
+							if (noteNumberToRemove == lastInList)
 							{
-								const MidiMessage previousNote = heldNotesList.getLast();
-								noteOn(previousNote);
+								heldNotesList.removeLast(1);
+								if (heldNotesList.size() > 0)
+								{
+									const MidiMessage previousNote = heldNotesList.getLast();
+									noteOn(previousNote);
+								}
 							}
+							else heldNotesList.remove(j);
 						}
-						else heldNotesList.remove(j);
 					}
+					//send note off message to corresponding voice
+					noteOff(m);
 				}
-				//send note off message to corresponding voice
-				noteOff(m);
 			}
 			else if (m.isAftertouch())
 			{
@@ -1412,6 +1426,18 @@
 		{
 			if (newValue == 0) VELVOL = false;
 			else VELVOL = true;
+		}
+		else if (parameterID == "LegatoMode")
+		{
+			LEGATOMODE = (PlayModes)(int)newValue;
+		}
+		else if (parameterID == "NotePriorityMode")
+		{
+			NOTEPRIORITYMODE = (PriorityModes)(int)newValue;
+		}
+		else if (parameterID == "MidiChannel")
+		{
+		MIDICHANNEL = (int)newValue;
 		}
 	}
 
