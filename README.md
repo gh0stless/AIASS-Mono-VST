@@ -2,7 +2,7 @@
 
 ... is a quick and dirty VST-Plugin for use with SIDBlaster-USB, made by Juce Framework.
 
-Compiled binary files also on www.crazy-mide.de.
+Compiled binary files also on www.crazy-midi.de.
 
 I hope that the source code can be a basis to create more VST plugins for the SIDBlaster-USB. 
 
