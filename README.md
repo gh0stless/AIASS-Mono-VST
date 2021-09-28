@@ -2,6 +2,8 @@
 
 ... is a quick and dirty VST-Plugin for use with SIDBlaster-USB, made by Juce Framework.
 
+Compiled binary files also on www.crazy-mide.de.
+
 I hope that the source code can be a basis to create more VST plugins for the SIDBlaster-USB. 
 
 Perhaps you are also interested in the sister project AIASS for Max4Live:
