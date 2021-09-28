@@ -887,7 +887,7 @@
 		parameters.addParameterListener("FilTerHP", this);
 		parameters.addParameterListener("FilTer3OFF", this);
 		parameters.addParameterListener("LegatoMode", this);
-		parameters.addParameterListener("NotePrioritymode", this);
+		parameters.addParameterListener("NotePriorityMode", this);
 		parameters.addParameterListener("MidiChannel", this);
 		
 		m_sid = new Sid();
@@ -1081,37 +1081,153 @@
 			{	
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
 				{
+					int lowestNote = 127;
+					int highestNote = 0;
+					MidiMessage MIDImsgWithLowestNote = NULL;
+					MidiMessage MIDImsgWithHighestNote = NULL;
 					heldNotesList.add(m);  //add held notes to a Juce Array so we can use for note memory, arpeggiator or other 
-					noteOn(m);
+					//noteOn(m);
+					switch (NOTEPRIORITYMODE)
+					{
+						case LastNote:
+							isPlaying = m;
+							noteOn(m);
+							break;
+						case LowNote:
+							for (int j = 0; j < heldNotesList.size(); ++j)
+							{
+								if (heldNotesList[j].getNoteNumber() < lowestNote) {
+									lowestNote = heldNotesList[j].getNoteNumber();
+									MIDImsgWithLowestNote = heldNotesList[j];
+								}
+							}
+							if (heldNotesList.size() == 1)
+							{
+								isPlaying = m;
+								noteOn(m);
+							}
+							if (heldNotesList.size() > 1)
+							{
+								if (lowestNote >= m.getNoteNumber())
+								{
+									noteOff(isPlaying);
+									isPlaying = MIDImsgWithLowestNote;
+									noteOn(MIDImsgWithLowestNote);
+								}
+							}
+
+							break;
+						case HighNote:
+							for (int j = 0; j < heldNotesList.size(); ++j)
+							{
+								if (heldNotesList[j].getNoteNumber() > highestNote) {
+									highestNote = heldNotesList[j].getNoteNumber();
+									MIDImsgWithHighestNote = heldNotesList[j];
+								}
+							}
+							if (heldNotesList.size() == 1)
+							{
+								isPlaying = m;
+								noteOn(m);
+							}
+							if (heldNotesList.size() > 1)
+							{
+								if (highestNote <= m.getNoteNumber())
+								{
+									noteOff(isPlaying);
+									isPlaying = MIDImsgWithHighestNote;
+									noteOn(MIDImsgWithHighestNote);
+								}
+							}
+							break;
+					}
 				}
 			}
 			else if (m.isNoteOff())
 			{
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
 				{
+					int lowestNote = 127;
+					int highestNote = 0;
+					MidiMessage MIDImsgWithLowestNote = NULL;
+					MidiMessage MIDImsgWithHighestNote = NULL;
+
 					const int noteNumberToRemove = m.getNoteNumber();
-					for (int j = 0; j < heldNotesList.size(); ++j) //find the released note in the notes list
+					for (int j = 0; j < heldNotesList.size(); ++j)
 					{
-						//if there is only one voice (monophonic operation) play a previously held note
 						if (heldNotesList[j].getNoteNumber() == noteNumberToRemove)
 						{
-							//can't compare MidiMessages, so comparing their note numbers instead.
-							int lastInList = heldNotesList.getLast().getNoteNumber();
-							//if the note removed was the last in the list, play a previously held note (if any)
-							if (noteNumberToRemove == lastInList)
+							if (heldNotesList.size() == 1)
 							{
-								heldNotesList.removeLast(1);
-								if (heldNotesList.size() > 0)
+
+								noteOff(j);
+								isPlaying = NULL;
+								heldNotesList.remove(j);
+							}
+
+							if (heldNotesList.size() > 1)
+							{
+								//const MidiMessage previousNote = heldNotesList.getLast();
+								//noteOn(previousNote);
+								switch (NOTEPRIORITYMODE)
 								{
-									const MidiMessage previousNote = heldNotesList.getLast();
-									noteOn(previousNote);
+								case LastNote:
+										noteOff(m);
+										isPlaying = NULL;
+										heldNotesList.remove(j);
+										noteOn(heldNotesList.getLast());
+										isPlaying = heldNotesList.getLast();
+										break;
+								case LowNote:
+
+										if (heldNotesList.size() == 1)
+										{
+											noteOff(isPlaying);
+											isPlaying = NULL;
+											heldNotesList.remove(j);
+										}
+										if (heldNotesList.size() > 1)
+										{
+											noteOff(isPlaying);
+											heldNotesList.remove(j);
+											for (int j = 0; j < heldNotesList.size(); ++j)
+											{
+												if (heldNotesList[j].getNoteNumber() < lowestNote) {
+													lowestNote = heldNotesList[j].getNoteNumber();
+													MIDImsgWithLowestNote = heldNotesList[j];
+												}
+											}
+											noteOn(MIDImsgWithLowestNote);
+											isPlaying = MIDImsgWithLowestNote;
+										}
+										break;
+								case HighNote:
+	
+										if (heldNotesList.size() == 1)
+										{
+											noteOff(isPlaying);
+											isPlaying = NULL;
+											heldNotesList.remove(j);
+										}
+										if (heldNotesList.size() > 1)
+										{
+											noteOff(isPlaying);
+											heldNotesList.remove(j);
+											for (int j = 0; j < heldNotesList.size(); ++j)
+											{
+												if (heldNotesList[j].getNoteNumber() > highestNote) {
+													highestNote = heldNotesList[j].getNoteNumber();
+													MIDImsgWithHighestNote = heldNotesList[j];
+												}
+											}
+											noteOn(MIDImsgWithHighestNote);
+											isPlaying = MIDImsgWithHighestNote;
+										}
+										break;
 								}
 							}
-							else heldNotesList.remove(j);
 						}
 					}
-					//send note off message to corresponding voice
-					noteOff(m);
 				}
 			}
 			else if (m.isAftertouch())

@@ -131,6 +131,7 @@ private:
 	int	MIDICHANNEL = 0;
 
 	Array<MidiMessage> heldNotesList{};
+	MidiMessage isPlaying;
 
 	
 	int MyProgram = 0;
