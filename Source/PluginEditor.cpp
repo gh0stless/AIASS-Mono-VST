@@ -41,47 +41,47 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     //[/Constructor_pre]
 
-    groupComponent5.reset (new juce::GroupComponent ("new group",
-                                                     TRANS("Control")));
-    addAndMakeVisible (groupComponent5.get());
+    controlgroup.reset (new juce::GroupComponent ("control group",
+                                                  TRANS("Control")));
+    addAndMakeVisible (controlgroup.get());
 
-    groupComponent5->setBounds (15, 80, 245, 210);
+    controlgroup->setBounds (15, 80, 245, 210);
 
-    groupComponent4.reset (new juce::GroupComponent ("new group",
-                                                     TRANS("Waveform")));
-    addAndMakeVisible (groupComponent4.get());
+    waveformgroup.reset (new juce::GroupComponent ("waveform group",
+                                                   TRANS("Waveform")));
+    addAndMakeVisible (waveformgroup.get());
 
-    groupComponent4->setBounds (362, 292, 421, 210);
+    waveformgroup->setBounds (362, 292, 421, 210);
 
-    groupComponent2.reset (new juce::GroupComponent ("new group",
-                                                     TRANS("Tone")));
-    addAndMakeVisible (groupComponent2.get());
+    tonegroup.reset (new juce::GroupComponent ("tone group",
+                                               TRANS("Tone")));
+    addAndMakeVisible (tonegroup.get());
 
-    groupComponent2->setBounds (270, 80, 236, 210);
+    tonegroup->setBounds (270, 80, 236, 210);
 
-    groupComponent.reset (new juce::GroupComponent ("new group",
-                                                    TRANS("Sound")));
-    addAndMakeVisible (groupComponent.get());
-    groupComponent->setTextLabelPosition (juce::Justification::centred);
+    soundgroup.reset (new juce::GroupComponent ("sound group",
+                                                TRANS("Sound")));
+    addAndMakeVisible (soundgroup.get());
+    soundgroup->setTextLabelPosition (juce::Justification::centred);
 
-    groupComponent->setBounds (15, 292, 340, 210);
+    soundgroup->setBounds (15, 292, 340, 210);
 
-    groupComponent3.reset (new juce::GroupComponent ("new group",
-                                                     TRANS("Filter")));
-    addAndMakeVisible (groupComponent3.get());
+    filtergroup.reset (new juce::GroupComponent ("filter group",
+                                                 TRANS("Filter")));
+    addAndMakeVisible (filtergroup.get());
 
-    groupComponent3->setBounds (512, 80, 270, 210);
+    filtergroup->setBounds (512, 80, 270, 210);
 
-    sidvolume.reset (new juce::Slider ("new slider"));
+    sidvolume.reset (new juce::Slider ("sidvolume slider"));
     addAndMakeVisible (sidvolume.get());
     sidvolume->setTooltip (TRANS("SID-Volume"));
     sidvolume->setRange (0, 15, 1);
     sidvolume->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
-    sidvolume->setBounds (64, 90, 66, 66);
+    sidvolume->setBounds (30, 90, 66, 66);
 
-    Octave1.reset (new juce::Slider ("new slider"));
+    Octave1.reset (new juce::Slider ("octave1 slider"));
     addAndMakeVisible (Octave1.get());
     Octave1->setTooltip (TRANS("Octave1 Up/Down"));
     Octave1->setRange (-4, 4, 1);
@@ -90,7 +90,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Octave1->setBounds (315, 90, 66, 66);
 
-    Octave2.reset (new juce::Slider ("new slider"));
+    Octave2.reset (new juce::Slider ("octave2 slider"));
     addAndMakeVisible (Octave2.get());
     Octave2->setTooltip (TRANS("Octave2 Up/Down"));
     Octave2->setRange (-4, 4, 1);
@@ -99,7 +99,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Octave2->setBounds (315, 153, 66, 66);
 
-    Octave3.reset (new juce::Slider ("new slider"));
+    Octave3.reset (new juce::Slider ("octave3 slider"));
     addAndMakeVisible (Octave3.get());
     Octave3->setTooltip (TRANS("Octave3 Up/Down"));
     Octave3->setRange (-4, 4, 1);
@@ -108,7 +108,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Octave3->setBounds (315, 218, 66, 66);
 
-    Semi1.reset (new juce::Slider ("new slider"));
+    Semi1.reset (new juce::Slider ("semi1 slider"));
     addAndMakeVisible (Semi1.get());
     Semi1->setTooltip (TRANS("Semitone1 Up/Down"));
     Semi1->setRange (-12, 12, 1);
@@ -117,7 +117,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Semi1->setBounds (375, 90, 66, 66);
 
-    Semi2.reset (new juce::Slider ("new slider"));
+    Semi2.reset (new juce::Slider ("semi2 slider"));
     addAndMakeVisible (Semi2.get());
     Semi2->setTooltip (TRANS("Semitone2 Up/Down"));
     Semi2->setRange (-12, 12, 1);
@@ -126,7 +126,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Semi2->setBounds (375, 153, 66, 66);
 
-    Semi3.reset (new juce::Slider ("new slider"));
+    Semi3.reset (new juce::Slider ("semi3 slider"));
     addAndMakeVisible (Semi3.get());
     Semi3->setTooltip (TRANS("Semitone3 Up/Down"));
     Semi3->setRange (-12, 12, 1);
@@ -135,7 +135,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Semi3->setBounds (375, 218, 66, 66);
 
-    Cent1.reset (new juce::Slider ("new slider"));
+    Cent1.reset (new juce::Slider ("cent1 slider"));
     addAndMakeVisible (Cent1.get());
     Cent1->setTooltip (TRANS("Cent1 Up/Down"));
     Cent1->setRange (-100, 100, 1);
@@ -144,7 +144,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Cent1->setBounds (435, 90, 66, 66);
 
-    Cent2.reset (new juce::Slider ("new slider"));
+    Cent2.reset (new juce::Slider ("cent2 slider"));
     addAndMakeVisible (Cent2.get());
     Cent2->setTooltip (TRANS("Cent2 Up/Down"));
     Cent2->setRange (-100, 100, 1);
@@ -153,7 +153,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Cent2->setBounds (435, 153, 66, 66);
 
-    Cent3.reset (new juce::Slider ("new slider"));
+    Cent3.reset (new juce::Slider ("cent3 slider"));
     addAndMakeVisible (Cent3.get());
     Cent3->setTooltip (TRANS("Cent3 Up/Down"));
     Cent3->setRange (-100, 100, 1);
@@ -162,7 +162,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Cent3->setBounds (435, 218, 66, 66);
 
-    Attack1.reset (new juce::Slider ("new slider"));
+    Attack1.reset (new juce::Slider ("attack1 slider"));
     addAndMakeVisible (Attack1.get());
     Attack1->setTooltip (TRANS("Attack 1"));
     Attack1->setRange (0, 15, 1);
@@ -171,7 +171,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Attack1->setBounds (30, 300, 66, 66);
 
-    Attack2.reset (new juce::Slider ("new slider"));
+    Attack2.reset (new juce::Slider ("attack2 slider"));
     addAndMakeVisible (Attack2.get());
     Attack2->setTooltip (TRANS("Attack 2"));
     Attack2->setRange (0, 15, 1);
@@ -180,7 +180,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Attack2->setBounds (30, 365, 66, 66);
 
-    Attack3.reset (new juce::Slider ("new slider"));
+    Attack3.reset (new juce::Slider ("attack3 slider"));
     addAndMakeVisible (Attack3.get());
     Attack3->setTooltip (TRANS("Attack 3"));
     Attack3->setRange (0, 15, 1);
@@ -189,7 +189,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Attack3->setBounds (30, 430, 66, 66);
 
-    Decay1.reset (new juce::Slider ("new slider"));
+    Decay1.reset (new juce::Slider ("decay1 slider"));
     addAndMakeVisible (Decay1.get());
     Decay1->setTooltip (TRANS("Decay 1"));
     Decay1->setRange (0, 15, 1);
@@ -198,7 +198,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Decay1->setBounds (90, 300, 66, 66);
 
-    Decay2.reset (new juce::Slider ("new slider"));
+    Decay2.reset (new juce::Slider ("decay2 slider"));
     addAndMakeVisible (Decay2.get());
     Decay2->setTooltip (TRANS("Decay 2"));
     Decay2->setRange (0, 15, 1);
@@ -207,7 +207,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Decay2->setBounds (90, 365, 66, 66);
 
-    Decay3.reset (new juce::Slider ("new slider"));
+    Decay3.reset (new juce::Slider ("decay3 slider"));
     addAndMakeVisible (Decay3.get());
     Decay3->setTooltip (TRANS("Decay 3"));
     Decay3->setRange (0, 15, 1);
@@ -216,7 +216,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Decay3->setBounds (90, 430, 66, 66);
 
-    Sustain1.reset (new juce::Slider ("new slider"));
+    Sustain1.reset (new juce::Slider ("sustain1 slider"));
     addAndMakeVisible (Sustain1.get());
     Sustain1->setTooltip (TRANS("Sustain 1"));
     Sustain1->setRange (0, 15, 1);
@@ -225,7 +225,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sustain1->setBounds (150, 300, 66, 66);
 
-    Sustain2.reset (new juce::Slider ("new slider"));
+    Sustain2.reset (new juce::Slider ("sustain2 slider"));
     addAndMakeVisible (Sustain2.get());
     Sustain2->setTooltip (TRANS("Sustain 2"));
     Sustain2->setRange (0, 15, 1);
@@ -234,7 +234,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sustain2->setBounds (150, 365, 66, 66);
 
-    Sustain3.reset (new juce::Slider ("new slider"));
+    Sustain3.reset (new juce::Slider ("sustain3 slider"));
     addAndMakeVisible (Sustain3.get());
     Sustain3->setTooltip (TRANS("Sustain 3"));
     Sustain3->setRange (0, 15, 1);
@@ -243,7 +243,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sustain3->setBounds (150, 430, 66, 66);
 
-    Release1.reset (new juce::Slider ("new slider"));
+    Release1.reset (new juce::Slider ("release1 slider"));
     addAndMakeVisible (Release1.get());
     Release1->setTooltip (TRANS("Release 1"));
     Release1->setRange (0, 15, 1);
@@ -252,7 +252,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Release1->setBounds (210, 300, 66, 66);
 
-    Release2.reset (new juce::Slider ("new slider"));
+    Release2.reset (new juce::Slider ("release2 slider"));
     addAndMakeVisible (Release2.get());
     Release2->setTooltip (TRANS("Release 2"));
     Release2->setRange (0, 15, 1);
@@ -261,7 +261,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Release2->setBounds (210, 365, 66, 66);
 
-    Release3.reset (new juce::Slider ("new slider"));
+    Release3.reset (new juce::Slider ("release3 slider"));
     addAndMakeVisible (Release3.get());
     Release3->setTooltip (TRANS("Release 3"));
     Release3->setRange (0, 15, 1);
@@ -270,39 +270,39 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Release3->setBounds (210, 430, 66, 66);
 
-    Pulsew1.reset (new juce::Slider ("new slider"));
+    Pulsew1.reset (new juce::Slider ("pulsew1 slider"));
     addAndMakeVisible (Pulsew1.get());
-    Pulsew1->setTooltip (TRANS("Pulswidth 1"));
+    Pulsew1->setTooltip (TRANS("Pulse width 1"));
     Pulsew1->setRange (1, 4094, 1);
     Pulsew1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Pulsew1->setBounds (280, 300, 66, 66);
 
-    Pulsew2.reset (new juce::Slider ("new slider"));
+    Pulsew2.reset (new juce::Slider ("pulsew2 slider"));
     addAndMakeVisible (Pulsew2.get());
-    Pulsew2->setTooltip (TRANS("Pulsewidth 2"));
+    Pulsew2->setTooltip (TRANS("Pulse width 2"));
     Pulsew2->setRange (1, 4094, 1);
     Pulsew2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Pulsew2->setBounds (280, 365, 66, 66);
 
-    Pulsew3.reset (new juce::Slider ("new slider"));
+    Pulsew3.reset (new juce::Slider ("pulsew3 slider"));
     addAndMakeVisible (Pulsew3.get());
-    Pulsew3->setTooltip (TRANS("Pulswidth 3"));
+    Pulsew3->setTooltip (TRANS("Pulse width 3"));
     Pulsew3->setRange (1, 4094, 1);
     Pulsew3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     Pulsew3->setBounds (280, 430, 66, 66);
 
-    Velvol.reset (new juce::ToggleButton ("new toggle button"));
+    Velvol.reset (new juce::ToggleButton ("Vel2Vol button"));
     addAndMakeVisible (Velvol.get());
     Velvol->setTooltip (TRANS("maps Velocity to Volume"));
-    Velvol->setButtonText (TRANS("Vel."));
+    Velvol->setButtonText (TRANS("Vel2Vol"));
 
-    Velvol->setBounds (156, 109, 66, 30);
+    Velvol->setBounds (100, 110, 66, 30);
 
     legatomode.reset (new juce::ComboBox ("legatomode"));
     addAndMakeVisible (legatomode.get());
@@ -316,7 +316,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     legatomode->addItem (TRANS("Last Step"), 3);
     legatomode->addListener (this);
 
-    legatomode->setBounds (64, 209, 150, 24);
+    legatomode->setBounds (30, 209, 150, 24);
 
     noteprioritymode.reset (new juce::ComboBox ("noteprioritymode"));
     addAndMakeVisible (noteprioritymode.get());
@@ -330,7 +330,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     noteprioritymode->addItem (TRANS("Low Note"), 3);
     noteprioritymode->addListener (this);
 
-    noteprioritymode->setBounds (64, 254, 150, 24);
+    noteprioritymode->setBounds (30, 254, 150, 24);
 
     hyperlinkButton.reset (new juce::HyperlinkButton (TRANS("crazy-midi.de"),
                                                       URL ("http://www.crazy-midi.de")));
@@ -341,71 +341,71 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     hyperlinkButton->setBounds (660, 500, 150, 24);
 
-    Filter1.reset (new juce::ToggleButton ("new toggle button"));
+    Filter1.reset (new juce::ToggleButton ("Filer1 toggle button"));
     addAndMakeVisible (Filter1.get());
     Filter1->setTooltip (TRANS("Voice 1 to Filter"));
     Filter1->setButtonText (TRANS("1"));
 
     Filter1->setBounds (710, 109, 66, 30);
 
-    Filter2.reset (new juce::ToggleButton ("new toggle button"));
+    Filter2.reset (new juce::ToggleButton ("Filter2 toggle button"));
     addAndMakeVisible (Filter2.get());
     Filter2->setTooltip (TRANS("Voice 2 to Filter"));
     Filter2->setButtonText (TRANS("2"));
 
     Filter2->setBounds (650, 109, 66, 30);
 
-    Filter3off.reset (new juce::ToggleButton ("new toggle button"));
+    Filter3off.reset (new juce::ToggleButton ("3off toggle button"));
     addAndMakeVisible (Filter3off.get());
     Filter3off->setTooltip (TRANS("Mute Voice 3"));
     Filter3off->setButtonText (TRANS("3off"));
 
     Filter3off->setBounds (530, 159, 66, 30);
 
-    Filter3.reset (new juce::ToggleButton ("new toggle button"));
+    Filter3.reset (new juce::ToggleButton ("Filter3 toggle button"));
     addAndMakeVisible (Filter3.get());
     Filter3->setTooltip (TRANS("Voice 3 to Filter"));
     Filter3->setButtonText (TRANS("3"));
 
     Filter3->setBounds (590, 109, 66, 30);
 
-    Filterin.reset (new juce::ToggleButton ("new toggle button"));
+    Filterin.reset (new juce::ToggleButton ("FilterIn toggle button"));
     addAndMakeVisible (Filterin.get());
     Filterin->setTooltip (TRANS("extern In"));
     Filterin->setButtonText (TRANS("in"));
 
     Filterin->setBounds (530, 109, 66, 30);
 
-    Filterlp.reset (new juce::ToggleButton ("new toggle button"));
+    Filterlp.reset (new juce::ToggleButton ("lowpass toggle button"));
     addAndMakeVisible (Filterlp.get());
     Filterlp->setTooltip (TRANS("Low Pass"));
     Filterlp->setButtonText (TRANS("LP"));
 
     Filterlp->setBounds (710, 159, 66, 30);
 
-    Filterhp.reset (new juce::ToggleButton ("new toggle button"));
+    Filterhp.reset (new juce::ToggleButton ("high pass toggle button"));
     addAndMakeVisible (Filterhp.get());
     Filterhp->setTooltip (TRANS("High Pass"));
     Filterhp->setButtonText (TRANS("HP"));
 
     Filterhp->setBounds (590, 159, 66, 30);
 
-    Filterbp.reset (new juce::ToggleButton ("new toggle button"));
+    Filterbp.reset (new juce::ToggleButton ("band pass toggle button"));
     addAndMakeVisible (Filterbp.get());
     Filterbp->setTooltip (TRANS("Band Pass"));
     Filterbp->setButtonText (TRANS("BP"));
 
     Filterbp->setBounds (650, 159, 66, 30);
 
-    Filter8580.reset (new juce::ToggleButton ("new toggle button"));
+    Filter8580.reset (new juce::ToggleButton ("scale toggle button"));
     addAndMakeVisible (Filter8580.get());
     Filter8580->setTooltip (TRANS("scales filterfreq. to 0-71"));
-    Filter8580->setButtonText (TRANS("8580"));
+    Filter8580->setButtonText (TRANS("scale"));
     Filter8580->setToggleState (true, juce::dontSendNotification);
 
-    Filter8580->setBounds (532, 236, 90, 30);
+    Filter8580->setBounds (530, 236, 90, 30);
 
-    CutOff.reset (new juce::Slider ("new slider"));
+    CutOff.reset (new juce::Slider ("cutoff slider"));
     addAndMakeVisible (CutOff.get());
     CutOff->setTooltip (TRANS("Cutoff"));
     CutOff->setRange (0, 2047, 1);
@@ -414,7 +414,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     CutOff->setBounds (632, 216, 66, 66);
 
-    Resonace.reset (new juce::Slider ("new slider"));
+    Resonace.reset (new juce::Slider ("resonance slider"));
     addAndMakeVisible (Resonace.get());
     Resonace->setTooltip (TRANS("Resonance"));
     Resonace->setRange (0, 15, 1);
@@ -423,121 +423,121 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Resonace->setBounds (702, 216, 66, 66);
 
-    Noise1.reset (new juce::ToggleButton ("new toggle button"));
+    Noise1.reset (new juce::ToggleButton ("noise1 toggle button"));
     addAndMakeVisible (Noise1.get());
     Noise1->setButtonText (TRANS("Noise"));
     Noise1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Noise1->setBounds (374, 319, 66, 30);
 
-    Noise2.reset (new juce::ToggleButton ("new toggle button"));
+    Noise2.reset (new juce::ToggleButton ("noise2 toggle button"));
     addAndMakeVisible (Noise2.get());
     Noise2->setButtonText (TRANS("Noise"));
 
     Noise2->setBounds (373, 389, 66, 30);
 
-    Noise3.reset (new juce::ToggleButton ("new toggle button"));
+    Noise3.reset (new juce::ToggleButton ("noise3 toggle button"));
     addAndMakeVisible (Noise3.get());
     Noise3->setButtonText (TRANS("Noise"));
 
     Noise3->setBounds (375, 459, 66, 30);
 
-    Pulse1.reset (new juce::ToggleButton ("new toggle button"));
+    Pulse1.reset (new juce::ToggleButton ("pulse1 toggle button"));
     addAndMakeVisible (Pulse1.get());
     Pulse1->setButtonText (TRANS("Pulse"));
     Pulse1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Pulse1->setBounds (443, 319, 66, 30);
 
-    Pulse2.reset (new juce::ToggleButton ("new toggle button"));
+    Pulse2.reset (new juce::ToggleButton ("pulse2 toggle button"));
     addAndMakeVisible (Pulse2.get());
     Pulse2->setButtonText (TRANS("Pulse"));
 
     Pulse2->setBounds (443, 389, 66, 30);
 
-    Pulse3.reset (new juce::ToggleButton ("new toggle button"));
+    Pulse3.reset (new juce::ToggleButton ("pulse3 toggle button"));
     addAndMakeVisible (Pulse3.get());
     Pulse3->setButtonText (TRANS("Pulse"));
 
     Pulse3->setBounds (443, 459, 66, 30);
 
-    Saw1.reset (new juce::ToggleButton ("new toggle button"));
+    Saw1.reset (new juce::ToggleButton ("saw1 toggle button"));
     addAndMakeVisible (Saw1.get());
     Saw1->setButtonText (TRANS("Saw"));
     Saw1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Saw1->setBounds (509, 319, 66, 30);
 
-    Saw2.reset (new juce::ToggleButton ("new toggle button"));
+    Saw2.reset (new juce::ToggleButton ("saw2 toggle button"));
     addAndMakeVisible (Saw2.get());
     Saw2->setButtonText (TRANS("Saw"));
 
     Saw2->setBounds (509, 389, 66, 30);
 
-    Saw3.reset (new juce::ToggleButton ("new toggle button"));
+    Saw3.reset (new juce::ToggleButton ("saw3 toggle button"));
     addAndMakeVisible (Saw3.get());
     Saw3->setButtonText (TRANS("Saw"));
 
     Saw3->setBounds (509, 459, 66, 30);
 
-    Tria1.reset (new juce::ToggleButton ("new toggle button"));
+    Tria1.reset (new juce::ToggleButton ("tria1 toggle button"));
     addAndMakeVisible (Tria1.get());
     Tria1->setButtonText (TRANS("Tria"));
     Tria1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Tria1->setBounds (572, 319, 66, 30);
 
-    Tria2.reset (new juce::ToggleButton ("new toggle button"));
+    Tria2.reset (new juce::ToggleButton ("tria2 toggle button"));
     addAndMakeVisible (Tria2.get());
     Tria2->setButtonText (TRANS("Tria"));
 
     Tria2->setBounds (570, 390, 66, 30);
 
-    Tria3.reset (new juce::ToggleButton ("new toggle button"));
+    Tria3.reset (new juce::ToggleButton ("tria3 toggle button"));
     addAndMakeVisible (Tria3.get());
     Tria3->setButtonText (TRANS("Tria"));
 
     Tria3->setBounds (572, 459, 66, 30);
 
-    Ringmod1.reset (new juce::ToggleButton ("new toggle button"));
+    Ringmod1.reset (new juce::ToggleButton ("ringmod1 toggle button"));
     addAndMakeVisible (Ringmod1.get());
     Ringmod1->setButtonText (TRANS("Ringmod"));
     Ringmod1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Ringmod1->setBounds (629, 319, 66, 30);
 
-    Ringmod2.reset (new juce::ToggleButton ("new toggle button"));
+    Ringmod2.reset (new juce::ToggleButton ("ringmod2 toggle button"));
     addAndMakeVisible (Ringmod2.get());
     Ringmod2->setButtonText (TRANS("Ringmod"));
 
     Ringmod2->setBounds (629, 389, 66, 30);
 
-    Ringmod3.reset (new juce::ToggleButton ("new toggle button"));
+    Ringmod3.reset (new juce::ToggleButton ("ringmod3 toggle button"));
     addAndMakeVisible (Ringmod3.get());
     Ringmod3->setButtonText (TRANS("Ringmod"));
 
     Ringmod3->setBounds (629, 459, 66, 30);
 
-    Sync1.reset (new juce::ToggleButton ("new toggle button"));
+    Sync1.reset (new juce::ToggleButton ("syn1 toggle button"));
     addAndMakeVisible (Sync1.get());
     Sync1->setButtonText (TRANS("Sync."));
     Sync1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
     Sync1->setBounds (705, 319, 66, 30);
 
-    Sync2.reset (new juce::ToggleButton ("new toggle button"));
+    Sync2.reset (new juce::ToggleButton ("sync2 toggle button"));
     addAndMakeVisible (Sync2.get());
     Sync2->setButtonText (TRANS("Sync."));
 
     Sync2->setBounds (705, 389, 66, 30);
 
-    Sync3.reset (new juce::ToggleButton ("new toggle button"));
+    Sync3.reset (new juce::ToggleButton ("sync3 toggle button"));
     addAndMakeVisible (Sync3.get());
     Sync3->setButtonText (TRANS("Sync."));
 
     Sync3->setBounds (705, 459, 66, 30);
 
-    Voice1.reset (new juce::ToggleButton ("new toggle button"));
+    Voice1.reset (new juce::ToggleButton ("voice1 toggle button"));
     addAndMakeVisible (Voice1.get());
     Voice1->setTooltip (TRANS("Voice 1 On/Off"));
     Voice1->setButtonText (TRANS("1"));
@@ -545,7 +545,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Voice1->setBounds (285, 105, 66, 30);
 
-    Voice2.reset (new juce::ToggleButton ("new toggle button"));
+    Voice2.reset (new juce::ToggleButton ("voice2 toggle button"));
     addAndMakeVisible (Voice2.get());
     Voice2->setTooltip (TRANS("Voice 2 On/Off"));
     Voice2->setButtonText (TRANS("2"));
@@ -553,7 +553,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Voice2->setBounds (285, 167, 66, 30);
 
-    Voice3.reset (new juce::ToggleButton ("new toggle button"));
+    Voice3.reset (new juce::ToggleButton ("voice3 toggle button"));
     addAndMakeVisible (Voice3.get());
     Voice3->setTooltip (TRANS("Voice 3 On/Off"));
     Voice3->setButtonText (TRANS("3"));
@@ -570,7 +570,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                     juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
                     juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
                     juce::ImageCache::getFromMemory (redledon_png, redledon_pngSize), 1.000f, juce::Colour (0x00ffffff));
-    Led->setBounds (710, 26, 40, 40);
+    Led->setBounds (710, 30, 40, 40);
 
     midichannel.reset (new juce::ComboBox ("midichannel"));
     addAndMakeVisible (midichannel.get());
@@ -598,7 +598,24 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     midichannel->addItem (TRANS("16"), 17);
     midichannel->addListener (this);
 
-    midichannel->setBounds (64, 162, 150, 24);
+    midichannel->setBounds (30, 162, 150, 24);
+
+    reset_button.reset (new juce::ImageButton ("reset button"));
+    addAndMakeVisible (reset_button.get());
+    reset_button->setTooltip (TRANS("click twice for SID reset"));
+
+    reset_button->setImages (false, true, true,
+                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
+                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
+                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
+    reset_button->setBounds (400, 30, 138, 40);
+
+    link_buton.reset (new juce::ToggleButton ("link button"));
+    addAndMakeVisible (link_buton.get());
+    link_buton->setTooltip (TRANS("link gui elements"));
+    link_buton->setButtonText (TRANS("link"));
+
+    link_buton->setBounds (190, 110, 66, 30);
 
     cachedImage_aiasshintergrund_png_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png, aiasshintergrund_pngSize);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
@@ -765,11 +782,11 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 
     //[/Destructor_pre]
 
-    groupComponent5 = nullptr;
-    groupComponent4 = nullptr;
-    groupComponent2 = nullptr;
-    groupComponent = nullptr;
-    groupComponent3 = nullptr;
+    controlgroup = nullptr;
+    waveformgroup = nullptr;
+    tonegroup = nullptr;
+    soundgroup = nullptr;
+    filtergroup = nullptr;
     sidvolume = nullptr;
     Octave1 = nullptr;
     Octave2 = nullptr;
@@ -833,6 +850,8 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Voice3 = nullptr;
     Led = nullptr;
     midichannel = nullptr;
+    reset_button = nullptr;
+    link_buton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -868,6 +887,18 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
         g.drawImage (cachedImage_aiass_mono_typenschild_png_2,
                      x, y, width, height,
                      0, 0, cachedImage_aiass_mono_typenschild_png_2.getWidth(), cachedImage_aiass_mono_typenschild_png_2.getHeight());
+    }
+
+    {
+        int x = 353, y = 49, width = 40, height = 20;
+        juce::String text (TRANS("v. 0.5"));
+        juce::Colour fillColour = juce::Colours::black;
+        //[UserPaintCustomArguments] Customize the painting arguments here..
+        //[/UserPaintCustomArguments]
+        g.setColour (fillColour);
+        g.setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+        g.drawText (text, x, y, width, height,
+                    juce::Justification::centred, true);
     }
 
     //[UserPaint] Add your own custom painting code here..
@@ -955,282 +986,296 @@ BEGIN_JUCER_METADATA
            mode="0"/>
     <IMAGE pos="25 29 315 41" resource="aiass_mono_typenschild_png" opacity="1.0"
            mode="0"/>
+    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.5"
+          fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
+          italic="0" justification="36"/>
   </BACKGROUND>
-  <GROUPCOMPONENT name="new group" id="f28a7389bff6ea97" memberName="groupComponent5"
+  <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
                   virtualName="" explicitFocusOrder="0" pos="15 80 245 210" title="Control"/>
-  <GROUPCOMPONENT name="new group" id="52ab711584b2835a" memberName="groupComponent4"
+  <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
                   virtualName="" explicitFocusOrder="0" pos="362 292 421 210" title="Waveform"/>
-  <GROUPCOMPONENT name="new group" id="6d64fe01c88e0968" memberName="groupComponent2"
+  <GROUPCOMPONENT name="tone group" id="6d64fe01c88e0968" memberName="tonegroup"
                   virtualName="" explicitFocusOrder="0" pos="270 80 236 210" title="Tone"/>
-  <GROUPCOMPONENT name="new group" id="9c52dd13730dcbb" memberName="groupComponent"
+  <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
                   virtualName="" explicitFocusOrder="0" pos="15 292 340 210" title="Sound"
                   textpos="36"/>
-  <GROUPCOMPONENT name="new group" id="5844d35c6980f98d" memberName="groupComponent3"
+  <GROUPCOMPONENT name="filter group" id="5844d35c6980f98d" memberName="filtergroup"
                   virtualName="" explicitFocusOrder="0" pos="512 80 270 210" title="Filter"/>
-  <SLIDER name="new slider" id="d351edf4789a40e0" memberName="sidvolume"
-          virtualName="" explicitFocusOrder="0" pos="64 90 66 66" tooltip="SID-Volume"
+  <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
+          virtualName="" explicitFocusOrder="0" pos="30 90 66 66" tooltip="SID-Volume"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="26c4155703d3dafe" memberName="Octave1"
+  <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
           virtualName="" explicitFocusOrder="0" pos="315 90 66 66" tooltip="Octave1 Up/Down"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="7808b9c1fb74ccc8" memberName="Octave2"
+  <SLIDER name="octave2 slider" id="7808b9c1fb74ccc8" memberName="Octave2"
           virtualName="" explicitFocusOrder="0" pos="315 153 66 66" tooltip="Octave2 Up/Down"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="d3e4a1e141ca77b6" memberName="Octave3"
+  <SLIDER name="octave3 slider" id="d3e4a1e141ca77b6" memberName="Octave3"
           virtualName="" explicitFocusOrder="0" pos="315 218 66 66" tooltip="Octave3 Up/Down"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="4297018af851022d" memberName="Semi1" virtualName=""
-          explicitFocusOrder="0" pos="375 90 66 66" tooltip="Semitone1 Up/Down"
+  <SLIDER name="semi1 slider" id="4297018af851022d" memberName="Semi1"
+          virtualName="" explicitFocusOrder="0" pos="375 90 66 66" tooltip="Semitone1 Up/Down"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="4e87cf183b0e0e77" memberName="Semi2" virtualName=""
-          explicitFocusOrder="0" pos="375 153 66 66" tooltip="Semitone2 Up/Down"
+  <SLIDER name="semi2 slider" id="4e87cf183b0e0e77" memberName="Semi2"
+          virtualName="" explicitFocusOrder="0" pos="375 153 66 66" tooltip="Semitone2 Up/Down"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="f03b15fac2d0a403" memberName="Semi3" virtualName=""
-          explicitFocusOrder="0" pos="375 218 66 66" tooltip="Semitone3 Up/Down"
+  <SLIDER name="semi3 slider" id="f03b15fac2d0a403" memberName="Semi3"
+          virtualName="" explicitFocusOrder="0" pos="375 218 66 66" tooltip="Semitone3 Up/Down"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="b0bba6848acec451" memberName="Cent1" virtualName=""
-          explicitFocusOrder="0" pos="435 90 66 66" tooltip="Cent1 Up/Down"
+  <SLIDER name="cent1 slider" id="b0bba6848acec451" memberName="Cent1"
+          virtualName="" explicitFocusOrder="0" pos="435 90 66 66" tooltip="Cent1 Up/Down"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
-  <SLIDER name="new slider" id="873ffcdb55231a19" memberName="Cent2" virtualName=""
-          explicitFocusOrder="0" pos="435 153 66 66" tooltip="Cent2 Up/Down"
+  <SLIDER name="cent2 slider" id="873ffcdb55231a19" memberName="Cent2"
+          virtualName="" explicitFocusOrder="0" pos="435 153 66 66" tooltip="Cent2 Up/Down"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
-  <SLIDER name="new slider" id="77eb6b6e2092a08c" memberName="Cent3" virtualName=""
-          explicitFocusOrder="0" pos="435 218 66 66" tooltip="Cent3 Up/Down"
+  <SLIDER name="cent3 slider" id="77eb6b6e2092a08c" memberName="Cent3"
+          virtualName="" explicitFocusOrder="0" pos="435 218 66 66" tooltip="Cent3 Up/Down"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
-  <SLIDER name="new slider" id="53619e38d7835c9d" memberName="Attack1"
+  <SLIDER name="attack1 slider" id="53619e38d7835c9d" memberName="Attack1"
           virtualName="" explicitFocusOrder="0" pos="30 300 66 66" tooltip="Attack 1"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="40a979315f74e3a" memberName="Attack2" virtualName=""
-          explicitFocusOrder="0" pos="30 365 66 66" tooltip="Attack 2"
+  <SLIDER name="attack2 slider" id="40a979315f74e3a" memberName="Attack2"
+          virtualName="" explicitFocusOrder="0" pos="30 365 66 66" tooltip="Attack 2"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="7e38002dde33164c" memberName="Attack3"
+  <SLIDER name="attack3 slider" id="7e38002dde33164c" memberName="Attack3"
           virtualName="" explicitFocusOrder="0" pos="30 430 66 66" tooltip="Attack 3"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="49642dbf385beee8" memberName="Decay1" virtualName=""
-          explicitFocusOrder="0" pos="90 300 66 66" tooltip="Decay 1" min="0.0"
-          max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+  <SLIDER name="decay1 slider" id="49642dbf385beee8" memberName="Decay1"
+          virtualName="" explicitFocusOrder="0" pos="90 300 66 66" tooltip="Decay 1"
+          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="379b886c43a29254" memberName="Decay2" virtualName=""
-          explicitFocusOrder="0" pos="90 365 66 66" tooltip="Decay 2" min="0.0"
-          max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+  <SLIDER name="decay2 slider" id="379b886c43a29254" memberName="Decay2"
+          virtualName="" explicitFocusOrder="0" pos="90 365 66 66" tooltip="Decay 2"
+          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="ff55788389bcec83" memberName="Decay3" virtualName=""
-          explicitFocusOrder="0" pos="90 430 66 66" tooltip="Decay 3" min="0.0"
-          max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+  <SLIDER name="decay3 slider" id="ff55788389bcec83" memberName="Decay3"
+          virtualName="" explicitFocusOrder="0" pos="90 430 66 66" tooltip="Decay 3"
+          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="2793e34c7a6a6286" memberName="Sustain1"
+  <SLIDER name="sustain1 slider" id="2793e34c7a6a6286" memberName="Sustain1"
           virtualName="" explicitFocusOrder="0" pos="150 300 66 66" tooltip="Sustain 1"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="25e905e8830bd418" memberName="Sustain2"
+  <SLIDER name="sustain2 slider" id="25e905e8830bd418" memberName="Sustain2"
           virtualName="" explicitFocusOrder="0" pos="150 365 66 66" tooltip="Sustain 2"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="740735c3d8776e72" memberName="Sustain3"
+  <SLIDER name="sustain3 slider" id="740735c3d8776e72" memberName="Sustain3"
           virtualName="" explicitFocusOrder="0" pos="150 430 66 66" tooltip="Sustain 3"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="26b01f2c9f0fcbd4" memberName="Release1"
+  <SLIDER name="release1 slider" id="26b01f2c9f0fcbd4" memberName="Release1"
           virtualName="" explicitFocusOrder="0" pos="210 300 66 66" tooltip="Release 1"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="cede2f433ff54882" memberName="Release2"
+  <SLIDER name="release2 slider" id="cede2f433ff54882" memberName="Release2"
           virtualName="" explicitFocusOrder="0" pos="210 365 66 66" tooltip="Release 2"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="a6cb93496f682a4d" memberName="Release3"
+  <SLIDER name="release3 slider" id="a6cb93496f682a4d" memberName="Release3"
           virtualName="" explicitFocusOrder="0" pos="210 430 66 66" tooltip="Release 3"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="a63bd08caa77c655" memberName="Pulsew1"
-          virtualName="" explicitFocusOrder="0" pos="280 300 66 66" tooltip="Pulswidth 1"
+  <SLIDER name="pulsew1 slider" id="a63bd08caa77c655" memberName="Pulsew1"
+          virtualName="" explicitFocusOrder="0" pos="280 300 66 66" tooltip="Pulse width 1"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="c761eb76e90133c8" memberName="Pulsew2"
-          virtualName="" explicitFocusOrder="0" pos="280 365 66 66" tooltip="Pulsewidth 2"
+  <SLIDER name="pulsew2 slider" id="c761eb76e90133c8" memberName="Pulsew2"
+          virtualName="" explicitFocusOrder="0" pos="280 365 66 66" tooltip="Pulse width 2"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="c9edf691a324176f" memberName="Pulsew3"
-          virtualName="" explicitFocusOrder="0" pos="280 430 66 66" tooltip="Pulswidth 3"
+  <SLIDER name="pulsew3 slider" id="c9edf691a324176f" memberName="Pulsew3"
+          virtualName="" explicitFocusOrder="0" pos="280 430 66 66" tooltip="Pulse width 3"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="498d1ccffc218a3e" memberName="Velvol"
-                virtualName="" explicitFocusOrder="0" pos="156 109 66 30" tooltip="maps Velocity to Volume"
-                buttonText="Vel." connectedEdges="0" needsCallback="0" radioGroupId="0"
+  <TOGGLEBUTTON name="Vel2Vol button" id="498d1ccffc218a3e" memberName="Velvol"
+                virtualName="" explicitFocusOrder="0" pos="100 110 66 30" tooltip="maps Velocity to Volume"
+                buttonText="Vel2Vol" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <COMBOBOX name="legatomode" id="185cc42c904fe921" memberName="legatomode"
-            virtualName="" explicitFocusOrder="0" pos="64 209 150 24" tooltip="play mode"
+            virtualName="" explicitFocusOrder="0" pos="30 209 150 24" tooltip="play mode"
             editable="0" layout="33" items="Retrigger&#10;Legato&#10;Last Step"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <COMBOBOX name="noteprioritymode" id="c728000aa37b04a3" memberName="noteprioritymode"
-            virtualName="" explicitFocusOrder="0" pos="64 254 150 24" tooltip="note priority"
+            virtualName="" explicitFocusOrder="0" pos="30 254 150 24" tooltip="note priority"
             editable="0" layout="33" items="Last Note&#10;High Note&#10;Low Note"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <HYPERLINKBUTTON name="new hyperlink" id="27b1f728dfa971d5" memberName="hyperlinkButton"
                    virtualName="" explicitFocusOrder="0" pos="660 500 150 24" tooltip="http://www.crazy-midi.de"
                    textCol="ff008000" buttonText="crazy-midi.de" connectedEdges="0"
                    needsCallback="0" radioGroupId="0" url="http://www.crazy-midi.de"/>
-  <TOGGLEBUTTON name="new toggle button" id="f988e7a5126e5bac" memberName="Filter1"
+  <TOGGLEBUTTON name="Filer1 toggle button" id="f988e7a5126e5bac" memberName="Filter1"
                 virtualName="" explicitFocusOrder="0" pos="710 109 66 30" tooltip="Voice 1 to Filter"
                 buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="e8384ca904cc9cee" memberName="Filter2"
+  <TOGGLEBUTTON name="Filter2 toggle button" id="e8384ca904cc9cee" memberName="Filter2"
                 virtualName="" explicitFocusOrder="0" pos="650 109 66 30" tooltip="Voice 2 to Filter"
                 buttonText="2" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="46436fd7c74f713f" memberName="Filter3off"
+  <TOGGLEBUTTON name="3off toggle button" id="46436fd7c74f713f" memberName="Filter3off"
                 virtualName="" explicitFocusOrder="0" pos="530 159 66 30" tooltip="Mute Voice 3"
                 buttonText="3off" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="15351388c9102c09" memberName="Filter3"
+  <TOGGLEBUTTON name="Filter3 toggle button" id="15351388c9102c09" memberName="Filter3"
                 virtualName="" explicitFocusOrder="0" pos="590 109 66 30" tooltip="Voice 3 to Filter"
                 buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="1a8bcabfd8647671" memberName="Filterin"
+  <TOGGLEBUTTON name="FilterIn toggle button" id="1a8bcabfd8647671" memberName="Filterin"
                 virtualName="" explicitFocusOrder="0" pos="530 109 66 30" tooltip="extern In"
                 buttonText="in" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="fe8269d4b1a9c6e6" memberName="Filterlp"
+  <TOGGLEBUTTON name="lowpass toggle button" id="fe8269d4b1a9c6e6" memberName="Filterlp"
                 virtualName="" explicitFocusOrder="0" pos="710 159 66 30" tooltip="Low Pass"
                 buttonText="LP" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="17b0fa917ff0851e" memberName="Filterhp"
+  <TOGGLEBUTTON name="high pass toggle button" id="17b0fa917ff0851e" memberName="Filterhp"
                 virtualName="" explicitFocusOrder="0" pos="590 159 66 30" tooltip="High Pass"
                 buttonText="HP" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="2bd008bd14ea7c51" memberName="Filterbp"
+  <TOGGLEBUTTON name="band pass toggle button" id="2bd008bd14ea7c51" memberName="Filterbp"
                 virtualName="" explicitFocusOrder="0" pos="650 159 66 30" tooltip="Band Pass"
                 buttonText="BP" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="1f267441a830f9ff" memberName="Filter8580"
-                virtualName="" explicitFocusOrder="0" pos="532 236 90 30" tooltip="scales filterfreq. to 0-71"
-                buttonText="8580" connectedEdges="0" needsCallback="0" radioGroupId="0"
+  <TOGGLEBUTTON name="scale toggle button" id="1f267441a830f9ff" memberName="Filter8580"
+                virtualName="" explicitFocusOrder="0" pos="530 236 90 30" tooltip="scales filterfreq. to 0-71"
+                buttonText="scale" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
-  <SLIDER name="new slider" id="b104465dc77b15ae" memberName="CutOff" virtualName=""
-          explicitFocusOrder="0" pos="632 216 66 66" tooltip="Cutoff" min="0.0"
-          max="2047.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+  <SLIDER name="cutoff slider" id="b104465dc77b15ae" memberName="CutOff"
+          virtualName="" explicitFocusOrder="0" pos="632 216 66 66" tooltip="Cutoff"
+          min="0.0" max="2047.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="new slider" id="b18e0fc28c589ec5" memberName="Resonace"
+  <SLIDER name="resonance slider" id="b18e0fc28c589ec5" memberName="Resonace"
           virtualName="" explicitFocusOrder="0" pos="702 216 66 66" tooltip="Resonance"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="53248eb179f92afc" memberName="Noise1"
+  <TOGGLEBUTTON name="noise1 toggle button" id="53248eb179f92afc" memberName="Noise1"
                 virtualName="" explicitFocusOrder="0" pos="374 319 66 30" buttonText="Noise"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="d83f77113f37d2ea" memberName="Noise2"
+  <TOGGLEBUTTON name="noise2 toggle button" id="d83f77113f37d2ea" memberName="Noise2"
                 virtualName="" explicitFocusOrder="0" pos="373 389 66 30" buttonText="Noise"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="1da77acd9957a585" memberName="Noise3"
+  <TOGGLEBUTTON name="noise3 toggle button" id="1da77acd9957a585" memberName="Noise3"
                 virtualName="" explicitFocusOrder="0" pos="375 459 66 30" buttonText="Noise"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="3bbfb8f7a8ca0db0" memberName="Pulse1"
+  <TOGGLEBUTTON name="pulse1 toggle button" id="3bbfb8f7a8ca0db0" memberName="Pulse1"
                 virtualName="" explicitFocusOrder="0" pos="443 319 66 30" buttonText="Pulse"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="520ab3980bfa9711" memberName="Pulse2"
+  <TOGGLEBUTTON name="pulse2 toggle button" id="520ab3980bfa9711" memberName="Pulse2"
                 virtualName="" explicitFocusOrder="0" pos="443 389 66 30" buttonText="Pulse"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="1dd05bea0d3cdf7d" memberName="Pulse3"
+  <TOGGLEBUTTON name="pulse3 toggle button" id="1dd05bea0d3cdf7d" memberName="Pulse3"
                 virtualName="" explicitFocusOrder="0" pos="443 459 66 30" buttonText="Pulse"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="a48dd1aa6574a3e4" memberName="Saw1"
+  <TOGGLEBUTTON name="saw1 toggle button" id="a48dd1aa6574a3e4" memberName="Saw1"
                 virtualName="" explicitFocusOrder="0" pos="509 319 66 30" buttonText="Saw"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="ae3029edeecd4b14" memberName="Saw2"
+  <TOGGLEBUTTON name="saw2 toggle button" id="ae3029edeecd4b14" memberName="Saw2"
                 virtualName="" explicitFocusOrder="0" pos="509 389 66 30" buttonText="Saw"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="656ce7e680e8573a" memberName="Saw3"
+  <TOGGLEBUTTON name="saw3 toggle button" id="656ce7e680e8573a" memberName="Saw3"
                 virtualName="" explicitFocusOrder="0" pos="509 459 66 30" buttonText="Saw"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="5747f6f8bb660f63" memberName="Tria1"
+  <TOGGLEBUTTON name="tria1 toggle button" id="5747f6f8bb660f63" memberName="Tria1"
                 virtualName="" explicitFocusOrder="0" pos="572 319 66 30" buttonText="Tria"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="cc78b8161478c5a4" memberName="Tria2"
+  <TOGGLEBUTTON name="tria2 toggle button" id="cc78b8161478c5a4" memberName="Tria2"
                 virtualName="" explicitFocusOrder="0" pos="570 390 66 30" buttonText="Tria"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="d9035b35478c1c9b" memberName="Tria3"
+  <TOGGLEBUTTON name="tria3 toggle button" id="d9035b35478c1c9b" memberName="Tria3"
                 virtualName="" explicitFocusOrder="0" pos="572 459 66 30" buttonText="Tria"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="11efaf86d1acf272" memberName="Ringmod1"
+  <TOGGLEBUTTON name="ringmod1 toggle button" id="11efaf86d1acf272" memberName="Ringmod1"
                 virtualName="" explicitFocusOrder="0" pos="629 319 66 30" buttonText="Ringmod"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="9d63104088c0485a" memberName="Ringmod2"
+  <TOGGLEBUTTON name="ringmod2 toggle button" id="9d63104088c0485a" memberName="Ringmod2"
                 virtualName="" explicitFocusOrder="0" pos="629 389 66 30" buttonText="Ringmod"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="a97c9d37cd1a1d18" memberName="Ringmod3"
+  <TOGGLEBUTTON name="ringmod3 toggle button" id="a97c9d37cd1a1d18" memberName="Ringmod3"
                 virtualName="" explicitFocusOrder="0" pos="629 459 66 30" buttonText="Ringmod"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="fb4637c0f86bc855" memberName="Sync1"
+  <TOGGLEBUTTON name="syn1 toggle button" id="fb4637c0f86bc855" memberName="Sync1"
                 virtualName="" explicitFocusOrder="0" pos="705 319 66 30" buttonText="Sync."
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="99a8550e2ad2c6da" memberName="Sync2"
+  <TOGGLEBUTTON name="sync2 toggle button" id="99a8550e2ad2c6da" memberName="Sync2"
                 virtualName="" explicitFocusOrder="0" pos="705 389 66 30" buttonText="Sync."
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="880c3fcf4ab4a1f6" memberName="Sync3"
+  <TOGGLEBUTTON name="sync3 toggle button" id="880c3fcf4ab4a1f6" memberName="Sync3"
                 virtualName="" explicitFocusOrder="0" pos="705 459 66 30" buttonText="Sync."
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="new toggle button" id="883f3d3793f0f11b" memberName="Voice1"
+  <TOGGLEBUTTON name="voice1 toggle button" id="883f3d3793f0f11b" memberName="Voice1"
                 virtualName="" explicitFocusOrder="0" pos="285 105 66 30" tooltip="Voice 1 On/Off"
                 buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
-  <TOGGLEBUTTON name="new toggle button" id="3b39ff7f634b369" memberName="Voice2"
+  <TOGGLEBUTTON name="voice2 toggle button" id="3b39ff7f634b369" memberName="Voice2"
                 virtualName="" explicitFocusOrder="0" pos="285 167 66 30" tooltip="Voice 2 On/Off"
                 buttonText="2" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
-  <TOGGLEBUTTON name="new toggle button" id="62c330b01d3c339c" memberName="Voice3"
+  <TOGGLEBUTTON name="voice3 toggle button" id="62c330b01d3c339c" memberName="Voice3"
                 virtualName="" explicitFocusOrder="0" pos="285 230 66 30" tooltip="Voice 3 On/Off"
                 buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <IMAGEBUTTON name="Power_LED" id="77dead3478e9a659" memberName="Led" virtualName=""
-               explicitFocusOrder="0" pos="710 26 40 40" tooltip="midi-activity and  blinks when error-status"
+               explicitFocusOrder="0" pos="710 30 40 40" tooltip="midi-activity and  blinks when error-status"
                buttonText="" connectedEdges="0" needsCallback="0" radioGroupId="0"
                keepProportions="1" resourceNormal="redledoff_png" opacityNormal="1.0"
                colourNormal="ffffff" resourceOver="redledoff_png" opacityOver="1.0"
                colourOver="ffffff" resourceDown="redledon_png" opacityDown="1.0"
                colourDown="ffffff"/>
   <COMBOBOX name="midichannel" id="62ff9b6ec5b8843e" memberName="midichannel"
-            virtualName="" explicitFocusOrder="0" pos="64 162 150 24" tooltip="MIDI channel"
+            virtualName="" explicitFocusOrder="0" pos="30 162 150 24" tooltip="MIDI channel"
             editable="0" layout="33" items="all&#10;1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10&#10;11&#10;12&#10;13&#10;14&#10;15&#10;16"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
+  <IMAGEBUTTON name="reset button" id="99243fa27f37fff" memberName="reset_button"
+               virtualName="" explicitFocusOrder="0" pos="400 30 138 40" tooltip="click twice for SID reset"
+               buttonText="reset button" connectedEdges="0" needsCallback="0"
+               radioGroupId="0" keepProportions="1" resourceNormal="reset_png"
+               opacityNormal="1.0" colourNormal="0" resourceOver="reset_png"
+               opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
+               colourDown="0"/>
+  <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_buton"
+                virtualName="" explicitFocusOrder="0" pos="190 110 66 30" tooltip="link gui elements"
+                buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -1537,6 +1582,96 @@ static const unsigned char resource_AiassAudioProcessorEditor_aiass_mono_typensc
 
 const char* AiassAudioProcessorEditor::aiass_mono_typenschild_png = (const char*) resource_AiassAudioProcessorEditor_aiass_mono_typenschild_png;
 const int AiassAudioProcessorEditor::aiass_mono_typenschild_pngSize = 6802;
+
+// JUCER_RESOURCE: reset_png, 4767, "../images/reset.png"
+static const unsigned char resource_AiassAudioProcessorEditor_reset_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,138,0,0,0,48,8,6,0,0,0,206,214,226,119,0,0,0,1,115,82,71,66,0,174,206,
+28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,195,0,0,14,195,1,199,111,168,100,0,0,18,52,73,68,65,84,120,94,237,92,9,120,20,85,182,254,107,233,37,221,233,44,36,233,236,
+11,9,73,16,144,85,65,222,176,40,40,62,23,28,28,29,183,225,205,155,209,153,199,12,31,136,136,35,50,15,5,117,192,231,6,184,224,2,46,32,227,8,168,163,207,25,71,36,160,12,178,171,64,64,20,2,132,108,157,181,
+147,116,119,150,94,171,234,157,123,187,147,9,16,37,194,251,76,131,253,231,59,233,234,170,91,183,110,221,251,223,243,159,115,187,186,17,65,4,61,129,16,122,61,107,212,191,184,196,165,84,86,88,4,85,225,239,
+61,91,139,224,175,169,162,173,115,174,58,130,179,130,10,93,106,54,162,198,78,224,239,52,73,15,185,176,208,158,248,159,211,146,248,142,179,196,89,141,102,221,139,75,29,90,121,105,108,219,182,77,80,108,
+85,188,18,69,208,224,86,5,184,21,1,126,106,172,170,105,193,194,17,252,160,16,5,1,58,136,48,74,26,76,162,6,153,198,132,141,132,156,158,14,195,229,147,144,182,232,217,179,26,243,239,117,82,195,250,55,218,
+28,207,60,110,10,16,57,32,40,112,4,4,84,5,2,176,169,42,92,126,21,94,94,29,145,132,94,132,179,227,96,4,231,8,141,254,36,141,145,67,64,20,77,222,24,89,66,134,36,34,67,214,33,86,84,136,48,57,48,141,189,2,
+169,255,243,220,247,26,160,30,23,174,154,55,75,107,223,186,9,30,91,5,202,136,28,165,94,21,118,149,53,135,42,33,202,106,244,79,213,27,17,147,148,140,232,184,88,232,204,209,16,37,41,66,151,31,8,204,107,
+168,138,130,64,123,27,90,29,78,184,26,234,32,120,221,52,105,5,144,99,129,168,2,137,178,128,66,189,132,52,157,12,61,121,24,211,184,171,144,241,88,207,60,204,25,11,53,188,177,194,99,127,121,153,65,169,170,
+66,21,121,142,175,220,62,184,152,203,32,8,212,136,132,190,121,72,25,50,4,214,254,131,16,151,154,14,65,150,73,134,190,7,3,35,248,127,5,35,12,169,14,52,154,204,174,186,26,212,31,57,132,154,3,197,104,60,
+118,20,42,141,31,131,149,198,109,144,73,135,68,38,77,25,89,232,191,253,235,51,14,215,119,22,168,125,97,169,226,88,243,146,216,82,93,133,131,30,13,149,196,88,141,36,71,150,140,72,31,49,18,57,99,198,193,
+156,96,165,125,161,19,34,8,75,48,143,223,234,176,163,98,199,54,84,237,222,13,213,239,161,125,26,242,117,2,242,13,58,152,211,178,16,63,109,150,63,249,87,211,244,161,83,78,195,183,14,113,205,115,79,41,13,
+107,87,138,206,74,27,246,182,43,112,105,42,191,96,98,255,1,232,119,213,36,24,99,226,200,173,73,20,54,5,179,157,8,194,24,52,110,124,172,52,146,166,214,54,148,124,178,17,117,95,21,115,239,147,40,2,195,163,
+244,48,103,166,194,122,231,61,254,228,187,166,119,75,150,110,137,98,123,105,169,210,252,198,203,98,67,21,145,132,164,198,75,82,35,24,244,200,27,63,1,9,68,148,8,206,127,56,143,149,160,100,115,17,84,138,
+99,98,73,138,134,154,100,196,100,100,34,105,250,125,222,148,169,191,49,134,138,117,226,52,162,212,172,91,227,174,91,246,168,209,89,85,131,253,68,146,118,114,35,146,209,132,126,19,39,33,42,49,145,78,136,
+232,204,133,0,150,29,249,154,155,113,172,168,8,190,246,22,196,8,34,134,69,137,48,165,103,96,232,206,35,167,13,242,105,59,246,94,86,160,185,171,107,112,192,227,67,171,66,238,138,162,228,156,177,227,161,
+143,235,19,161,200,5,6,38,61,254,22,39,78,124,182,5,154,219,139,4,138,130,11,141,58,24,211,50,49,124,215,55,39,13,247,73,111,74,254,120,183,102,255,243,107,40,245,107,168,165,168,153,33,121,200,112,152,
+146,172,17,146,92,136,96,76,33,197,240,54,54,161,122,223,94,122,175,33,71,47,32,85,22,145,116,231,239,213,252,133,79,74,193,130,167,16,229,139,81,253,53,123,85,37,142,120,85,202,100,84,24,19,83,16,159,
+155,71,245,69,4,231,194,134,6,103,121,5,220,181,54,176,69,151,193,122,25,166,204,12,140,218,121,184,115,216,59,55,14,207,155,169,213,146,55,41,243,41,112,104,34,68,98,90,92,191,124,8,146,46,84,34,130,
+11,25,130,162,160,241,248,49,122,13,32,158,252,72,6,91,152,155,250,91,20,46,94,198,57,210,73,148,157,163,46,210,26,171,42,80,230,15,166,187,178,217,2,93,124,60,165,191,204,63,69,112,161,131,169,134,223,
+225,128,191,213,197,73,209,207,32,32,38,45,27,163,119,7,189,10,255,119,104,193,92,165,246,213,231,197,26,63,200,155,4,137,98,48,69,65,208,25,73,194,212,83,4,42,130,11,14,228,11,52,202,122,16,240,194,211,
+214,206,119,89,37,137,7,183,25,115,30,108,43,156,61,47,58,72,148,185,51,181,202,55,87,195,230,245,193,31,34,133,32,210,137,17,252,232,160,133,150,249,201,161,32,85,39,35,235,23,191,198,128,199,159,19,
+56,45,254,57,114,144,230,180,157,64,45,201,142,22,220,197,87,97,67,156,137,224,71,2,22,100,116,124,28,35,64,225,68,177,164,101,225,242,61,135,5,161,108,237,154,154,175,238,155,150,226,9,8,104,102,203,
+244,17,122,252,232,17,140,74,53,244,161,160,214,72,142,227,58,91,187,32,124,253,244,34,207,241,165,139,12,109,20,154,184,89,56,18,249,132,47,2,2,123,108,196,36,171,48,83,236,114,209,19,47,212,139,158,
+230,38,131,166,8,96,202,36,10,42,52,202,163,35,22,49,182,60,162,146,107,81,232,159,167,169,81,47,130,242,103,133,197,173,26,37,72,228,102,116,36,61,225,96,114,55,251,186,218,153,142,71,236,220,140,113,
+129,129,61,91,164,122,189,58,246,224,19,133,45,65,85,146,184,244,176,199,9,122,219,20,72,68,94,201,104,128,108,50,158,100,162,81,7,153,50,50,73,96,105,124,160,155,115,123,215,68,106,151,68,61,42,81,159,
+178,53,168,238,202,156,15,38,49,119,194,238,64,149,16,240,121,204,194,231,15,204,210,202,222,88,129,64,152,197,38,166,126,185,24,253,232,82,200,150,232,208,30,230,244,52,40,237,94,180,86,149,163,122,75,
+17,106,54,111,228,143,254,133,19,204,233,25,232,51,98,52,84,73,131,251,120,41,154,14,178,207,80,66,7,207,67,232,136,23,125,103,206,134,176,251,129,123,180,210,213,43,104,6,16,147,66,238,38,28,16,55,104,
+24,46,95,255,55,72,177,125,120,63,51,150,119,128,17,70,245,120,80,186,230,53,20,63,182,0,154,223,123,206,43,200,29,181,159,105,245,232,76,229,210,38,223,132,81,203,86,242,190,60,241,230,235,216,251,208,
+28,222,222,243,109,85,138,221,39,107,55,107,121,254,140,123,33,242,55,100,236,198,194,201,24,58,134,94,115,123,80,251,73,17,170,55,110,64,91,233,113,126,19,236,25,153,172,155,111,65,124,94,1,149,39,34,
+157,114,62,55,146,40,110,221,29,235,106,84,134,61,8,46,246,160,44,43,195,31,26,239,166,44,253,131,40,83,61,100,208,201,208,72,63,123,116,253,48,54,206,13,246,183,107,238,61,218,241,85,43,161,167,104,133,
+5,136,106,56,80,159,24,18,119,241,197,24,187,238,99,200,49,177,240,54,212,224,147,27,38,192,95,87,131,168,220,2,140,125,227,109,24,210,179,1,191,31,187,167,221,129,234,143,63,162,150,179,27,162,177,146,
+13,136,27,50,12,41,151,79,132,41,43,135,162,118,5,109,7,15,162,114,227,135,112,87,151,145,230,82,25,86,142,58,64,151,156,140,244,43,175,69,236,208,97,208,69,199,243,103,50,218,171,202,224,60,84,140,154,
+29,159,2,45,173,124,70,105,212,39,166,244,76,36,83,217,132,129,131,0,163,30,110,91,37,234,54,21,193,190,255,11,8,1,31,4,73,143,180,107,175,71,234,164,235,145,62,229,22,190,36,238,252,98,39,170,55,252,
+157,119,182,235,155,131,176,111,221,18,140,7,131,243,32,172,193,22,92,3,212,86,47,17,226,162,89,247,65,216,65,68,57,186,106,5,204,52,9,24,81,120,33,254,191,119,97,25,124,49,198,172,221,240,47,162,92,51,
+30,254,90,27,244,230,24,92,182,246,175,136,29,62,26,154,207,135,61,191,189,29,245,155,54,50,215,72,163,105,68,254,239,103,161,239,175,127,7,125,12,73,22,155,21,84,151,170,249,209,118,236,8,246,255,241,
+94,52,239,222,197,247,233,147,172,184,244,185,149,136,27,61,134,2,80,29,95,55,232,152,65,129,246,86,236,186,117,50,154,247,127,73,251,68,196,95,49,17,67,22,44,134,57,59,159,123,20,6,18,106,40,174,38,148,
+44,95,134,19,175,44,231,159,178,143,92,179,30,137,151,141,227,189,204,206,35,150,242,178,172,206,242,181,107,112,104,238,221,156,40,225,206,19,230,201,153,249,232,46,217,151,250,6,207,91,224,16,5,202,
+44,184,30,81,235,217,58,10,203,159,133,48,48,114,216,156,213,29,205,54,152,204,208,91,44,48,13,30,66,1,99,14,4,85,37,15,83,75,82,116,52,216,110,202,253,51,174,255,25,10,126,119,15,244,241,9,240,80,192,
+123,108,229,179,168,88,187,10,106,155,27,150,194,65,24,246,208,98,24,173,73,148,49,9,72,30,55,1,241,35,199,208,85,36,216,63,219,132,99,75,158,192,241,229,75,209,64,18,167,53,53,81,125,36,47,84,111,116,
+118,54,134,47,124,2,209,185,133,148,38,182,163,250,221,245,188,92,219,137,18,34,113,60,46,186,123,14,82,198,95,73,253,167,34,80,81,14,31,145,153,145,129,145,195,231,112,16,65,143,82,80,123,12,129,250,
+106,242,76,204,157,119,127,191,225,100,140,3,58,222,247,34,20,34,6,147,121,49,42,41,197,197,110,140,125,231,131,13,14,251,150,153,28,6,198,102,55,3,11,167,116,177,137,184,116,249,43,24,181,238,3,140,126,
+97,53,100,107,50,124,77,13,56,254,226,18,4,202,203,105,6,139,148,58,155,145,117,219,237,16,76,209,80,90,91,80,60,127,54,74,23,207,199,145,249,115,80,181,254,45,146,28,13,81,3,134,194,58,126,2,159,209,
+230,148,20,138,35,244,228,149,60,56,178,114,57,142,190,240,4,74,30,127,24,95,146,148,237,184,253,6,180,210,224,202,130,132,228,127,191,30,198,236,92,78,90,219,91,107,80,252,223,51,80,242,228,35,56,52,
+255,126,40,158,118,8,230,88,100,222,54,21,178,162,208,53,231,224,240,147,127,130,236,231,189,140,186,13,239,97,219,79,199,99,235,13,227,112,236,185,167,33,83,31,119,119,175,225,104,172,255,249,247,128,
+72,171,205,105,25,45,226,208,25,179,99,105,63,252,36,196,236,123,125,82,136,81,189,109,18,205,72,54,163,69,34,129,100,208,35,102,240,48,196,15,30,1,41,41,137,92,186,31,181,255,248,27,108,239,172,35,207,
+18,128,158,110,38,42,49,25,150,236,66,162,21,201,130,215,141,196,81,63,65,223,233,179,145,61,109,58,116,105,86,126,227,146,78,135,196,161,35,137,0,128,183,182,142,199,56,162,222,132,17,139,150,98,196,
+179,175,162,96,206,124,164,142,187,26,106,107,27,4,87,35,100,145,149,31,65,193,43,197,41,84,177,174,79,2,250,221,57,3,253,168,222,196,177,227,233,66,10,79,127,44,249,3,160,179,196,65,160,76,76,32,57,164,
+70,83,79,82,251,253,1,128,210,119,129,76,100,153,25,187,175,83,238,51,156,205,75,125,105,201,204,66,191,201,55,102,113,193,141,74,207,130,91,83,120,103,134,141,177,134,209,43,251,178,59,147,142,154,183,
+223,130,253,163,255,133,234,116,82,202,163,67,218,77,183,33,227,150,59,58,179,10,201,28,77,102,14,110,39,36,35,111,250,125,40,184,127,1,242,239,127,20,105,87,79,225,117,49,232,227,173,116,190,0,251,246,
+79,224,220,185,149,194,136,0,12,20,244,38,95,51,5,121,51,231,96,240,75,175,99,228,234,181,176,12,26,14,145,125,245,210,146,192,207,19,232,156,212,159,222,66,245,61,68,245,62,132,220,105,179,33,71,199,
+242,99,162,201,64,68,33,247,204,218,29,186,14,3,219,238,216,119,190,25,91,173,247,17,39,82,175,184,138,223,11,127,120,118,214,212,219,23,214,237,223,11,11,233,178,158,175,243,243,73,209,171,22,101,77,
+69,218,205,191,128,104,136,130,223,97,199,129,153,191,65,205,95,223,130,226,243,162,15,5,140,162,209,72,113,67,30,26,55,125,4,205,233,130,20,23,131,244,155,166,66,32,61,13,52,213,195,246,151,215,208,180,
+99,59,156,123,182,193,249,249,14,56,41,136,117,238,222,142,230,61,59,224,57,242,13,208,214,130,186,173,159,192,83,242,13,149,111,36,25,105,37,254,25,33,91,98,161,79,77,167,24,69,128,99,203,102,36,144,
+244,152,242,242,41,5,80,81,255,225,123,176,23,125,4,199,231,59,169,206,109,112,236,217,78,182,11,174,221,84,255,151,148,253,120,219,96,41,24,128,164,107,38,51,53,132,171,184,24,77,159,110,36,201,97,234,
+24,30,253,218,83,115,147,179,108,33,185,78,188,100,52,86,109,219,249,48,247,40,134,244,172,182,0,249,80,87,232,55,78,194,5,212,222,78,136,170,159,40,238,134,253,237,181,104,63,124,144,98,6,210,210,172,
+44,164,220,112,51,29,36,53,106,172,167,64,178,58,88,150,102,68,253,251,239,162,252,169,5,56,241,228,163,40,123,234,79,56,177,116,17,106,215,173,129,147,210,94,129,234,146,163,162,33,180,182,162,254,189,
+181,20,199,204,194,190,95,222,136,253,211,239,128,223,213,192,131,123,75,78,30,15,62,221,71,15,147,196,80,162,72,117,186,191,62,128,242,165,139,113,226,137,71,120,157,204,170,87,60,79,228,249,16,26,73,
+21,255,60,36,160,208,43,19,64,137,188,76,44,151,59,214,243,108,150,158,79,96,92,136,202,236,139,241,143,45,225,13,231,30,229,149,13,69,139,111,43,204,93,216,226,112,34,65,71,129,33,233,19,187,177,174,
+12,251,161,77,111,77,33,143,242,31,16,12,6,40,148,174,86,175,125,157,188,64,59,5,23,237,20,129,155,17,55,118,28,36,81,15,99,98,34,26,55,124,64,146,212,76,231,36,35,238,210,209,20,208,154,16,91,112,17,
+20,175,15,250,62,73,136,165,56,35,99,234,93,232,123,207,60,184,14,21,195,87,89,6,235,213,215,34,111,238,67,144,19,18,161,143,142,129,41,57,29,49,63,25,143,248,209,99,73,114,244,104,249,106,63,26,255,254,
+62,252,237,46,36,95,117,29,5,173,22,68,247,31,0,69,210,32,27,140,176,244,235,143,164,201,55,34,247,15,243,96,74,74,71,243,214,141,156,217,44,240,182,78,185,9,170,94,135,168,20,43,162,7,14,129,117,236,
+68,34,178,29,190,186,234,110,239,53,156,140,101,132,236,231,75,106,40,212,202,191,241,231,88,189,99,207,195,140,35,220,163,48,100,94,55,69,245,81,64,107,247,243,100,153,127,35,94,238,69,99,68,165,151,
+78,176,53,30,246,161,37,155,238,141,20,171,4,42,43,169,144,6,99,223,124,196,77,152,68,71,85,212,172,126,5,142,205,255,128,66,25,136,137,92,102,255,167,95,194,224,85,235,80,248,204,171,176,254,242,46,232,
+82,40,53,166,217,78,42,0,24,163,16,63,102,34,242,30,92,140,1,175,190,133,129,175,189,131,188,25,115,73,234,76,80,154,155,209,244,254,59,20,192,122,224,41,222,139,242,151,151,65,105,105,132,68,1,115,254,
+31,30,193,160,215,215,161,255,202,55,209,247,222,7,97,30,56,28,26,95,131,162,160,155,234,117,31,61,132,182,253,95,240,235,200,113,73,176,94,247,51,88,111,190,29,198,220,92,62,16,76,134,186,187,223,112,
+48,214,126,22,181,55,248,84,24,178,51,145,52,98,148,135,245,61,3,247,40,12,171,183,110,127,228,230,194,156,133,205,205,14,244,145,101,24,200,181,179,116,185,183,76,142,50,194,152,156,10,79,69,25,124,71,
+14,193,190,165,8,34,197,17,124,218,82,22,161,177,135,192,41,195,240,149,149,82,140,226,64,235,190,47,200,243,180,192,177,109,11,252,52,115,245,34,95,103,230,203,255,254,202,10,184,62,219,138,218,85,43,
+224,216,177,149,178,29,242,76,30,31,101,37,36,103,94,15,68,146,11,182,120,231,39,249,114,237,218,142,170,103,30,67,243,167,27,248,130,25,27,112,215,87,251,224,57,88,76,228,37,50,80,28,39,122,252,80,236,
+117,104,37,66,212,189,251,23,52,188,179,6,106,83,51,79,161,5,175,31,205,95,238,2,28,205,8,212,215,193,91,126,12,238,227,37,104,249,236,159,240,84,149,241,229,135,238,238,55,92,172,133,172,130,250,165,
+224,198,91,241,111,115,30,232,252,174,14,245,250,191,240,229,170,149,158,207,159,121,202,32,217,202,49,208,72,29,205,24,214,75,96,193,160,38,235,248,243,16,92,243,3,62,150,112,146,55,32,189,167,227,10,
+229,184,146,160,227,191,238,196,82,87,182,140,206,192,127,56,134,109,144,235,151,244,122,58,32,65,243,123,160,82,170,170,41,62,170,139,78,224,222,138,166,54,27,116,89,15,205,160,227,75,255,170,143,165,
+183,126,42,203,156,111,135,179,13,118,2,91,80,19,37,61,151,66,86,86,243,83,123,88,157,236,186,236,75,252,140,148,188,28,107,101,48,112,13,80,251,249,10,45,3,121,106,65,99,143,69,176,214,135,39,88,132,
+90,236,13,64,166,44,120,218,190,146,147,26,122,90,171,63,158,51,67,219,191,122,5,50,245,50,242,100,246,84,5,139,87,66,7,123,1,172,243,249,229,59,55,130,96,228,224,160,125,156,208,161,99,157,187,105,163,
+99,187,227,24,223,215,81,158,192,94,58,170,228,187,216,27,218,232,216,119,242,193,224,185,193,13,50,218,238,122,93,142,80,57,6,126,157,208,54,3,39,115,215,29,225,4,106,27,11,214,15,81,76,103,167,236,110,
+216,127,205,84,39,45,94,210,169,54,12,221,54,253,249,33,185,90,171,173,26,5,52,43,179,228,111,41,20,193,121,143,46,188,70,9,121,199,19,228,245,226,51,178,48,125,255,209,211,134,252,91,57,240,236,144,60,
+173,217,86,137,193,148,222,229,80,38,196,92,106,4,23,14,216,104,178,193,103,227,122,196,163,161,212,167,32,54,51,27,51,139,79,150,156,14,124,167,179,96,100,113,84,217,208,151,136,50,192,64,122,78,165,
+121,230,17,193,5,1,55,165,127,7,221,10,108,148,37,198,101,230,96,214,41,113,73,87,124,39,81,24,158,30,76,100,33,207,210,71,20,113,9,5,184,49,36,69,124,97,233,140,103,70,16,174,96,241,124,189,95,196,129,
+118,31,156,20,132,199,101,100,226,222,3,199,191,115,68,123,52,220,31,80,128,123,116,211,70,184,42,75,145,67,153,196,64,242,46,38,30,204,119,200,17,171,166,235,54,67,68,170,122,7,167,246,127,215,247,2,
+156,148,242,31,242,144,23,161,120,36,38,43,27,5,215,222,160,78,126,236,233,147,2,215,238,208,35,162,48,236,123,119,125,235,166,71,230,155,155,170,74,249,227,252,169,58,9,249,148,21,37,83,122,25,252,193,
+191,208,66,86,40,173,100,191,30,25,193,15,15,129,173,254,133,192,151,22,40,221,242,81,138,94,231,11,224,104,64,225,95,27,102,207,216,244,159,48,9,83,150,44,239,241,248,247,184,96,7,62,90,180,176,221,99,
+175,139,42,217,188,25,14,34,13,251,200,62,69,212,33,129,54,44,164,73,81,36,81,70,246,236,96,144,53,17,252,208,32,93,241,8,42,218,168,251,93,196,148,70,74,119,237,1,31,188,52,46,241,233,125,145,63,241,
+74,100,95,54,166,253,146,91,239,48,135,206,232,17,190,55,81,186,226,29,146,36,145,2,161,35,155,139,208,100,171,224,129,46,211,63,134,72,146,212,59,232,88,235,233,120,141,207,200,64,225,196,171,1,89,135,
+155,158,60,187,223,193,103,56,39,162,116,197,103,175,190,92,239,176,85,196,248,93,45,134,224,147,81,17,166,244,10,4,1,146,36,193,24,27,235,142,207,201,117,94,54,245,87,169,161,35,231,0,224,255,0,27,187,
+71,175,237,76,220,236,0,0,0,0,73,69,78,68,174,66,96,130,0,0};
+
+const char* AiassAudioProcessorEditor::reset_png = (const char*) resource_AiassAudioProcessorEditor_reset_png;
+const int AiassAudioProcessorEditor::reset_pngSize = 4767;
 
 
 //[EndFile] You can add extra defines here...

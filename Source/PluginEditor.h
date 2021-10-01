@@ -80,6 +80,8 @@ public:
     static const int aiasshintergrund_pngSize;
     static const char* aiass_mono_typenschild_png;
     static const int aiass_mono_typenschild_pngSize;
+    static const char* reset_png;
+    static const int reset_pngSize;
 
 
 private:
@@ -163,11 +165,11 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<juce::GroupComponent> groupComponent5;
-    std::unique_ptr<juce::GroupComponent> groupComponent4;
-    std::unique_ptr<juce::GroupComponent> groupComponent2;
-    std::unique_ptr<juce::GroupComponent> groupComponent;
-    std::unique_ptr<juce::GroupComponent> groupComponent3;
+    std::unique_ptr<juce::GroupComponent> controlgroup;
+    std::unique_ptr<juce::GroupComponent> waveformgroup;
+    std::unique_ptr<juce::GroupComponent> tonegroup;
+    std::unique_ptr<juce::GroupComponent> soundgroup;
+    std::unique_ptr<juce::GroupComponent> filtergroup;
     std::unique_ptr<juce::Slider> sidvolume;
     std::unique_ptr<juce::Slider> Octave1;
     std::unique_ptr<juce::Slider> Octave2;
@@ -231,6 +233,8 @@ private:
     std::unique_ptr<juce::ToggleButton> Voice3;
     std::unique_ptr<juce::ImageButton> Led;
     std::unique_ptr<juce::ComboBox> midichannel;
+    std::unique_ptr<juce::ImageButton> reset_button;
+    std::unique_ptr<juce::ToggleButton> link_buton;
     juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
 
