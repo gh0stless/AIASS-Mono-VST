@@ -38,8 +38,9 @@
     <VS2019 targetFolder="VisualStudio2019" windowsTargetPlatformVersion="10.0.16299.0"
             toolset="v140">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" binaryPath="build\x64\debug"/>
-        <CONFIGURATION isDebug="0" name="Release" binaryPath="build\x64\release"/>
+        <CONFIGURATION isDebug="1" name="Debug" binaryPath="Builds\Windows\Debug"/>
+        <CONFIGURATION isDebug="0" name="Release" binaryPath="Builds\Windows\Release"
+                       postbuildCommand="xcopy /Q /Y &quot;$(TargetDir)$(TargetName).*&quot;  &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\&quot;&#10;del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\*.exp&quot;&#10;del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\*.lib&quot;"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_video"/>
