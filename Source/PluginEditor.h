@@ -234,7 +234,7 @@ private:
     std::unique_ptr<juce::ImageButton> Led;
     std::unique_ptr<juce::ComboBox> midichannel;
     std::unique_ptr<juce::ImageButton> reset_button;
-    std::unique_ptr<juce::ToggleButton> link_buton;
+    std::unique_ptr<juce::ToggleButton> link_button;
     juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
 

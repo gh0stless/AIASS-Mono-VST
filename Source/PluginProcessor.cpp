@@ -1114,13 +1114,13 @@
 										isPlaying = m;
 										noteOn(m, true);
 										break;
-									case LastStep:
-										isPlaying = m;
-										noteOn(m, true);
-										break;
 									case Legato:
 										isPlaying = m;
 										noteOn(m, false);
+										break;
+									case LastStep:
+										isPlaying = m;
+										noteOn(m, true);
 										break;
 								}
 								break;
@@ -1135,18 +1135,18 @@
 											noteOn(MIDImsgWithLowestNote, true);
 										}
 										break;
-									case LastStep:
-										if (lowestNote >= m.getNoteNumber())
-										{
-											isPlaying = MIDImsgWithLowestNote;
-											noteOn(MIDImsgWithLowestNote, true);
-										}
-										break;
 									case Legato:
 										if (lowestNote >= m.getNoteNumber())
 										{
 											isPlaying = MIDImsgWithLowestNote;
 											noteOn(MIDImsgWithLowestNote, false);
+										}
+										break;
+									case LastStep:
+										if (lowestNote >= m.getNoteNumber())
+										{
+											isPlaying = MIDImsgWithLowestNote;
+											noteOn(MIDImsgWithLowestNote, true);
 										}
 										break;
 								}
@@ -1162,18 +1162,18 @@
 											noteOn(MIDImsgWithHighestNote, true);
 										}
 										break;
-									case LastStep:
-										if (highestNote <= m.getNoteNumber())
-										{
-											isPlaying = MIDImsgWithHighestNote;
-											noteOn(MIDImsgWithHighestNote, true);
-										}
-										break;
 									case Legato:
 										if (highestNote <= m.getNoteNumber())
 										{
 											isPlaying = MIDImsgWithHighestNote;
 											noteOn(MIDImsgWithHighestNote, false);
+										}
+										break;
+									case LastStep:
+										if (highestNote <= m.getNoteNumber())
+										{
+											isPlaying = MIDImsgWithHighestNote;
+											noteOn(MIDImsgWithHighestNote, true);
 										}
 										break;
 								}
@@ -1221,19 +1221,19 @@
 									{
 										case Retrigger:
 											noteOff(m);
-											isPlaying = NULL;
 											heldNotesList.remove(j);
 											noteOn(heldNotesList.getLast(), true);
 											isPlaying = heldNotesList.getLast();
 											break;
 										case LastStep:
 											heldNotesList.remove(j);
-											noteOn(heldNotesList.getLast(), true);
+											noteOn(heldNotesList.getLast(), false);
 											isPlaying = heldNotesList.getLast();
 											break;
 										case Legato:
+											noteOff(m);
 											heldNotesList.remove(j);
-											noteOn(heldNotesList.getLast(), false);
+											noteOn(heldNotesList.getLast(), true);
 											isPlaying = heldNotesList.getLast();
 											break;
 									}
@@ -1249,12 +1249,13 @@
 											break;
 										case LastStep:
 											heldNotesList.remove(j);
-											noteOn(MIDImsgWithLowestNote, true);
+											noteOn(MIDImsgWithLowestNote, false);
 											isPlaying = MIDImsgWithLowestNote;
 											break;
 										case Legato:
+											noteOff(isPlaying);
 											heldNotesList.remove(j);
-											noteOn(MIDImsgWithLowestNote, false);
+											noteOn(MIDImsgWithLowestNote, true);
 											isPlaying = MIDImsgWithLowestNote;
 											break;
 									}
@@ -1270,12 +1271,13 @@
 											break;
 										case LastStep:
 											heldNotesList.remove(j);
-											noteOn(MIDImsgWithHighestNote, true);
+											noteOn(MIDImsgWithHighestNote, false);
 											isPlaying = MIDImsgWithHighestNote;
 											break;
 										case Legato:
+											noteOff(isPlaying);
 											heldNotesList.remove(j);
-											noteOn(MIDImsgWithHighestNote, false);
+											noteOn(MIDImsgWithHighestNote, true);
 											isPlaying = MIDImsgWithHighestNote;
 											break;
 									}

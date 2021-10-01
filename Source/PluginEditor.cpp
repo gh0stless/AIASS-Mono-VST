@@ -610,12 +610,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
     reset_button->setBounds (400, 30, 138, 40);
 
-    link_buton.reset (new juce::ToggleButton ("link button"));
-    addAndMakeVisible (link_buton.get());
-    link_buton->setTooltip (TRANS("link gui elements"));
-    link_buton->setButtonText (TRANS("link"));
+    link_button.reset (new juce::ToggleButton ("link button"));
+    addAndMakeVisible (link_button.get());
+    link_button->setTooltip (TRANS("link gui elements"));
+    link_button->setButtonText (TRANS("link"));
 
-    link_buton->setBounds (190, 110, 66, 30);
+    link_button->setBounds (190, 110, 66, 30);
 
     cachedImage_aiasshintergrund_png_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png, aiasshintergrund_pngSize);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
@@ -627,6 +627,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	legatomode->setEnabled(true);
 	noteprioritymode->setEnabled(true);
     midichannel->setEnabled(true);
+    link_button->setEnabled(false);
+    reset_button->setEnabled(false);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
@@ -851,7 +853,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Led = nullptr;
     midichannel = nullptr;
     reset_button = nullptr;
-    link_buton = nullptr;
+    link_button = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -891,7 +893,7 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
 
     {
         int x = 353, y = 49, width = 40, height = 20;
-        juce::String text (TRANS("v. 0.5"));
+        juce::String text (TRANS("v. 0.4"));
         juce::Colour fillColour = juce::Colours::black;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
@@ -986,7 +988,7 @@ BEGIN_JUCER_METADATA
            mode="0"/>
     <IMAGE pos="25 29 315 41" resource="aiass_mono_typenschild_png" opacity="1.0"
            mode="0"/>
-    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.5"
+    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.4"
           fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
           italic="0" justification="36"/>
   </BACKGROUND>
@@ -1272,7 +1274,7 @@ BEGIN_JUCER_METADATA
                opacityNormal="1.0" colourNormal="0" resourceOver="reset_png"
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
-  <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_buton"
+  <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_button"
                 virtualName="" explicitFocusOrder="0" pos="190 110 66 30" tooltip="link gui elements"
                 buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
