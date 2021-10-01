@@ -1086,60 +1086,99 @@
 					MidiMessage MIDImsgWithLowestNote = NULL;
 					MidiMessage MIDImsgWithHighestNote = NULL;
 					heldNotesList.add(m);  //add held notes to a Juce Array so we can use for note memory, arpeggiator or other 
-					//noteOn(m);
-					switch (NOTEPRIORITYMODE)
+					for (int j = 0; j < heldNotesList.size(); ++j)
 					{
-						case LastNote:
-							isPlaying = m;
-							noteOn(m);
-							break;
-						case LowNote:
-							for (int j = 0; j < heldNotesList.size(); ++j)
-							{
-								if (heldNotesList[j].getNoteNumber() < lowestNote) {
-									lowestNote = heldNotesList[j].getNoteNumber();
-									MIDImsgWithLowestNote = heldNotesList[j];
-								}
-							}
-							if (heldNotesList.size() == 1)
-							{
-								isPlaying = m;
-								noteOn(m);
-							}
-							if (heldNotesList.size() > 1)
-							{
-								if (lowestNote >= m.getNoteNumber())
+						if (heldNotesList[j].getNoteNumber() < lowestNote) {
+							lowestNote = heldNotesList[j].getNoteNumber();
+							MIDImsgWithLowestNote = heldNotesList[j];
+						}
+						if (heldNotesList[j].getNoteNumber() > highestNote) {
+							highestNote = heldNotesList[j].getNoteNumber();
+							MIDImsgWithHighestNote = heldNotesList[j];
+						}
+					}
+					if (heldNotesList.size() == 1)
+					{
+						isPlaying = m;
+						noteOn(m, true);
+					}
+					else
+					{
+						switch (NOTEPRIORITYMODE)
+						{
+							case LastNote:
+								switch (LEGATOMODE)
 								{
-									noteOff(isPlaying);
-									isPlaying = MIDImsgWithLowestNote;
-									noteOn(MIDImsgWithLowestNote);
+									case Retrigger:
+										noteOff(isPlaying);
+										isPlaying = m;
+										noteOn(m, true);
+										break;
+									case LastStep:
+										isPlaying = m;
+										noteOn(m, true);
+										break;
+									case Legato:
+										isPlaying = m;
+										noteOn(m, false);
+										break;
 								}
-							}
-
-							break;
-						case HighNote:
-							for (int j = 0; j < heldNotesList.size(); ++j)
-							{
-								if (heldNotesList[j].getNoteNumber() > highestNote) {
-									highestNote = heldNotesList[j].getNoteNumber();
-									MIDImsgWithHighestNote = heldNotesList[j];
-								}
-							}
-							if (heldNotesList.size() == 1)
-							{
-								isPlaying = m;
-								noteOn(m);
-							}
-							if (heldNotesList.size() > 1)
-							{
-								if (highestNote <= m.getNoteNumber())
+								break;
+							case LowNote:
+								switch (LEGATOMODE)
 								{
-									noteOff(isPlaying);
-									isPlaying = MIDImsgWithHighestNote;
-									noteOn(MIDImsgWithHighestNote);
+									case Retrigger:
+										if (lowestNote >= m.getNoteNumber())
+										{
+											noteOff(isPlaying);
+											isPlaying = MIDImsgWithLowestNote;
+											noteOn(MIDImsgWithLowestNote, true);
+										}
+										break;
+									case LastStep:
+										if (lowestNote >= m.getNoteNumber())
+										{
+											isPlaying = MIDImsgWithLowestNote;
+											noteOn(MIDImsgWithLowestNote, true);
+										}
+										break;
+									case Legato:
+										if (lowestNote >= m.getNoteNumber())
+										{
+											isPlaying = MIDImsgWithLowestNote;
+											noteOn(MIDImsgWithLowestNote, false);
+										}
+										break;
 								}
-							}
-							break;
+								break;
+							case HighNote:
+								switch (LEGATOMODE)
+								{
+									case Retrigger:
+										if (highestNote <= m.getNoteNumber())
+										{
+											noteOff(isPlaying);
+											isPlaying = MIDImsgWithHighestNote;
+											noteOn(MIDImsgWithHighestNote, true);
+										}
+										break;
+									case LastStep:
+										if (highestNote <= m.getNoteNumber())
+										{
+											isPlaying = MIDImsgWithHighestNote;
+											noteOn(MIDImsgWithHighestNote, true);
+										}
+										break;
+									case Legato:
+										if (highestNote <= m.getNoteNumber())
+										{
+											isPlaying = MIDImsgWithHighestNote;
+											noteOn(MIDImsgWithHighestNote, false);
+										}
+										break;
+								}
+								break;
+						}
 					}
 				}
 			}
@@ -1151,7 +1190,17 @@
 					int highestNote = 0;
 					MidiMessage MIDImsgWithLowestNote = NULL;
 					MidiMessage MIDImsgWithHighestNote = NULL;
-
+					for (int j = 0; j < heldNotesList.size(); ++j)
+					{
+						if (heldNotesList[j].getNoteNumber() < lowestNote) {
+							lowestNote = heldNotesList[j].getNoteNumber();
+							MIDImsgWithLowestNote = heldNotesList[j];
+						}
+						if (heldNotesList[j].getNoteNumber() > highestNote) {
+							highestNote = heldNotesList[j].getNoteNumber();
+							MIDImsgWithHighestNote = heldNotesList[j];
+						}
+					}
 					const int noteNumberToRemove = m.getNoteNumber();
 					for (int j = 0; j < heldNotesList.size(); ++j)
 					{
@@ -1159,73 +1208,81 @@
 						{
 							if (heldNotesList.size() == 1)
 							{
-
 								noteOff(j);
 								isPlaying = NULL;
 								heldNotesList.remove(j);
 							}
-
 							if (heldNotesList.size() > 1)
 							{
-								//const MidiMessage previousNote = heldNotesList.getLast();
-								//noteOn(previousNote);
 								switch (NOTEPRIORITYMODE)
 								{
 								case LastNote:
-										noteOff(m);
-										isPlaying = NULL;
-										heldNotesList.remove(j);
-										noteOn(heldNotesList.getLast());
-										isPlaying = heldNotesList.getLast();
-										break;
-								case LowNote:
-
-										if (heldNotesList.size() == 1)
-										{
-											noteOff(isPlaying);
+									switch (LEGATOMODE)
+									{
+										case Retrigger:
+											noteOff(m);
 											isPlaying = NULL;
 											heldNotesList.remove(j);
-										}
-										if (heldNotesList.size() > 1)
-										{
+											noteOn(heldNotesList.getLast(), true);
+											isPlaying = heldNotesList.getLast();
+											break;
+										case LastStep:
+											heldNotesList.remove(j);
+											noteOn(heldNotesList.getLast(), true);
+											isPlaying = heldNotesList.getLast();
+											break;
+										case Legato:
+											heldNotesList.remove(j);
+											noteOn(heldNotesList.getLast(), false);
+											isPlaying = heldNotesList.getLast();
+											break;
+									}
+									break;
+								case LowNote:
+									switch (LEGATOMODE)
+									{
+										case Retrigger:
 											noteOff(isPlaying);
 											heldNotesList.remove(j);
-											for (int j = 0; j < heldNotesList.size(); ++j)
-											{
-												if (heldNotesList[j].getNoteNumber() < lowestNote) {
-													lowestNote = heldNotesList[j].getNoteNumber();
-													MIDImsgWithLowestNote = heldNotesList[j];
-												}
-											}
-											noteOn(MIDImsgWithLowestNote);
+											noteOn(MIDImsgWithLowestNote, true);
 											isPlaying = MIDImsgWithLowestNote;
-										}
+											break;
+										case LastStep:
+											heldNotesList.remove(j);
+											noteOn(MIDImsgWithLowestNote, true);
+											isPlaying = MIDImsgWithLowestNote;
+											break;
+										case Legato:
+											heldNotesList.remove(j);
+											noteOn(MIDImsgWithLowestNote, false);
+											isPlaying = MIDImsgWithLowestNote;
+											break;
+									}
 										break;
 								case HighNote:
-	
-										if (heldNotesList.size() == 1)
-										{
-											noteOff(isPlaying);
-											isPlaying = NULL;
-											heldNotesList.remove(j);
-										}
-										if (heldNotesList.size() > 1)
-										{
+									switch (LEGATOMODE)
+									{
+										case Retrigger:
 											noteOff(isPlaying);
 											heldNotesList.remove(j);
-											for (int j = 0; j < heldNotesList.size(); ++j)
-											{
-												if (heldNotesList[j].getNoteNumber() > highestNote) {
-													highestNote = heldNotesList[j].getNoteNumber();
-													MIDImsgWithHighestNote = heldNotesList[j];
-												}
-											}
-											noteOn(MIDImsgWithHighestNote);
+											noteOn(MIDImsgWithHighestNote, true);
 											isPlaying = MIDImsgWithHighestNote;
-										}
+											break;
+										case LastStep:
+											heldNotesList.remove(j);
+											noteOn(MIDImsgWithHighestNote, true);
+											isPlaying = MIDImsgWithHighestNote;
+											break;
+										case Legato:
+											heldNotesList.remove(j);
+											noteOn(MIDImsgWithHighestNote, false);
+											isPlaying = MIDImsgWithHighestNote;
+											break;
+									}
 										break;
 								}
 							}
+							break;
 						}
 					}
 				}
@@ -1722,7 +1779,7 @@
 			m_sid->set_filtermode(Modenibble);
 	}
 
-	void AiassAudioProcessor::noteOn(MidiMessage m)
+	void AiassAudioProcessor::noteOn(MidiMessage m, bool triggernote)
 	{
 
 		LED = true;
@@ -1749,23 +1806,32 @@
 		if (VOICE1)
 		{
 			m_sid->set_freq(1, (float)MyFreq1);
-			if (V1isPlaying) m_sid->stop(1);
-			m_sid->play(1);
+			if (triggernote)
+			{
+				if (V1isPlaying) m_sid->stop(1);
+				m_sid->play(1);
+			}
 			V1isPlaying = true;
 		}
 
 		if (VOICE2)
 		{
 			m_sid->set_freq(2, (float)MyFreq2);
-			if (V2isPlaying) m_sid->stop(2);
-			m_sid->play(2);
+			if (triggernote)
+			{
+				if (V2isPlaying) m_sid->stop(2);
+				m_sid->play(2);
+			}
 			V2isPlaying = true;
 		}
 		if (VOICE3)
 		{
 			m_sid->set_freq(3, (float)MyFreq3);
-			if (V3isPlaying) m_sid->stop(3);
-			m_sid->play(3);
+			if (triggernote)
+			{
+				if (V3isPlaying) m_sid->stop(3);
+				m_sid->play(3);
+			}
 			V3isPlaying = true;
 		}
 	}

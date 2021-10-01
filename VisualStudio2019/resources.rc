@@ -9,7 +9,7 @@
 #include <windows.h>
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION  0,3,0,0
+FILEVERSION  0,4,0,0
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
@@ -18,9 +18,9 @@ BEGIN
       VALUE "CompanyName",  "crazy-midi.de\0"
       VALUE "LegalCopyright",  "crazy-midi.de 2017-2021\0"
       VALUE "FileDescription",  "AIASS-Mono\0"
-      VALUE "FileVersion",  "0.3\0"
+      VALUE "FileVersion",  "0.4\0"
       VALUE "ProductName",  "AIASS-Mono\0"
-      VALUE "ProductVersion",  "0.3\0"
+      VALUE "ProductVersion",  "0.4\0"
     END
   END
 

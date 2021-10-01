@@ -306,7 +306,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     legatomode.reset (new juce::ComboBox ("legatomode"));
     addAndMakeVisible (legatomode.get());
-    legatomode->setTooltip (TRANS("not implemented yet"));
+    legatomode->setTooltip (TRANS("play mode"));
     legatomode->setEditableText (false);
     legatomode->setJustificationType (juce::Justification::centredLeft);
     legatomode->setTextWhenNothingSelected (juce::String());
@@ -320,7 +320,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     noteprioritymode.reset (new juce::ComboBox ("noteprioritymode"));
     addAndMakeVisible (noteprioritymode.get());
-    noteprioritymode->setTooltip (TRANS("not implemented yet"));
+    noteprioritymode->setTooltip (TRANS("note priority"));
     noteprioritymode->setEditableText (false);
     noteprioritymode->setJustificationType (juce::Justification::centredLeft);
     noteprioritymode->setTextWhenNothingSelected (juce::String());
@@ -607,7 +607,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	legatomode->setSelectedItemIndex(0);
 	noteprioritymode->setSelectedItemIndex(0);
     midichannel->setSelectedItemIndex(0);
-	legatomode->setEnabled(false);
+	legatomode->setEnabled(true);
 	noteprioritymode->setEnabled(true);
     midichannel->setEnabled(true);
 
@@ -1097,11 +1097,11 @@ BEGIN_JUCER_METADATA
                 buttonText="Vel." connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <COMBOBOX name="legatomode" id="185cc42c904fe921" memberName="legatomode"
-            virtualName="" explicitFocusOrder="0" pos="64 209 150 24" tooltip="not implemented yet"
+            virtualName="" explicitFocusOrder="0" pos="64 209 150 24" tooltip="play mode"
             editable="0" layout="33" items="Retrigger&#10;Legato&#10;Last Step"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <COMBOBOX name="noteprioritymode" id="c728000aa37b04a3" memberName="noteprioritymode"
-            virtualName="" explicitFocusOrder="0" pos="64 254 150 24" tooltip="not implemented yet"
+            virtualName="" explicitFocusOrder="0" pos="64 254 150 24" tooltip="note priority"
             editable="0" layout="33" items="Last Note&#10;High Note&#10;Low Note"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <HYPERLINKBUTTON name="new hyperlink" id="27b1f728dfa971d5" memberName="hyperlinkButton"

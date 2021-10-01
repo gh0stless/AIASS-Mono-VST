@@ -52,7 +52,7 @@ namespace ProjectInfo
 {
     const char* const  projectName    = "AIASS-Mono";
     const char* const  companyName    = "crazy-midi.de";
-    const char* const  versionString  = "0.3";
-    const int          versionNumber  = 0x300;
+    const char* const  versionString  = "0.4";
+    const int          versionNumber  = 0x400;
 }
 #endif

@@ -73,7 +73,7 @@ private:
 	void setWaveformStatus(BYTE Voice, BYTE Waveform, bool State);
 	void setFilterStatus(BYTE FilterStatusBit, bool State);
 	void setFilterMode(BYTE FilterModeBit, bool State);
-	void noteOn(MidiMessage m);
+	void noteOn(MidiMessage m, bool triggernote);
 	void noteOff(MidiMessage m);
 	
     //==============================================================================
