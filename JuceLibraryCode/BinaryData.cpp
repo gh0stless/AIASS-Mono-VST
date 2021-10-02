@@ -114,22 +114,25 @@ static const unsigned char temp_binary_data_0[] =
 
 const char* hardsid_dll_how_to_and_hints_txt = (const char*) temp_binary_data_0;
 
-//================== history and todo.txt ==================
+//================== README.md ==================
 static const unsigned char temp_binary_data_1[] =
-"ToDo:\r\n"
+"todo:\r\n"
 "-----\r\n"
-"-Keyboard Play modes\r\n"
-"-Presets\r\n"
+"- reset\r\n"
+"- link mode\r\n"
+"- presets\r\n"
+"- MIDI controller\r\n"
 "\r\n"
-"\r\n"
-"History\r\n"
+"history\r\n"
 "-------\r\n"
-"-2020/02/13 - releasing 0.1b\r\n"
-"-2020/02/12 - changing depricaded juce code\r\n"
-"-2018/10/27 - releasing 0.1a\r\n"
-"-2017/10/28 - starting to code";
+"- 2021/10/01 - releasing 0.4\r\n"
+"  - MIDI-play modes implemented\r\n"
+"- 2020/02/13 - releasing 0.1b\r\n"
+"- 2020/02/12 - changing depricaded juce code\r\n"
+"- 2018/10/27 - releasing 0.1a\r\n"
+"- 2017/10/28 - starting to code";
 
-const char* history_and_todo_txt = (const char*) temp_binary_data_1;
+const char* README_md = (const char*) temp_binary_data_1;
 
 
 const char* getNamedResource (const char* resourceNameUTF8, int& numBytes);
@@ -144,7 +147,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
-        case 0x6efe362a:  numBytes = 203; return history_and_todo_txt;
+        case 0x64791dc8:  numBytes = 288; return README_md;
         default: break;
     }
 
@@ -155,13 +158,13 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
 const char* namedResourceList[] =
 {
     "hardsid_dll_how_to_and_hints_txt",
-    "history_and_todo_txt"
+    "README_md"
 };
 
 const char* originalFilenames[] =
 {
     "hardsid.dll how to and hints.txt",
-    "history and todo.txt"
+    "README.md"
 };
 
 const char* getNamedResourceOriginalFilename (const char* resourceNameUTF8);

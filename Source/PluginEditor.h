@@ -152,6 +152,8 @@ private:
 	   std::unique_ptr<ComboBoxAttachment>LegatoModeAttachment;
 	   std::unique_ptr<ComboBoxAttachment>NotePriorityModeAttachment;
        std::unique_ptr<ComboBoxAttachment>MidiChannelAttachment;
+       std::unique_ptr<ButtonAttachment>ResetAttachment;
+       std::unique_ptr<ButtonAttachment>LinkAttachment;
 
 
 
@@ -162,6 +164,8 @@ private:
 	   Sid * m_sid;
 
 	   int hz1 = 0; //for error-LED flashing
+
+       bool Link_State;
 
 
     //[/UserVariables]

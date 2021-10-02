@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="xAsfkL" name="AIASS-Mono" displaySplashScreen="1" reportAppUsage="1"
-              splashScreenColour="Dark" projectType="audioplug" version="0.4"
+              splashScreenColour="Dark" projectType="audioplug" version="0.5"
               bundleIdentifier="com.crazy-midi.AIASS-Mono" includeBinaryInAppConfig="1"
               companyCopyright="crazy-midi.de 2017-2021" buildVST="1" buildVST3="1"
               buildAU="0" buildAUv3="0" buildRTAS="0" buildAAX="0" buildStandalone="1"
@@ -31,8 +31,7 @@
     </GROUP>
     <FILE id="ks6had" name="hardsid.dll how to and hints.txt" compile="0"
           resource="1" file="doc/hardsid.dll how to and hints.txt"/>
-    <FILE id="Q8goSN" name="history and todo.txt" compile="0" resource="1"
-          file="doc/history and todo.txt"/>
+    <FILE id="DJ0Gej" name="README.md" compile="0" resource="1" file="doc/README.md"/>
   </MAINGROUP>
   <EXPORTFORMATS>
     <VS2019 targetFolder="VisualStudio2019" windowsTargetPlatformVersion="10.0.16299.0"

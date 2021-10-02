@@ -608,14 +608,14 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
-    reset_button->setBounds (400, 30, 138, 40);
+    reset_button->setBounds (180, 115, 70, 25);
 
     link_button.reset (new juce::ToggleButton ("link button"));
     addAndMakeVisible (link_button.get());
     link_button->setTooltip (TRANS("link gui elements"));
     link_button->setButtonText (TRANS("link"));
 
-    link_button->setBounds (190, 110, 66, 30);
+    link_button->setBounds (190, 160, 66, 30);
 
     cachedImage_aiasshintergrund_png2_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png2, aiasshintergrund_png2Size);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
@@ -627,8 +627,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	legatomode->setEnabled(true);
 	noteprioritymode->setEnabled(true);
     midichannel->setEnabled(true);
-    link_button->setEnabled(false);
-    reset_button->setEnabled(false);
+    link_button->setEnabled(true);
+    reset_button->setEnabled(true);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
@@ -703,6 +703,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	LegatoModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "LegatoMode", *legatomode);
 	NotePriorityModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "NotePriorityMode", *noteprioritymode);
     MidiChannelAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "MidiChannel", *midichannel);
+    ResetAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "Reset", *reset_button);
+    LinkAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "LinkButton", *link_button);
     //[/UserPreSize]
 
     setSize (800, 525);
@@ -780,7 +782,8 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 	LegatoModeAttachment = nullptr;
 	NotePriorityModeAttachment = nullptr;
     MidiChannelAttachment = nullptr;
-
+    ResetAttachment = nullptr;
+    LinkAttachment = nullptr;
 
     //[/Destructor_pre]
 
@@ -891,7 +894,7 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
 
     {
         int x = 353, y = 49, width = 40, height = 20;
-        juce::String text (TRANS("v. 0.4"));
+        juce::String text (TRANS("v. 0.5"));
         juce::Colour fillColour = juce::Colours::black;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
@@ -948,6 +951,80 @@ void AiassAudioProcessorEditor::comboBoxChanged (juce::ComboBox* comboBoxThatHas
 void AiassAudioProcessorEditor::timerCallback()
 {
 	int Error_State = (m_sid->error_state);
+
+    if (Link_State != (getProcessor().LINK)) {
+        Link_State = (getProcessor().LINK);
+        if (Link_State) {
+            Attack2->setEnabled(false);
+            Attack3->setEnabled(false);
+            Decay2->setEnabled(false);
+            Decay3->setEnabled(false);
+            Sustain2->setEnabled(false);
+            Sustain3->setEnabled(false);
+            Release2->setEnabled(false);
+            Release3->setEnabled(false);
+            Pulsew2->setEnabled(false);
+            Pulsew3->setEnabled(false);
+            Octave2->setEnabled(false);
+            Octave3->setEnabled(false);
+            Semi2->setEnabled(false);
+            Semi3->setEnabled(false);
+            Cent2->setEnabled(false);
+            Cent3->setEnabled(false);
+        }
+        else {
+            Attack2->setEnabled(true);
+            Attack3->setEnabled(true);
+            Decay2->setEnabled(true);
+            Decay3->setEnabled(true);
+            Sustain2->setEnabled(true);
+            Sustain3->setEnabled(true);
+            Release2->setEnabled(true);
+            Release3->setEnabled(true);
+            Pulsew2->setEnabled(true);
+            Pulsew3->setEnabled(true);
+            Octave2->setEnabled(true);
+            Octave3->setEnabled(true);
+            Semi2->setEnabled(true);
+            Semi3->setEnabled(true);
+            Cent2->setEnabled(true);
+            Cent3->setEnabled(true);
+        }
+    }
+
+    Attack1->onValueChange = [this] { if (Link_State) {
+        Attack2->setValue(Attack1->getValue());
+        Attack3->setValue(Attack1->getValue());
+    }};
+    Decay1->onValueChange = [this] { if (Link_State) {
+        Decay2->setValue(Decay1->getValue());
+        Decay3->setValue(Decay1->getValue());
+    }};
+    Sustain1->onValueChange = [this] { if (Link_State) {
+        Sustain2->setValue(Sustain1->getValue());
+        Sustain3->setValue(Sustain1->getValue());
+    }};
+    Release1->onValueChange = [this] { if (Link_State) {
+        Release2->setValue(Release1->getValue());
+        Release3->setValue(Release1->getValue());
+    }};
+    Pulsew1->onValueChange = [this] { if (Link_State) {
+        Pulsew2->setValue(Pulsew1->getValue());
+        Pulsew3->setValue(Pulsew1->getValue());
+    }};
+    Octave1->onValueChange = [this] { if (Link_State) {
+        Octave2->setValue(Octave1->getValue());
+        Octave3->setValue(Octave1->getValue());
+    }};
+    Semi1->onValueChange = [this] { if (Link_State) {
+        Semi2->setValue(Semi1->getValue());
+        Semi3->setValue(Semi1->getValue());
+    }};
+    Cent1->onValueChange = [this] { if (Link_State) {
+        Cent2->setValue(Cent1->getValue());
+        Cent3->setValue(Cent1->getValue());
+    }};
+
 	if (Error_State)
 	{
 		if (hz1>=0 && hz1<=(4+Error_State*4)) set_LED_Off();
@@ -986,7 +1063,7 @@ BEGIN_JUCER_METADATA
            mode="0"/>
     <IMAGE pos="25 29 315 41" resource="aiass_mono_typenschild_png" opacity="1.0"
            mode="0"/>
-    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.4"
+    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.5"
           fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
           italic="0" justification="36"/>
   </BACKGROUND>
@@ -1266,14 +1343,14 @@ BEGIN_JUCER_METADATA
             editable="0" layout="33" items="all&#10;1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10&#10;11&#10;12&#10;13&#10;14&#10;15&#10;16"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <IMAGEBUTTON name="reset button" id="99243fa27f37fff" memberName="reset_button"
-               virtualName="" explicitFocusOrder="0" pos="400 30 138 40" tooltip="click twice for SID reset"
+               virtualName="" explicitFocusOrder="0" pos="180 115 70 25" tooltip="click twice for SID reset"
                buttonText="reset button" connectedEdges="0" needsCallback="0"
                radioGroupId="0" keepProportions="1" resourceNormal="reset_png"
                opacityNormal="1.0" colourNormal="0" resourceOver="reset_png"
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
   <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_button"
-                virtualName="" explicitFocusOrder="0" pos="190 110 66 30" tooltip="link gui elements"
+                virtualName="" explicitFocusOrder="0" pos="190 160 66 30" tooltip="link gui elements"
                 buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
 </JUCER_COMPONENT>

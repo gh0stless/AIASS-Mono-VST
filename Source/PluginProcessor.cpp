@@ -825,6 +825,24 @@
 			0.0f,         // default value
 			nullptr,
 			nullptr));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("LinkButton",       // parameterID
+			"Linkbutton",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
+			0.0f,         // default value
+			[](float value)
+			{
+				// value to text function
+				return value < 0.5 ? "Off" : "On";
+			},
+			[](const String& text)
+			{
+				// text to value function
+				if (text == "Off") return 0.0f;
+				if (text == "On")  return 1.0f;
+				return 0.0f;
+			}));
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
@@ -889,6 +907,7 @@
 		parameters.addParameterListener("LegatoMode", this);
 		parameters.addParameterListener("NotePriorityMode", this);
 		parameters.addParameterListener("MidiChannel", this);
+		parameters.addParameterListener("LinkButton",this);
 		
 		m_sid = new Sid();
 
@@ -1614,6 +1633,10 @@
 		{
 		MIDICHANNEL = (int)newValue;
 		}
+		else if (parameterID == "LinkButton")
+		{
+		LINK = (bool)newValue;
+		}
 	}
 
 	void AiassAudioProcessor::setWaveformStatus(BYTE Voice, BYTE Waveform, bool State)
@@ -1886,9 +1909,5 @@
 	// This creates new instances of the plugin..
 	AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 	{
-
-		
-		
-
 		return new AiassAudioProcessor();
 	}

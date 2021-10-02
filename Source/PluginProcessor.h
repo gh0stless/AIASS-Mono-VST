@@ -42,6 +42,7 @@ public:
 	}
 
 	bool LED = false;
+	bool LINK = false;
 
 	AudioProcessorValueTreeState parameters;
    	
@@ -75,6 +76,7 @@ private:
 	void setFilterMode(BYTE FilterModeBit, bool State);
 	void noteOn(MidiMessage m, bool triggernote);
 	void noteOff(MidiMessage m);
+	void doLinkMode(bool linkmode);
 	
     //==============================================================================
 
@@ -124,7 +126,7 @@ private:
 	bool HIGHPASS = false;
 	bool F3OFF = false;
 	bool VELVOL = false;
-
+	
 	PlayModes LEGATOMODE = Retrigger;
 	PriorityModes NOTEPRIORITYMODE = LastNote;
 

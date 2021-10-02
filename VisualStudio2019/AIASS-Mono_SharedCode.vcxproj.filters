@@ -5222,7 +5222,7 @@
     <None Include="..\doc\hardsid.dll how to and hints.txt">
       <Filter>AIASS-Mono</Filter>
     </None>
-    <None Include="..\doc\history and todo.txt">
+    <None Include="..\doc\README.md">
       <Filter>AIASS-Mono</Filter>
     </None>
     <None Include="..\..\..\Frameworks\JUCE\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
