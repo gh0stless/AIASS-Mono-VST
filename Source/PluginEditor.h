@@ -171,13 +171,12 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    std::unique_ptr<juce::GroupComponent> tonegroup;
     std::unique_ptr<juce::GroupComponent> controlgroup;
     std::unique_ptr<juce::GroupComponent> waveformgroup;
-    std::unique_ptr<juce::GroupComponent> tonegroup;
     std::unique_ptr<juce::GroupComponent> soundgroup;
     std::unique_ptr<juce::GroupComponent> filtergroup;
     std::unique_ptr<juce::Slider> sidvolume;
-    std::unique_ptr<juce::Slider> Octave1;
     std::unique_ptr<juce::Slider> Octave2;
     std::unique_ptr<juce::Slider> Octave3;
     std::unique_ptr<juce::Slider> Semi1;
@@ -234,13 +233,14 @@ private:
     std::unique_ptr<juce::ToggleButton> Sync1;
     std::unique_ptr<juce::ToggleButton> Sync2;
     std::unique_ptr<juce::ToggleButton> Sync3;
-    std::unique_ptr<juce::ToggleButton> Voice1;
     std::unique_ptr<juce::ToggleButton> Voice2;
     std::unique_ptr<juce::ToggleButton> Voice3;
     std::unique_ptr<juce::ImageButton> Led;
     std::unique_ptr<juce::ComboBox> midichannel;
-    std::unique_ptr<juce::ImageButton> reset_button;
     std::unique_ptr<juce::ToggleButton> link_button;
+    std::unique_ptr<juce::Slider> Octave1;
+    std::unique_ptr<juce::ToggleButton> Voice1;
+    std::unique_ptr<juce::ImageButton> reset_button;
     juce::Image cachedImage_aiasshintergrund_png2_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
 

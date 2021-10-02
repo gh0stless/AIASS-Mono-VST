@@ -843,6 +843,24 @@
 				if (text == "On")  return 1.0f;
 				return 0.0f;
 			}));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("ResetButton",       // parameterID
+			"ReSetbutton",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
+			0.0f,         // default value
+			[](float value)
+			{
+				// value to text function
+				return value < 0.5 ? "Off" : "On";
+			},
+			[](const String& text)
+			{
+				// text to value function
+				if (text == "Off") return 0.0f;
+				if (text == "On")  return 1.0f;
+				return 0.0f;
+			}));
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
@@ -908,7 +926,8 @@
 		parameters.addParameterListener("NotePriorityMode", this);
 		parameters.addParameterListener("MidiChannel", this);
 		parameters.addParameterListener("LinkButton",this);
-		
+		parameters.addParameterListener("ResetButton", this);
+
 		m_sid = new Sid();
 
 		m_sid->init();
@@ -933,8 +952,6 @@
 		setWaveformStatus(1, 3, true);
 		setWaveformStatus(2, 3, true);
 		setWaveformStatus(3, 3, true);
-
-
 
 	}
 
@@ -1355,66 +1372,82 @@
 	{
 		if (parameterID == "SidVol")
 		{
+			SIDVOL = (int)newValue;
 			m_sid->set_volume((BYTE)newValue);
 		}
 		else if (parameterID == "AttAck1")
 		{
+			ATTACK1 = (int)newValue;
 			m_sid->set_a(1, (BYTE)newValue);
 		}
 		else if (parameterID == "AttAck2")
 		{
+			ATTACK2 = (int)newValue;
 			m_sid->set_a(2, (BYTE)newValue);
 		}
 		else if (parameterID == "AttAck3")
 		{
+			ATTACK3 = (int)newValue;
 			m_sid->set_a(3, (BYTE)newValue);
 		}
 		else if (parameterID == "DeCay1")
 		{
+			DECAY1 = (int)newValue;
 			m_sid->set_d(1, (BYTE)newValue);
 		}
 		else if (parameterID == "DeCay2")
 		{
+			DECAY2 = (int)newValue;
 			m_sid->set_d(2, (BYTE)newValue);
 		}
 		else if (parameterID == "DeCay3")
 		{
+			DECAY3 = (int)newValue;
 			m_sid->set_d(3, (BYTE)newValue);
 		}
 		else if (parameterID == "SuStain1")
 		{
+			SUSTAIN1 = (int)newValue;
 			m_sid->set_s(1, (BYTE)newValue);
 		}
 		else if (parameterID == "SuStain2")
 		{
+			SUSTAIN2 = (int)newValue;
 			m_sid->set_s(2, (BYTE)newValue);
 		}
 		else if (parameterID == "SuStain3")
 		{
+			SUSTAIN3 = (int)newValue;
 			m_sid->set_s(3, (BYTE)newValue);
 		}
 		else if (parameterID == "ReLease1")
 		{
+			RELEASE1 = (int)newValue;
 			m_sid->set_r(1, (BYTE)newValue);
 		}
 		else if (parameterID == "ReLease2")
 		{
+			RELEASE2 = (int)newValue;
 			m_sid->set_r(2, (BYTE)newValue);
 		}
 		else if (parameterID == "ReLease3")
 		{
+			RELEASE3 = (int)newValue;
 			m_sid->set_r(3, (BYTE)newValue);
 		}
 		else if (parameterID == "PulsW1")
 		{
+			PULSEW1 = (int)newValue;
 			m_sid->set_pulsw(1, (Uint16)newValue);
 		}
 		else if (parameterID == "PulsW2")
 		{
+			PULSEW2 = (int)newValue;
 			m_sid->set_pulsw(2, (Uint16)newValue);
 		}
 		else if (parameterID == "PulsW3")
 		{
+			PULSEW3 = (int)newValue;
 			m_sid->set_pulsw(3, (Uint16)newValue);
 		}
 		else if (parameterID == "VoiCe1")
@@ -1530,46 +1563,54 @@
 		}
 		else if (parameterID == "RingMod1")
 		{
-			if (newValue == 0) m_sid->set_ringmod(1, false);
-			else               m_sid->set_ringmod(1, true); 
+			if (newValue == 0) RINGMOD1 = false;
+			else               RINGMOD1 = true;
+			m_sid->set_ringmod(1, RINGMOD1);
 		}
 		else if (parameterID == "RingMod2")
 		{
-			if (newValue == 0) m_sid->set_ringmod(2, false);
-			else               m_sid->set_ringmod(2, true);
+			if (newValue == 0) RINGMOD2 = false;
+			else               RINGMOD2 = true;
+			m_sid->set_ringmod(2, RINGMOD2);
 		}
 		else if (parameterID == "RingMod3")
 		{
-			if (newValue == 0) m_sid->set_ringmod(3, false);
-			else               m_sid->set_ringmod(3, true);
+			if (newValue == 0) RINGMOD3 = false;
+			else               RINGMOD3 = true;
+			m_sid->set_ringmod(3, RINGMOD3);
 		}
 		else if (parameterID == "SynC1")
 		{
-			if (newValue == 0) m_sid->set_sync(1, false);
-			else               m_sid->set_sync(1, true);
+			if (newValue == 0) SYNC1 = false;
+			else               SYNC1 = true;
+					m_sid->set_sync(1, SYNC1);
 		}
 		else if (parameterID == "SynC2")
 		{
-			if (newValue == 0) m_sid->set_sync(2, false);
-			else               m_sid->set_sync(2, true);
+			if (newValue == 0) SYNC2 = false;
+			else               SYNC2 = true;
+			m_sid->set_sync(2, SYNC2);
 		}
 		else if (parameterID == "SynC3")
 		{
-			if (newValue == 0) m_sid->set_sync(3, false);
-			else               m_sid->set_sync(3, true);
+			if (newValue == 0) SYNC3 = false;
+			else               SYNC3 = true;
+			m_sid->set_sync(3, SYNC3);
 		}
-		else if (parameterID == "FilterFreq") 
+		else if (parameterID == "FilterFreq")
 		{
 			if (!FILTER8580) {
-				m_sid->set_filterfreq((Uint16)newValue);
+				FILTERFREQ = (int)newValue;
 			}
 			else { //scale
-				m_sid->set_filterfreq((Uint16)(newValue*(71.0f/2047.0f)));
+				FILTERFREQ = ((int)(newValue * (71.0f / 2047.0f)));
 			}
+			m_sid->set_filterfreq((Uint16)FILTERFREQ);
 		}
 		else if (parameterID == "ResoNance")
 		{
 			m_sid->set_filterres((Uint8)newValue);
+			FILTERRES = (int)newValue;
 		}
 		else if (parameterID == "FilTer8580")
 		{
@@ -1578,43 +1619,51 @@
 		}
 		else if (parameterID == "FilTer1")
 		{
-			if (newValue == 0) setFilterStatus(1, false);
-			else               setFilterStatus(1, true);
+			if (newValue == 0) FILTER1 = false;
+			else               FILTER1 = true;
+			setFilterStatus(1, FILTER1);
 		}
 		else if (parameterID == "FilTer2")
 		{
-			if (newValue == 0) setFilterStatus(2, false);
-			else               setFilterStatus(2, true);
+			if (newValue == 0) FILTER2 = false;
+			else               FILTER2 = true;
+			setFilterStatus(2, FILTER2);
 		}
 		else if (parameterID == "FilTer3")
 		{
-			if (newValue == 0) setFilterStatus(3, false);
-			else               setFilterStatus(3, true);
+			if (newValue == 0) FILTER3 = false;
+			else               FILTER3 = true;
+			setFilterStatus(3, FILTER3);
 		}
 		else if (parameterID == "FilTerIn")
 		{
-			if (newValue == 0) setFilterStatus(4, false);
-			else               setFilterStatus(4, true);
+			if (newValue == 0) FILTERIN = false;
+			else               FILTERIN = true;
+			setFilterStatus(4, FILTERIN);
 		}
 		else if (parameterID == "FilTerLP")
 		{
-			if (newValue == 0) setFilterMode(1, false);
-			else               setFilterMode(1, true);
+			if (newValue == 0) LOWPASS = false;
+			else			   LOWPASS = true;
+			setFilterMode(1, LOWPASS);
 		}
 		else if (parameterID == "FilTerBP")
 		{
-			if (newValue == 0) setFilterMode(2, false);
-			else               setFilterMode(2, true);
+			if (newValue == 0) BANDPASS = false;
+			else			   BANDPASS = true;
+			setFilterMode(2, BANDPASS);
 		}
 		else if (parameterID == "FilTerHP")
 		{
-			if (newValue == 0) setFilterMode(3, false);
-			else               setFilterMode(3, true);
+			if (newValue == 0) HIGHPASS = false;
+			else			   HIGHPASS = true;
+			setFilterMode(3, HIGHPASS);
 		}
 		else if (parameterID == "FilTer3OFF")
 		{
-			if (newValue == 0) setFilterMode(4, false);
-			else               setFilterMode(4, true);
+			if (newValue == 0) F3OFF = false;
+			else			   F3OFF = true;
+			setFilterMode(4, F3OFF);
 		}
 		else if (parameterID == "VelVol")
 		{
@@ -1631,11 +1680,68 @@
 		}
 		else if (parameterID == "MidiChannel")
 		{
-		MIDICHANNEL = (int)newValue;
+			MIDICHANNEL = (int)newValue;
 		}
 		else if (parameterID == "LinkButton")
 		{
-		LINK = (bool)newValue;
+			LINK = (bool)newValue;
+		}
+		else if (parameterID == "ResetButton")
+		{
+			RESET = (bool)newValue;
+			
+			m_sid->init();
+			
+			m_sid->set_volume((Uint8)SIDVOL);
+			
+			m_sid->set_a(1, (Uint8)ATTACK1);
+			m_sid->set_d(1, (Uint8)DECAY1);
+			m_sid->set_s(1, (Uint8)SUSTAIN1);
+			m_sid->set_r(1, (Uint8)RELEASE1);
+			m_sid->set_a(2, (Uint8)ATTACK2);
+			m_sid->set_d(2, (Uint8)DECAY2);
+			m_sid->set_s(2, (Uint8)SUSTAIN2);
+			m_sid->set_r(2, (Uint8)RELEASE2);
+			m_sid->set_a(3, (Uint8)ATTACK3);
+			m_sid->set_d(3, (Uint8)DECAY3);
+			m_sid->set_s(3, (Uint8)SUSTAIN3);
+			m_sid->set_r(3, (Uint8)RELEASE3);
+			
+			m_sid->set_pulsw(1, (Uint16)PULSEW1);
+			m_sid->set_pulsw(2, (Uint16)PULSEW2);
+			m_sid->set_pulsw(3, (Uint16)PULSEW3);
+
+			setWaveformStatus(1, 1, TRIA1);
+			setWaveformStatus(2, 1, TRIA2);
+			setWaveformStatus(3, 1, TRIA3);
+			setWaveformStatus(1, 2, SAW1);
+			setWaveformStatus(2, 2, SAW2);
+			setWaveformStatus(3, 2, SAW3);
+			setWaveformStatus(1, 3, PULSE1);
+			setWaveformStatus(2, 3, PULSE2);
+			setWaveformStatus(3, 3, PULSE3);
+			setWaveformStatus(1, 4, NOISE1);
+			setWaveformStatus(2, 4, NOISE2);
+			setWaveformStatus(3, 4, NOISE3);
+
+			m_sid->set_ringmod(1, RINGMOD1);
+			m_sid->set_ringmod(2, RINGMOD2);
+			m_sid->set_ringmod(3, RINGMOD3);
+			m_sid->set_sync(1, SYNC1);
+			m_sid->set_sync(2, SYNC2);
+			m_sid->set_sync(3, SYNC3);
+
+			m_sid->set_filterfreq((Uint16)FILTERFREQ);
+			m_sid->set_filterres((Uint8)FILTERRES);
+			setFilterStatus(1, FILTER1);
+			setFilterStatus(2, FILTER2);
+			setFilterStatus(3, FILTER3);
+			setFilterStatus(4, FILTERIN);
+
+			setFilterMode(1, LOWPASS);
+			setFilterMode(2, BANDPASS);
+			setFilterMode(3, HIGHPASS);
+			setFilterMode(4, F3OFF);
 		}
 	}
 

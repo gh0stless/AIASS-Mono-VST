@@ -43,6 +43,7 @@ public:
 
 	bool LED = false;
 	bool LINK = false;
+	bool RESET = false;
 
 	AudioProcessorValueTreeState parameters;
    	
@@ -72,12 +73,12 @@ public:
 private:
 	void parameterChanged(const String& parameterID, float newValue) override;
 	void setWaveformStatus(BYTE Voice, BYTE Waveform, bool State);
+private:
 	void setFilterStatus(BYTE FilterStatusBit, bool State);
 	void setFilterMode(BYTE FilterModeBit, bool State);
 	void noteOn(MidiMessage m, bool triggernote);
 	void noteOff(MidiMessage m);
-	void doLinkMode(bool linkmode);
-	
+		
     //==============================================================================
 
 	enum PlayModes {Retrigger,Legato,LastStep};
@@ -114,6 +115,16 @@ private:
 	bool PULSE3 = true;
 	bool NOISE3 = false;
 
+	bool RINGMOD1 = false;
+	bool RINGMOD2 = false;
+	bool RINGMOD3 = false;
+	bool SYNC1 = false;
+	bool SYNC2 = false;
+	bool SYNC3 = false;
+
+	int FILTERFREQ = 0;
+	int FILTERRES = 0;
+
 	bool FILTER8580 = true;
 
 	bool FILTER1 = false;
@@ -126,7 +137,24 @@ private:
 	bool HIGHPASS = false;
 	bool F3OFF = false;
 	bool VELVOL = false;
-	
+
+	int SIDVOL = 15;
+	int ATTACK1 = 1;
+	int ATTACK2 = 1;
+	int ATTACK3 = 1;
+	int DECAY1 = 7;
+	int DECAY2 = 7;
+	int DECAY3 = 7;
+	int SUSTAIN1 = 7;
+	int SUSTAIN2 = 7;
+	int SUSTAIN3 = 7;
+	int RELEASE1 = 7;
+	int RELEASE2 = 7;
+	int RELEASE3 = 7;
+	int PULSEW1 = 1024;
+	int PULSEW2 = 1024;
+	int PULSEW3 = 1024;
+
 	PlayModes LEGATOMODE = Retrigger;
 	PriorityModes NOTEPRIORITYMODE = LastNote;
 

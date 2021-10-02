@@ -41,6 +41,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     //[/Constructor_pre]
 
+    tonegroup.reset (new juce::GroupComponent ("tone group",
+                                               TRANS("Tone")));
+    addAndMakeVisible (tonegroup.get());
+
+    tonegroup->setBounds (270, 80, 236, 210);
+
     controlgroup.reset (new juce::GroupComponent ("control group",
                                                   TRANS("Control")));
     addAndMakeVisible (controlgroup.get());
@@ -52,12 +58,6 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (waveformgroup.get());
 
     waveformgroup->setBounds (362, 292, 421, 210);
-
-    tonegroup.reset (new juce::GroupComponent ("tone group",
-                                               TRANS("Tone")));
-    addAndMakeVisible (tonegroup.get());
-
-    tonegroup->setBounds (270, 80, 236, 210);
 
     soundgroup.reset (new juce::GroupComponent ("sound group",
                                                 TRANS("Sound")));
@@ -80,15 +80,6 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
 
     sidvolume->setBounds (30, 90, 66, 66);
-
-    Octave1.reset (new juce::Slider ("octave1 slider"));
-    addAndMakeVisible (Octave1.get());
-    Octave1->setTooltip (TRANS("Octave1 Up/Down"));
-    Octave1->setRange (-4, 4, 1);
-    Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
-
-    Octave1->setBounds (315, 90, 66, 66);
 
     Octave2.reset (new juce::Slider ("octave2 slider"));
     addAndMakeVisible (Octave2.get());
@@ -537,21 +528,13 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sync3->setBounds (705, 459, 66, 30);
 
-    Voice1.reset (new juce::ToggleButton ("voice1 toggle button"));
-    addAndMakeVisible (Voice1.get());
-    Voice1->setTooltip (TRANS("Voice 1 On/Off"));
-    Voice1->setButtonText (TRANS("1"));
-    Voice1->setToggleState (true, juce::dontSendNotification);
-
-    Voice1->setBounds (285, 105, 66, 30);
-
     Voice2.reset (new juce::ToggleButton ("voice2 toggle button"));
     addAndMakeVisible (Voice2.get());
     Voice2->setTooltip (TRANS("Voice 2 On/Off"));
     Voice2->setButtonText (TRANS("2"));
     Voice2->setToggleState (true, juce::dontSendNotification);
 
-    Voice2->setBounds (285, 167, 66, 30);
+    Voice2->setBounds (285, 167, 33, 30);
 
     Voice3.reset (new juce::ToggleButton ("voice3 toggle button"));
     addAndMakeVisible (Voice3.get());
@@ -559,7 +542,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Voice3->setButtonText (TRANS("3"));
     Voice3->setToggleState (true, juce::dontSendNotification);
 
-    Voice3->setBounds (285, 230, 66, 30);
+    Voice3->setBounds (285, 230, 33, 30);
 
     Led.reset (new juce::ImageButton ("Power_LED"));
     addAndMakeVisible (Led.get());
@@ -600,22 +583,39 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     midichannel->setBounds (30, 162, 150, 24);
 
-    reset_button.reset (new juce::ImageButton ("reset button"));
-    addAndMakeVisible (reset_button.get());
-    reset_button->setTooltip (TRANS("click twice for SID reset"));
-
-    reset_button->setImages (false, true, true,
-                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
-                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
-                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
-    reset_button->setBounds (180, 115, 70, 25);
-
     link_button.reset (new juce::ToggleButton ("link button"));
     addAndMakeVisible (link_button.get());
     link_button->setTooltip (TRANS("link gui elements"));
     link_button->setButtonText (TRANS("link"));
 
     link_button->setBounds (190, 160, 66, 30);
+
+    Octave1.reset (new juce::Slider ("octave1 slider"));
+    addAndMakeVisible (Octave1.get());
+    Octave1->setTooltip (TRANS("Octave1 Up/Down"));
+    Octave1->setRange (-4, 4, 1);
+    Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+
+    Octave1->setBounds (315, 90, 66, 66);
+
+    Voice1.reset (new juce::ToggleButton ("voice1 toggle button"));
+    addAndMakeVisible (Voice1.get());
+    Voice1->setTooltip (TRANS("Voice 1 On/Off"));
+    Voice1->setButtonText (TRANS("1"));
+    Voice1->setToggleState (true, juce::dontSendNotification);
+
+    Voice1->setBounds (285, 105, 33, 30);
+
+    reset_button.reset (new juce::ImageButton ("reset button"));
+    addAndMakeVisible (reset_button.get());
+    reset_button->setTooltip (TRANS("SID reset"));
+
+    reset_button->setImages (false, true, true,
+                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
+                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
+                             juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
+    reset_button->setBounds (180, 115, 70, 25);
 
     cachedImage_aiasshintergrund_png2_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png2, aiasshintergrund_png2Size);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
@@ -624,11 +624,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	legatomode->setSelectedItemIndex(0);
 	noteprioritymode->setSelectedItemIndex(0);
     midichannel->setSelectedItemIndex(0);
-	legatomode->setEnabled(true);
-	noteprioritymode->setEnabled(true);
-    midichannel->setEnabled(true);
-    link_button->setEnabled(true);
-    reset_button->setEnabled(true);
+    reset_button->setClickingTogglesState(true);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
@@ -703,7 +699,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	LegatoModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "LegatoMode", *legatomode);
 	NotePriorityModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "NotePriorityMode", *noteprioritymode);
     MidiChannelAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "MidiChannel", *midichannel);
-    ResetAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "Reset", *reset_button);
+    ResetAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "ResetButton", *reset_button);
     LinkAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "LinkButton", *link_button);
     //[/UserPreSize]
 
@@ -787,13 +783,12 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 
     //[/Destructor_pre]
 
+    tonegroup = nullptr;
     controlgroup = nullptr;
     waveformgroup = nullptr;
-    tonegroup = nullptr;
     soundgroup = nullptr;
     filtergroup = nullptr;
     sidvolume = nullptr;
-    Octave1 = nullptr;
     Octave2 = nullptr;
     Octave3 = nullptr;
     Semi1 = nullptr;
@@ -850,13 +845,14 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Sync1 = nullptr;
     Sync2 = nullptr;
     Sync3 = nullptr;
-    Voice1 = nullptr;
     Voice2 = nullptr;
     Voice3 = nullptr;
     Led = nullptr;
     midichannel = nullptr;
-    reset_button = nullptr;
     link_button = nullptr;
+    Octave1 = nullptr;
+    Voice1 = nullptr;
+    reset_button = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -1067,12 +1063,12 @@ BEGIN_JUCER_METADATA
           fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
           italic="0" justification="36"/>
   </BACKGROUND>
+  <GROUPCOMPONENT name="tone group" id="6d64fe01c88e0968" memberName="tonegroup"
+                  virtualName="" explicitFocusOrder="0" pos="270 80 236 210" title="Tone"/>
   <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
                   virtualName="" explicitFocusOrder="0" pos="15 80 245 210" title="Control"/>
   <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
                   virtualName="" explicitFocusOrder="0" pos="362 292 421 210" title="Waveform"/>
-  <GROUPCOMPONENT name="tone group" id="6d64fe01c88e0968" memberName="tonegroup"
-                  virtualName="" explicitFocusOrder="0" pos="270 80 236 210" title="Tone"/>
   <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
                   virtualName="" explicitFocusOrder="0" pos="15 292 340 210" title="Sound"
                   textpos="36"/>
@@ -1081,11 +1077,6 @@ BEGIN_JUCER_METADATA
   <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
           virtualName="" explicitFocusOrder="0" pos="30 90 66 66" tooltip="SID-Volume"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
-          virtualName="" explicitFocusOrder="0" pos="315 90 66 66" tooltip="Octave1 Up/Down"
-          min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="octave2 slider" id="7808b9c1fb74ccc8" memberName="Octave2"
@@ -1319,16 +1310,12 @@ BEGIN_JUCER_METADATA
   <TOGGLEBUTTON name="sync3 toggle button" id="880c3fcf4ab4a1f6" memberName="Sync3"
                 virtualName="" explicitFocusOrder="0" pos="705 459 66 30" buttonText="Sync."
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="voice1 toggle button" id="883f3d3793f0f11b" memberName="Voice1"
-                virtualName="" explicitFocusOrder="0" pos="285 105 66 30" tooltip="Voice 1 On/Off"
-                buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="1"/>
   <TOGGLEBUTTON name="voice2 toggle button" id="3b39ff7f634b369" memberName="Voice2"
-                virtualName="" explicitFocusOrder="0" pos="285 167 66 30" tooltip="Voice 2 On/Off"
+                virtualName="" explicitFocusOrder="0" pos="285 167 33 30" tooltip="Voice 2 On/Off"
                 buttonText="2" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <TOGGLEBUTTON name="voice3 toggle button" id="62c330b01d3c339c" memberName="Voice3"
-                virtualName="" explicitFocusOrder="0" pos="285 230 66 30" tooltip="Voice 3 On/Off"
+                virtualName="" explicitFocusOrder="0" pos="285 230 33 30" tooltip="Voice 3 On/Off"
                 buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <IMAGEBUTTON name="Power_LED" id="77dead3478e9a659" memberName="Led" virtualName=""
@@ -1342,17 +1329,26 @@ BEGIN_JUCER_METADATA
             virtualName="" explicitFocusOrder="0" pos="30 162 150 24" tooltip="MIDI channel"
             editable="0" layout="33" items="all&#10;1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10&#10;11&#10;12&#10;13&#10;14&#10;15&#10;16"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
+  <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_button"
+                virtualName="" explicitFocusOrder="0" pos="190 160 66 30" tooltip="link gui elements"
+                buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
+  <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
+          virtualName="" explicitFocusOrder="0" pos="315 90 66 66" tooltip="Octave1 Up/Down"
+          min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          needsCallback="0"/>
+  <TOGGLEBUTTON name="voice1 toggle button" id="883f3d3793f0f11b" memberName="Voice1"
+                virtualName="" explicitFocusOrder="0" pos="285 105 33 30" tooltip="Voice 1 On/Off"
+                buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="1"/>
   <IMAGEBUTTON name="reset button" id="99243fa27f37fff" memberName="reset_button"
-               virtualName="" explicitFocusOrder="0" pos="180 115 70 25" tooltip="click twice for SID reset"
+               virtualName="" explicitFocusOrder="0" pos="180 115 70 25" tooltip="SID reset"
                buttonText="reset button" connectedEdges="0" needsCallback="0"
                radioGroupId="0" keepProportions="1" resourceNormal="reset_png"
                opacityNormal="1.0" colourNormal="0" resourceOver="reset_png"
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
-  <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_button"
-                virtualName="" explicitFocusOrder="0" pos="190 160 66 30" tooltip="link gui elements"
-                buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
