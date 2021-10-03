@@ -1331,7 +1331,20 @@
 			else if (m.isPitchWheel())
 			{
 			}
-
+			else if (m.isController())
+			{
+				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
+				{
+					if (m.getControllerNumber() == 7)
+					{
+						int CCVolume = m.getControllerValue();
+						float newVolume = ((float)CCVolume) * (15.0f / 127.0f);
+						parameterChanged("SidVol", newVolume);
+						float newGUIVolume = ((float)CCVolume) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(0, newGUIVolume);
+					}
+				}
+			}
 		}
 	}
 

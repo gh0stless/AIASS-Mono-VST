@@ -74,7 +74,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     sidvolume.reset (new juce::Slider ("sidvolume slider"));
     addAndMakeVisible (sidvolume.get());
-    sidvolume->setTooltip (TRANS("SID-Volume"));
+    sidvolume->setTooltip (TRANS("SID-Volume (CC7)"));
     sidvolume->setRange (0, 15, 1);
     sidvolume->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -1075,7 +1075,7 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="filter group" id="5844d35c6980f98d" memberName="filtergroup"
                   virtualName="" explicitFocusOrder="0" pos="512 80 270 210" title="Filter"/>
   <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
-          virtualName="" explicitFocusOrder="0" pos="30 90 66 66" tooltip="SID-Volume"
+          virtualName="" explicitFocusOrder="0" pos="30 90 66 66" tooltip="SID-Volume (CC7)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>

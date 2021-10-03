@@ -119,18 +119,21 @@ static const unsigned char temp_binary_data_1[] =
 "todo:\r\n"
 "-----\r\n"
 "- presets\r\n"
-"- MIDI controller\r\n"
+"- MIDI CC\r\n"
+"- manual\r\n"
 "\r\n"
 "history\r\n"
 "-------\r\n"
-"- 2021/10/02 - work on 0.5\r\n"
+"- 2021/10/03 - work on v.0.5\r\n"
 "  - Link Mode added\r\n"
 "  - SID-Reset added\r\n"
-"- 2021/10/01 - releasing 0.4\r\n"
+"  - work on CC\r\n"
+"  - work on manual\r\n"
+"- 2021/10/01 - releasing v.0.4\r\n"
 "  - MIDI-play modes implemented\r\n"
-"- 2020/02/13 - releasing 0.1b\r\n"
+"- 2020/02/13 - releasing v.0.1b\r\n"
 "- 2020/02/12 - changing depricaded juce code\r\n"
-"- 2018/10/27 - releasing 0.1a\r\n"
+"- 2018/10/27 - releasing v.0.1a\r\n"
 "- 2017/10/28 - starting to code";
 
 const char* README_md = (const char*) temp_binary_data_1;
@@ -148,7 +151,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
-        case 0x64791dc8:  numBytes = 336; return README_md;
+        case 0x64791dc8:  numBytes = 382; return README_md;
         default: break;
     }
 

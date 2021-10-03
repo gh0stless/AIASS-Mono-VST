@@ -136,6 +136,7 @@ private:
 	bool BANDPASS = false;
 	bool HIGHPASS = false;
 	bool F3OFF = false;
+
 	bool VELVOL = false;
 
 	int SIDVOL = 15;
