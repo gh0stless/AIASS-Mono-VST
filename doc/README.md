@@ -1,7 +1,8 @@
 todo:
 -----
 - presets
-- MIDI CC
+- some MIDI CC (switches)
+- Pitch/Modulation
 - manual
 
 history

@@ -83,7 +83,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Octave2.reset (new juce::Slider ("octave2 slider"));
     addAndMakeVisible (Octave2.get());
-    Octave2->setTooltip (TRANS("Octave2 Up/Down"));
+    Octave2->setTooltip (TRANS("Octave2 Up/Down (CC85)\n"));
     Octave2->setRange (-4, 4, 1);
     Octave2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Octave2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -92,7 +92,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Octave3.reset (new juce::Slider ("octave3 slider"));
     addAndMakeVisible (Octave3.get());
-    Octave3->setTooltip (TRANS("Octave3 Up/Down"));
+    Octave3->setTooltip (TRANS("Octave3 Up/Down (CC88)\n"));
     Octave3->setRange (-4, 4, 1);
     Octave3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Octave3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -101,7 +101,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Semi1.reset (new juce::Slider ("semi1 slider"));
     addAndMakeVisible (Semi1.get());
-    Semi1->setTooltip (TRANS("Semitone1 Up/Down"));
+    Semi1->setTooltip (TRANS("Semitone1 Up/Down (CC79)\n"));
     Semi1->setRange (-12, 12, 1);
     Semi1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Semi1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -110,7 +110,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Semi2.reset (new juce::Slider ("semi2 slider"));
     addAndMakeVisible (Semi2.get());
-    Semi2->setTooltip (TRANS("Semitone2 Up/Down"));
+    Semi2->setTooltip (TRANS("Semitone2 Up/Down (CC86)\n"));
     Semi2->setRange (-12, 12, 1);
     Semi2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Semi2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -119,7 +119,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Semi3.reset (new juce::Slider ("semi3 slider"));
     addAndMakeVisible (Semi3.get());
-    Semi3->setTooltip (TRANS("Semitone3 Up/Down"));
+    Semi3->setTooltip (TRANS("Semitone3 Up/Down (CC89)\n"));
     Semi3->setRange (-12, 12, 1);
     Semi3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Semi3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -128,7 +128,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Cent1.reset (new juce::Slider ("cent1 slider"));
     addAndMakeVisible (Cent1.get());
-    Cent1->setTooltip (TRANS("Cent1 Up/Down"));
+    Cent1->setTooltip (TRANS("Cent1 Up/Down (CC70)\n"));
     Cent1->setRange (-100, 100, 1);
     Cent1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Cent1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -137,7 +137,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Cent2.reset (new juce::Slider ("cent2 slider"));
     addAndMakeVisible (Cent2.get());
-    Cent2->setTooltip (TRANS("Cent2 Up/Down"));
+    Cent2->setTooltip (TRANS("Cent2 Up/Down (CC87)\n"));
     Cent2->setRange (-100, 100, 1);
     Cent2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Cent2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -146,7 +146,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Cent3.reset (new juce::Slider ("cent3 slider"));
     addAndMakeVisible (Cent3.get());
-    Cent3->setTooltip (TRANS("Cent3 Up/Down"));
+    Cent3->setTooltip (TRANS("Cent3 Up/Down (CC90)\n"));
     Cent3->setRange (-100, 100, 1);
     Cent3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Cent3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -155,7 +155,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Attack1.reset (new juce::Slider ("attack1 slider"));
     addAndMakeVisible (Attack1.get());
-    Attack1->setTooltip (TRANS("Attack 1"));
+    Attack1->setTooltip (TRANS("Attack 1 (CC73)"));
     Attack1->setRange (0, 15, 1);
     Attack1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Attack1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -164,7 +164,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Attack2.reset (new juce::Slider ("attack2 slider"));
     addAndMakeVisible (Attack2.get());
-    Attack2->setTooltip (TRANS("Attack 2"));
+    Attack2->setTooltip (TRANS("Attack 2 (CC20)"));
     Attack2->setRange (0, 15, 1);
     Attack2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Attack2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -173,7 +173,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Attack3.reset (new juce::Slider ("attack3 slider"));
     addAndMakeVisible (Attack3.get());
-    Attack3->setTooltip (TRANS("Attack 3"));
+    Attack3->setTooltip (TRANS("Attack 3 (CC25)"));
     Attack3->setRange (0, 15, 1);
     Attack3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Attack3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -182,7 +182,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Decay1.reset (new juce::Slider ("decay1 slider"));
     addAndMakeVisible (Decay1.get());
-    Decay1->setTooltip (TRANS("Decay 1"));
+    Decay1->setTooltip (TRANS("Decay 1 (CC75)"));
     Decay1->setRange (0, 15, 1);
     Decay1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Decay1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -191,7 +191,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Decay2.reset (new juce::Slider ("decay2 slider"));
     addAndMakeVisible (Decay2.get());
-    Decay2->setTooltip (TRANS("Decay 2"));
+    Decay2->setTooltip (TRANS("Decay 2 (CC21)"));
     Decay2->setRange (0, 15, 1);
     Decay2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Decay2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -200,7 +200,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Decay3.reset (new juce::Slider ("decay3 slider"));
     addAndMakeVisible (Decay3.get());
-    Decay3->setTooltip (TRANS("Decay 3"));
+    Decay3->setTooltip (TRANS("Decay 3 (CC26)"));
     Decay3->setRange (0, 15, 1);
     Decay3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Decay3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -209,7 +209,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sustain1.reset (new juce::Slider ("sustain1 slider"));
     addAndMakeVisible (Sustain1.get());
-    Sustain1->setTooltip (TRANS("Sustain 1"));
+    Sustain1->setTooltip (TRANS("Sustain 1 (CC76)"));
     Sustain1->setRange (0, 15, 1);
     Sustain1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Sustain1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -218,7 +218,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sustain2.reset (new juce::Slider ("sustain2 slider"));
     addAndMakeVisible (Sustain2.get());
-    Sustain2->setTooltip (TRANS("Sustain 2"));
+    Sustain2->setTooltip (TRANS("Sustain 2 (CC22)"));
     Sustain2->setRange (0, 15, 1);
     Sustain2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Sustain2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -227,7 +227,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Sustain3.reset (new juce::Slider ("sustain3 slider"));
     addAndMakeVisible (Sustain3.get());
-    Sustain3->setTooltip (TRANS("Sustain 3"));
+    Sustain3->setTooltip (TRANS("Sustain 3 (CC27)"));
     Sustain3->setRange (0, 15, 1);
     Sustain3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Sustain3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -236,7 +236,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Release1.reset (new juce::Slider ("release1 slider"));
     addAndMakeVisible (Release1.get());
-    Release1->setTooltip (TRANS("Release 1"));
+    Release1->setTooltip (TRANS("Release 1 (CC72)"));
     Release1->setRange (0, 15, 1);
     Release1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Release1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -245,7 +245,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Release2.reset (new juce::Slider ("release2 slider"));
     addAndMakeVisible (Release2.get());
-    Release2->setTooltip (TRANS("Release 2"));
+    Release2->setTooltip (TRANS("Release 2 (CC23)"));
     Release2->setRange (0, 15, 1);
     Release2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Release2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -254,7 +254,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Release3.reset (new juce::Slider ("release3 slider"));
     addAndMakeVisible (Release3.get());
-    Release3->setTooltip (TRANS("Release 3"));
+    Release3->setTooltip (TRANS("Release 3 (CC28)"));
     Release3->setRange (0, 15, 1);
     Release3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Release3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -263,7 +263,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Pulsew1.reset (new juce::Slider ("pulsew1 slider"));
     addAndMakeVisible (Pulsew1.get());
-    Pulsew1->setTooltip (TRANS("Pulse width 1"));
+    Pulsew1->setTooltip (TRANS("Pulse width 1 (CC77)"));
     Pulsew1->setRange (1, 4094, 1);
     Pulsew1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
@@ -272,7 +272,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Pulsew2.reset (new juce::Slider ("pulsew2 slider"));
     addAndMakeVisible (Pulsew2.get());
-    Pulsew2->setTooltip (TRANS("Pulse width 2"));
+    Pulsew2->setTooltip (TRANS("Pulse width 2 (CC24)"));
     Pulsew2->setRange (1, 4094, 1);
     Pulsew2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -281,7 +281,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Pulsew3.reset (new juce::Slider ("pulsew3 slider"));
     addAndMakeVisible (Pulsew3.get());
-    Pulsew3->setTooltip (TRANS("Pulse width 3"));
+    Pulsew3->setTooltip (TRANS("Pulse width 3 (CC29)"));
     Pulsew3->setRange (1, 4094, 1);
     Pulsew3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -398,7 +398,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     CutOff.reset (new juce::Slider ("cutoff slider"));
     addAndMakeVisible (CutOff.get());
-    CutOff->setTooltip (TRANS("Cutoff"));
+    CutOff->setTooltip (TRANS("Cutoff (CC74)"));
     CutOff->setRange (0, 2047, 1);
     CutOff->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     CutOff->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
@@ -407,7 +407,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Resonace.reset (new juce::Slider ("resonance slider"));
     addAndMakeVisible (Resonace.get());
-    Resonace->setTooltip (TRANS("Resonance"));
+    Resonace->setTooltip (TRANS("Resonance (CC71)\n"));
     Resonace->setRange (0, 15, 1);
     Resonace->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Resonace->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
@@ -592,7 +592,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Octave1.reset (new juce::Slider ("octave1 slider"));
     addAndMakeVisible (Octave1.get());
-    Octave1->setTooltip (TRANS("Octave1 Up/Down"));
+    Octave1->setTooltip (TRANS("Octave1 Up/Down (CC78)\n"));
     Octave1->setRange (-4, 4, 1);
     Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
@@ -1080,117 +1080,117 @@ BEGIN_JUCER_METADATA
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="octave2 slider" id="7808b9c1fb74ccc8" memberName="Octave2"
-          virtualName="" explicitFocusOrder="0" pos="315 153 66 66" tooltip="Octave2 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="315 153 66 66" tooltip="Octave2 Up/Down (CC85)&#10;"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="octave3 slider" id="d3e4a1e141ca77b6" memberName="Octave3"
-          virtualName="" explicitFocusOrder="0" pos="315 218 66 66" tooltip="Octave3 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="315 218 66 66" tooltip="Octave3 Up/Down (CC88)&#10;"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="semi1 slider" id="4297018af851022d" memberName="Semi1"
-          virtualName="" explicitFocusOrder="0" pos="375 90 66 66" tooltip="Semitone1 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="375 90 66 66" tooltip="Semitone1 Up/Down (CC79)&#10;"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="semi2 slider" id="4e87cf183b0e0e77" memberName="Semi2"
-          virtualName="" explicitFocusOrder="0" pos="375 153 66 66" tooltip="Semitone2 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="375 153 66 66" tooltip="Semitone2 Up/Down (CC86)&#10;"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="semi3 slider" id="f03b15fac2d0a403" memberName="Semi3"
-          virtualName="" explicitFocusOrder="0" pos="375 218 66 66" tooltip="Semitone3 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="375 218 66 66" tooltip="Semitone3 Up/Down (CC89)&#10;"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="cent1 slider" id="b0bba6848acec451" memberName="Cent1"
-          virtualName="" explicitFocusOrder="0" pos="435 90 66 66" tooltip="Cent1 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="435 90 66 66" tooltip="Cent1 Up/Down (CC70)&#10;"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="cent2 slider" id="873ffcdb55231a19" memberName="Cent2"
-          virtualName="" explicitFocusOrder="0" pos="435 153 66 66" tooltip="Cent2 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="435 153 66 66" tooltip="Cent2 Up/Down (CC87)&#10;"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="cent3 slider" id="77eb6b6e2092a08c" memberName="Cent3"
-          virtualName="" explicitFocusOrder="0" pos="435 218 66 66" tooltip="Cent3 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="435 218 66 66" tooltip="Cent3 Up/Down (CC90)&#10;"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="attack1 slider" id="53619e38d7835c9d" memberName="Attack1"
-          virtualName="" explicitFocusOrder="0" pos="30 300 66 66" tooltip="Attack 1"
+          virtualName="" explicitFocusOrder="0" pos="30 300 66 66" tooltip="Attack 1 (CC73)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="attack2 slider" id="40a979315f74e3a" memberName="Attack2"
-          virtualName="" explicitFocusOrder="0" pos="30 365 66 66" tooltip="Attack 2"
+          virtualName="" explicitFocusOrder="0" pos="30 365 66 66" tooltip="Attack 2 (CC20)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="attack3 slider" id="7e38002dde33164c" memberName="Attack3"
-          virtualName="" explicitFocusOrder="0" pos="30 430 66 66" tooltip="Attack 3"
+          virtualName="" explicitFocusOrder="0" pos="30 430 66 66" tooltip="Attack 3 (CC25)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="decay1 slider" id="49642dbf385beee8" memberName="Decay1"
-          virtualName="" explicitFocusOrder="0" pos="90 300 66 66" tooltip="Decay 1"
+          virtualName="" explicitFocusOrder="0" pos="90 300 66 66" tooltip="Decay 1 (CC75)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="decay2 slider" id="379b886c43a29254" memberName="Decay2"
-          virtualName="" explicitFocusOrder="0" pos="90 365 66 66" tooltip="Decay 2"
+          virtualName="" explicitFocusOrder="0" pos="90 365 66 66" tooltip="Decay 2 (CC21)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="decay3 slider" id="ff55788389bcec83" memberName="Decay3"
-          virtualName="" explicitFocusOrder="0" pos="90 430 66 66" tooltip="Decay 3"
+          virtualName="" explicitFocusOrder="0" pos="90 430 66 66" tooltip="Decay 3 (CC26)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="sustain1 slider" id="2793e34c7a6a6286" memberName="Sustain1"
-          virtualName="" explicitFocusOrder="0" pos="150 300 66 66" tooltip="Sustain 1"
+          virtualName="" explicitFocusOrder="0" pos="150 300 66 66" tooltip="Sustain 1 (CC76)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="sustain2 slider" id="25e905e8830bd418" memberName="Sustain2"
-          virtualName="" explicitFocusOrder="0" pos="150 365 66 66" tooltip="Sustain 2"
+          virtualName="" explicitFocusOrder="0" pos="150 365 66 66" tooltip="Sustain 2 (CC22)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="sustain3 slider" id="740735c3d8776e72" memberName="Sustain3"
-          virtualName="" explicitFocusOrder="0" pos="150 430 66 66" tooltip="Sustain 3"
+          virtualName="" explicitFocusOrder="0" pos="150 430 66 66" tooltip="Sustain 3 (CC27)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="release1 slider" id="26b01f2c9f0fcbd4" memberName="Release1"
-          virtualName="" explicitFocusOrder="0" pos="210 300 66 66" tooltip="Release 1"
+          virtualName="" explicitFocusOrder="0" pos="210 300 66 66" tooltip="Release 1 (CC72)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="release2 slider" id="cede2f433ff54882" memberName="Release2"
-          virtualName="" explicitFocusOrder="0" pos="210 365 66 66" tooltip="Release 2"
+          virtualName="" explicitFocusOrder="0" pos="210 365 66 66" tooltip="Release 2 (CC23)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="release3 slider" id="a6cb93496f682a4d" memberName="Release3"
-          virtualName="" explicitFocusOrder="0" pos="210 430 66 66" tooltip="Release 3"
+          virtualName="" explicitFocusOrder="0" pos="210 430 66 66" tooltip="Release 3 (CC28)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="pulsew1 slider" id="a63bd08caa77c655" memberName="Pulsew1"
-          virtualName="" explicitFocusOrder="0" pos="280 300 66 66" tooltip="Pulse width 1"
+          virtualName="" explicitFocusOrder="0" pos="280 300 66 66" tooltip="Pulse width 1 (CC77)"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="pulsew2 slider" id="c761eb76e90133c8" memberName="Pulsew2"
-          virtualName="" explicitFocusOrder="0" pos="280 365 66 66" tooltip="Pulse width 2"
+          virtualName="" explicitFocusOrder="0" pos="280 365 66 66" tooltip="Pulse width 2 (CC24)"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="pulsew3 slider" id="c9edf691a324176f" memberName="Pulsew3"
-          virtualName="" explicitFocusOrder="0" pos="280 430 66 66" tooltip="Pulse width 3"
+          virtualName="" explicitFocusOrder="0" pos="280 430 66 66" tooltip="Pulse width 3 (CC29)"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
@@ -1247,12 +1247,12 @@ BEGIN_JUCER_METADATA
                 buttonText="scale" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <SLIDER name="cutoff slider" id="b104465dc77b15ae" memberName="CutOff"
-          virtualName="" explicitFocusOrder="0" pos="632 216 66 66" tooltip="Cutoff"
+          virtualName="" explicitFocusOrder="0" pos="632 216 66 66" tooltip="Cutoff (CC74)"
           min="0.0" max="2047.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="resonance slider" id="b18e0fc28c589ec5" memberName="Resonace"
-          virtualName="" explicitFocusOrder="0" pos="702 216 66 66" tooltip="Resonance"
+          virtualName="" explicitFocusOrder="0" pos="702 216 66 66" tooltip="Resonance (CC71)&#10;"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
@@ -1334,7 +1334,7 @@ BEGIN_JUCER_METADATA
                 buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
-          virtualName="" explicitFocusOrder="0" pos="315 90 66 66" tooltip="Octave1 Up/Down"
+          virtualName="" explicitFocusOrder="0" pos="315 90 66 66" tooltip="Octave1 Up/Down (CC78)&#10;"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>

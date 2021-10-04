@@ -864,7 +864,7 @@
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
-		parameters.addParameterListener("SidVol", this);
+		parameters.addParameterListener("SidVol", this);		//0
 		parameters.addParameterListener("VelVol", this);
 		parameters.addParameterListener("AttAck1", this);
 		parameters.addParameterListener("AttAck2", this);
@@ -874,7 +874,7 @@
 		parameters.addParameterListener("DeCay3", this);
 		parameters.addParameterListener("SuStain1", this);
 		parameters.addParameterListener("SuStain2", this);
-		parameters.addParameterListener("SuStain3", this);
+		parameters.addParameterListener("SuStain3", this);		//10
 		parameters.addParameterListener("ReLease1", this);
 		parameters.addParameterListener("ReLease2", this);
 		parameters.addParameterListener("ReLease3", this);
@@ -884,7 +884,7 @@
 		parameters.addParameterListener("VoiCe1", this);
 		parameters.addParameterListener("VoiCe2", this);
 		parameters.addParameterListener("VoiCe3", this);
-		parameters.addParameterListener("OcTave1", this);
+		parameters.addParameterListener("OcTave1", this);		//20
 		parameters.addParameterListener("OcTave2", this);
 		parameters.addParameterListener("OcTave3", this);
 		parameters.addParameterListener("SeMi1", this);
@@ -894,7 +894,7 @@
 		parameters.addParameterListener("CenT2", this);
 		parameters.addParameterListener("CenT3", this);
 		parameters.addParameterListener("NoiSe1", this);
-		parameters.addParameterListener("NoiSe2", this);
+		parameters.addParameterListener("NoiSe2", this);		//30
 		parameters.addParameterListener("NoiSe3", this);
 		parameters.addParameterListener("PulSe1", this);
 		parameters.addParameterListener("PulSe2", this);
@@ -904,7 +904,7 @@
 		parameters.addParameterListener("SaW3", this);
 		parameters.addParameterListener("TriA1", this);
 		parameters.addParameterListener("TriA2", this);
-		parameters.addParameterListener("TriA3", this);
+		parameters.addParameterListener("TriA3", this);			//40
 		parameters.addParameterListener("RingMod1", this);
 		parameters.addParameterListener("RingMod2", this);
 		parameters.addParameterListener("RingMod3", this);
@@ -914,7 +914,7 @@
 		parameters.addParameterListener("FilterFreq", this);
 		parameters.addParameterListener("ResoNance", this);
 		parameters.addParameterListener("FilTer8580", this);
-		parameters.addParameterListener("FilTer1", this);
+		parameters.addParameterListener("FilTer1", this);		//50
 		parameters.addParameterListener("FilTer2", this);
 		parameters.addParameterListener("FilTer3", this);
 		parameters.addParameterListener("FilTerIn", this);
@@ -924,7 +924,7 @@
 		parameters.addParameterListener("FilTer3OFF", this);
 		parameters.addParameterListener("LegatoMode", this);
 		parameters.addParameterListener("NotePriorityMode", this);
-		parameters.addParameterListener("MidiChannel", this);
+		parameters.addParameterListener("MidiChannel", this);	//60
 		parameters.addParameterListener("LinkButton",this);
 		parameters.addParameterListener("ResetButton", this);
 
@@ -1335,13 +1335,225 @@
 			{
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
 				{
-					if (m.getControllerNumber() == 7)
+					if (m.getControllerNumber() == 7) //Volume
 					{
 						int CCVolume = m.getControllerValue();
 						float newVolume = ((float)CCVolume) * (15.0f / 127.0f);
 						parameterChanged("SidVol", newVolume);
 						float newGUIVolume = ((float)CCVolume) * (1.0f / 127.0f);
 						sendParamChangeMessageToListeners(0, newGUIVolume);
+					}
+					if (m.getControllerNumber() == 74) //Filterfrq.
+					{
+						int CCFilterFreq = m.getControllerValue();
+						float newFilterFreq = ((float)CCFilterFreq) * (2047.0f / 127.0f);
+						parameterChanged("FilterFreq", newFilterFreq);
+						float newGUIFilterFreq = ((float)CCFilterFreq) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(47, newGUIFilterFreq);
+					}
+					if (m.getControllerNumber() == 71) //Resonance
+					{
+						int CCFilterRes = m.getControllerValue();
+						float newFilterRes = ((float)CCFilterRes) * (15.0f / 127.0f);
+						parameterChanged("ResoNance", newFilterRes);
+						float newGUIFilterRes = ((float)CCFilterRes) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(48, newGUIFilterRes);
+					}
+					if (m.getControllerNumber() == 73) //Attack1
+					{
+						int CCAttack1 = m.getControllerValue();
+						float newAttack1 = ((float)CCAttack1) * (15.0f / 127.0f);
+						parameterChanged("AttAck1", newAttack1);
+						float newGUIAttack1 = ((float)CCAttack1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(2, newGUIAttack1);
+					}
+					if (m.getControllerNumber() == 75) //Decay1
+					{
+						int CCDecay1 = m.getControllerValue();
+						float newDecay1 = ((float)CCDecay1) * (15.0f / 127.0f);
+						parameterChanged("DeCay1", newDecay1);
+						float newGUIDecay1 = ((float)CCDecay1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(5, newGUIDecay1);
+					}
+					if (m.getControllerNumber() == 76) //Sustain1
+					{
+						int CCSustain1 = m.getControllerValue();
+						float newSustain1 = ((float)CCSustain1) * (15.0f / 127.0f);
+						parameterChanged("SuStain", newSustain1);
+						float newGUISustain1 = ((float)CCSustain1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(8, newGUISustain1);
+					}
+					if (m.getControllerNumber() == 72) //Release1
+					{
+						int CCRelease1 = m.getControllerValue();
+						float newRelease1 = ((float)CCRelease1) * (15.0f / 127.0f);
+						parameterChanged("ReLease1", newRelease1);
+						float newGUIRelease1 = ((float)CCRelease1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(11, newGUIRelease1);
+					}
+					if (m.getControllerNumber() == 77) //Pulsew1
+					{
+						int CCPulsew1 = m.getControllerValue();
+						float newPulsew1 = ((float)CCPulsew1) * (4094.0f / 127.0f);
+						parameterChanged("PulsW1", newPulsew1);
+						float newGUIPulsew1 = ((float)CCPulsew1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(14, newGUIPulsew1);
+					}
+					if (!LINK) {
+						if (m.getControllerNumber() == 20) //Attack2
+						{
+							int CCAttack2 = m.getControllerValue();
+							float newAttack2 = ((float)CCAttack2) * (15.0f / 127.0f);
+							parameterChanged("AttAck2", newAttack2);
+							float newGUIAttack2 = ((float)CCAttack2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(3, newGUIAttack2);
+						}
+						if (m.getControllerNumber() == 21) //Decay2
+						{
+							int CCDecay2 = m.getControllerValue();
+							float newDecay2 = ((float)CCDecay2) * (15.0f / 127.0f);
+							parameterChanged("DeCay2", newDecay2);
+							float newGUIDecay2 = ((float)CCDecay2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(6, newGUIDecay2);
+						}
+						if (m.getControllerNumber() == 22) //Sustain2
+						{
+							int CCSustain2 = m.getControllerValue();
+							float newSustain2 = ((float)CCSustain2) * (15.0f / 127.0f);
+							parameterChanged("SuStain2", newSustain2);
+							float newGUISustain2 = ((float)CCSustain2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(9, newGUISustain2);
+						}
+						if (m.getControllerNumber() == 23) //Release2
+						{
+							int CCRelease2 = m.getControllerValue();
+							float newRelease2 = ((float)CCRelease2) * (15.0f / 127.0f);
+							parameterChanged("ReLease2", newRelease2);
+							float newGUIRelease2 = ((float)CCRelease2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(12, newGUIRelease2);
+						}
+						if (m.getControllerNumber() == 24) //Pulsew2
+						{
+							int CCPulsew2 = m.getControllerValue();
+							float newPulsew2 = ((float)CCPulsew2) * (4094.0f / 127.0f);
+							parameterChanged("PulsW2", newPulsew2);
+							float newGUIPulsew2 = ((float)CCPulsew2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(15, newGUIPulsew2);
+						}
+						if (m.getControllerNumber() == 25) //Attack3
+						{
+							int CCAttack3 = m.getControllerValue();
+							float newAttack3 = ((float)CCAttack3) * (15.0f / 127.0f);
+							parameterChanged("AttAck3", newAttack3);
+							float newGUIAttack3 = ((float)CCAttack3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(4, newGUIAttack3);
+						}
+						if (m.getControllerNumber() == 26) //Decay3
+						{
+							int CCDecay3 = m.getControllerValue();
+							float newDecay3 = ((float)CCDecay3) * (15.0f / 127.0f);
+							parameterChanged("DeCay3", newDecay3);
+							float newGUIDecay3 = ((float)CCDecay3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(7, newGUIDecay3);
+						}
+						if (m.getControllerNumber() == 27) //Sustain3
+						{
+							int CCSustain3 = m.getControllerValue();
+							float newSustain3 = ((float)CCSustain3) * (15.0f / 127.0f);
+							parameterChanged("SuStain3", newSustain3);
+							float newGUISustain3 = ((float)CCSustain3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(10, newGUISustain3);
+						}
+						if (m.getControllerNumber() == 28) //Release3
+						{
+							int CCRelease3 = m.getControllerValue();
+							float newRelease3 = ((float)CCRelease3) * (15.0f / 127.0f);
+							parameterChanged("ReLease3", newRelease3);
+							float newGUIRelease3 = ((float)CCRelease3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(13, newGUIRelease3);
+						}
+						if (m.getControllerNumber() == 29) //Pulsew3
+						{
+							int CCPulsew3 = m.getControllerValue();
+							float newPulsew3 = ((float)CCPulsew3) * (4094.0f / 127.0f);
+							parameterChanged("PulsW3", newPulsew3);
+							float newGUIPulsew3 = ((float)CCPulsew3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(16, newGUIPulsew3);
+						}
+					}
+					if (m.getControllerNumber() == 78) //Octave1
+					{
+						int CCOctave1 = m.getControllerValue();
+						float newOctave1 = -4.00 + ((float)CCOctave1) * ((4.0f - -4.0f) / 127.0f);
+						parameterChanged("OcTave1", newOctave1);
+						float newGUIOctave1 = ((float)CCOctave1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(20, newGUIOctave1);
+					}
+					if (m.getControllerNumber() == 79) //Semi1
+					{
+						int CCSemi1 = m.getControllerValue();
+						float newSemi1 = -12 + ((float)CCSemi1) * ((12.0f - -12.0f) / 127.0f);
+						parameterChanged("SeMi1", newSemi1);
+						float newGUISemi1 = ((float)CCSemi1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(23, newGUISemi1);
+					}
+					if (m.getControllerNumber() == 70) //Cent1
+					{
+						int CCCent1 = m.getControllerValue();
+						float newCent1 = ((float)CCCent1) * ((100.0f - -100.0f) / 127.0f);
+						parameterChanged("CenT1", newCent1);
+						float newGUICent1 = ((float)CCCent1) * (1.0f / 127.0f);
+						sendParamChangeMessageToListeners(26, newGUICent1);
+					}
+					if (!LINK) {
+						if (m.getControllerNumber() == 85) //Octave2
+						{
+							int CCOctave2 = m.getControllerValue();
+							float newOctave2 = -4.00 + ((float)CCOctave2) * ((4.0f - -4.0f) / 127.0f);
+							parameterChanged("OcTave2", newOctave2);
+							float newGUIOctave2 = ((float)CCOctave2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(21, newGUIOctave2);
+						}
+						if (m.getControllerNumber() == 86) //Semi2
+						{
+							int CCSemi2 = m.getControllerValue();
+							float newSemi2 = -12 + ((float)CCSemi2) * ((12.0f - -12.0f) / 127.0f);
+							parameterChanged("SeMi2", newSemi2);
+							float newGUISemi2 = ((float)CCSemi2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(24, newGUISemi2);
+						}
+						if (m.getControllerNumber() == 87) //Cent2
+						{
+							int CCCent2 = m.getControllerValue();
+							float newCent2 = ((float)CCCent2) * ((100.0f - -100.0f) / 127.0f);
+							parameterChanged("CenT2", newCent2);
+							float newGUICent2 = ((float)CCCent2) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(27, newGUICent2);
+						}
+						if (m.getControllerNumber() == 88) //Octave3
+						{
+							int CCOctave3 = m.getControllerValue();
+							float newOctave3 = -4.00 + ((float)CCOctave3) * ((4.0f - -4.0f) / 127.0f);
+							parameterChanged("OcTave3", newOctave3);
+							float newGUIOctave3 = ((float)CCOctave3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(22, newGUIOctave3);
+						}
+						if (m.getControllerNumber() == 89) //Semi3
+						{
+							int CCSemi3 = m.getControllerValue();
+							float newSemi3 = -12 + ((float)CCSemi3) * ((12.0f - -12.0f) / 127.0f);
+							parameterChanged("SeMi3", newSemi3);
+							float newGUISemi3 = ((float)CCSemi3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(25, newGUISemi3);
+						}
+						if (m.getControllerNumber() == 90) //Cent3
+						{
+							int CCCent3 = m.getControllerValue();
+							float newCent3 = ((float)CCCent3) * ((100.0f - -100.0f) / 127.0f);
+							parameterChanged("CenT3", newCent3);
+							float newGUICent3 = ((float)CCCent3) * (1.0f / 127.0f);
+							sendParamChangeMessageToListeners(28, newGUICent3);
+						}
 					}
 				}
 			}
