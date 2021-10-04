@@ -167,6 +167,14 @@ private:
 
        bool Link_State;
 
+       //==============================================================================
+
+       juce::MidiKeyboardState keyboardState;            // [5]
+       juce::MidiKeyboardComponent keyboardComponent;    // [6]
+
+
+       //==============================================================================
+
 
     //[/UserVariables]
 
@@ -241,6 +249,7 @@ private:
     std::unique_ptr<juce::Slider> Octave1;
     std::unique_ptr<juce::ToggleButton> Voice1;
     std::unique_ptr<juce::ImageButton> reset_button;
+    std::unique_ptr<juce::GroupComponent> keyboard_group;
     juce::Image cachedImage_aiasshintergrund_png2_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
 

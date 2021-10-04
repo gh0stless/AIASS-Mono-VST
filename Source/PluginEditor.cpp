@@ -32,11 +32,10 @@
 AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, AudioProcessorValueTreeState& vts)
     : AudioProcessorEditor (&p),
       valueTreeState (vts),
-      m_sid(p.getSid())
+      m_sid(p.getSid()),
+      keyboardComponent (keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)
 {
     //[Constructor_pre] You can add your own custom stuff here..
-
-
 
 
     //[/Constructor_pre]
@@ -57,7 +56,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                                                    TRANS("Waveform")));
     addAndMakeVisible (waveformgroup.get());
 
-    waveformgroup->setBounds (362, 292, 421, 210);
+    waveformgroup->setBounds (362, 292, 420, 144);
 
     soundgroup.reset (new juce::GroupComponent ("sound group",
                                                 TRANS("Sound")));
@@ -419,114 +418,114 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Noise1->setButtonText (TRANS("Noise"));
     Noise1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
-    Noise1->setBounds (374, 319, 66, 30);
+    Noise1->setBounds (374, 320, 66, 30);
 
     Noise2.reset (new juce::ToggleButton ("noise2 toggle button"));
     addAndMakeVisible (Noise2.get());
     Noise2->setButtonText (TRANS("Noise"));
 
-    Noise2->setBounds (373, 389, 66, 30);
+    Noise2->setBounds (373, 360, 66, 30);
 
     Noise3.reset (new juce::ToggleButton ("noise3 toggle button"));
     addAndMakeVisible (Noise3.get());
     Noise3->setButtonText (TRANS("Noise"));
 
-    Noise3->setBounds (375, 459, 66, 30);
+    Noise3->setBounds (375, 400, 66, 30);
 
     Pulse1.reset (new juce::ToggleButton ("pulse1 toggle button"));
     addAndMakeVisible (Pulse1.get());
     Pulse1->setButtonText (TRANS("Pulse"));
     Pulse1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
-    Pulse1->setBounds (443, 319, 66, 30);
+    Pulse1->setBounds (443, 320, 66, 30);
 
     Pulse2.reset (new juce::ToggleButton ("pulse2 toggle button"));
     addAndMakeVisible (Pulse2.get());
     Pulse2->setButtonText (TRANS("Pulse"));
 
-    Pulse2->setBounds (443, 389, 66, 30);
+    Pulse2->setBounds (443, 360, 66, 30);
 
     Pulse3.reset (new juce::ToggleButton ("pulse3 toggle button"));
     addAndMakeVisible (Pulse3.get());
     Pulse3->setButtonText (TRANS("Pulse"));
 
-    Pulse3->setBounds (443, 459, 66, 30);
+    Pulse3->setBounds (443, 400, 66, 30);
 
     Saw1.reset (new juce::ToggleButton ("saw1 toggle button"));
     addAndMakeVisible (Saw1.get());
     Saw1->setButtonText (TRANS("Saw"));
     Saw1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
-    Saw1->setBounds (509, 319, 66, 30);
+    Saw1->setBounds (509, 320, 66, 30);
 
     Saw2.reset (new juce::ToggleButton ("saw2 toggle button"));
     addAndMakeVisible (Saw2.get());
     Saw2->setButtonText (TRANS("Saw"));
 
-    Saw2->setBounds (509, 389, 66, 30);
+    Saw2->setBounds (509, 360, 66, 30);
 
     Saw3.reset (new juce::ToggleButton ("saw3 toggle button"));
     addAndMakeVisible (Saw3.get());
     Saw3->setButtonText (TRANS("Saw"));
 
-    Saw3->setBounds (509, 459, 66, 30);
+    Saw3->setBounds (509, 400, 66, 30);
 
     Tria1.reset (new juce::ToggleButton ("tria1 toggle button"));
     addAndMakeVisible (Tria1.get());
     Tria1->setButtonText (TRANS("Tria"));
     Tria1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
-    Tria1->setBounds (572, 319, 66, 30);
+    Tria1->setBounds (572, 320, 66, 30);
 
     Tria2.reset (new juce::ToggleButton ("tria2 toggle button"));
     addAndMakeVisible (Tria2.get());
     Tria2->setButtonText (TRANS("Tria"));
 
-    Tria2->setBounds (570, 390, 66, 30);
+    Tria2->setBounds (570, 360, 66, 30);
 
     Tria3.reset (new juce::ToggleButton ("tria3 toggle button"));
     addAndMakeVisible (Tria3.get());
     Tria3->setButtonText (TRANS("Tria"));
 
-    Tria3->setBounds (572, 459, 66, 30);
+    Tria3->setBounds (572, 400, 66, 30);
 
     Ringmod1.reset (new juce::ToggleButton ("ringmod1 toggle button"));
     addAndMakeVisible (Ringmod1.get());
     Ringmod1->setButtonText (TRANS("Ringmod"));
     Ringmod1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
-    Ringmod1->setBounds (629, 319, 66, 30);
+    Ringmod1->setBounds (629, 320, 66, 30);
 
     Ringmod2.reset (new juce::ToggleButton ("ringmod2 toggle button"));
     addAndMakeVisible (Ringmod2.get());
     Ringmod2->setButtonText (TRANS("Ringmod"));
 
-    Ringmod2->setBounds (629, 389, 66, 30);
+    Ringmod2->setBounds (629, 360, 66, 30);
 
     Ringmod3.reset (new juce::ToggleButton ("ringmod3 toggle button"));
     addAndMakeVisible (Ringmod3.get());
     Ringmod3->setButtonText (TRANS("Ringmod"));
 
-    Ringmod3->setBounds (629, 459, 66, 30);
+    Ringmod3->setBounds (629, 400, 66, 30);
 
     Sync1.reset (new juce::ToggleButton ("syn1 toggle button"));
     addAndMakeVisible (Sync1.get());
     Sync1->setButtonText (TRANS("Sync."));
     Sync1->setConnectedEdges (juce::Button::ConnectedOnBottom);
 
-    Sync1->setBounds (705, 319, 66, 30);
+    Sync1->setBounds (705, 320, 66, 30);
 
     Sync2.reset (new juce::ToggleButton ("sync2 toggle button"));
     addAndMakeVisible (Sync2.get());
     Sync2->setButtonText (TRANS("Sync."));
 
-    Sync2->setBounds (705, 389, 66, 30);
+    Sync2->setBounds (705, 360, 66, 30);
 
     Sync3.reset (new juce::ToggleButton ("sync3 toggle button"));
     addAndMakeVisible (Sync3.get());
     Sync3->setButtonText (TRANS("Sync."));
 
-    Sync3->setBounds (705, 459, 66, 30);
+    Sync3->setBounds (705, 400, 66, 30);
 
     Voice2.reset (new juce::ToggleButton ("voice2 toggle button"));
     addAndMakeVisible (Voice2.get());
@@ -617,6 +616,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
     reset_button->setBounds (180, 115, 70, 25);
 
+    keyboard_group.reset (new juce::GroupComponent ("keyboard group",
+                                                    TRANS("Keyboard")));
+    addAndMakeVisible (keyboard_group.get());
+
+    keyboard_group->setBounds (362, 434, 420, 68);
+
     cachedImage_aiasshintergrund_png2_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png2, aiasshintergrund_png2Size);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
 
@@ -625,6 +630,13 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	noteprioritymode->setSelectedItemIndex(0);
     midichannel->setSelectedItemIndex(0);
     reset_button->setClickingTogglesState(true);
+
+    addAndMakeVisible(keyboardComponent);
+    //keyboardState.addListener(this);
+    keyboardComponent.setTopLeftPosition(368,448);
+    keyboardComponent.setSize(408,48);
+
+
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
@@ -853,6 +865,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Octave1 = nullptr;
     Voice1 = nullptr;
     reset_button = nullptr;
+    keyboard_group = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -1051,7 +1064,7 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="AiassAudioProcessorEditor"
                  componentName="" parentClasses="public AudioProcessorEditor, private Timer"
                  constructorParams="AiassAudioProcessor&amp; p, AudioProcessorValueTreeState&amp; vts"
-                 variableInitialisers="AudioProcessorEditor (&amp;p)&#10;valueTreeState (vts)&#10;m_sid(p.getSid())&#10;&#10;"
+                 variableInitialisers="AudioProcessorEditor (&amp;p)&#10;valueTreeState (vts)&#10;m_sid(p.getSid())&#10;keyboardComponent (keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)&#10;"
                  snapPixels="10" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="800" initialHeight="525">
   <BACKGROUND backgroundColour="ffffff">
@@ -1068,7 +1081,7 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
                   virtualName="" explicitFocusOrder="0" pos="15 80 245 210" title="Control"/>
   <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
-                  virtualName="" explicitFocusOrder="0" pos="362 292 421 210" title="Waveform"/>
+                  virtualName="" explicitFocusOrder="0" pos="362 292 420 144" title="Waveform"/>
   <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
                   virtualName="" explicitFocusOrder="0" pos="15 292 340 210" title="Sound"
                   textpos="36"/>
@@ -1257,58 +1270,58 @@ BEGIN_JUCER_METADATA
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <TOGGLEBUTTON name="noise1 toggle button" id="53248eb179f92afc" memberName="Noise1"
-                virtualName="" explicitFocusOrder="0" pos="374 319 66 30" buttonText="Noise"
+                virtualName="" explicitFocusOrder="0" pos="374 320 66 30" buttonText="Noise"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="noise2 toggle button" id="d83f77113f37d2ea" memberName="Noise2"
-                virtualName="" explicitFocusOrder="0" pos="373 389 66 30" buttonText="Noise"
+                virtualName="" explicitFocusOrder="0" pos="373 360 66 30" buttonText="Noise"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="noise3 toggle button" id="1da77acd9957a585" memberName="Noise3"
-                virtualName="" explicitFocusOrder="0" pos="375 459 66 30" buttonText="Noise"
+                virtualName="" explicitFocusOrder="0" pos="375 400 66 30" buttonText="Noise"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="pulse1 toggle button" id="3bbfb8f7a8ca0db0" memberName="Pulse1"
-                virtualName="" explicitFocusOrder="0" pos="443 319 66 30" buttonText="Pulse"
+                virtualName="" explicitFocusOrder="0" pos="443 320 66 30" buttonText="Pulse"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="pulse2 toggle button" id="520ab3980bfa9711" memberName="Pulse2"
-                virtualName="" explicitFocusOrder="0" pos="443 389 66 30" buttonText="Pulse"
+                virtualName="" explicitFocusOrder="0" pos="443 360 66 30" buttonText="Pulse"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="pulse3 toggle button" id="1dd05bea0d3cdf7d" memberName="Pulse3"
-                virtualName="" explicitFocusOrder="0" pos="443 459 66 30" buttonText="Pulse"
+                virtualName="" explicitFocusOrder="0" pos="443 400 66 30" buttonText="Pulse"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="saw1 toggle button" id="a48dd1aa6574a3e4" memberName="Saw1"
-                virtualName="" explicitFocusOrder="0" pos="509 319 66 30" buttonText="Saw"
+                virtualName="" explicitFocusOrder="0" pos="509 320 66 30" buttonText="Saw"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="saw2 toggle button" id="ae3029edeecd4b14" memberName="Saw2"
-                virtualName="" explicitFocusOrder="0" pos="509 389 66 30" buttonText="Saw"
+                virtualName="" explicitFocusOrder="0" pos="509 360 66 30" buttonText="Saw"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="saw3 toggle button" id="656ce7e680e8573a" memberName="Saw3"
-                virtualName="" explicitFocusOrder="0" pos="509 459 66 30" buttonText="Saw"
+                virtualName="" explicitFocusOrder="0" pos="509 400 66 30" buttonText="Saw"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="tria1 toggle button" id="5747f6f8bb660f63" memberName="Tria1"
-                virtualName="" explicitFocusOrder="0" pos="572 319 66 30" buttonText="Tria"
+                virtualName="" explicitFocusOrder="0" pos="572 320 66 30" buttonText="Tria"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="tria2 toggle button" id="cc78b8161478c5a4" memberName="Tria2"
-                virtualName="" explicitFocusOrder="0" pos="570 390 66 30" buttonText="Tria"
+                virtualName="" explicitFocusOrder="0" pos="570 360 66 30" buttonText="Tria"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="tria3 toggle button" id="d9035b35478c1c9b" memberName="Tria3"
-                virtualName="" explicitFocusOrder="0" pos="572 459 66 30" buttonText="Tria"
+                virtualName="" explicitFocusOrder="0" pos="572 400 66 30" buttonText="Tria"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="ringmod1 toggle button" id="11efaf86d1acf272" memberName="Ringmod1"
-                virtualName="" explicitFocusOrder="0" pos="629 319 66 30" buttonText="Ringmod"
+                virtualName="" explicitFocusOrder="0" pos="629 320 66 30" buttonText="Ringmod"
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="ringmod2 toggle button" id="9d63104088c0485a" memberName="Ringmod2"
-                virtualName="" explicitFocusOrder="0" pos="629 389 66 30" buttonText="Ringmod"
+                virtualName="" explicitFocusOrder="0" pos="629 360 66 30" buttonText="Ringmod"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="ringmod3 toggle button" id="a97c9d37cd1a1d18" memberName="Ringmod3"
-                virtualName="" explicitFocusOrder="0" pos="629 459 66 30" buttonText="Ringmod"
+                virtualName="" explicitFocusOrder="0" pos="629 400 66 30" buttonText="Ringmod"
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="syn1 toggle button" id="fb4637c0f86bc855" memberName="Sync1"
-                virtualName="" explicitFocusOrder="0" pos="705 319 66 30" buttonText="Sync."
+                virtualName="" explicitFocusOrder="0" pos="705 320 66 30" buttonText="Sync."
                 connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="sync2 toggle button" id="99a8550e2ad2c6da" memberName="Sync2"
-                virtualName="" explicitFocusOrder="0" pos="705 389 66 30" buttonText="Sync."
+                virtualName="" explicitFocusOrder="0" pos="705 360 66 30" buttonText="Sync."
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="sync3 toggle button" id="880c3fcf4ab4a1f6" memberName="Sync3"
-                virtualName="" explicitFocusOrder="0" pos="705 459 66 30" buttonText="Sync."
+                virtualName="" explicitFocusOrder="0" pos="705 400 66 30" buttonText="Sync."
                 connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="voice2 toggle button" id="3b39ff7f634b369" memberName="Voice2"
                 virtualName="" explicitFocusOrder="0" pos="285 167 33 30" tooltip="Voice 2 On/Off"
@@ -1349,6 +1362,8 @@ BEGIN_JUCER_METADATA
                opacityNormal="1.0" colourNormal="0" resourceOver="reset_png"
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
+  <GROUPCOMPONENT name="keyboard group" id="2120190faebacf62" memberName="keyboard_group"
+                  virtualName="" explicitFocusOrder="0" pos="362 434 420 68" title="Keyboard"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
