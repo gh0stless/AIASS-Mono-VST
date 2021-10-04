@@ -1330,7 +1330,16 @@
 			}
 			else if (m.isPitchWheel())
 			{
+				int newPitchwheel = m.getPitchWheelValue();
+				long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
+				float newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
+				float newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
+				float newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
+				if (VOICE1) m_sid->set_freq(1, newFreq1);
+				if (VOICE2) m_sid->set_freq(2, newFreq2);
+				if (VOICE3) m_sid->set_freq(3, newFreq3);
 			}
+
 			else if (m.isController())
 			{
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
@@ -2148,15 +2157,15 @@
 			SIDVolume = (float)(MyVel * (15.0f / 127.0f));
 		}
 		int MyNote1 = (MyNote + (OCTAVE1 * 12)) + SEMI1;
-		double MyFreq1 = m.getMidiNoteInHertz(MyNote1, 440.0);
+		MyFreq1 = m.getMidiNoteInHertz(MyNote1, 440.0);
 		MyFreq1 = MyFreq1 * pow(2, (CENT1 / 1200.0));
 
 		int MyNote2 = (MyNote + (OCTAVE2 * 12)) + SEMI2;
-		double MyFreq2 = m.getMidiNoteInHertz(MyNote2, 440.0);
+		MyFreq2 = m.getMidiNoteInHertz(MyNote2, 440.0);
 		MyFreq2 = MyFreq2 * pow(2, (CENT2 / 1200.0));
 
 		int MyNote3 = (MyNote + (OCTAVE3 * 12)) + SEMI3;
-		double MyFreq3 = m.getMidiNoteInHertz(MyNote3, 440.0);
+		MyFreq3 = m.getMidiNoteInHertz(MyNote3, 440.0);
 		MyFreq3 = MyFreq3 * pow(2, (CENT3 / 1200.0));
 
 		if (VOICE1)

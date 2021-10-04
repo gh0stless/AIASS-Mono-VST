@@ -156,6 +156,10 @@ private:
 	int PULSEW2 = 1024;
 	int PULSEW3 = 1024;
 
+	double MyFreq1 = 0.0;
+	double MyFreq2 = 0.0;
+	double MyFreq3 = 0.0;
+
 	PlayModes LEGATOMODE = Retrigger;
 	PriorityModes NOTEPRIORITYMODE = LastNote;
 
