@@ -1330,14 +1330,17 @@
 			}
 			else if (m.isPitchWheel())
 			{
-				int newPitchwheel = m.getPitchWheelValue();
-				long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
-				float newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
-				float newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
-				float newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
-				if (VOICE1) m_sid->set_freq(1, newFreq1);
-				if (VOICE2) m_sid->set_freq(2, newFreq2);
-				if (VOICE3) m_sid->set_freq(3, newFreq3);
+				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
+				{
+					int newPitchwheel = m.getPitchWheelValue();
+					long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
+					float newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
+					float newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
+					float newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
+					if (VOICE1) m_sid->set_freq(1, newFreq1);
+					if (VOICE2) m_sid->set_freq(2, newFreq2);
+					if (VOICE3) m_sid->set_freq(3, newFreq3);
+				}
 			}
 
 			else if (m.isController())

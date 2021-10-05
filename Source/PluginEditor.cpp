@@ -50,26 +50,26 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                                                   TRANS("Control")));
     addAndMakeVisible (controlgroup.get());
 
-    controlgroup->setBounds (15, 80, 245, 210);
+    controlgroup->setBounds (16, 80, 246, 210);
 
     waveformgroup.reset (new juce::GroupComponent ("waveform group",
                                                    TRANS("Waveform")));
     addAndMakeVisible (waveformgroup.get());
 
-    waveformgroup->setBounds (362, 292, 420, 144);
+    waveformgroup->setBounds (362, 292, 424, 144);
 
     soundgroup.reset (new juce::GroupComponent ("sound group",
                                                 TRANS("Sound")));
     addAndMakeVisible (soundgroup.get());
-    soundgroup->setTextLabelPosition (juce::Justification::centred);
+    soundgroup->setTextLabelPosition (juce::Justification::centredLeft);
 
-    soundgroup->setBounds (15, 292, 340, 210);
+    soundgroup->setBounds (16, 292, 340, 210);
 
     filtergroup.reset (new juce::GroupComponent ("filter group",
                                                  TRANS("Filter")));
     addAndMakeVisible (filtergroup.get());
 
-    filtergroup->setBounds (512, 80, 270, 210);
+    filtergroup->setBounds (512, 80, 274, 210);
 
     sidvolume.reset (new juce::Slider ("sidvolume slider"));
     addAndMakeVisible (sidvolume.get());
@@ -620,7 +620,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                                                     TRANS("Keyboard")));
     addAndMakeVisible (keyboard_group.get());
 
-    keyboard_group->setBounds (362, 434, 420, 68);
+    keyboard_group->setBounds (362, 434, 424, 68);
 
     cachedImage_aiasshintergrund_png2_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png2, aiasshintergrund_png2Size);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
@@ -633,8 +633,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     addAndMakeVisible(keyboardComponent);
     //keyboardState.addListener(this);
-    keyboardComponent.setTopLeftPosition(368,448);
-    keyboardComponent.setSize(408,48);
+    keyboardComponent.setTopLeftPosition(368,446);
+    keyboardComponent.setSize(412,51);
 
 
 
@@ -882,7 +882,7 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
     //[/UserPrePaint]
 
     {
-        int x = 0, y = 0, width = 800, height = 520;
+        int x = 0, y = 0, width = 800, height = 525;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
         g.setColour (juce::Colours::black);
@@ -1068,7 +1068,7 @@ BEGIN_JUCER_METADATA
                  snapPixels="10" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="800" initialHeight="525">
   <BACKGROUND backgroundColour="ffffff">
-    <IMAGE pos="0 0 800 520" resource="aiasshintergrund_png2" opacity="1.0"
+    <IMAGE pos="0 0 800 525" resource="aiasshintergrund_png2" opacity="1.0"
            mode="0"/>
     <IMAGE pos="25 29 315 41" resource="aiass_mono_typenschild_png" opacity="1.0"
            mode="0"/>
@@ -1079,14 +1079,14 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="tone group" id="6d64fe01c88e0968" memberName="tonegroup"
                   virtualName="" explicitFocusOrder="0" pos="270 80 236 210" title="Tone"/>
   <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
-                  virtualName="" explicitFocusOrder="0" pos="15 80 245 210" title="Control"/>
+                  virtualName="" explicitFocusOrder="0" pos="16 80 246 210" title="Control"/>
   <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
-                  virtualName="" explicitFocusOrder="0" pos="362 292 420 144" title="Waveform"/>
+                  virtualName="" explicitFocusOrder="0" pos="362 292 424 144" title="Waveform"/>
   <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
-                  virtualName="" explicitFocusOrder="0" pos="15 292 340 210" title="Sound"
-                  textpos="36"/>
+                  virtualName="" explicitFocusOrder="0" pos="16 292 340 210" title="Sound"
+                  textpos="33"/>
   <GROUPCOMPONENT name="filter group" id="5844d35c6980f98d" memberName="filtergroup"
-                  virtualName="" explicitFocusOrder="0" pos="512 80 270 210" title="Filter"/>
+                  virtualName="" explicitFocusOrder="0" pos="512 80 274 210" title="Filter"/>
   <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
           virtualName="" explicitFocusOrder="0" pos="30 90 66 66" tooltip="SID-Volume (CC7)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
@@ -1363,7 +1363,7 @@ BEGIN_JUCER_METADATA
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
   <GROUPCOMPONENT name="keyboard group" id="2120190faebacf62" memberName="keyboard_group"
-                  virtualName="" explicitFocusOrder="0" pos="362 434 420 68" title="Keyboard"/>
+                  virtualName="" explicitFocusOrder="0" pos="362 434 424 68" title="Keyboard"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
