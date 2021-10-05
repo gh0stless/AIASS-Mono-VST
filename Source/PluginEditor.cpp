@@ -635,6 +635,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     //keyboardState.addListener(this);
     keyboardComponent.setTopLeftPosition(368,446);
     keyboardComponent.setSize(412,51);
+    keyboardComponent.setEnabled(false);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
