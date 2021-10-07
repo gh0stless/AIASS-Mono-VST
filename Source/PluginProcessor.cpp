@@ -1112,7 +1112,7 @@
 
 		for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);)
 		{
-		
+			MIDIMESSAGE = m;
 			if (m.isNoteOn())
 			{	
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))

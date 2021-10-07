@@ -44,6 +44,7 @@ public:
 	bool LED = false;
 	bool LINK = false;
 	bool RESET = false;
+	MidiMessage MIDIMESSAGE = NULL;
 
 	AudioProcessorValueTreeState parameters;
    	

@@ -632,11 +632,11 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     reset_button->setClickingTogglesState(true);
 
     addAndMakeVisible(keyboardComponent);
-    //keyboardState.addListener(this);
+    keyboardState.addListener (this);
     keyboardComponent.setTopLeftPosition(368,446);
     keyboardComponent.setSize(412,51);
     keyboardComponent.setEnabled(false);
-
+    
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
 	Attack1Attachment = std::make_unique<SliderAttachment>(valueTreeState, "AttAck1", *Attack1);
@@ -869,7 +869,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 
     //[Destructor]. You can add your own custom destruction code here..
 
-
+    keyboardState.removeListener(this);
 
     //[/Destructor]
 }
@@ -960,6 +960,8 @@ void AiassAudioProcessorEditor::timerCallback()
 {
 	int Error_State = (m_sid->error_state);
 
+    keyboardState.processNextMidiEvent(getProcessor().MIDIMESSAGE);
+    
     if (Link_State != (getProcessor().LINK)) {
         Link_State = (getProcessor().LINK);
         if (Link_State) {
@@ -1061,7 +1063,7 @@ void AiassAudioProcessorEditor::timerCallback()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AiassAudioProcessorEditor"
-                 componentName="" parentClasses="public AudioProcessorEditor, private Timer"
+                 componentName="" parentClasses="public AudioProcessorEditor, private Timer, private juce::MidiKeyboardStateListener"
                  constructorParams="AiassAudioProcessor&amp; p, AudioProcessorValueTreeState&amp; vts"
                  variableInitialisers="AudioProcessorEditor (&amp;p)&#10;valueTreeState (vts)&#10;m_sid(p.getSid())&#10;keyboardComponent (keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)&#10;"
                  snapPixels="10" snapActive="1" snapShown="1" overlayOpacity="0.330"

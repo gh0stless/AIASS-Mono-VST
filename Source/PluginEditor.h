@@ -36,6 +36,7 @@
 */
 class AiassAudioProcessorEditor  : public AudioProcessorEditor,
                                    private Timer,
+                                   private juce::MidiKeyboardStateListener,
                                    public juce::ComboBox::Listener
 {
 public:
@@ -64,6 +65,26 @@ public:
 	}
 
 	void timerCallback() override;
+
+    void handleNoteOn(juce::MidiKeyboardState*, int midiChannel, int midiNoteNumber, float velocity) override
+    {
+        if (!isAddingFromMidiInput)
+        {
+            //auto m = juce::MidiMessage::noteOn(midiChannel, midiNoteNumber, velocity);
+            //m.setTimeStamp(juce::Time::getMillisecondCounterHiRes() * 0.001);
+            //postMessageToList(m, "On-Screen Keyboard");
+        }
+    }
+
+    void handleNoteOff(juce::MidiKeyboardState*, int midiChannel, int midiNoteNumber, float /*velocity*/) override
+    {
+        if (!isAddingFromMidiInput)
+        {
+            //auto m = juce::MidiMessage::noteOff(midiChannel, midiNoteNumber);
+            //m.setTimeStamp(juce::Time::getMillisecondCounterHiRes() * 0.001);
+            //postMessageToList(m, "On-Screen Keyboard");
+        }
+    }
 
     //[/UserMethods]
 
@@ -171,6 +192,7 @@ private:
 
        juce::MidiKeyboardState keyboardState;            // [5]
        juce::MidiKeyboardComponent keyboardComponent;    // [6]
+       bool isAddingFromMidiInput = false;
 
 
        //==============================================================================
