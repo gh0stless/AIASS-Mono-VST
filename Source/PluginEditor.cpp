@@ -40,6 +40,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     //[/Constructor_pre]
 
+    controlgroup.reset (new juce::GroupComponent ("control group",
+                                                  TRANS("Control")));
+    addAndMakeVisible (controlgroup.get());
+
+    controlgroup->setBounds (380, 296, 631, 148);
+
     pulsewidhgroup.reset (new juce::GroupComponent ("pulsewidh group",
                                                     TRANS("Pulse")));
     addAndMakeVisible (pulsewidhgroup.get());
@@ -51,12 +57,6 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (tonegroup.get());
 
     tonegroup->setBounds (8, 72, 226, 218);
-
-    controlgroup.reset (new juce::GroupComponent ("control group",
-                                                  TRANS("Control")));
-    addAndMakeVisible (controlgroup.get());
-
-    controlgroup->setBounds (290, 296, 660, 148);
 
     waveformgroup.reset (new juce::GroupComponent ("waveform group",
                                                    TRANS("Waveform")));
@@ -75,23 +75,23 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                                                  TRANS("Filter")));
     addAndMakeVisible (filtergroup.get());
 
-    filtergroup->setBounds (8, 296, 278, 212);
+    filtergroup->setBounds (8, 296, 372, 148);
 
     sidvolume.reset (new juce::Slider ("sidvolume slider"));
     addAndMakeVisible (sidvolume.get());
     sidvolume->setTooltip (TRANS("SID-Volume (CC7)"));
     sidvolume->setRange (0, 15, 1);
     sidvolume->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    sidvolume->setBounds (464, 300, 66, 66);
+    sidvolume->setBounds (574, 301, 66, 66);
 
     Octave2.reset (new juce::Slider ("octave2 slider"));
     addAndMakeVisible (Octave2.get());
     Octave2->setTooltip (TRANS("Octave2 Up/Down (CC85)\n"));
     Octave2->setRange (-4, 4, 1);
     Octave2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Octave2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Octave2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Octave2->setBounds (56, 153, 66, 66);
 
@@ -100,7 +100,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Octave3->setTooltip (TRANS("Octave3 Up/Down (CC88)\n"));
     Octave3->setRange (-4, 4, 1);
     Octave3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Octave3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Octave3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Octave3->setBounds (56, 218, 66, 66);
 
@@ -109,7 +109,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Semi1->setTooltip (TRANS("Semitone1 Up/Down (CC79)\n"));
     Semi1->setRange (-12, 12, 1);
     Semi1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Semi1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Semi1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Semi1->setBounds (116, 84, 66, 66);
 
@@ -118,7 +118,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Semi2->setTooltip (TRANS("Semitone2 Up/Down (CC86)\n"));
     Semi2->setRange (-12, 12, 1);
     Semi2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Semi2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Semi2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Semi2->setBounds (116, 153, 66, 66);
 
@@ -127,7 +127,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Semi3->setTooltip (TRANS("Semitone3 Up/Down (CC89)\n"));
     Semi3->setRange (-12, 12, 1);
     Semi3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Semi3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Semi3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Semi3->setBounds (116, 218, 66, 66);
 
@@ -136,7 +136,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Cent1->setTooltip (TRANS("Cent1 Up/Down (CC70)\n"));
     Cent1->setRange (-100, 100, 1);
     Cent1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Cent1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Cent1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Cent1->setBounds (176, 84, 66, 66);
 
@@ -145,7 +145,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Cent2->setTooltip (TRANS("Cent2 Up/Down (CC87)\n"));
     Cent2->setRange (-100, 100, 1);
     Cent2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Cent2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Cent2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Cent2->setBounds (176, 153, 66, 66);
 
@@ -154,7 +154,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Cent3->setTooltip (TRANS("Cent3 Up/Down (CC90)\n"));
     Cent3->setRange (-100, 100, 1);
     Cent3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Cent3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Cent3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Cent3->setBounds (176, 218, 66, 66);
 
@@ -163,7 +163,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Attack1->setTooltip (TRANS("Attack 1 (CC73)"));
     Attack1->setRange (0, 15, 1);
     Attack1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Attack1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Attack1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Attack1->setBounds (240, 84, 66, 66);
 
@@ -172,7 +172,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Attack2->setTooltip (TRANS("Attack 2 (CC20)"));
     Attack2->setRange (0, 15, 1);
     Attack2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Attack2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Attack2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Attack2->setBounds (240, 153, 66, 66);
 
@@ -181,7 +181,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Attack3->setTooltip (TRANS("Attack 3 (CC25)"));
     Attack3->setRange (0, 15, 1);
     Attack3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Attack3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Attack3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Attack3->setBounds (240, 218, 66, 66);
 
@@ -190,7 +190,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Decay1->setTooltip (TRANS("Decay 1 (CC75)"));
     Decay1->setRange (0, 15, 1);
     Decay1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Decay1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Decay1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Decay1->setBounds (300, 84, 66, 66);
 
@@ -199,7 +199,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Decay2->setTooltip (TRANS("Decay 2 (CC21)"));
     Decay2->setRange (0, 15, 1);
     Decay2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Decay2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Decay2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Decay2->setBounds (300, 153, 66, 66);
 
@@ -208,7 +208,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Decay3->setTooltip (TRANS("Decay 3 (CC26)"));
     Decay3->setRange (0, 15, 1);
     Decay3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Decay3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Decay3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Decay3->setBounds (300, 218, 66, 66);
 
@@ -217,7 +217,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Sustain1->setTooltip (TRANS("Sustain 1 (CC76)"));
     Sustain1->setRange (0, 15, 1);
     Sustain1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Sustain1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Sustain1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Sustain1->setBounds (360, 84, 66, 66);
 
@@ -226,7 +226,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Sustain2->setTooltip (TRANS("Sustain 2 (CC22)"));
     Sustain2->setRange (0, 15, 1);
     Sustain2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Sustain2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Sustain2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Sustain2->setBounds (360, 153, 66, 66);
 
@@ -235,7 +235,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Sustain3->setTooltip (TRANS("Sustain 3 (CC27)"));
     Sustain3->setRange (0, 15, 1);
     Sustain3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Sustain3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Sustain3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Sustain3->setBounds (360, 218, 66, 66);
 
@@ -244,7 +244,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Release1->setTooltip (TRANS("Release 1 (CC72)"));
     Release1->setRange (0, 15, 1);
     Release1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Release1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Release1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Release1->setBounds (420, 84, 66, 66);
 
@@ -253,7 +253,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Release2->setTooltip (TRANS("Release 2 (CC23)"));
     Release2->setRange (0, 15, 1);
     Release2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Release2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Release2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Release2->setBounds (420, 153, 66, 66);
 
@@ -262,7 +262,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Release3->setTooltip (TRANS("Release 3 (CC28)"));
     Release3->setRange (0, 15, 1);
     Release3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Release3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Release3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Release3->setBounds (420, 218, 66, 66);
 
@@ -273,32 +273,32 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pulsew1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    Pulsew1->setBounds (490, 84, 66, 66);
+    Pulsew1->setBounds (486, 84, 66, 66);
 
     Pulsew2.reset (new juce::Slider ("pulsew2 slider"));
     addAndMakeVisible (Pulsew2.get());
     Pulsew2->setTooltip (TRANS("Pulse width 2 (CC24)"));
     Pulsew2->setRange (1, 4094, 1);
     Pulsew2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Pulsew2->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Pulsew2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    Pulsew2->setBounds (490, 153, 66, 66);
+    Pulsew2->setBounds (486, 153, 66, 66);
 
     Pulsew3.reset (new juce::Slider ("pulsew3 slider"));
     addAndMakeVisible (Pulsew3.get());
     Pulsew3->setTooltip (TRANS("Pulse width 3 (CC29)"));
     Pulsew3->setRange (1, 4094, 1);
     Pulsew3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Pulsew3->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Pulsew3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    Pulsew3->setBounds (490, 218, 66, 66);
+    Pulsew3->setBounds (486, 218, 66, 66);
 
     Velvol.reset (new juce::ToggleButton ("Vel2Vol button"));
     addAndMakeVisible (Velvol.get());
     Velvol->setTooltip (TRANS("maps Velocity to Volume"));
     Velvol->setButtonText (TRANS("Vel2Vol"));
 
-    Velvol->setBounds (542, 314, 66, 30);
+    Velvol->setBounds (637, 310, 66, 30);
 
     legatomode.reset (new juce::ComboBox ("legatomode"));
     addAndMakeVisible (legatomode.get());
@@ -312,7 +312,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     legatomode->addItem (TRANS("Last Step"), 3);
     legatomode->addListener (this);
 
-    legatomode->setBounds (304, 360, 150, 24);
+    legatomode->setBounds (401, 360, 150, 24);
 
     noteprioritymode.reset (new juce::ComboBox ("noteprioritymode"));
     addAndMakeVisible (noteprioritymode.get());
@@ -326,7 +326,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     noteprioritymode->addItem (TRANS("Low Note"), 3);
     noteprioritymode->addListener (this);
 
-    noteprioritymode->setBounds (304, 400, 150, 24);
+    noteprioritymode->setBounds (401, 400, 150, 24);
 
     hyperlinkButton.reset (new juce::HyperlinkButton (TRANS("crazy-midi.de"),
                                                       URL ("http://www.crazy-midi.de")));
@@ -342,56 +342,56 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Filter1->setTooltip (TRANS("Voice 1 to Filter"));
     Filter1->setButtonText (TRANS("1"));
 
-    Filter1->setBounds (206, 331, 66, 30);
+    Filter1->setBounds (204, 331, 66, 30);
 
     Filter2.reset (new juce::ToggleButton ("Filter2 toggle button"));
     addAndMakeVisible (Filter2.get());
     Filter2->setTooltip (TRANS("Voice 2 to Filter"));
     Filter2->setButtonText (TRANS("2"));
 
-    Filter2->setBounds (146, 331, 66, 30);
+    Filter2->setBounds (148, 331, 66, 30);
 
     Filter3off.reset (new juce::ToggleButton ("3off toggle button"));
     addAndMakeVisible (Filter3off.get());
     Filter3off->setTooltip (TRANS("Mute Voice 3"));
     Filter3off->setButtonText (TRANS("3off"));
 
-    Filter3off->setBounds (26, 381, 66, 30);
+    Filter3off->setBounds (16, 381, 66, 30);
 
     Filter3.reset (new juce::ToggleButton ("Filter3 toggle button"));
     addAndMakeVisible (Filter3.get());
     Filter3->setTooltip (TRANS("Voice 3 to Filter"));
     Filter3->setButtonText (TRANS("3"));
 
-    Filter3->setBounds (86, 331, 66, 30);
+    Filter3->setBounds (82, 331, 66, 30);
 
     Filterin.reset (new juce::ToggleButton ("FilterIn toggle button"));
     addAndMakeVisible (Filterin.get());
     Filterin->setTooltip (TRANS("extern In"));
     Filterin->setButtonText (TRANS("in"));
 
-    Filterin->setBounds (26, 331, 66, 30);
+    Filterin->setBounds (16, 331, 66, 30);
 
     Filterlp.reset (new juce::ToggleButton ("lowpass toggle button"));
     addAndMakeVisible (Filterlp.get());
     Filterlp->setTooltip (TRANS("Low Pass"));
     Filterlp->setButtonText (TRANS("LP"));
 
-    Filterlp->setBounds (206, 381, 66, 30);
+    Filterlp->setBounds (204, 381, 66, 30);
 
     Filterhp.reset (new juce::ToggleButton ("high pass toggle button"));
     addAndMakeVisible (Filterhp.get());
     Filterhp->setTooltip (TRANS("High Pass"));
     Filterhp->setButtonText (TRANS("HP"));
 
-    Filterhp->setBounds (86, 381, 66, 30);
+    Filterhp->setBounds (82, 381, 66, 30);
 
     Filterbp.reset (new juce::ToggleButton ("band pass toggle button"));
     addAndMakeVisible (Filterbp.get());
     Filterbp->setTooltip (TRANS("Band Pass"));
     Filterbp->setButtonText (TRANS("BP"));
 
-    Filterbp->setBounds (146, 381, 66, 30);
+    Filterbp->setBounds (148, 381, 66, 30);
 
     Filter8580.reset (new juce::ToggleButton ("scale toggle button"));
     addAndMakeVisible (Filter8580.get());
@@ -399,7 +399,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Filter8580->setButtonText (TRANS("scale"));
     Filter8580->setToggleState (true, juce::dontSendNotification);
 
-    Filter8580->setBounds (26, 458, 90, 30);
+    Filter8580->setBounds (310, 381, 70, 30);
 
     CutOff.reset (new juce::Slider ("cutoff slider"));
     addAndMakeVisible (CutOff.get());
@@ -408,7 +408,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     CutOff->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     CutOff->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    CutOff->setBounds (128, 436, 66, 66);
+    CutOff->setBounds (250, 372, 66, 66);
 
     Resonace.reset (new juce::Slider ("resonance slider"));
     addAndMakeVisible (Resonace.get());
@@ -417,7 +417,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Resonace->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Resonace->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    Resonace->setBounds (198, 436, 66, 66);
+    Resonace->setBounds (250, 301, 66, 66);
 
     Noise1.reset (new juce::ToggleButton ("noise1 toggle button"));
     addAndMakeVisible (Noise1.get());
@@ -558,7 +558,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                     juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
                     juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
                     juce::ImageCache::getFromMemory (redledon_png, redledon_pngSize), 1.000f, juce::Colour (0x00ffffff));
-    Led->setBounds (890, 30, 40, 40);
+    Led->setBounds (961, 30, 40, 40);
 
     midichannel.reset (new juce::ComboBox ("midichannel"));
     addAndMakeVisible (midichannel.get());
@@ -586,21 +586,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     midichannel->addItem (TRANS("16"), 17);
     midichannel->addListener (this);
 
-    midichannel->setBounds (304, 320, 150, 24);
+    midichannel->setBounds (401, 320, 150, 24);
 
     link_button.reset (new juce::ToggleButton ("link button"));
     addAndMakeVisible (link_button.get());
     link_button->setTooltip (TRANS("link gui elements"));
     link_button->setButtonText (TRANS("link"));
 
-    link_button->setBounds (542, 382, 66, 30);
+    link_button->setBounds (637, 381, 66, 30);
 
     Octave1.reset (new juce::Slider ("octave1 slider"));
     addAndMakeVisible (Octave1.get());
     Octave1->setTooltip (TRANS("Octave1 Up/Down (CC78)\n"));
     Octave1->setRange (-4, 4, 1);
     Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, true, 40, 12);
+    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
     Octave1->setBounds (56, 84, 66, 66);
 
@@ -620,13 +620,13 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000),
                              juce::ImageCache::getFromMemory (reset_png, reset_pngSize), 1.000f, juce::Colour (0x00000000));
-    reset_button->setBounds (850, 320, 70, 25);
+    reset_button->setBounds (916, 320, 70, 25);
 
     keyboard_group.reset (new juce::GroupComponent ("keyboard group",
                                                     TRANS("Keyboard")));
     addAndMakeVisible (keyboard_group.get());
 
-    keyboard_group->setBounds (290, 440, 660, 68);
+    keyboard_group->setBounds (8, 440, 1004, 68);
 
     Pitchbend.reset (new juce::Slider ("pitchbend slider"));
     addAndMakeVisible (Pitchbend.get());
@@ -635,7 +635,51 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pitchbend->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pitchbend->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
 
-    Pitchbend->setBounds (464, 371, 66, 66);
+    Pitchbend->setBounds (574, 372, 66, 66);
+
+    pitchgroup.reset (new juce::GroupComponent ("pitch group",
+                                                TRANS("Pitch")));
+    addAndMakeVisible (pitchgroup.get());
+
+    pitchgroup->setBounds (951, 72, 60, 218);
+
+    Pitch1.reset (new juce::Slider ("pitch1 slider"));
+    addAndMakeVisible (Pitch1.get());
+    Pitch1->setTooltip (TRANS("Pitch 1 +/- 1Oct. "));
+    Pitch1->setRange (-8191, 8191, 1);
+    Pitch1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pitch1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+
+    Pitch1->setBounds (949, 84, 66, 66);
+
+    Pitch2.reset (new juce::Slider ("pitch2 slider"));
+    addAndMakeVisible (Pitch2.get());
+    Pitch2->setTooltip (TRANS("Pitch 2 +/- 1Oct. "));
+    Pitch2->setRange (-8191, 8191, 1);
+    Pitch2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pitch2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+
+    Pitch2->setBounds (949, 153, 66, 66);
+
+    Pitch3.reset (new juce::Slider ("pitch3 slider"));
+    addAndMakeVisible (Pitch3.get());
+    Pitch3->setTooltip (TRANS("Pitch 3 +/- 1Oct. "));
+    Pitch3->setRange (-8191, 8191, 1);
+    Pitch3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pitch3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+
+    Pitch3->setBounds (949, 218, 66, 66);
+
+    init_button.reset (new juce::ImageButton ("init button"));
+    addAndMakeVisible (init_button.get());
+    init_button->setTooltip (TRANS("Init +reset"));
+    init_button->setButtonText (TRANS("reset button"));
+
+    init_button->setImages (false, true, true,
+                            juce::ImageCache::getFromMemory (init_png, init_pngSize), 1.000f, juce::Colour (0x00000000),
+                            juce::ImageCache::getFromMemory (init_png, init_pngSize), 1.000f, juce::Colour (0x00000000),
+                            juce::ImageCache::getFromMemory (init_png, init_pngSize), 1.000f, juce::Colour (0x00000000));
+    init_button->setBounds (916, 360, 70, 25);
 
     cachedImage_aiasshintergrund_png_1 = juce::ImageCache::getFromMemory (aiasshintergrund_png, aiasshintergrund_pngSize);
     cachedImage_aiass_mono_typenschild_png_2 = juce::ImageCache::getFromMemory (aiass_mono_typenschild_png, aiass_mono_typenschild_pngSize);
@@ -650,8 +694,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     addAndMakeVisible(keyboardComponent);
     keyboardState.addListener (this);
-    keyboardComponent.setTopLeftPosition(296,453);
-    keyboardComponent.setSize(648,50);
+    keyboardComponent.setTopLeftPosition(15,452);
+    keyboardComponent.setSize(991,50);
+    keyboardComponent.setLowestVisibleKey(11);
     keyboardComponent.setEnabled(false);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
@@ -732,7 +777,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     PitchbendAttachment = std::make_unique<SliderAttachment>(valueTreeState, "PitchBend", *Pitchbend);
     //[/UserPreSize]
 
-    setSize (960, 530);
+    setSize (1024, 530);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -813,9 +858,9 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 
     //[/Destructor_pre]
 
+    controlgroup = nullptr;
     pulsewidhgroup = nullptr;
     tonegroup = nullptr;
-    controlgroup = nullptr;
     waveformgroup = nullptr;
     soundgroup = nullptr;
     filtergroup = nullptr;
@@ -886,6 +931,11 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     reset_button = nullptr;
     keyboard_group = nullptr;
     Pitchbend = nullptr;
+    pitchgroup = nullptr;
+    Pitch1 = nullptr;
+    Pitch2 = nullptr;
+    Pitch3 = nullptr;
+    init_button = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -902,7 +952,7 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
     //[/UserPrePaint]
 
     {
-        int x = 0, y = 0, width = 960, height = 530;
+        int x = 0, y = 0, width = 1024, height = 530;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
         g.setColour (juce::Colours::black);
@@ -934,7 +984,7 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
     }
 
     {
-        int x = 676, y = 322, width = 144, height = 108;
+        int x = 730, y = 322, width = 144, height = 108;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
         g.setColour (juce::Colours::black);
@@ -1109,161 +1159,161 @@ BEGIN_JUCER_METADATA
                  constructorParams="AiassAudioProcessor&amp; p, AudioProcessorValueTreeState&amp; vts"
                  variableInitialisers="AudioProcessorEditor (&amp;p)&#10;valueTreeState (vts)&#10;m_sid(p.getSid())&#10;keyboardComponent (keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)&#10;"
                  snapPixels="10" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="960" initialHeight="530">
+                 fixedSize="1" initialWidth="1024" initialHeight="530">
   <BACKGROUND backgroundColour="ffffff">
-    <IMAGE pos="0 0 960 530" resource="aiasshintergrund_png" opacity="1.0"
+    <IMAGE pos="0 0 1024 530" resource="aiasshintergrund_png" opacity="1.0"
            mode="0"/>
     <IMAGE pos="25 29 315 41" resource="aiass_mono_typenschild_png" opacity="1.0"
            mode="0"/>
     <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.5"
           fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
           italic="0" justification="36"/>
-    <IMAGE pos="676 322 144 108" resource="sidblaster_jpg" opacity="1.0"
+    <IMAGE pos="730 322 144 108" resource="sidblaster_jpg" opacity="1.0"
            mode="0"/>
   </BACKGROUND>
+  <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
+                  virtualName="" explicitFocusOrder="0" pos="380 296 631 148" title="Control"/>
   <GROUPCOMPONENT name="pulsewidh group" id="ee61762cce42c0fc" memberName="pulsewidhgroup"
                   virtualName="" explicitFocusOrder="0" pos="490 72 60 218" title="Pulse"/>
   <GROUPCOMPONENT name="tone group" id="6d64fe01c88e0968" memberName="tonegroup"
                   virtualName="" explicitFocusOrder="0" pos="8 72 226 218" title="Tone"/>
-  <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
-                  virtualName="" explicitFocusOrder="0" pos="290 296 660 148" title="Control"/>
   <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
                   virtualName="" explicitFocusOrder="0" pos="550 72 400 218" title="Waveform"/>
   <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
                   virtualName="" explicitFocusOrder="0" pos="234 72 256 218" title="Sound"
                   textpos="33"/>
   <GROUPCOMPONENT name="filter group" id="5844d35c6980f98d" memberName="filtergroup"
-                  virtualName="" explicitFocusOrder="0" pos="8 296 278 212" title="Filter"/>
+                  virtualName="" explicitFocusOrder="0" pos="8 296 372 148" title="Filter"/>
   <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
-          virtualName="" explicitFocusOrder="0" pos="464 300 66 66" tooltip="SID-Volume (CC7)"
+          virtualName="" explicitFocusOrder="0" pos="574 301 66 66" tooltip="SID-Volume (CC7)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="octave2 slider" id="7808b9c1fb74ccc8" memberName="Octave2"
           virtualName="" explicitFocusOrder="0" pos="56 153 66 66" tooltip="Octave2 Up/Down (CC85)&#10;"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="octave3 slider" id="d3e4a1e141ca77b6" memberName="Octave3"
           virtualName="" explicitFocusOrder="0" pos="56 218 66 66" tooltip="Octave3 Up/Down (CC88)&#10;"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="semi1 slider" id="4297018af851022d" memberName="Semi1"
           virtualName="" explicitFocusOrder="0" pos="116 84 66 66" tooltip="Semitone1 Up/Down (CC79)&#10;"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="semi2 slider" id="4e87cf183b0e0e77" memberName="Semi2"
           virtualName="" explicitFocusOrder="0" pos="116 153 66 66" tooltip="Semitone2 Up/Down (CC86)&#10;"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="semi3 slider" id="f03b15fac2d0a403" memberName="Semi3"
           virtualName="" explicitFocusOrder="0" pos="116 218 66 66" tooltip="Semitone3 Up/Down (CC89)&#10;"
           min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="cent1 slider" id="b0bba6848acec451" memberName="Cent1"
           virtualName="" explicitFocusOrder="0" pos="176 84 66 66" tooltip="Cent1 Up/Down (CC70)&#10;"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="cent2 slider" id="873ffcdb55231a19" memberName="Cent2"
           virtualName="" explicitFocusOrder="0" pos="176 153 66 66" tooltip="Cent2 Up/Down (CC87)&#10;"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="cent3 slider" id="77eb6b6e2092a08c" memberName="Cent3"
           virtualName="" explicitFocusOrder="0" pos="176 218 66 66" tooltip="Cent3 Up/Down (CC90)&#10;"
           min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="0" textBoxWidth="40"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="attack1 slider" id="53619e38d7835c9d" memberName="Attack1"
           virtualName="" explicitFocusOrder="0" pos="240 84 66 66" tooltip="Attack 1 (CC73)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="attack2 slider" id="40a979315f74e3a" memberName="Attack2"
           virtualName="" explicitFocusOrder="0" pos="240 153 66 66" tooltip="Attack 2 (CC20)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="attack3 slider" id="7e38002dde33164c" memberName="Attack3"
           virtualName="" explicitFocusOrder="0" pos="240 218 66 66" tooltip="Attack 3 (CC25)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="decay1 slider" id="49642dbf385beee8" memberName="Decay1"
           virtualName="" explicitFocusOrder="0" pos="300 84 66 66" tooltip="Decay 1 (CC75)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="decay2 slider" id="379b886c43a29254" memberName="Decay2"
           virtualName="" explicitFocusOrder="0" pos="300 153 66 66" tooltip="Decay 2 (CC21)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="decay3 slider" id="ff55788389bcec83" memberName="Decay3"
           virtualName="" explicitFocusOrder="0" pos="300 218 66 66" tooltip="Decay 3 (CC26)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="sustain1 slider" id="2793e34c7a6a6286" memberName="Sustain1"
           virtualName="" explicitFocusOrder="0" pos="360 84 66 66" tooltip="Sustain 1 (CC76)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="sustain2 slider" id="25e905e8830bd418" memberName="Sustain2"
           virtualName="" explicitFocusOrder="0" pos="360 153 66 66" tooltip="Sustain 2 (CC22)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="sustain3 slider" id="740735c3d8776e72" memberName="Sustain3"
           virtualName="" explicitFocusOrder="0" pos="360 218 66 66" tooltip="Sustain 3 (CC27)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="release1 slider" id="26b01f2c9f0fcbd4" memberName="Release1"
           virtualName="" explicitFocusOrder="0" pos="420 84 66 66" tooltip="Release 1 (CC72)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="release2 slider" id="cede2f433ff54882" memberName="Release2"
           virtualName="" explicitFocusOrder="0" pos="420 153 66 66" tooltip="Release 2 (CC23)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="release3 slider" id="a6cb93496f682a4d" memberName="Release3"
           virtualName="" explicitFocusOrder="0" pos="420 218 66 66" tooltip="Release 3 (CC28)"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="pulsew1 slider" id="a63bd08caa77c655" memberName="Pulsew1"
-          virtualName="" explicitFocusOrder="0" pos="490 84 66 66" tooltip="Pulse width 1 (CC77)"
+          virtualName="" explicitFocusOrder="0" pos="486 84 66 66" tooltip="Pulse width 1 (CC77)"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="pulsew2 slider" id="c761eb76e90133c8" memberName="Pulsew2"
-          virtualName="" explicitFocusOrder="0" pos="490 153 66 66" tooltip="Pulse width 2 (CC24)"
+          virtualName="" explicitFocusOrder="0" pos="486 153 66 66" tooltip="Pulse width 2 (CC24)"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="pulsew3 slider" id="c9edf691a324176f" memberName="Pulsew3"
-          virtualName="" explicitFocusOrder="0" pos="490 218 66 66" tooltip="Pulse width 3 (CC29)"
+          virtualName="" explicitFocusOrder="0" pos="486 218 66 66" tooltip="Pulse width 3 (CC29)"
           min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <TOGGLEBUTTON name="Vel2Vol button" id="498d1ccffc218a3e" memberName="Velvol"
-                virtualName="" explicitFocusOrder="0" pos="542 314 66 30" tooltip="maps Velocity to Volume"
+                virtualName="" explicitFocusOrder="0" pos="637 310 66 30" tooltip="maps Velocity to Volume"
                 buttonText="Vel2Vol" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <COMBOBOX name="legatomode" id="185cc42c904fe921" memberName="legatomode"
-            virtualName="" explicitFocusOrder="0" pos="304 360 150 24" tooltip="play mode"
+            virtualName="" explicitFocusOrder="0" pos="401 360 150 24" tooltip="play mode"
             editable="0" layout="33" items="Retrigger&#10;Legato&#10;Last Step"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <COMBOBOX name="noteprioritymode" id="c728000aa37b04a3" memberName="noteprioritymode"
-            virtualName="" explicitFocusOrder="0" pos="304 400 150 24" tooltip="note priority"
+            virtualName="" explicitFocusOrder="0" pos="401 400 150 24" tooltip="note priority"
             editable="0" layout="33" items="Last Note&#10;High Note&#10;Low Note"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <HYPERLINKBUTTON name="new hyperlink" id="27b1f728dfa971d5" memberName="hyperlinkButton"
@@ -1271,48 +1321,48 @@ BEGIN_JUCER_METADATA
                    textCol="ff008000" buttonText="crazy-midi.de" connectedEdges="0"
                    needsCallback="0" radioGroupId="0" url="http://www.crazy-midi.de"/>
   <TOGGLEBUTTON name="Filer1 toggle button" id="f988e7a5126e5bac" memberName="Filter1"
-                virtualName="" explicitFocusOrder="0" pos="206 331 66 30" tooltip="Voice 1 to Filter"
+                virtualName="" explicitFocusOrder="0" pos="204 331 66 30" tooltip="Voice 1 to Filter"
                 buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="Filter2 toggle button" id="e8384ca904cc9cee" memberName="Filter2"
-                virtualName="" explicitFocusOrder="0" pos="146 331 66 30" tooltip="Voice 2 to Filter"
+                virtualName="" explicitFocusOrder="0" pos="148 331 66 30" tooltip="Voice 2 to Filter"
                 buttonText="2" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="3off toggle button" id="46436fd7c74f713f" memberName="Filter3off"
-                virtualName="" explicitFocusOrder="0" pos="26 381 66 30" tooltip="Mute Voice 3"
+                virtualName="" explicitFocusOrder="0" pos="16 381 66 30" tooltip="Mute Voice 3"
                 buttonText="3off" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="Filter3 toggle button" id="15351388c9102c09" memberName="Filter3"
-                virtualName="" explicitFocusOrder="0" pos="86 331 66 30" tooltip="Voice 3 to Filter"
+                virtualName="" explicitFocusOrder="0" pos="82 331 66 30" tooltip="Voice 3 to Filter"
                 buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="FilterIn toggle button" id="1a8bcabfd8647671" memberName="Filterin"
-                virtualName="" explicitFocusOrder="0" pos="26 331 66 30" tooltip="extern In"
+                virtualName="" explicitFocusOrder="0" pos="16 331 66 30" tooltip="extern In"
                 buttonText="in" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="lowpass toggle button" id="fe8269d4b1a9c6e6" memberName="Filterlp"
-                virtualName="" explicitFocusOrder="0" pos="206 381 66 30" tooltip="Low Pass"
+                virtualName="" explicitFocusOrder="0" pos="204 381 66 30" tooltip="Low Pass"
                 buttonText="LP" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="high pass toggle button" id="17b0fa917ff0851e" memberName="Filterhp"
-                virtualName="" explicitFocusOrder="0" pos="86 381 66 30" tooltip="High Pass"
+                virtualName="" explicitFocusOrder="0" pos="82 381 66 30" tooltip="High Pass"
                 buttonText="HP" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="band pass toggle button" id="2bd008bd14ea7c51" memberName="Filterbp"
-                virtualName="" explicitFocusOrder="0" pos="146 381 66 30" tooltip="Band Pass"
+                virtualName="" explicitFocusOrder="0" pos="148 381 66 30" tooltip="Band Pass"
                 buttonText="BP" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="scale toggle button" id="1f267441a830f9ff" memberName="Filter8580"
-                virtualName="" explicitFocusOrder="0" pos="26 458 90 30" tooltip="scales filterfreq. to 0-71"
+                virtualName="" explicitFocusOrder="0" pos="310 381 70 30" tooltip="scales filterfreq. to 0-71"
                 buttonText="scale" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <SLIDER name="cutoff slider" id="b104465dc77b15ae" memberName="CutOff"
-          virtualName="" explicitFocusOrder="0" pos="128 436 66 66" tooltip="Cutoff (CC74)"
+          virtualName="" explicitFocusOrder="0" pos="250 372 66 66" tooltip="Cutoff (CC74)"
           min="0.0" max="2047.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <SLIDER name="resonance slider" id="b18e0fc28c589ec5" memberName="Resonace"
-          virtualName="" explicitFocusOrder="0" pos="198 436 66 66" tooltip="Resonance (CC71)&#10;"
+          virtualName="" explicitFocusOrder="0" pos="250 301 66 66" tooltip="Resonance (CC71)&#10;"
           min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
@@ -1379,43 +1429,67 @@ BEGIN_JUCER_METADATA
                 buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <IMAGEBUTTON name="Power_LED" id="77dead3478e9a659" memberName="Led" virtualName=""
-               explicitFocusOrder="0" pos="890 30 40 40" tooltip="midi-activity and  blinks when error-status"
+               explicitFocusOrder="0" pos="961 30 40 40" tooltip="midi-activity and  blinks when error-status"
                buttonText="" connectedEdges="0" needsCallback="0" radioGroupId="0"
                keepProportions="1" resourceNormal="redledoff_png" opacityNormal="1.0"
                colourNormal="ffffff" resourceOver="redledoff_png" opacityOver="1.0"
                colourOver="ffffff" resourceDown="redledon_png" opacityDown="1.0"
                colourDown="ffffff"/>
   <COMBOBOX name="midichannel" id="62ff9b6ec5b8843e" memberName="midichannel"
-            virtualName="" explicitFocusOrder="0" pos="304 320 150 24" tooltip="MIDI channel"
+            virtualName="" explicitFocusOrder="0" pos="401 320 150 24" tooltip="MIDI channel"
             editable="0" layout="33" items="all&#10;1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10&#10;11&#10;12&#10;13&#10;14&#10;15&#10;16"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_button"
-                virtualName="" explicitFocusOrder="0" pos="542 382 66 30" tooltip="link gui elements"
+                virtualName="" explicitFocusOrder="0" pos="637 381 66 30" tooltip="link gui elements"
                 buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
           virtualName="" explicitFocusOrder="0" pos="56 84 66 66" tooltip="Octave1 Up/Down (CC78)&#10;"
           min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="0" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
   <TOGGLEBUTTON name="voice1 toggle button" id="883f3d3793f0f11b" memberName="Voice1"
                 virtualName="" explicitFocusOrder="0" pos="26 94 33 30" tooltip="Voice 1 On/Off"
                 buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="1"/>
   <IMAGEBUTTON name="reset button" id="99243fa27f37fff" memberName="reset_button"
-               virtualName="" explicitFocusOrder="0" pos="850 320 70 25" tooltip="SID reset"
+               virtualName="" explicitFocusOrder="0" pos="916 320 70 25" tooltip="SID reset"
                buttonText="reset button" connectedEdges="0" needsCallback="0"
                radioGroupId="0" keepProportions="1" resourceNormal="reset_png"
                opacityNormal="1.0" colourNormal="0" resourceOver="reset_png"
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
   <GROUPCOMPONENT name="keyboard group" id="2120190faebacf62" memberName="keyboard_group"
-                  virtualName="" explicitFocusOrder="0" pos="290 440 660 68" title="Keyboard"/>
+                  virtualName="" explicitFocusOrder="0" pos="8 440 1004 68" title="Keyboard"/>
   <SLIDER name="pitchbend slider" id="ef7010e0cf15adf0" memberName="Pitchbend"
-          virtualName="" explicitFocusOrder="0" pos="464 371 66 66" tooltip="Pitchbend"
+          virtualName="" explicitFocusOrder="0" pos="574 372 66 66" tooltip="Pitchbend"
           min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <GROUPCOMPONENT name="pitch group" id="e1d015116f300e46" memberName="pitchgroup"
+                  virtualName="" explicitFocusOrder="0" pos="951 72 60 218" title="Pitch"/>
+  <SLIDER name="pitch1 slider" id="23be51e8dddcdf89" memberName="Pitch1"
+          virtualName="" explicitFocusOrder="0" pos="949 84 66 66" tooltip="Pitch 1 +/- 1Oct. "
+          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="pitch2 slider" id="4f275676d819855a" memberName="Pitch2"
+          virtualName="" explicitFocusOrder="0" pos="949 153 66 66" tooltip="Pitch 2 +/- 1Oct. "
+          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="pitch3 slider" id="b3924ae17f6c68ba" memberName="Pitch3"
+          virtualName="" explicitFocusOrder="0" pos="949 218 66 66" tooltip="Pitch 3 +/- 1Oct. "
+          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <IMAGEBUTTON name="init button" id="719fda4fb1f8aa48" memberName="init_button"
+               virtualName="" explicitFocusOrder="0" pos="916 360 70 25" tooltip="Init +reset"
+               buttonText="reset button" connectedEdges="0" needsCallback="0"
+               radioGroupId="0" keepProportions="1" resourceNormal="init_png"
+               opacityNormal="1.0" colourNormal="0" resourceOver="init_png"
+               opacityOver="1.0" colourOver="0" resourceDown="init_png" opacityDown="1.0"
+               colourDown="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
@@ -1749,66 +1823,6 @@ static const unsigned char resource_AiassAudioProcessorEditor_reset_png[] = { 13
 
 const char* AiassAudioProcessorEditor::reset_png = (const char*) resource_AiassAudioProcessorEditor_reset_png;
 const int AiassAudioProcessorEditor::reset_pngSize = 4767;
-
-// JUCER_RESOURCE: aiasshintergrund_png, 3194, "../images/AIASS-Hintergrund.png"
-static const unsigned char resource_AiassAudioProcessorEditor_aiasshintergrund_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,3,192,0,0,2,18,8,3,0,0,0,52,137,86,57,0,0,0,1,115,82,71,66,0,
-174,206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,2,205,80,76,84,69,117,117,119,112,105,87,157,146,116,153,142,114,154,143,115,102,102,104,120,111,85,182,167,123,201,183,135,205,186,137,
-202,184,136,204,185,137,105,105,108,124,115,89,163,150,112,172,157,117,201,184,137,205,187,139,205,188,140,110,110,111,82,77,65,104,96,77,97,90,73,112,104,82,126,115,90,123,113,89,122,113,89,111,110,111,
-82,77,64,102,95,75,99,93,74,96,90,72,118,109,86,123,113,88,121,111,87,121,112,89,104,104,106,131,121,93,178,164,120,168,155,115,171,157,117,170,157,117,195,178,133,213,195,143,211,192,142,211,193,143,
-212,193,143,77,71,60,93,87,70,90,84,69,91,85,70,89,84,69,97,91,74,104,97,77,103,96,77,109,110,110,87,82,67,110,102,80,105,99,78,107,100,79,106,99,78,117,108,86,126,117,91,125,115,90,126,116,91,103,103,
-106,131,122,93,178,164,121,168,155,116,168,156,116,190,175,130,208,191,140,205,188,138,206,189,140,108,108,110,95,88,70,121,112,87,116,107,84,117,109,84,116,108,84,129,119,92,139,128,98,137,127,97,138,
-128,98,112,112,112,69,65,56,82,76,64,80,75,62,86,81,66,176,163,120,167,154,115,170,156,117,167,155,115,189,173,129,206,189,139,204,187,138,205,188,139,106,106,108,111,103,80,146,135,102,139,129,99,141,
-131,100,139,130,99,156,144,109,168,154,116,169,155,117,113,112,112,67,63,54,78,73,61,75,71,60,76,72,61,86,80,66,85,80,65,112,103,81,147,136,102,140,129,99,142,131,100,140,130,99,157,145,110,171,156,117,
-169,155,116,104,104,107,126,116,89,168,156,115,160,147,111,162,149,112,160,149,111,180,165,124,196,180,133,195,178,132,196,179,133,111,111,111,79,74,61,94,88,71,93,88,70,102,95,76,109,101,81,108,100,80,
-110,110,110,85,79,65,101,95,76,103,96,76,101,96,76,112,105,82,119,111,87,120,111,87,136,125,95,184,170,124,174,161,120,177,163,121,174,162,120,198,181,134,215,198,145,213,196,144,214,197,145,109,109,110,
-92,86,69,117,108,84,113,105,82,124,114,90,133,124,95,132,122,94,133,123,95,112,111,111,73,68,58,87,81,66,85,79,66,91,86,70,98,91,74,96,90,73,97,90,74,105,104,106,123,114,88,165,152,113,157,144,109,159,
-146,110,157,145,109,177,162,121,193,177,131,191,176,131,105,105,107,120,111,86,161,149,110,153,141,106,155,143,107,153,142,106,172,158,118,187,172,128,185,170,127,186,171,128,119,110,86,159,147,109,151,
-139,105,151,140,105,185,170,126,183,168,125,184,169,126,161,149,111,153,141,107,155,143,108,153,142,107,172,158,119,160,148,110,152,140,106,154,142,107,152,141,106,171,157,118,186,171,127,161,148,111,
-170,156,118,187,172,127,105,106,108,160,148,111,184,168,125,181,167,124,182,168,125,161,148,110,151,139,106,139,129,97,136,126,96,137,127,95,137,127,96,160,148,109,153,140,106,136,127,95,130,121,91,130,
-122,92,131,122,92,118,110,85,160,147,110,149,138,104,135,126,95,136,127,96,132,123,93,134,125,94,110,103,81,133,124,94,121,113,87,124,116,88,93,27,156,218,0,0,0,9,112,72,89,115,0,0,14,196,0,0,14,196,1,
-149,43,14,27,0,0,9,54,73,68,65,84,120,94,237,213,249,255,216,3,1,199,241,79,150,171,68,203,49,218,156,53,38,196,86,66,57,154,152,210,55,58,200,49,71,95,87,69,119,73,69,33,71,238,233,66,169,232,18,57,138,
-54,83,22,54,179,141,93,205,162,21,201,228,78,253,13,237,209,241,232,241,232,63,120,61,30,207,231,143,239,223,95,143,247,48,188,108,173,49,99,94,14,196,140,25,179,214,203,134,97,237,117,214,93,111,253,
-87,188,18,72,121,197,250,235,173,187,206,218,195,6,175,218,112,163,87,143,29,251,26,32,100,236,216,87,111,180,225,171,54,24,54,222,100,211,205,198,109,190,197,107,129,144,45,54,31,183,217,166,155,108,
-60,140,159,176,229,86,91,111,181,205,182,219,189,14,136,216,110,219,109,214,100,187,229,132,241,195,235,39,110,191,195,164,29,223,176,211,206,187,188,17,72,216,101,231,157,222,176,227,164,29,182,159,248,
-250,97,252,174,187,77,158,242,166,55,239,254,150,221,129,136,183,236,254,230,55,77,153,188,219,174,227,135,61,246,220,235,173,111,219,123,159,125,247,123,59,16,177,223,190,251,236,253,182,183,238,181,
-231,30,195,212,253,223,113,192,164,3,167,29,244,206,119,1,17,239,60,104,218,129,147,14,120,199,254,83,135,131,223,61,242,158,67,14,125,239,251,222,255,1,32,226,253,239,123,239,161,135,188,103,228,221,
-7,15,135,29,254,193,35,142,56,226,200,41,147,167,0,17,147,167,28,185,38,219,15,30,126,216,48,117,226,81,71,79,63,230,216,227,142,255,16,16,113,252,113,199,30,51,253,232,163,38,78,29,70,79,56,241,164,147,
-79,249,240,244,143,124,20,136,248,200,244,15,159,114,242,73,39,158,48,58,156,122,218,199,62,254,137,143,79,248,228,167,142,4,34,62,245,201,9,107,178,253,216,105,167,14,163,159,254,204,103,63,119,250,231,
-207,248,194,116,32,226,11,103,124,254,244,207,125,246,51,159,30,29,190,248,165,51,207,250,242,87,206,62,231,220,175,2,17,231,158,115,246,87,190,124,214,153,95,250,226,112,222,249,91,239,118,193,133,95,
-187,232,226,139,128,136,139,47,250,218,133,23,236,182,245,249,231,13,151,92,186,247,101,151,95,49,99,228,202,175,3,17,87,142,204,184,226,242,203,246,190,244,146,97,234,55,190,249,173,111,95,117,245,53,
-223,249,46,16,241,157,107,174,190,234,219,223,250,230,55,166,14,215,126,239,251,227,126,48,227,186,235,127,248,35,32,226,135,215,95,55,227,7,227,190,255,189,107,135,31,255,228,167,55,220,112,195,207,110,
-188,233,231,64,196,77,55,254,108,77,182,63,253,201,143,135,155,111,185,245,182,95,252,242,246,59,166,253,10,136,152,118,199,237,191,252,197,109,183,222,114,243,48,115,214,157,179,239,250,245,111,238,158,
-243,91,32,98,206,221,191,249,245,93,179,239,156,53,115,24,189,231,222,251,102,207,157,62,239,254,249,64,196,253,243,166,207,157,125,223,189,247,140,14,51,71,30,88,176,112,209,131,30,24,58,230,220,253,
-224,162,133,11,30,24,89,243,192,179,30,90,188,100,233,178,229,243,231,0,17,243,151,47,91,186,100,241,67,179,70,135,81,15,12,53,255,125,96,1,67,144,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,
-134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,
-4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,
-9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,
-19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,
-38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,
-76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,
-128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,
-1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,
-2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,
-4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,
-9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,
-19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,
-38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,
-76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,
-128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,
-1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,
-2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,
-4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,
-9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,
-19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,
-38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,76,192,16,38,96,8,19,48,132,9,24,194,4,12,97,2,134,48,1,67,152,128,33,
-76,192,16,38,96,8,19,48,132,253,127,192,203,150,207,159,3,68,204,95,190,236,127,1,207,94,184,212,3,67,200,154,7,94,186,112,246,191,3,254,221,130,37,139,86,204,187,127,62,16,113,255,188,21,139,150,44,248,
-221,191,2,190,115,241,194,165,203,30,158,183,28,136,152,247,240,178,165,11,23,223,185,38,224,149,35,191,159,189,104,233,138,71,30,253,3,16,241,232,35,43,150,46,154,253,251,145,149,195,232,172,85,127,92,
-50,247,79,143,61,254,103,32,226,241,199,254,52,119,201,31,87,205,26,29,102,142,60,241,151,185,79,174,126,234,175,64,198,83,171,159,156,251,151,39,70,102,14,43,159,126,230,217,231,86,255,103,5,34,86,63,
-247,236,51,79,175,28,102,222,178,234,249,23,94,124,14,72,121,241,133,231,87,221,50,115,24,253,219,75,127,255,7,144,243,247,151,254,54,250,79,143,247,32,169,211,248,26,131,0,0,0,0,73,69,78,68,174,66,96,
-130,0,0};
-
-const char* AiassAudioProcessorEditor::aiasshintergrund_png = (const char*) resource_AiassAudioProcessorEditor_aiasshintergrund_png;
-const int AiassAudioProcessorEditor::aiasshintergrund_pngSize = 3194;
 
 // JUCER_RESOURCE: sidblaster_jpg, 166862, "../images/sidblaster.jpg"
 static const unsigned char resource_AiassAudioProcessorEditor_sidblaster_jpg[] = { 255,216,255,224,0,16,74,70,73,70,0,1,1,1,0,72,0,72,0,0,255,225,59,234,69,120,105,102,0,0,77,77,0,42,0,0,0,8,0,15,0,11,
@@ -4698,6 +4712,131 @@ static const unsigned char resource_AiassAudioProcessorEditor_sidblaster_jpg[] =
 
 const char* AiassAudioProcessorEditor::sidblaster_jpg = (const char*) resource_AiassAudioProcessorEditor_sidblaster_jpg;
 const int AiassAudioProcessorEditor::sidblaster_jpgSize = 166862;
+
+// JUCER_RESOURCE: aiasshintergrund_png, 3258, "../images/AIASS-Hintergrund.png"
+static const unsigned char resource_AiassAudioProcessorEditor_aiasshintergrund_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,4,0,0,0,2,18,8,3,0,0,0,101,13,77,27,0,0,0,1,115,82,71,66,0,174,
+206,28,233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,2,205,80,76,84,69,117,117,119,112,105,87,157,146,116,153,142,114,154,143,115,102,102,104,120,111,85,182,167,123,201,183,135,205,186,137,202,
+184,136,204,185,137,105,105,108,124,115,89,163,150,112,172,157,117,201,184,137,205,187,139,205,188,140,110,110,111,82,77,65,104,96,77,97,90,73,112,104,82,126,115,90,123,113,89,122,113,89,111,110,111,82,
+77,64,102,95,75,99,93,74,96,90,72,118,109,86,123,113,88,121,111,87,121,112,89,104,104,106,131,121,93,178,164,120,168,155,115,171,157,117,170,157,117,195,178,133,213,195,143,211,192,142,211,193,143,212,
+193,143,77,71,60,93,87,70,90,84,69,91,85,70,89,84,69,97,91,74,104,97,77,103,96,77,109,110,110,87,82,67,110,102,80,105,99,78,107,100,79,106,99,78,117,108,86,126,117,91,125,115,90,126,116,91,103,103,106,
+131,122,93,178,164,121,168,155,116,168,156,116,190,175,130,208,191,140,205,188,138,206,189,140,108,108,110,95,88,70,121,112,87,116,107,84,117,109,84,116,108,84,129,119,92,139,128,98,137,127,97,138,128,
+98,112,112,112,69,65,56,82,76,64,80,75,62,86,81,66,176,163,120,167,154,115,170,156,117,167,155,115,189,173,129,206,189,139,204,187,138,205,188,139,106,106,108,111,103,80,146,135,102,139,129,99,141,131,
+100,139,130,99,156,144,109,168,154,116,169,155,117,113,112,112,67,63,54,78,73,61,75,71,60,76,72,61,86,80,66,85,80,65,112,103,81,147,136,102,140,129,99,142,131,100,140,130,99,157,145,110,171,156,117,169,
+155,116,104,104,107,126,116,89,168,156,115,160,147,111,162,149,112,160,149,111,180,165,124,196,180,133,195,178,132,196,179,133,111,111,111,79,74,61,94,88,71,93,88,70,102,95,76,109,101,81,108,100,80,110,
+110,110,85,79,65,101,95,76,103,96,76,101,96,76,112,105,82,119,111,87,120,111,87,136,125,95,184,170,124,174,161,120,177,163,121,174,162,120,198,181,134,215,198,145,213,196,144,214,197,145,109,109,110,92,
+86,69,117,108,84,113,105,82,124,114,90,133,124,95,132,122,94,133,123,95,112,111,111,73,68,58,87,81,66,85,79,66,91,86,70,98,91,74,96,90,73,97,90,74,105,104,106,123,114,88,165,152,113,157,144,109,159,146,
+110,157,145,109,177,162,121,193,177,131,191,176,131,105,105,107,120,111,86,161,149,110,153,141,106,155,143,107,153,142,106,172,158,118,187,172,128,185,170,127,186,171,128,119,110,86,159,147,109,151,139,
+105,151,140,105,185,170,126,183,168,125,184,169,126,161,149,111,153,141,107,155,143,108,153,142,107,172,158,119,160,148,110,152,140,106,154,142,107,152,141,106,171,157,118,186,171,127,161,148,111,170,
+156,118,187,172,127,105,106,108,160,148,111,184,168,125,181,167,124,182,168,125,161,148,110,151,139,106,139,129,97,136,126,96,137,127,95,137,127,96,160,148,109,153,140,106,136,127,95,130,121,91,130,122,
+92,131,122,92,118,110,85,160,147,110,149,138,104,135,126,95,136,127,96,132,123,93,134,125,94,110,103,81,133,124,94,121,113,87,124,116,88,93,27,156,218,0,0,0,9,112,72,89,115,0,0,14,196,0,0,14,196,1,149,
+43,14,27,0,0,9,118,73,68,65,84,120,94,237,214,251,247,216,3,29,199,241,79,150,91,137,150,203,104,115,173,49,33,182,18,202,165,137,41,125,163,11,185,204,165,175,91,69,247,146,138,66,46,185,79,55,148,138,
+110,34,151,162,205,148,133,205,108,99,183,102,209,138,100,114,79,253,13,237,116,57,157,211,191,240,124,60,126,124,255,254,126,158,215,48,188,108,173,49,99,94,14,196,140,25,179,214,203,134,97,237,117,214,
+93,111,253,87,188,18,72,121,197,250,235,173,187,206,218,195,6,175,218,112,163,87,143,29,251,26,32,100,236,216,87,111,180,225,171,54,24,54,222,100,211,205,198,109,190,197,107,129,144,45,54,31,183,217,166,
+155,108,60,140,159,176,229,86,91,111,181,205,182,219,189,14,136,216,110,219,109,214,188,253,150,19,198,15,175,159,184,253,14,147,118,124,195,78,59,239,242,70,32,97,151,157,119,122,195,142,147,118,216,
+126,226,235,135,241,187,238,54,121,202,155,222,188,251,91,118,7,34,222,178,251,155,223,52,101,242,110,187,142,31,246,216,115,175,183,190,109,239,125,246,221,239,237,64,196,126,251,238,179,247,219,222,
+186,215,158,123,12,83,247,127,199,1,147,14,156,118,208,59,223,5,68,188,243,160,105,7,78,58,224,29,251,79,29,14,126,247,200,123,14,57,244,189,239,123,255,7,128,136,247,191,239,189,135,30,242,158,145,119,
+31,60,28,118,248,7,143,56,226,136,35,167,76,158,2,68,76,158,114,228,154,183,255,224,225,135,13,83,39,30,117,244,244,99,142,61,238,248,15,1,17,199,31,119,236,49,211,143,62,106,226,212,97,244,132,19,79,
+58,249,148,15,79,255,200,71,129,136,143,76,255,240,41,39,159,116,226,9,163,195,169,167,125,236,227,159,248,248,132,79,126,234,72,32,226,83,159,156,176,230,237,63,118,218,169,195,232,167,63,243,217,207,
+157,254,249,51,190,48,29,136,248,194,25,159,63,253,115,159,253,204,167,71,135,47,126,233,204,179,190,252,149,179,207,57,247,171,64,196,185,231,156,253,149,47,159,117,230,151,190,56,156,119,254,214,187,
+93,112,225,215,46,186,248,34,32,226,226,139,190,118,225,5,187,109,125,254,121,195,37,151,238,125,217,229,87,204,24,185,242,235,64,196,149,35,51,174,184,252,178,189,47,189,100,152,250,141,111,126,235,219,
+87,93,125,205,119,190,11,68,124,231,154,171,175,250,246,183,190,249,141,169,195,181,223,251,254,184,31,204,184,238,250,31,254,8,136,248,225,245,215,205,248,193,184,239,127,239,218,225,199,63,249,233,13,
+55,220,240,179,27,111,250,57,16,113,211,141,63,91,243,246,63,253,201,143,135,155,111,185,245,182,95,252,242,246,59,166,253,10,136,152,118,199,237,191,252,197,109,183,222,114,243,48,115,214,157,179,239,
+250,245,111,238,158,243,91,32,98,206,221,191,249,245,93,179,239,156,53,115,24,189,231,222,251,102,207,157,62,239,254,249,64,196,253,243,166,207,157,125,223,189,247,140,14,51,71,30,88,176,112,209,131,22,
+0,116,204,185,251,193,69,11,23,60,48,178,102,1,204,122,104,241,146,165,203,150,207,159,3,68,204,95,190,108,233,146,197,15,205,26,29,70,45,0,168,249,239,2,16,0,8,18,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,
+8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,
+0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,
+19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,
+8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,
+0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,
+19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,
+8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,
+0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,
+19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,
+8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,
+0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,
+19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,
+8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,
+0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,
+19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,
+8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,
+0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,19,0,8,251,255,
+0,44,91,62,127,14,16,49,127,249,178,255,5,96,246,194,165,22,0,132,172,89,0,75,23,206,254,119,0,126,183,96,201,162,21,243,238,159,15,68,220,63,111,197,162,37,11,126,247,175,0,220,185,120,225,210,101,15,
+207,91,14,68,204,123,120,217,210,133,139,239,92,19,128,149,35,191,159,189,104,233,138,71,30,253,3,16,241,232,35,43,150,46,154,253,251,145,149,195,232,172,85,127,92,50,247,79,143,61,254,103,32,226,241,
+199,254,52,119,201,31,87,205,26,29,102,142,60,241,151,185,79,174,126,234,175,64,198,83,171,159,156,251,151,39,70,102,14,43,159,126,230,217,231,86,255,231,10,68,172,126,238,217,103,158,94,57,204,188,101,
+213,243,47,188,248,28,144,242,226,11,207,175,186,101,230,48,250,183,151,254,254,15,32,231,239,47,253,109,244,159,14,176,8,201,28,171,135,213,0,0,0,0,73,69,78,68,174,66,96,130,0,0};
+
+const char* AiassAudioProcessorEditor::aiasshintergrund_png = (const char*) resource_AiassAudioProcessorEditor_aiasshintergrund_png;
+const int AiassAudioProcessorEditor::aiasshintergrund_pngSize = 3258;
+
+// JUCER_RESOURCE: init_png, 3610, "../images/init.png"
+static const unsigned char resource_AiassAudioProcessorEditor_init_png[] = { 137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,138,0,0,0,48,8,6,0,0,0,206,214,226,119,0,0,0,1,115,82,71,66,0,174,206,28,
+233,0,0,0,4,103,65,77,65,0,0,177,143,11,252,97,5,0,0,0,9,112,72,89,115,0,0,14,194,0,0,14,194,1,21,40,74,128,0,0,13,175,73,68,65,84,120,94,237,92,9,116,84,213,25,254,222,50,153,201,36,153,36,16,178,111,
+24,98,0,1,17,45,96,169,136,20,81,123,68,173,93,92,78,247,234,161,165,90,186,91,79,181,182,181,155,93,212,42,93,172,61,88,212,99,235,210,106,109,75,171,177,88,78,81,90,219,82,20,168,73,128,36,102,33,43,
+48,153,100,50,235,123,175,255,127,231,77,242,222,76,128,16,21,103,210,249,230,124,121,247,222,255,190,151,55,239,126,247,191,255,189,115,103,144,65,6,147,129,100,30,167,140,7,250,239,244,245,105,29,121,
+154,164,137,252,11,193,70,244,70,186,232,194,175,251,210,25,76,1,26,116,84,59,106,176,52,123,181,200,59,141,44,84,171,13,131,87,21,173,159,37,10,166,136,41,181,230,150,190,187,188,93,70,107,254,14,255,
+115,232,215,186,196,85,52,205,128,20,144,32,19,35,17,29,134,110,152,181,51,56,149,144,100,9,14,135,12,221,101,192,112,27,112,168,18,12,106,138,89,106,5,222,238,92,139,91,203,239,153,82,155,159,212,73,
+79,14,60,232,223,236,189,195,221,31,237,66,152,180,43,121,37,248,187,162,8,116,235,208,124,58,16,146,132,162,117,74,202,82,198,163,188,21,208,73,21,170,66,254,220,160,231,159,77,66,241,40,112,85,202,200,
+171,116,64,203,215,80,165,214,98,169,251,2,124,165,236,222,147,106,160,73,87,254,118,215,70,99,231,232,115,232,14,118,96,164,61,138,112,171,142,240,32,121,17,186,2,83,163,27,116,234,46,148,120,74,144,
+151,155,143,28,71,46,20,89,57,73,41,102,48,101,144,215,208,116,13,163,81,63,134,71,134,208,231,235,67,80,10,144,114,200,203,203,212,113,137,106,145,4,119,131,130,236,114,21,179,178,42,176,194,125,33,110,
+169,156,156,135,57,97,165,71,7,126,30,220,50,120,183,115,128,134,152,64,151,14,223,222,48,224,139,157,38,145,66,106,103,214,97,94,233,153,152,87,188,0,229,5,21,80,36,21,6,135,43,25,129,188,53,32,193,72,
+212,63,53,35,138,94,95,15,94,237,223,135,87,123,94,70,219,225,253,228,233,201,213,19,156,197,18,114,22,56,32,23,25,40,85,171,177,117,238,127,79,216,90,199,173,176,165,247,46,237,17,239,207,228,67,195,
+52,212,236,49,48,218,169,33,68,42,200,85,93,56,171,98,41,150,215,174,68,113,78,49,185,59,243,132,12,82,18,20,182,160,127,100,16,255,236,216,129,221,93,255,64,64,15,194,144,12,184,234,37,228,214,59,80,
+153,83,141,15,22,110,140,92,85,178,62,203,60,37,9,199,20,202,3,61,63,208,30,30,184,95,30,24,234,70,96,23,9,132,98,16,30,98,78,47,154,143,149,115,214,34,223,85,0,85,87,16,145,99,179,157,12,82,23,220,200,
+220,86,81,106,171,32,13,77,207,183,60,139,125,125,47,11,239,163,22,1,249,75,178,80,152,83,134,235,139,63,19,185,166,100,195,132,98,153,80,40,155,187,239,210,30,61,122,159,220,51,208,141,161,93,97,200,
+20,164,42,82,22,206,171,91,141,250,153,243,205,90,25,164,51,218,134,90,176,189,165,145,188,75,0,142,124,26,138,22,171,40,243,84,225,186,89,95,8,189,191,244,58,151,89,109,12,73,66,121,170,231,161,192,189,
+125,183,187,14,15,245,96,104,119,24,145,81,3,110,197,141,243,201,139,20,102,23,101,102,51,211,4,60,59,242,133,143,98,199,129,70,58,14,195,233,145,225,58,75,70,169,187,18,141,139,155,147,26,57,169,96,205,
+174,211,141,193,0,137,228,149,48,28,35,10,12,154,185,44,175,61,31,133,89,51,142,51,80,101,144,150,160,161,199,23,25,194,139,109,127,69,212,8,65,154,105,32,183,193,129,114,87,21,254,180,228,85,91,107,219,
+50,95,111,249,180,241,219,193,205,8,181,26,8,244,70,69,217,194,146,37,40,114,23,103,68,50,13,193,77,170,145,90,124,161,35,216,123,104,23,165,12,56,106,37,56,203,100,92,61,235,147,250,205,245,223,167,249,
+83,12,182,230,191,232,95,115,141,238,193,78,132,154,117,68,12,29,37,174,82,212,20,214,65,230,197,155,140,80,166,45,116,18,72,207,80,7,122,3,221,136,82,218,179,72,69,49,15,65,203,154,198,90,125,44,113,
+91,211,141,198,111,122,55,35,216,78,179,24,175,12,93,54,80,91,80,143,44,201,97,214,200,96,58,67,151,52,180,31,62,128,168,20,133,92,8,56,43,21,92,83,126,61,110,105,184,91,104,100,76,40,23,239,156,103,116,
+30,238,64,128,133,66,200,85,243,224,113,20,82,140,146,89,36,249,127,0,47,249,15,71,188,68,159,80,133,99,142,132,26,79,13,158,61,55,230,85,196,159,239,237,187,73,123,176,119,147,172,247,0,65,111,76,40,
+78,103,54,178,37,23,41,141,29,211,255,23,138,178,139,177,162,242,157,112,169,46,28,56,218,132,127,247,238,52,45,211,19,44,2,217,144,17,68,8,193,224,168,40,115,21,43,34,184,253,84,229,173,254,13,13,55,
+231,10,161,124,109,223,141,198,83,157,91,224,239,14,67,143,136,122,52,13,150,99,137,20,197,199,23,109,68,93,65,3,36,186,207,221,125,47,225,209,166,205,166,229,245,227,209,203,183,225,172,146,101,102,14,
+88,241,112,29,6,70,123,205,220,244,134,78,177,41,67,114,2,217,101,42,222,91,253,81,220,54,255,222,216,162,200,165,219,23,24,173,67,109,8,245,106,177,79,29,185,34,31,98,201,148,68,211,199,71,198,196,124,
+208,219,140,75,158,56,75,164,223,8,188,120,109,27,205,244,74,204,28,112,249,111,151,227,213,35,175,152,57,64,145,20,204,157,185,72,164,247,13,254,71,28,167,5,104,232,224,45,9,140,8,197,44,44,148,170,188,
+106,52,174,106,146,228,39,219,31,234,57,48,220,10,57,204,226,144,32,43,49,242,190,6,206,167,42,19,49,81,157,169,178,229,232,62,243,170,64,32,58,138,14,122,62,86,251,179,239,223,131,39,175,120,65,240,215,
+235,182,217,108,105,77,106,115,209,254,188,167,133,58,131,30,54,208,229,239,16,207,65,218,244,223,111,5,55,29,252,150,19,126,82,83,128,123,75,10,187,17,11,246,124,200,55,230,81,90,135,154,177,238,169,
+179,69,250,141,128,67,118,96,69,249,26,100,41,78,188,60,240,18,250,70,15,153,150,24,254,250,190,3,152,229,46,21,233,166,35,123,240,158,223,159,43,210,211,9,188,109,36,234,214,225,200,145,113,251,188,159,
+244,203,222,224,17,167,74,195,13,15,77,81,89,71,148,43,164,1,173,48,38,176,31,143,146,164,78,88,30,103,64,11,227,185,206,173,216,218,254,36,186,253,221,73,246,108,71,142,249,159,105,28,87,221,73,246,233,
+64,94,30,1,135,43,154,129,163,193,195,89,210,55,118,125,198,248,213,107,247,67,11,232,208,163,220,155,82,59,136,141,99,239,181,227,30,229,224,80,19,214,253,225,28,145,102,172,170,184,4,159,92,248,101,
+228,168,185,216,53,176,19,95,253,199,13,88,90,178,18,239,173,251,48,150,149,174,194,172,236,18,113,206,182,174,63,226,174,221,183,153,103,141,227,19,11,110,194,154,170,117,194,163,116,13,183,99,195,246,
+247,137,242,159,174,250,13,170,114,107,113,90,126,131,200,51,120,179,80,151,191,29,254,200,8,162,52,19,184,250,153,85,166,37,189,161,233,6,52,135,14,197,41,97,99,253,173,126,153,61,137,78,170,97,40,10,
+47,188,144,96,210,128,137,176,218,10,92,51,176,112,230,217,162,65,153,235,23,124,17,191,92,179,21,151,206,190,74,136,132,81,151,63,23,215,159,241,121,220,179,242,17,219,185,204,202,188,90,204,159,177,
+24,115,242,231,97,85,229,37,99,229,103,80,153,85,36,12,222,197,87,147,87,71,245,207,196,162,162,115,232,127,207,180,93,43,206,40,5,135,19,149,167,42,37,197,128,2,25,78,67,161,56,45,152,35,179,219,102,
+114,48,67,93,52,125,152,8,171,205,18,103,45,46,90,134,141,103,38,123,141,56,214,84,93,134,183,149,156,103,63,63,17,102,121,88,167,136,255,4,240,69,189,246,107,153,148,197,126,196,228,242,84,38,253,21,
+218,224,157,113,178,164,83,65,84,130,174,232,48,84,18,77,154,208,6,122,71,54,187,101,53,57,62,60,53,118,63,141,143,253,109,29,214,254,121,33,30,107,123,64,148,197,113,113,237,149,182,243,169,35,217,16,
+47,191,234,249,11,112,201,51,139,105,216,30,223,172,213,229,127,13,151,53,46,19,124,215,51,75,16,81,34,182,107,165,43,57,70,209,200,179,68,34,244,60,248,145,88,61,74,58,49,17,199,179,63,223,179,21,55,
+254,253,26,188,216,191,13,29,254,86,124,115,247,231,17,210,130,166,21,168,112,87,31,243,92,70,188,124,32,212,131,182,145,253,34,22,137,35,172,135,208,226,219,43,216,58,210,108,187,206,116,32,107,131,247,
+32,145,67,164,57,179,193,127,99,49,138,72,164,1,73,222,148,176,32,177,142,5,155,247,255,200,102,11,27,33,180,143,28,16,54,70,69,78,141,205,46,104,69,130,45,98,25,130,68,58,193,62,17,233,89,67,85,249,225,
+79,108,79,53,202,42,29,232,168,104,164,13,210,135,8,102,181,232,184,71,225,239,132,240,27,74,117,218,64,89,171,45,113,226,166,76,240,158,70,181,17,211,74,118,73,177,217,18,119,241,89,109,204,168,49,238,
+81,56,157,104,159,136,10,145,23,179,38,186,151,148,35,47,186,209,51,32,103,34,38,58,46,217,237,149,29,146,83,172,161,112,33,175,163,240,216,164,75,169,207,68,88,109,230,167,16,99,160,119,101,179,51,173,
+224,14,98,181,241,14,117,43,172,54,102,36,97,232,73,180,31,139,124,99,218,4,229,41,71,210,128,226,160,14,66,193,154,164,73,98,43,172,92,156,93,234,99,213,136,200,150,34,93,86,60,171,63,213,105,5,59,0,
+171,45,209,163,136,158,108,177,51,19,156,70,130,205,110,180,218,152,86,143,66,79,46,201,126,44,26,170,46,122,236,68,182,84,163,232,60,164,9,126,149,229,84,14,203,215,45,254,108,62,127,47,71,137,200,66,
+36,58,205,159,133,87,73,113,90,193,57,171,141,134,84,27,172,182,56,109,74,161,164,213,150,228,81,44,54,102,196,34,20,79,86,65,146,253,184,76,147,231,43,24,2,202,243,170,113,241,156,119,87,139,71,90,145,
+93,141,80,64,19,42,74,23,38,98,178,182,73,213,17,17,221,56,108,54,98,79,176,211,180,0,115,114,231,99,190,103,177,40,119,200,89,73,117,211,149,154,70,195,106,88,195,121,101,23,138,247,41,132,114,94,21,
+101,120,47,53,81,40,62,13,104,3,123,4,139,45,209,163,240,186,138,213,206,180,106,129,31,140,213,150,228,81,44,54,102,71,224,160,105,137,225,241,115,95,192,131,75,27,177,251,194,163,240,184,102,36,213,
+79,71,146,219,132,76,241,137,170,199,190,15,22,243,40,206,106,191,28,149,17,244,141,47,36,77,119,80,191,49,83,39,143,199,187,237,11,118,140,37,5,177,79,144,105,34,41,142,233,142,16,105,161,58,123,54,110,
+59,255,78,241,160,196,187,218,176,252,75,185,229,158,42,232,94,154,38,211,139,87,230,192,107,42,41,204,160,22,160,68,12,58,175,148,90,108,214,149,89,94,48,18,239,210,98,103,106,244,138,195,33,59,109,54,
+254,172,35,14,111,228,176,205,198,220,59,186,11,183,183,124,22,254,232,48,87,25,195,33,26,146,188,122,114,253,56,57,168,158,168,60,149,40,115,32,27,161,128,214,39,99,101,117,108,216,97,140,117,171,219,
+183,125,73,123,232,149,77,50,74,233,193,18,197,167,200,83,239,116,83,7,183,241,36,255,111,142,146,39,142,126,205,222,96,140,66,181,72,252,178,2,219,2,186,63,86,152,112,237,34,71,108,79,201,96,36,121,155,
+163,83,118,9,138,207,110,142,1,133,94,179,221,13,40,117,86,146,72,94,67,107,160,217,180,28,3,252,113,9,137,120,92,198,41,6,190,49,234,35,145,14,3,69,193,42,124,225,220,175,6,175,92,248,129,108,54,217,
+154,100,197,47,234,141,67,254,14,184,231,169,80,121,203,69,138,11,229,164,241,102,94,123,18,136,104,212,1,217,171,164,48,34,212,47,134,155,194,248,224,130,245,248,246,218,77,99,55,107,187,235,135,255,
+125,127,240,190,127,254,192,217,163,188,134,156,51,84,10,242,76,195,41,4,143,20,111,214,255,125,51,175,61,25,240,174,177,84,222,65,200,35,248,240,203,81,148,171,213,216,177,190,197,118,163,182,200,235,
+3,103,95,239,90,57,251,66,132,142,232,8,180,235,98,15,37,175,114,242,44,226,84,145,199,73,107,158,188,117,172,220,82,38,200,229,68,182,91,109,156,31,43,179,212,97,242,15,204,196,109,113,187,53,205,54,
+91,153,201,120,62,126,157,120,93,107,29,107,189,120,93,171,141,207,225,24,197,86,150,34,20,247,76,2,246,53,71,16,26,209,176,122,246,165,73,27,126,248,237,38,225,109,155,78,51,6,70,14,193,115,186,3,36,
+174,99,212,202,32,237,193,67,177,137,225,150,40,66,109,58,42,11,171,241,226,134,253,73,45,126,76,9,44,189,167,206,232,62,218,137,130,69,14,184,106,101,225,54,51,152,70,48,227,53,110,215,72,179,129,64,
+171,134,170,252,26,236,184,209,62,228,196,113,92,95,193,98,233,247,118,195,57,91,134,123,62,207,157,104,100,224,105,84,6,211,2,225,0,9,100,143,134,209,110,13,213,5,181,216,185,113,98,145,48,142,43,20,
+198,210,31,146,103,241,118,34,107,134,12,207,57,42,224,33,189,240,216,102,218,51,72,63,240,110,1,185,95,198,240,43,97,4,135,116,148,23,84,225,165,207,29,60,174,22,78,40,20,198,205,79,223,96,108,223,255,
+44,218,124,173,200,171,205,162,25,17,185,21,55,139,37,38,23,177,72,103,73,51,82,120,181,96,90,35,241,249,91,243,156,142,146,48,70,247,105,8,119,235,168,240,212,224,162,211,47,211,191,190,238,135,39,28,
+39,38,37,20,198,239,254,243,216,200,29,207,221,146,115,224,72,43,20,135,4,87,153,130,156,122,5,121,37,89,226,7,255,196,141,144,167,225,61,12,12,254,245,200,12,78,61,156,60,181,51,161,115,19,240,42,117,
+88,70,168,47,138,145,253,154,248,218,112,121,110,13,86,207,93,139,239,94,241,227,73,183,255,164,43,198,241,253,63,125,109,180,63,216,151,253,66,203,95,112,208,219,202,202,128,167,212,1,101,166,4,61,79,
+135,154,45,195,233,146,197,15,178,100,112,234,161,82,147,134,130,58,120,49,90,242,73,136,28,214,49,50,24,134,17,146,81,87,56,27,239,168,95,131,229,53,239,24,189,242,156,107,199,191,197,54,9,156,180,80,
+172,184,233,137,27,12,131,188,201,246,230,70,116,28,233,16,129,46,143,127,140,20,94,87,154,214,136,79,78,227,191,253,91,86,88,137,213,13,23,193,65,175,239,188,103,106,191,131,207,120,195,154,115,203,223,
+238,235,239,244,118,120,70,35,195,78,222,25,149,137,81,222,26,112,28,162,80,143,205,115,229,7,106,10,79,27,186,102,249,71,202,76,211,235,0,240,63,102,101,166,27,186,87,201,90,0,0,0,0,73,69,78,68,174,66,
+96,130,0,0};
+
+const char* AiassAudioProcessorEditor::init_png = (const char*) resource_AiassAudioProcessorEditor_init_png;
+const int AiassAudioProcessorEditor::init_pngSize = 3610;
 
 
 //[EndFile] You can add extra defines here...

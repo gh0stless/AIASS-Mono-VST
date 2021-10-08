@@ -101,10 +101,12 @@ public:
     static const int aiass_mono_typenschild_pngSize;
     static const char* reset_png;
     static const int reset_pngSize;
-    static const char* aiasshintergrund_png;
-    static const int aiasshintergrund_pngSize;
     static const char* sidblaster_jpg;
     static const int sidblaster_jpgSize;
+    static const char* aiasshintergrund_png;
+    static const int aiasshintergrund_pngSize;
+    static const char* init_png;
+    static const int init_pngSize;
 
 
 private:
@@ -201,9 +203,9 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    std::unique_ptr<juce::GroupComponent> controlgroup;
     std::unique_ptr<juce::GroupComponent> pulsewidhgroup;
     std::unique_ptr<juce::GroupComponent> tonegroup;
-    std::unique_ptr<juce::GroupComponent> controlgroup;
     std::unique_ptr<juce::GroupComponent> waveformgroup;
     std::unique_ptr<juce::GroupComponent> soundgroup;
     std::unique_ptr<juce::GroupComponent> filtergroup;
@@ -274,6 +276,11 @@ private:
     std::unique_ptr<juce::ImageButton> reset_button;
     std::unique_ptr<juce::GroupComponent> keyboard_group;
     std::unique_ptr<juce::Slider> Pitchbend;
+    std::unique_ptr<juce::GroupComponent> pitchgroup;
+    std::unique_ptr<juce::Slider> Pitch1;
+    std::unique_ptr<juce::Slider> Pitch2;
+    std::unique_ptr<juce::Slider> Pitch3;
+    std::unique_ptr<juce::ImageButton> init_button;
     juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
     juce::Image cachedImage_sidblaster_jpg_3;
