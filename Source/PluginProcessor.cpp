@@ -861,6 +861,14 @@
 				if (text == "On")  return 1.0f;
 				return 0.0f;
 			}));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("PitchBend",       // parameterID
+			"PiTchbend",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(-8191.0f, 8191.0f, 1.0f),    // range
+			0.0f,         // default value
+			nullptr,
+			nullptr));
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
@@ -927,6 +935,7 @@
 		parameters.addParameterListener("MidiChannel", this);	//60
 		parameters.addParameterListener("LinkButton",this);
 		parameters.addParameterListener("ResetButton", this);
+		parameters.addParameterListener("PitchBend", this);
 
 		m_sid = new Sid();
 
@@ -1012,15 +1021,18 @@
 
 	void AiassAudioProcessor::setCurrentProgram(int index)
 	{
-		Value SIDVolume = parameters.getParameterAsValue("SidVol");
+		//Value SIDVolume = parameters.getParameterAsValue("SidVol");
 		switch (index) {
-		case 0:	SIDVolume = 15.0f;
+		case 0:	//SIDVolume = 15.0f;
+			parameters.replaceState(ValueTree(Identifier("AIASS")));
 			MyProgram = 0;
 			break;
-		case 1: SIDVolume = 7.0f;
+		case 1: //SIDVolume = 7.0f;
+			parameters.replaceState(ValueTree(Identifier("AIASS")));
 			MyProgram = 1;
 			break;
-		case 2: SIDVolume = 1.0f;
+		case 2: //SIDVolume = 1.0f;
+			parameters.replaceState(ValueTree(Identifier("AIASS")));
 			MyProgram = 2;
 			break;
 		}
@@ -1332,14 +1344,13 @@
 			{
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))
 				{
-					int newPitchwheel = m.getPitchWheelValue();
-					long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
-					float newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
-					float newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
-					float newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
-					if (VOICE1) m_sid->set_freq(1, newFreq1);
-					if (VOICE2) m_sid->set_freq(2, newFreq2);
-					if (VOICE3) m_sid->set_freq(3, newFreq3);
+					float CCBend = (float)(m.getPitchWheelValue());
+					if ((m.getPitchWheelValue() >= (8191+100)) || (m.getPitchWheelValue() <= (8191 - 100))) MIDIBENDACTIVE = true;
+					else  MIDIBENDACTIVE = false;
+					float newBend = (CCBend - 8191);
+					parameterChanged("PitchBend", newBend);
+					float newGUIBend = ((float)CCBend) * (1.0f / 16383.0f);
+					sendParamChangeMessageToListeners(63, newGUIBend);
 				}
 			}
 
@@ -1980,6 +1991,15 @@
 			setFilterMode(3, HIGHPASS);
 			setFilterMode(4, F3OFF);
 		}
+		else if (parameterID == "PitchBend")
+		{
+			PITCHBEND = newValue;
+			PITCHBEND = PITCHBEND + 8192;
+			handlepitch();
+
+		}
+
+
 	}
 
 	void AiassAudioProcessor::setWaveformStatus(BYTE Voice, BYTE Waveform, bool State)
@@ -2246,6 +2266,18 @@
 				V3isPlaying = false;
 			}
 		}
+	}
+
+	void AiassAudioProcessor::handlepitch()
+	{
+		int newPitchwheel = PITCHBEND;
+		long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
+		float newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
+		float newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
+		float newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
+		if (VOICE1) m_sid->set_freq(1, newFreq1);
+		if (VOICE2) m_sid->set_freq(2, newFreq2);
+		if (VOICE3) m_sid->set_freq(3, newFreq3);
 	}
 
 	//==============================================================================

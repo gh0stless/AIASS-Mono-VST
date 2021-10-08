@@ -2,16 +2,18 @@ todo:
 -----
 - presets
 - some MIDI CC (switches)
-- Pitch/Modulation
+- Modulation
 - manual
 
 history
 -------
-- 2021/10/03 - work on v.0.5
+- 2021/10/08 - work on v.0.5
+  - PianoRol added (displays playing notes)
+  - PitchBend added
   - Link Mode added
   - SID-Reset added
-  - work on CC
-  - work on manual
+  - CC added
+  - working on manual
 - 2021/10/01 - releasing v.0.4
   - MIDI-play modes implemented
 - 2020/02/13 - releasing v.0.1b

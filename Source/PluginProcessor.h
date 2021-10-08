@@ -45,6 +45,8 @@ public:
 	bool LINK = false;
 	bool RESET = false;
 	MidiMessage MIDIMESSAGE = NULL;
+	float PITCHBEND = 0.0f;
+	bool MIDIBENDACTIVE = false;
 
 	AudioProcessorValueTreeState parameters;
    	
@@ -79,6 +81,7 @@ private:
 	void setFilterMode(BYTE FilterModeBit, bool State);
 	void noteOn(MidiMessage m, bool triggernote);
 	void noteOff(MidiMessage m);
+	void handlepitch();
 		
     //==============================================================================
 

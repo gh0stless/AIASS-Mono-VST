@@ -97,14 +97,14 @@ public:
     static const int redledoff_pngSize;
     static const char* redledon_png;
     static const int redledon_pngSize;
-    static const char* aiasshintergrund_png;
-    static const int aiasshintergrund_pngSize;
     static const char* aiass_mono_typenschild_png;
     static const int aiass_mono_typenschild_pngSize;
     static const char* reset_png;
     static const int reset_pngSize;
-    static const char* aiasshintergrund_png2;
-    static const int aiasshintergrund_png2Size;
+    static const char* aiasshintergrund_png;
+    static const int aiasshintergrund_pngSize;
+    static const char* sidblaster_jpg;
+    static const int sidblaster_jpgSize;
 
 
 private:
@@ -175,7 +175,7 @@ private:
        std::unique_ptr<ComboBoxAttachment>MidiChannelAttachment;
        std::unique_ptr<ButtonAttachment>ResetAttachment;
        std::unique_ptr<ButtonAttachment>LinkAttachment;
-
+       std::unique_ptr<SliderAttachment>PitchbendAttachment;
 
 
 	   TooltipWindow tooltipWindow; // to add tooltips to an application, you
@@ -201,6 +201,7 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    std::unique_ptr<juce::GroupComponent> pulsewidhgroup;
     std::unique_ptr<juce::GroupComponent> tonegroup;
     std::unique_ptr<juce::GroupComponent> controlgroup;
     std::unique_ptr<juce::GroupComponent> waveformgroup;
@@ -272,8 +273,10 @@ private:
     std::unique_ptr<juce::ToggleButton> Voice1;
     std::unique_ptr<juce::ImageButton> reset_button;
     std::unique_ptr<juce::GroupComponent> keyboard_group;
-    juce::Image cachedImage_aiasshintergrund_png2_1;
+    std::unique_ptr<juce::Slider> Pitchbend;
+    juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
+    juce::Image cachedImage_sidblaster_jpg_3;
 
 
     //==============================================================================
