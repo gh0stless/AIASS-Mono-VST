@@ -1,6 +1,6 @@
 todo:
 -----
-- presets
+- some factory presets
 - some MIDI CC (switches)
 - Modulation
 - manual
@@ -15,8 +15,8 @@ history
   - SID-Reset added
   - CC added
   - working on manual
-   -changed GUI
-   -Init added
+  - changed GUI
+  - Init added
 - 2021/10/01 - releasing v.0.4
   - MIDI-play modes implemented
 - 2020/02/13 - releasing v.0.1b
