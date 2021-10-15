@@ -40,40 +40,206 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     //[/Constructor_pre]
 
-    controlgroup.reset (new juce::GroupComponent ("control group",
-                                                  TRANS("Control")));
-    addAndMakeVisible (controlgroup.get());
-
-    controlgroup->setBounds (380, 296, 631, 148);
-
-    pulsewidhgroup.reset (new juce::GroupComponent ("pulsewidh group",
-                                                    TRANS("Pulse")));
-    addAndMakeVisible (pulsewidhgroup.get());
-
-    pulsewidhgroup->setBounds (490, 72, 60, 218);
-
     tonegroup.reset (new juce::GroupComponent ("tone group",
                                                TRANS("Tone")));
     addAndMakeVisible (tonegroup.get());
+    tonegroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    tonegroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
 
-    tonegroup->setBounds (8, 72, 226, 218);
+    tonegroup->setBounds (8, 72, 230, 218);
 
-    waveformgroup.reset (new juce::GroupComponent ("waveform group",
-                                                   TRANS("Waveform")));
-    addAndMakeVisible (waveformgroup.get());
+    semigroup.reset (new juce::GroupComponent ("semi group",
+                                               TRANS("Sem")));
+    addAndMakeVisible (semigroup.get());
+    semigroup->setTextLabelPosition (juce::Justification::centredLeft);
+    semigroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    semigroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
 
-    waveformgroup->setBounds (550, 72, 400, 218);
+    semigroup->setBounds (118, 82, 52, 204);
+
+    octavegroup.reset (new juce::GroupComponent ("octave group",
+                                                 TRANS("Oct")));
+    addAndMakeVisible (octavegroup.get());
+    octavegroup->setTextLabelPosition (juce::Justification::centredLeft);
+    octavegroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    octavegroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
+
+    octavegroup->setBounds (60, 82, 52, 204);
+
+    Semi1.reset (new juce::Slider ("semi1 slider"));
+    addAndMakeVisible (Semi1.get());
+    Semi1->setTooltip (TRANS("Semitone1 Up/Down (CC79)\n"));
+    Semi1->setRange (-12, 12, 1);
+    Semi1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Semi1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Semi1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Semi1->setBounds (112, 90, 66, 66);
+
+    Cent1.reset (new juce::Slider ("cent1 slider"));
+    addAndMakeVisible (Cent1.get());
+    Cent1->setTooltip (TRANS("Cent1 Up/Down (CC70)\n"));
+    Cent1->setRange (-100, 100, 1);
+    Cent1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Cent1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Cent1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Cent1->setBounds (170, 90, 66, 66);
+
+    Attack1.reset (new juce::Slider ("attack1 slider"));
+    addAndMakeVisible (Attack1.get());
+    Attack1->setTooltip (TRANS("Attack 1 (CC73)"));
+    Attack1->setRange (0, 15, 1);
+    Attack1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Attack1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Attack1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Attack1->setBounds (240, 90, 66, 66);
+
+    Decay1.reset (new juce::Slider ("decay1 slider"));
+    addAndMakeVisible (Decay1.get());
+    Decay1->setTooltip (TRANS("Decay 1 (CC75)"));
+    Decay1->setRange (0, 15, 1);
+    Decay1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Decay1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Decay1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Decay1->setBounds (300, 90, 66, 66);
+
+    Sustain1.reset (new juce::Slider ("sustain1 slider"));
+    addAndMakeVisible (Sustain1.get());
+    Sustain1->setTooltip (TRANS("Sustain 1 (CC76)"));
+    Sustain1->setRange (0, 15, 1);
+    Sustain1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Sustain1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Sustain1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Sustain1->setBounds (360, 90, 66, 66);
 
     soundgroup.reset (new juce::GroupComponent ("sound group",
                                                 TRANS("Sound")));
     addAndMakeVisible (soundgroup.get());
     soundgroup->setTextLabelPosition (juce::Justification::centredLeft);
+    soundgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    soundgroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
 
-    soundgroup->setBounds (234, 72, 256, 218);
+    soundgroup->setBounds (238, 72, 252, 218);
+
+    Release1.reset (new juce::Slider ("release1 slider"));
+    addAndMakeVisible (Release1.get());
+    Release1->setTooltip (TRANS("Release 1 (CC72)"));
+    Release1->setRange (0, 15, 1);
+    Release1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Release1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Release1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Release1->setBounds (420, 90, 66, 66);
+
+    Octave1.reset (new juce::Slider ("octave1 slider"));
+    addAndMakeVisible (Octave1.get());
+    Octave1->setTooltip (TRANS("Octave1 Up/Down (CC78)\n"));
+    Octave1->setRange (-4, 4, 1);
+    Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Octave1->setColour (juce::Slider::textBoxTextColourId, juce::Colours::white);
+    Octave1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Octave1->setBounds (54, 90, 66, 66);
+
+    releasegroup.reset (new juce::GroupComponent ("release group",
+                                                  TRANS("R")));
+    addAndMakeVisible (releasegroup.get());
+    releasegroup->setTextLabelPosition (juce::Justification::centred);
+    releasegroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    releasegroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
+
+    releasegroup->setBounds (427, 82, 52, 204);
+
+    sustaingroup.reset (new juce::GroupComponent ("sustain group",
+                                                  TRANS("S")));
+    addAndMakeVisible (sustaingroup.get());
+    sustaingroup->setTextLabelPosition (juce::Justification::centred);
+    sustaingroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    sustaingroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
+
+    sustaingroup->setBounds (367, 82, 52, 204);
+
+    decaygroup.reset (new juce::GroupComponent ("decay group",
+                                                TRANS("D")));
+    addAndMakeVisible (decaygroup.get());
+    decaygroup->setTextLabelPosition (juce::Justification::centred);
+    decaygroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    decaygroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
+
+    decaygroup->setBounds (307, 82, 52, 204);
+
+    attackgroup.reset (new juce::GroupComponent ("attack group",
+                                                 TRANS("A")));
+    addAndMakeVisible (attackgroup.get());
+    attackgroup->setTextLabelPosition (juce::Justification::centred);
+    attackgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    attackgroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
+
+    attackgroup->setBounds (247, 82, 52, 204);
+
+    centgroup.reset (new juce::GroupComponent ("cent group",
+                                               TRANS("Cen")));
+    addAndMakeVisible (centgroup.get());
+    centgroup->setTextLabelPosition (juce::Justification::centredLeft);
+    centgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::brown);
+    centgroup->setColour (juce::GroupComponent::textColourId, juce::Colour (0xff239a0f));
+
+    centgroup->setBounds (176, 82, 52, 204);
+
+    Decay2.reset (new juce::Slider ("decay2 slider"));
+    addAndMakeVisible (Decay2.get());
+    Decay2->setTooltip (TRANS("Decay 2 (CC21)"));
+    Decay2->setRange (0, 15, 1);
+    Decay2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Decay2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Decay2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Decay2->setBounds (300, 152, 66, 66);
+
+    pulsewidhgroup.reset (new juce::GroupComponent ("pulsewidh group",
+                                                    TRANS("Pulse")));
+    addAndMakeVisible (pulsewidhgroup.get());
+    pulsewidhgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    pulsewidhgroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
+
+    pulsewidhgroup->setBounds (490, 72, 60, 218);
+
+    Pulsew1.reset (new juce::Slider ("pulsew1 slider"));
+    addAndMakeVisible (Pulsew1.get());
+    Pulsew1->setTooltip (TRANS("Pulse width 1 (CC77)"));
+    Pulsew1->setRange (1, 4094, 1);
+    Pulsew1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    Pulsew1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pulsew1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
+
+    Pulsew1->setBounds (487, 90, 66, 66);
+
+    controlgroup.reset (new juce::GroupComponent ("control group",
+                                                  TRANS("Control")));
+    addAndMakeVisible (controlgroup.get());
+    controlgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    controlgroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
+
+    controlgroup->setBounds (380, 296, 631, 148);
+
+    waveformgroup.reset (new juce::GroupComponent ("waveform group",
+                                                   TRANS("Waveform")));
+    addAndMakeVisible (waveformgroup.get());
+    waveformgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    waveformgroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
+
+    waveformgroup->setBounds (550, 72, 400, 218);
 
     filtergroup.reset (new juce::GroupComponent ("filter group",
                                                  TRANS("Filter")));
     addAndMakeVisible (filtergroup.get());
+    filtergroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    filtergroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
 
     filtergroup->setBounds (8, 296, 372, 148);
 
@@ -83,8 +249,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     sidvolume->setRange (0, 15, 1);
     sidvolume->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     sidvolume->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    sidvolume->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    sidvolume->setBounds (574, 301, 66, 66);
+    sidvolume->setBounds (574, 300, 66, 66);
 
     Octave2.reset (new juce::Slider ("octave2 slider"));
     addAndMakeVisible (Octave2.get());
@@ -92,8 +259,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Octave2->setRange (-4, 4, 1);
     Octave2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Octave2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Octave2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Octave2->setBounds (56, 153, 66, 66);
+    Octave2->setBounds (54, 152, 66, 66);
 
     Octave3.reset (new juce::Slider ("octave3 slider"));
     addAndMakeVisible (Octave3.get());
@@ -101,17 +269,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Octave3->setRange (-4, 4, 1);
     Octave3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Octave3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Octave3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Octave3->setBounds (56, 218, 66, 66);
-
-    Semi1.reset (new juce::Slider ("semi1 slider"));
-    addAndMakeVisible (Semi1.get());
-    Semi1->setTooltip (TRANS("Semitone1 Up/Down (CC79)\n"));
-    Semi1->setRange (-12, 12, 1);
-    Semi1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Semi1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Semi1->setBounds (116, 84, 66, 66);
+    Octave3->setBounds (54, 212, 66, 66);
 
     Semi2.reset (new juce::Slider ("semi2 slider"));
     addAndMakeVisible (Semi2.get());
@@ -119,8 +279,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Semi2->setRange (-12, 12, 1);
     Semi2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Semi2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Semi2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Semi2->setBounds (116, 153, 66, 66);
+    Semi2->setBounds (112, 152, 66, 66);
 
     Semi3.reset (new juce::Slider ("semi3 slider"));
     addAndMakeVisible (Semi3.get());
@@ -128,17 +289,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Semi3->setRange (-12, 12, 1);
     Semi3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Semi3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Semi3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Semi3->setBounds (116, 218, 66, 66);
-
-    Cent1.reset (new juce::Slider ("cent1 slider"));
-    addAndMakeVisible (Cent1.get());
-    Cent1->setTooltip (TRANS("Cent1 Up/Down (CC70)\n"));
-    Cent1->setRange (-100, 100, 1);
-    Cent1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Cent1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Cent1->setBounds (176, 84, 66, 66);
+    Semi3->setBounds (112, 212, 66, 66);
 
     Cent2.reset (new juce::Slider ("cent2 slider"));
     addAndMakeVisible (Cent2.get());
@@ -146,8 +299,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Cent2->setRange (-100, 100, 1);
     Cent2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Cent2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Cent2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Cent2->setBounds (176, 153, 66, 66);
+    Cent2->setBounds (170, 152, 66, 66);
 
     Cent3.reset (new juce::Slider ("cent3 slider"));
     addAndMakeVisible (Cent3.get());
@@ -155,17 +309,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Cent3->setRange (-100, 100, 1);
     Cent3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Cent3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Cent3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Cent3->setBounds (176, 218, 66, 66);
-
-    Attack1.reset (new juce::Slider ("attack1 slider"));
-    addAndMakeVisible (Attack1.get());
-    Attack1->setTooltip (TRANS("Attack 1 (CC73)"));
-    Attack1->setRange (0, 15, 1);
-    Attack1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Attack1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Attack1->setBounds (240, 84, 66, 66);
+    Cent3->setBounds (170, 212, 66, 66);
 
     Attack2.reset (new juce::Slider ("attack2 slider"));
     addAndMakeVisible (Attack2.get());
@@ -173,8 +319,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Attack2->setRange (0, 15, 1);
     Attack2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Attack2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Attack2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Attack2->setBounds (240, 153, 66, 66);
+    Attack2->setBounds (240, 152, 66, 66);
 
     Attack3.reset (new juce::Slider ("attack3 slider"));
     addAndMakeVisible (Attack3.get());
@@ -182,26 +329,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Attack3->setRange (0, 15, 1);
     Attack3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Attack3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Attack3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Attack3->setBounds (240, 218, 66, 66);
-
-    Decay1.reset (new juce::Slider ("decay1 slider"));
-    addAndMakeVisible (Decay1.get());
-    Decay1->setTooltip (TRANS("Decay 1 (CC75)"));
-    Decay1->setRange (0, 15, 1);
-    Decay1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Decay1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Decay1->setBounds (300, 84, 66, 66);
-
-    Decay2.reset (new juce::Slider ("decay2 slider"));
-    addAndMakeVisible (Decay2.get());
-    Decay2->setTooltip (TRANS("Decay 2 (CC21)"));
-    Decay2->setRange (0, 15, 1);
-    Decay2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Decay2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Decay2->setBounds (300, 153, 66, 66);
+    Attack3->setBounds (240, 212, 66, 66);
 
     Decay3.reset (new juce::Slider ("decay3 slider"));
     addAndMakeVisible (Decay3.get());
@@ -209,17 +339,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Decay3->setRange (0, 15, 1);
     Decay3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Decay3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Decay3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Decay3->setBounds (300, 218, 66, 66);
-
-    Sustain1.reset (new juce::Slider ("sustain1 slider"));
-    addAndMakeVisible (Sustain1.get());
-    Sustain1->setTooltip (TRANS("Sustain 1 (CC76)"));
-    Sustain1->setRange (0, 15, 1);
-    Sustain1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Sustain1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Sustain1->setBounds (360, 84, 66, 66);
+    Decay3->setBounds (300, 212, 66, 66);
 
     Sustain2.reset (new juce::Slider ("sustain2 slider"));
     addAndMakeVisible (Sustain2.get());
@@ -227,8 +349,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Sustain2->setRange (0, 15, 1);
     Sustain2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Sustain2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Sustain2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Sustain2->setBounds (360, 153, 66, 66);
+    Sustain2->setBounds (360, 152, 66, 66);
 
     Sustain3.reset (new juce::Slider ("sustain3 slider"));
     addAndMakeVisible (Sustain3.get());
@@ -236,17 +359,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Sustain3->setRange (0, 15, 1);
     Sustain3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Sustain3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Sustain3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Sustain3->setBounds (360, 218, 66, 66);
-
-    Release1.reset (new juce::Slider ("release1 slider"));
-    addAndMakeVisible (Release1.get());
-    Release1->setTooltip (TRANS("Release 1 (CC72)"));
-    Release1->setRange (0, 15, 1);
-    Release1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Release1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Release1->setBounds (420, 84, 66, 66);
+    Sustain3->setBounds (360, 212, 66, 66);
 
     Release2.reset (new juce::Slider ("release2 slider"));
     addAndMakeVisible (Release2.get());
@@ -254,8 +369,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Release2->setRange (0, 15, 1);
     Release2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Release2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Release2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Release2->setBounds (420, 153, 66, 66);
+    Release2->setBounds (420, 152, 66, 66);
 
     Release3.reset (new juce::Slider ("release3 slider"));
     addAndMakeVisible (Release3.get());
@@ -263,17 +379,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Release3->setRange (0, 15, 1);
     Release3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Release3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Release3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Release3->setBounds (420, 218, 66, 66);
-
-    Pulsew1.reset (new juce::Slider ("pulsew1 slider"));
-    addAndMakeVisible (Pulsew1.get());
-    Pulsew1->setTooltip (TRANS("Pulse width 1 (CC77)"));
-    Pulsew1->setRange (1, 4094, 1);
-    Pulsew1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Pulsew1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Pulsew1->setBounds (486, 84, 66, 66);
+    Release3->setBounds (420, 212, 66, 66);
 
     Pulsew2.reset (new juce::Slider ("pulsew2 slider"));
     addAndMakeVisible (Pulsew2.get());
@@ -281,8 +389,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pulsew2->setRange (1, 4094, 1);
     Pulsew2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pulsew2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Pulsew2->setBounds (486, 153, 66, 66);
+    Pulsew2->setBounds (487, 152, 66, 66);
 
     Pulsew3.reset (new juce::Slider ("pulsew3 slider"));
     addAndMakeVisible (Pulsew3.get());
@@ -290,13 +399,15 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pulsew3->setRange (1, 4094, 1);
     Pulsew3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pulsew3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pulsew3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Pulsew3->setBounds (486, 218, 66, 66);
+    Pulsew3->setBounds (487, 212, 66, 66);
 
     Velvol.reset (new juce::ToggleButton ("Vel2Vol button"));
     addAndMakeVisible (Velvol.get());
     Velvol->setTooltip (TRANS("maps Velocity to Volume"));
     Velvol->setButtonText (TRANS("Vel2Vol"));
+    Velvol->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Velvol->setBounds (637, 310, 66, 30);
 
@@ -335,12 +446,13 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     hyperlinkButton->setButtonText (TRANS("crazy-midi.de"));
     hyperlinkButton->setColour (juce::HyperlinkButton::textColourId, juce::Colours::green);
 
-    hyperlinkButton->setBounds (820, 506, 150, 24);
+    hyperlinkButton->setBounds (893, 506, 150, 24);
 
     Filter1.reset (new juce::ToggleButton ("Filer1 toggle button"));
     addAndMakeVisible (Filter1.get());
     Filter1->setTooltip (TRANS("Voice 1 to Filter"));
     Filter1->setButtonText (TRANS("1"));
+    Filter1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filter1->setBounds (204, 331, 66, 30);
 
@@ -348,6 +460,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filter2.get());
     Filter2->setTooltip (TRANS("Voice 2 to Filter"));
     Filter2->setButtonText (TRANS("2"));
+    Filter2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filter2->setBounds (148, 331, 66, 30);
 
@@ -355,6 +468,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filter3off.get());
     Filter3off->setTooltip (TRANS("Mute Voice 3"));
     Filter3off->setButtonText (TRANS("3off"));
+    Filter3off->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filter3off->setBounds (16, 381, 66, 30);
 
@@ -362,6 +476,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filter3.get());
     Filter3->setTooltip (TRANS("Voice 3 to Filter"));
     Filter3->setButtonText (TRANS("3"));
+    Filter3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filter3->setBounds (82, 331, 66, 30);
 
@@ -369,6 +484,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filterin.get());
     Filterin->setTooltip (TRANS("extern In"));
     Filterin->setButtonText (TRANS("in"));
+    Filterin->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filterin->setBounds (16, 331, 66, 30);
 
@@ -376,6 +492,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filterlp.get());
     Filterlp->setTooltip (TRANS("Low Pass"));
     Filterlp->setButtonText (TRANS("LP"));
+    Filterlp->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filterlp->setBounds (204, 381, 66, 30);
 
@@ -383,6 +500,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filterhp.get());
     Filterhp->setTooltip (TRANS("High Pass"));
     Filterhp->setButtonText (TRANS("HP"));
+    Filterhp->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filterhp->setBounds (82, 381, 66, 30);
 
@@ -390,6 +508,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filterbp.get());
     Filterbp->setTooltip (TRANS("Band Pass"));
     Filterbp->setButtonText (TRANS("BP"));
+    Filterbp->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filterbp->setBounds (148, 381, 66, 30);
 
@@ -398,6 +517,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Filter8580->setTooltip (TRANS("scales filterfreq. to 0-71"));
     Filter8580->setButtonText (TRANS("scale"));
     Filter8580->setToggleState (true, juce::dontSendNotification);
+    Filter8580->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filter8580->setBounds (310, 381, 70, 30);
 
@@ -407,6 +527,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     CutOff->setRange (0, 2047, 1);
     CutOff->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     CutOff->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    CutOff->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
     CutOff->setBounds (250, 372, 66, 66);
 
@@ -416,25 +537,29 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Resonace->setRange (0, 15, 1);
     Resonace->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Resonace->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Resonace->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Resonace->setBounds (250, 301, 66, 66);
+    Resonace->setBounds (250, 300, 66, 66);
 
     Noise1.reset (new juce::ToggleButton ("noise1 toggle button"));
     addAndMakeVisible (Noise1.get());
     Noise1->setButtonText (TRANS("Noise"));
     Noise1->setConnectedEdges (juce::Button::ConnectedOnBottom);
+    Noise1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Noise1->setBounds (560, 96, 66, 30);
 
     Noise2.reset (new juce::ToggleButton ("noise2 toggle button"));
     addAndMakeVisible (Noise2.get());
     Noise2->setButtonText (TRANS("Noise"));
+    Noise2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Noise2->setBounds (560, 165, 66, 30);
 
     Noise3.reset (new juce::ToggleButton ("noise3 toggle button"));
     addAndMakeVisible (Noise3.get());
     Noise3->setButtonText (TRANS("Noise"));
+    Noise3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Noise3->setBounds (560, 229, 66, 30);
 
@@ -442,18 +567,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Pulse1.get());
     Pulse1->setButtonText (TRANS("Pulse"));
     Pulse1->setConnectedEdges (juce::Button::ConnectedOnBottom);
+    Pulse1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Pulse1->setBounds (630, 96, 66, 30);
 
     Pulse2.reset (new juce::ToggleButton ("pulse2 toggle button"));
     addAndMakeVisible (Pulse2.get());
     Pulse2->setButtonText (TRANS("Pulse"));
+    Pulse2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Pulse2->setBounds (630, 165, 66, 30);
 
     Pulse3.reset (new juce::ToggleButton ("pulse3 toggle button"));
     addAndMakeVisible (Pulse3.get());
     Pulse3->setButtonText (TRANS("Pulse"));
+    Pulse3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Pulse3->setBounds (630, 229, 66, 30);
 
@@ -461,18 +589,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Saw1.get());
     Saw1->setButtonText (TRANS("Saw"));
     Saw1->setConnectedEdges (juce::Button::ConnectedOnBottom);
+    Saw1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Saw1->setBounds (700, 96, 66, 30);
 
     Saw2.reset (new juce::ToggleButton ("saw2 toggle button"));
     addAndMakeVisible (Saw2.get());
     Saw2->setButtonText (TRANS("Saw"));
+    Saw2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Saw2->setBounds (700, 165, 66, 30);
 
     Saw3.reset (new juce::ToggleButton ("saw3 toggle button"));
     addAndMakeVisible (Saw3.get());
     Saw3->setButtonText (TRANS("Saw"));
+    Saw3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Saw3->setBounds (700, 229, 66, 30);
 
@@ -480,18 +611,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Tria1.get());
     Tria1->setButtonText (TRANS("Tria"));
     Tria1->setConnectedEdges (juce::Button::ConnectedOnBottom);
+    Tria1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Tria1->setBounds (760, 96, 66, 30);
 
     Tria2.reset (new juce::ToggleButton ("tria2 toggle button"));
     addAndMakeVisible (Tria2.get());
     Tria2->setButtonText (TRANS("Tria"));
+    Tria2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Tria2->setBounds (760, 165, 66, 30);
 
     Tria3.reset (new juce::ToggleButton ("tria3 toggle button"));
     addAndMakeVisible (Tria3.get());
     Tria3->setButtonText (TRANS("Tria"));
+    Tria3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Tria3->setBounds (760, 229, 66, 30);
 
@@ -499,18 +633,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Ringmod1.get());
     Ringmod1->setButtonText (TRANS("Ring."));
     Ringmod1->setConnectedEdges (juce::Button::ConnectedOnBottom);
+    Ringmod1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Ringmod1->setBounds (820, 96, 66, 30);
 
     Ringmod2.reset (new juce::ToggleButton ("ringmod2 toggle button"));
     addAndMakeVisible (Ringmod2.get());
     Ringmod2->setButtonText (TRANS("Ring."));
+    Ringmod2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Ringmod2->setBounds (820, 165, 66, 30);
 
     Ringmod3.reset (new juce::ToggleButton ("ringmod3 toggle button"));
     addAndMakeVisible (Ringmod3.get());
     Ringmod3->setButtonText (TRANS("Ring."));
+    Ringmod3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Ringmod3->setBounds (820, 229, 66, 30);
 
@@ -518,18 +655,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Sync1.get());
     Sync1->setButtonText (TRANS("Sync."));
     Sync1->setConnectedEdges (juce::Button::ConnectedOnBottom);
+    Sync1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Sync1->setBounds (880, 96, 66, 30);
 
     Sync2.reset (new juce::ToggleButton ("sync2 toggle button"));
     addAndMakeVisible (Sync2.get());
     Sync2->setButtonText (TRANS("Sync."));
+    Sync2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Sync2->setBounds (880, 165, 66, 30);
 
     Sync3.reset (new juce::ToggleButton ("sync3 toggle button"));
     addAndMakeVisible (Sync3.get());
     Sync3->setButtonText (TRANS("Sync."));
+    Sync3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Sync3->setBounds (880, 229, 66, 30);
 
@@ -538,6 +678,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Voice2->setTooltip (TRANS("Voice 2 On/Off"));
     Voice2->setButtonText (TRANS("2"));
     Voice2->setToggleState (true, juce::dontSendNotification);
+    Voice2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Voice2->setBounds (26, 167, 33, 30);
 
@@ -546,6 +687,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Voice3->setTooltip (TRANS("Voice 3 On/Off"));
     Voice3->setButtonText (TRANS("3"));
     Voice3->setToggleState (true, juce::dontSendNotification);
+    Voice3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Voice3->setBounds (26, 228, 33, 30);
 
@@ -558,7 +700,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
                     juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
                     juce::ImageCache::getFromMemory (redledoff_png, redledoff_pngSize), 1.000f, juce::Colour (0x00ffffff),
                     juce::ImageCache::getFromMemory (redledon_png, redledon_pngSize), 1.000f, juce::Colour (0x00ffffff));
-    Led->setBounds (961, 30, 40, 40);
+    Led->setBounds (962, 30, 40, 40);
 
     midichannel.reset (new juce::ComboBox ("midichannel"));
     addAndMakeVisible (midichannel.get());
@@ -592,23 +734,16 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (link_button.get());
     link_button->setTooltip (TRANS("link gui elements"));
     link_button->setButtonText (TRANS("link"));
+    link_button->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     link_button->setBounds (637, 381, 66, 30);
-
-    Octave1.reset (new juce::Slider ("octave1 slider"));
-    addAndMakeVisible (Octave1.get());
-    Octave1->setTooltip (TRANS("Octave1 Up/Down (CC78)\n"));
-    Octave1->setRange (-4, 4, 1);
-    Octave1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
-    Octave1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
-
-    Octave1->setBounds (56, 84, 66, 66);
 
     Voice1.reset (new juce::ToggleButton ("voice1 toggle button"));
     addAndMakeVisible (Voice1.get());
     Voice1->setTooltip (TRANS("Voice 1 On/Off"));
     Voice1->setButtonText (TRANS("1"));
     Voice1->setToggleState (true, juce::dontSendNotification);
+    Voice1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Voice1->setBounds (26, 94, 33, 30);
 
@@ -625,6 +760,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     keyboard_group.reset (new juce::GroupComponent ("keyboard group",
                                                     TRANS("Keyboard")));
     addAndMakeVisible (keyboard_group.get());
+    keyboard_group->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    keyboard_group->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
 
     keyboard_group->setBounds (8, 440, 1004, 68);
 
@@ -634,12 +771,15 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pitchbend->setRange (-8191, 8191, 1);
     Pitchbend->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pitchbend->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pitchbend->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
     Pitchbend->setBounds (574, 372, 66, 66);
 
     pitchgroup.reset (new juce::GroupComponent ("pitch group",
                                                 TRANS("Pitch")));
     addAndMakeVisible (pitchgroup.get());
+    pitchgroup->setColour (juce::GroupComponent::outlineColourId, juce::Colours::blue);
+    pitchgroup->setColour (juce::GroupComponent::textColourId, juce::Colours::yellow);
 
     pitchgroup->setBounds (951, 72, 60, 218);
 
@@ -649,8 +789,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pitch1->setRange (-8191, 8191, 1);
     Pitch1->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pitch1->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pitch1->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Pitch1->setBounds (949, 84, 66, 66);
+    Pitch1->setBounds (949, 90, 66, 66);
 
     Pitch2.reset (new juce::Slider ("pitch2 slider"));
     addAndMakeVisible (Pitch2.get());
@@ -658,8 +799,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pitch2->setRange (-8191, 8191, 1);
     Pitch2->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pitch2->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pitch2->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Pitch2->setBounds (949, 153, 66, 66);
+    Pitch2->setBounds (949, 152, 66, 66);
 
     Pitch3.reset (new juce::Slider ("pitch3 slider"));
     addAndMakeVisible (Pitch3.get());
@@ -667,8 +809,9 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pitch3->setRange (-8191, 8191, 1);
     Pitch3->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     Pitch3->setTextBoxStyle (juce::Slider::TextBoxBelow, false, 40, 12);
+    Pitch3->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00ffffff));
 
-    Pitch3->setBounds (949, 218, 66, 66);
+    Pitch3->setBounds (949, 212, 66, 66);
 
     init_button.reset (new juce::ImageButton ("init button"));
     addAndMakeVisible (init_button.get());
@@ -690,6 +833,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	noteprioritymode->setSelectedItemIndex(0);
     midichannel->setSelectedItemIndex(0);
     reset_button->setClickingTogglesState(true);
+    init_button->setClickingTogglesState(true);
     //Noise1->setSize(66,132);
 
     addAndMakeVisible(keyboardComponent);
@@ -773,6 +917,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 	NotePriorityModeAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "NotePriorityMode", *noteprioritymode);
     MidiChannelAttachment = std::make_unique<ComboBoxAttachment>(valueTreeState, "MidiChannel", *midichannel);
     ResetAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "ResetButton", *reset_button);
+    InitAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "InitButton", *init_button);
     LinkAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "LinkButton", *link_button);
     PitchbendAttachment = std::make_unique<SliderAttachment>(valueTreeState, "PitchBend", *Pitchbend);
     //[/UserPreSize]
@@ -853,39 +998,48 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 	NotePriorityModeAttachment = nullptr;
     MidiChannelAttachment = nullptr;
     ResetAttachment = nullptr;
+    InitAttachment = nullptr;
     LinkAttachment = nullptr;
     PitchbendAttachment = nullptr;
 
     //[/Destructor_pre]
 
-    controlgroup = nullptr;
-    pulsewidhgroup = nullptr;
     tonegroup = nullptr;
-    waveformgroup = nullptr;
+    semigroup = nullptr;
+    octavegroup = nullptr;
+    Semi1 = nullptr;
+    Cent1 = nullptr;
+    Attack1 = nullptr;
+    Decay1 = nullptr;
+    Sustain1 = nullptr;
     soundgroup = nullptr;
+    Release1 = nullptr;
+    Octave1 = nullptr;
+    releasegroup = nullptr;
+    sustaingroup = nullptr;
+    decaygroup = nullptr;
+    attackgroup = nullptr;
+    centgroup = nullptr;
+    Decay2 = nullptr;
+    pulsewidhgroup = nullptr;
+    Pulsew1 = nullptr;
+    controlgroup = nullptr;
+    waveformgroup = nullptr;
     filtergroup = nullptr;
     sidvolume = nullptr;
     Octave2 = nullptr;
     Octave3 = nullptr;
-    Semi1 = nullptr;
     Semi2 = nullptr;
     Semi3 = nullptr;
-    Cent1 = nullptr;
     Cent2 = nullptr;
     Cent3 = nullptr;
-    Attack1 = nullptr;
     Attack2 = nullptr;
     Attack3 = nullptr;
-    Decay1 = nullptr;
-    Decay2 = nullptr;
     Decay3 = nullptr;
-    Sustain1 = nullptr;
     Sustain2 = nullptr;
     Sustain3 = nullptr;
-    Release1 = nullptr;
     Release2 = nullptr;
     Release3 = nullptr;
-    Pulsew1 = nullptr;
     Pulsew2 = nullptr;
     Pulsew3 = nullptr;
     Velvol = nullptr;
@@ -926,7 +1080,6 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Led = nullptr;
     midichannel = nullptr;
     link_button = nullptr;
-    Octave1 = nullptr;
     Voice1 = nullptr;
     reset_button = nullptr;
     keyboard_group = nullptr;
@@ -1171,143 +1324,175 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="730 322 144 108" resource="sidblaster_jpg" opacity="1.0"
            mode="0"/>
   </BACKGROUND>
-  <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
-                  virtualName="" explicitFocusOrder="0" pos="380 296 631 148" title="Control"/>
-  <GROUPCOMPONENT name="pulsewidh group" id="ee61762cce42c0fc" memberName="pulsewidhgroup"
-                  virtualName="" explicitFocusOrder="0" pos="490 72 60 218" title="Pulse"/>
   <GROUPCOMPONENT name="tone group" id="6d64fe01c88e0968" memberName="tonegroup"
-                  virtualName="" explicitFocusOrder="0" pos="8 72 226 218" title="Tone"/>
-  <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
-                  virtualName="" explicitFocusOrder="0" pos="550 72 400 218" title="Waveform"/>
-  <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
-                  virtualName="" explicitFocusOrder="0" pos="234 72 256 218" title="Sound"
-                  textpos="33"/>
-  <GROUPCOMPONENT name="filter group" id="5844d35c6980f98d" memberName="filtergroup"
-                  virtualName="" explicitFocusOrder="0" pos="8 296 372 148" title="Filter"/>
-  <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
-          virtualName="" explicitFocusOrder="0" pos="574 301 66 66" tooltip="SID-Volume (CC7)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="octave2 slider" id="7808b9c1fb74ccc8" memberName="Octave2"
-          virtualName="" explicitFocusOrder="0" pos="56 153 66 66" tooltip="Octave2 Up/Down (CC85)&#10;"
-          min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="octave3 slider" id="d3e4a1e141ca77b6" memberName="Octave3"
-          virtualName="" explicitFocusOrder="0" pos="56 218 66 66" tooltip="Octave3 Up/Down (CC88)&#10;"
-          min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+                  virtualName="" explicitFocusOrder="0" pos="8 72 230 218" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Tone"/>
+  <GROUPCOMPONENT name="semi group" id="ebe4a4d581cc8ba7" memberName="semigroup"
+                  virtualName="" explicitFocusOrder="0" pos="118 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="Sem" textpos="33"/>
+  <GROUPCOMPONENT name="octave group" id="c581754f216617ea" memberName="octavegroup"
+                  virtualName="" explicitFocusOrder="0" pos="60 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="Oct" textpos="33"/>
   <SLIDER name="semi1 slider" id="4297018af851022d" memberName="Semi1"
-          virtualName="" explicitFocusOrder="0" pos="116 84 66 66" tooltip="Semitone1 Up/Down (CC79)&#10;"
-          min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="semi2 slider" id="4e87cf183b0e0e77" memberName="Semi2"
-          virtualName="" explicitFocusOrder="0" pos="116 153 66 66" tooltip="Semitone2 Up/Down (CC86)&#10;"
-          min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="semi3 slider" id="f03b15fac2d0a403" memberName="Semi3"
-          virtualName="" explicitFocusOrder="0" pos="116 218 66 66" tooltip="Semitone3 Up/Down (CC89)&#10;"
-          min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="112 90 66 66" tooltip="Semitone1 Up/Down (CC79)&#10;"
+          textboxoutline="ffffff" min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="cent1 slider" id="b0bba6848acec451" memberName="Cent1"
-          virtualName="" explicitFocusOrder="0" pos="176 84 66 66" tooltip="Cent1 Up/Down (CC70)&#10;"
-          min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
-  <SLIDER name="cent2 slider" id="873ffcdb55231a19" memberName="Cent2"
-          virtualName="" explicitFocusOrder="0" pos="176 153 66 66" tooltip="Cent2 Up/Down (CC87)&#10;"
-          min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
-  <SLIDER name="cent3 slider" id="77eb6b6e2092a08c" memberName="Cent3"
-          virtualName="" explicitFocusOrder="0" pos="176 218 66 66" tooltip="Cent3 Up/Down (CC90)&#10;"
-          min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
+          virtualName="" explicitFocusOrder="0" pos="170 90 66 66" tooltip="Cent1 Up/Down (CC70)&#10;"
+          textboxoutline="ffffff" min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
           textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="attack1 slider" id="53619e38d7835c9d" memberName="Attack1"
-          virtualName="" explicitFocusOrder="0" pos="240 84 66 66" tooltip="Attack 1 (CC73)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="attack2 slider" id="40a979315f74e3a" memberName="Attack2"
-          virtualName="" explicitFocusOrder="0" pos="240 153 66 66" tooltip="Attack 2 (CC20)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="attack3 slider" id="7e38002dde33164c" memberName="Attack3"
-          virtualName="" explicitFocusOrder="0" pos="240 218 66 66" tooltip="Attack 3 (CC25)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="240 90 66 66" tooltip="Attack 1 (CC73)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="decay1 slider" id="49642dbf385beee8" memberName="Decay1"
-          virtualName="" explicitFocusOrder="0" pos="300 84 66 66" tooltip="Decay 1 (CC75)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="decay2 slider" id="379b886c43a29254" memberName="Decay2"
-          virtualName="" explicitFocusOrder="0" pos="300 153 66 66" tooltip="Decay 2 (CC21)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="decay3 slider" id="ff55788389bcec83" memberName="Decay3"
-          virtualName="" explicitFocusOrder="0" pos="300 218 66 66" tooltip="Decay 3 (CC26)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="300 90 66 66" tooltip="Decay 1 (CC75)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="sustain1 slider" id="2793e34c7a6a6286" memberName="Sustain1"
-          virtualName="" explicitFocusOrder="0" pos="360 84 66 66" tooltip="Sustain 1 (CC76)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="sustain2 slider" id="25e905e8830bd418" memberName="Sustain2"
-          virtualName="" explicitFocusOrder="0" pos="360 153 66 66" tooltip="Sustain 2 (CC22)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="sustain3 slider" id="740735c3d8776e72" memberName="Sustain3"
-          virtualName="" explicitFocusOrder="0" pos="360 218 66 66" tooltip="Sustain 3 (CC27)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="360 90 66 66" tooltip="Sustain 1 (CC76)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <GROUPCOMPONENT name="sound group" id="9c52dd13730dcbb" memberName="soundgroup"
+                  virtualName="" explicitFocusOrder="0" pos="238 72 252 218" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Sound" textpos="33"/>
   <SLIDER name="release1 slider" id="26b01f2c9f0fcbd4" memberName="Release1"
-          virtualName="" explicitFocusOrder="0" pos="420 84 66 66" tooltip="Release 1 (CC72)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="" explicitFocusOrder="0" pos="420 90 66 66" tooltip="Release 1 (CC72)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
+          virtualName="" explicitFocusOrder="0" pos="54 90 66 66" tooltip="Octave1 Up/Down (CC78)&#10;"
+          textboxtext="ffffffff" textboxoutline="ffffff" min="-4.0" max="4.0"
+          int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
           needsCallback="0"/>
-  <SLIDER name="release2 slider" id="cede2f433ff54882" memberName="Release2"
-          virtualName="" explicitFocusOrder="0" pos="420 153 66 66" tooltip="Release 2 (CC23)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
-  <SLIDER name="release3 slider" id="a6cb93496f682a4d" memberName="Release3"
-          virtualName="" explicitFocusOrder="0" pos="420 218 66 66" tooltip="Release 3 (CC28)"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+  <GROUPCOMPONENT name="release group" id="95044d948c239887" memberName="releasegroup"
+                  virtualName="" explicitFocusOrder="0" pos="427 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="R" textpos="36"/>
+  <GROUPCOMPONENT name="sustain group" id="5acc206370d9e6ff" memberName="sustaingroup"
+                  virtualName="" explicitFocusOrder="0" pos="367 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="S" textpos="36"/>
+  <GROUPCOMPONENT name="decay group" id="5436311d81346b70" memberName="decaygroup"
+                  virtualName="" explicitFocusOrder="0" pos="307 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="D" textpos="36"/>
+  <GROUPCOMPONENT name="attack group" id="3207ac8f3cb41ebd" memberName="attackgroup"
+                  virtualName="" explicitFocusOrder="0" pos="247 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="A" textpos="36"/>
+  <GROUPCOMPONENT name="cent group" id="9397004b3a3ac548" memberName="centgroup"
+                  virtualName="" explicitFocusOrder="0" pos="176 82 52 204" outlinecol="ffa52a2a"
+                  textcol="ff239a0f" title="Cen" textpos="33"/>
+  <SLIDER name="decay2 slider" id="379b886c43a29254" memberName="Decay2"
+          virtualName="" explicitFocusOrder="0" pos="300 152 66 66" tooltip="Decay 2 (CC21)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <GROUPCOMPONENT name="pulsewidh group" id="ee61762cce42c0fc" memberName="pulsewidhgroup"
+                  virtualName="" explicitFocusOrder="0" pos="490 72 60 218" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Pulse"/>
   <SLIDER name="pulsew1 slider" id="a63bd08caa77c655" memberName="Pulsew1"
-          virtualName="" explicitFocusOrder="0" pos="486 84 66 66" tooltip="Pulse width 1 (CC77)"
-          min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="487 90 66 66" tooltip="Pulse width 1 (CC77)"
+          textboxoutline="ffffff" min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <GROUPCOMPONENT name="control group" id="f28a7389bff6ea97" memberName="controlgroup"
+                  virtualName="" explicitFocusOrder="0" pos="380 296 631 148" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Control"/>
+  <GROUPCOMPONENT name="waveform group" id="52ab711584b2835a" memberName="waveformgroup"
+                  virtualName="" explicitFocusOrder="0" pos="550 72 400 218" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Waveform"/>
+  <GROUPCOMPONENT name="filter group" id="5844d35c6980f98d" memberName="filtergroup"
+                  virtualName="" explicitFocusOrder="0" pos="8 296 372 148" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Filter"/>
+  <SLIDER name="sidvolume slider" id="d351edf4789a40e0" memberName="sidvolume"
+          virtualName="" explicitFocusOrder="0" pos="574 300 66 66" tooltip="SID-Volume (CC7)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="octave2 slider" id="7808b9c1fb74ccc8" memberName="Octave2"
+          virtualName="" explicitFocusOrder="0" pos="54 152 66 66" tooltip="Octave2 Up/Down (CC85)&#10;"
+          textboxoutline="ffffff" min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="octave3 slider" id="d3e4a1e141ca77b6" memberName="Octave3"
+          virtualName="" explicitFocusOrder="0" pos="54 212 66 66" tooltip="Octave3 Up/Down (CC88)&#10;"
+          textboxoutline="ffffff" min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="semi2 slider" id="4e87cf183b0e0e77" memberName="Semi2"
+          virtualName="" explicitFocusOrder="0" pos="112 152 66 66" tooltip="Semitone2 Up/Down (CC86)&#10;"
+          textboxoutline="ffffff" min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="semi3 slider" id="f03b15fac2d0a403" memberName="Semi3"
+          virtualName="" explicitFocusOrder="0" pos="112 212 66 66" tooltip="Semitone3 Up/Down (CC89)&#10;"
+          textboxoutline="ffffff" min="-12.0" max="12.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="cent2 slider" id="873ffcdb55231a19" memberName="Cent2"
+          virtualName="" explicitFocusOrder="0" pos="170 152 66 66" tooltip="Cent2 Up/Down (CC87)&#10;"
+          textboxoutline="ffffff" min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="cent3 slider" id="77eb6b6e2092a08c" memberName="Cent3"
+          virtualName="" explicitFocusOrder="0" pos="170 212 66 66" tooltip="Cent3 Up/Down (CC90)&#10;"
+          textboxoutline="ffffff" min="-100.0" max="100.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="attack2 slider" id="40a979315f74e3a" memberName="Attack2"
+          virtualName="" explicitFocusOrder="0" pos="240 152 66 66" tooltip="Attack 2 (CC20)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="attack3 slider" id="7e38002dde33164c" memberName="Attack3"
+          virtualName="" explicitFocusOrder="0" pos="240 212 66 66" tooltip="Attack 3 (CC25)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="decay3 slider" id="ff55788389bcec83" memberName="Decay3"
+          virtualName="" explicitFocusOrder="0" pos="300 212 66 66" tooltip="Decay 3 (CC26)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="sustain2 slider" id="25e905e8830bd418" memberName="Sustain2"
+          virtualName="" explicitFocusOrder="0" pos="360 152 66 66" tooltip="Sustain 2 (CC22)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="sustain3 slider" id="740735c3d8776e72" memberName="Sustain3"
+          virtualName="" explicitFocusOrder="0" pos="360 212 66 66" tooltip="Sustain 3 (CC27)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="release2 slider" id="cede2f433ff54882" memberName="Release2"
+          virtualName="" explicitFocusOrder="0" pos="420 152 66 66" tooltip="Release 2 (CC23)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+  <SLIDER name="release3 slider" id="a6cb93496f682a4d" memberName="Release3"
+          virtualName="" explicitFocusOrder="0" pos="420 212 66 66" tooltip="Release 3 (CC28)"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="pulsew2 slider" id="c761eb76e90133c8" memberName="Pulsew2"
-          virtualName="" explicitFocusOrder="0" pos="486 153 66 66" tooltip="Pulse width 2 (CC24)"
-          min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="487 152 66 66" tooltip="Pulse width 2 (CC24)"
+          textboxoutline="ffffff" min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="pulsew3 slider" id="c9edf691a324176f" memberName="Pulsew3"
-          virtualName="" explicitFocusOrder="0" pos="486 218 66 66" tooltip="Pulse width 3 (CC29)"
-          min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="487 212 66 66" tooltip="Pulse width 3 (CC29)"
+          textboxoutline="ffffff" min="1.0" max="4094.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <TOGGLEBUTTON name="Vel2Vol button" id="498d1ccffc218a3e" memberName="Velvol"
                 virtualName="" explicitFocusOrder="0" pos="637 310 66 30" tooltip="maps Velocity to Volume"
-                buttonText="Vel2Vol" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="Vel2Vol" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <COMBOBOX name="legatomode" id="185cc42c904fe921" memberName="legatomode"
             virtualName="" explicitFocusOrder="0" pos="401 360 150 24" tooltip="play mode"
             editable="0" layout="33" items="Retrigger&#10;Legato&#10;Last Step"
@@ -1317,119 +1502,137 @@ BEGIN_JUCER_METADATA
             editable="0" layout="33" items="Last Note&#10;High Note&#10;Low Note"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <HYPERLINKBUTTON name="new hyperlink" id="27b1f728dfa971d5" memberName="hyperlinkButton"
-                   virtualName="" explicitFocusOrder="0" pos="820 506 150 24" tooltip="http://www.crazy-midi.de"
+                   virtualName="" explicitFocusOrder="0" pos="893 506 150 24" tooltip="http://www.crazy-midi.de"
                    textCol="ff008000" buttonText="crazy-midi.de" connectedEdges="0"
                    needsCallback="0" radioGroupId="0" url="http://www.crazy-midi.de"/>
   <TOGGLEBUTTON name="Filer1 toggle button" id="f988e7a5126e5bac" memberName="Filter1"
                 virtualName="" explicitFocusOrder="0" pos="204 331 66 30" tooltip="Voice 1 to Filter"
-                buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="1" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="Filter2 toggle button" id="e8384ca904cc9cee" memberName="Filter2"
                 virtualName="" explicitFocusOrder="0" pos="148 331 66 30" tooltip="Voice 2 to Filter"
-                buttonText="2" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="2" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="3off toggle button" id="46436fd7c74f713f" memberName="Filter3off"
                 virtualName="" explicitFocusOrder="0" pos="16 381 66 30" tooltip="Mute Voice 3"
-                buttonText="3off" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="3off" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="Filter3 toggle button" id="15351388c9102c09" memberName="Filter3"
                 virtualName="" explicitFocusOrder="0" pos="82 331 66 30" tooltip="Voice 3 to Filter"
-                buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="3" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="FilterIn toggle button" id="1a8bcabfd8647671" memberName="Filterin"
                 virtualName="" explicitFocusOrder="0" pos="16 331 66 30" tooltip="extern In"
-                buttonText="in" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="in" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="lowpass toggle button" id="fe8269d4b1a9c6e6" memberName="Filterlp"
                 virtualName="" explicitFocusOrder="0" pos="204 381 66 30" tooltip="Low Pass"
-                buttonText="LP" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="LP" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="high pass toggle button" id="17b0fa917ff0851e" memberName="Filterhp"
                 virtualName="" explicitFocusOrder="0" pos="82 381 66 30" tooltip="High Pass"
-                buttonText="HP" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="HP" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="band pass toggle button" id="2bd008bd14ea7c51" memberName="Filterbp"
                 virtualName="" explicitFocusOrder="0" pos="148 381 66 30" tooltip="Band Pass"
-                buttonText="BP" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
+                txtcol="ffa52a2a" buttonText="BP" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="scale toggle button" id="1f267441a830f9ff" memberName="Filter8580"
                 virtualName="" explicitFocusOrder="0" pos="310 381 70 30" tooltip="scales filterfreq. to 0-71"
-                buttonText="scale" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="1"/>
+                txtcol="ffa52a2a" buttonText="scale" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="1"/>
   <SLIDER name="cutoff slider" id="b104465dc77b15ae" memberName="CutOff"
           virtualName="" explicitFocusOrder="0" pos="250 372 66 66" tooltip="Cutoff (CC74)"
-          min="0.0" max="2047.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          textboxoutline="ffffff" min="0.0" max="2047.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="resonance slider" id="b18e0fc28c589ec5" memberName="Resonace"
-          virtualName="" explicitFocusOrder="0" pos="250 301 66 66" tooltip="Resonance (CC71)&#10;"
-          min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="250 300 66 66" tooltip="Resonance (CC71)&#10;"
+          textboxoutline="ffffff" min="0.0" max="15.0" int="1.0" style="RotaryVerticalDrag"
+          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
+          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <TOGGLEBUTTON name="noise1 toggle button" id="53248eb179f92afc" memberName="Noise1"
-                virtualName="" explicitFocusOrder="0" pos="560 96 66 30" buttonText="Noise"
-                connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="560 96 66 30" txtcol="ffa52a2a"
+                buttonText="Noise" connectedEdges="8" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="noise2 toggle button" id="d83f77113f37d2ea" memberName="Noise2"
-                virtualName="" explicitFocusOrder="0" pos="560 165 66 30" buttonText="Noise"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="560 165 66 30" txtcol="ffa52a2a"
+                buttonText="Noise" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="noise3 toggle button" id="1da77acd9957a585" memberName="Noise3"
-                virtualName="" explicitFocusOrder="0" pos="560 229 66 30" buttonText="Noise"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="560 229 66 30" txtcol="ffa52a2a"
+                buttonText="Noise" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="pulse1 toggle button" id="3bbfb8f7a8ca0db0" memberName="Pulse1"
-                virtualName="" explicitFocusOrder="0" pos="630 96 66 30" buttonText="Pulse"
-                connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="630 96 66 30" txtcol="ffa52a2a"
+                buttonText="Pulse" connectedEdges="8" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="pulse2 toggle button" id="520ab3980bfa9711" memberName="Pulse2"
-                virtualName="" explicitFocusOrder="0" pos="630 165 66 30" buttonText="Pulse"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="630 165 66 30" txtcol="ffa52a2a"
+                buttonText="Pulse" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="pulse3 toggle button" id="1dd05bea0d3cdf7d" memberName="Pulse3"
-                virtualName="" explicitFocusOrder="0" pos="630 229 66 30" buttonText="Pulse"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="630 229 66 30" txtcol="ffa52a2a"
+                buttonText="Pulse" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="saw1 toggle button" id="a48dd1aa6574a3e4" memberName="Saw1"
-                virtualName="" explicitFocusOrder="0" pos="700 96 66 30" buttonText="Saw"
-                connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="700 96 66 30" txtcol="ffa52a2a"
+                buttonText="Saw" connectedEdges="8" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="saw2 toggle button" id="ae3029edeecd4b14" memberName="Saw2"
-                virtualName="" explicitFocusOrder="0" pos="700 165 66 30" buttonText="Saw"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="700 165 66 30" txtcol="ffa52a2a"
+                buttonText="Saw" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="saw3 toggle button" id="656ce7e680e8573a" memberName="Saw3"
-                virtualName="" explicitFocusOrder="0" pos="700 229 66 30" buttonText="Saw"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="700 229 66 30" txtcol="ffa52a2a"
+                buttonText="Saw" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="tria1 toggle button" id="5747f6f8bb660f63" memberName="Tria1"
-                virtualName="" explicitFocusOrder="0" pos="760 96 66 30" buttonText="Tria"
-                connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="760 96 66 30" txtcol="ffa52a2a"
+                buttonText="Tria" connectedEdges="8" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="tria2 toggle button" id="cc78b8161478c5a4" memberName="Tria2"
-                virtualName="" explicitFocusOrder="0" pos="760 165 66 30" buttonText="Tria"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="760 165 66 30" txtcol="ffa52a2a"
+                buttonText="Tria" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="tria3 toggle button" id="d9035b35478c1c9b" memberName="Tria3"
-                virtualName="" explicitFocusOrder="0" pos="760 229 66 30" buttonText="Tria"
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="760 229 66 30" txtcol="ffa52a2a"
+                buttonText="Tria" connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="ringmod1 toggle button" id="11efaf86d1acf272" memberName="Ringmod1"
-                virtualName="" explicitFocusOrder="0" pos="820 96 66 30" buttonText="Ring."
-                connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="820 96 66 30" txtcol="ffa52a2a"
+                buttonText="Ring." connectedEdges="8" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="ringmod2 toggle button" id="9d63104088c0485a" memberName="Ringmod2"
-                virtualName="" explicitFocusOrder="0" pos="820 165 66 30" buttonText="Ring."
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="820 165 66 30" txtcol="ffa52a2a"
+                buttonText="Ring." connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="ringmod3 toggle button" id="a97c9d37cd1a1d18" memberName="Ringmod3"
-                virtualName="" explicitFocusOrder="0" pos="820 229 66 30" buttonText="Ring."
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="820 229 66 30" txtcol="ffa52a2a"
+                buttonText="Ring." connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="syn1 toggle button" id="fb4637c0f86bc855" memberName="Sync1"
-                virtualName="" explicitFocusOrder="0" pos="880 96 66 30" buttonText="Sync."
-                connectedEdges="8" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="880 96 66 30" txtcol="ffa52a2a"
+                buttonText="Sync." connectedEdges="8" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="sync2 toggle button" id="99a8550e2ad2c6da" memberName="Sync2"
-                virtualName="" explicitFocusOrder="0" pos="880 165 66 30" buttonText="Sync."
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="880 165 66 30" txtcol="ffa52a2a"
+                buttonText="Sync." connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="sync3 toggle button" id="880c3fcf4ab4a1f6" memberName="Sync3"
-                virtualName="" explicitFocusOrder="0" pos="880 229 66 30" buttonText="Sync."
-                connectedEdges="0" needsCallback="0" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="880 229 66 30" txtcol="ffa52a2a"
+                buttonText="Sync." connectedEdges="0" needsCallback="0" radioGroupId="0"
+                state="0"/>
   <TOGGLEBUTTON name="voice2 toggle button" id="3b39ff7f634b369" memberName="Voice2"
                 virtualName="" explicitFocusOrder="0" pos="26 167 33 30" tooltip="Voice 2 On/Off"
-                buttonText="2" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="1"/>
+                txtcol="ffa52a2a" buttonText="2" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="1"/>
   <TOGGLEBUTTON name="voice3 toggle button" id="62c330b01d3c339c" memberName="Voice3"
                 virtualName="" explicitFocusOrder="0" pos="26 228 33 30" tooltip="Voice 3 On/Off"
-                buttonText="3" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="1"/>
+                txtcol="ffa52a2a" buttonText="3" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="1"/>
   <IMAGEBUTTON name="Power_LED" id="77dead3478e9a659" memberName="Led" virtualName=""
-               explicitFocusOrder="0" pos="961 30 40 40" tooltip="midi-activity and  blinks when error-status"
+               explicitFocusOrder="0" pos="962 30 40 40" tooltip="midi-activity and  blinks when error-status"
                buttonText="" connectedEdges="0" needsCallback="0" radioGroupId="0"
                keepProportions="1" resourceNormal="redledoff_png" opacityNormal="1.0"
                colourNormal="ffffff" resourceOver="redledoff_png" opacityOver="1.0"
@@ -1441,17 +1644,12 @@ BEGIN_JUCER_METADATA
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <TOGGLEBUTTON name="link button" id="8ffae76151409f08" memberName="link_button"
                 virtualName="" explicitFocusOrder="0" pos="637 381 66 30" tooltip="link gui elements"
-                buttonText="link" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="0"/>
-  <SLIDER name="octave1 slider" id="26c4155703d3dafe" memberName="Octave1"
-          virtualName="" explicitFocusOrder="0" pos="56 84 66 66" tooltip="Octave1 Up/Down (CC78)&#10;"
-          min="-4.0" max="4.0" int="1.0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="40" textBoxHeight="12" skewFactor="1.0"
-          needsCallback="0"/>
+                txtcol="ffa52a2a" buttonText="link" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="voice1 toggle button" id="883f3d3793f0f11b" memberName="Voice1"
                 virtualName="" explicitFocusOrder="0" pos="26 94 33 30" tooltip="Voice 1 On/Off"
-                buttonText="1" connectedEdges="0" needsCallback="0" radioGroupId="0"
-                state="1"/>
+                txtcol="ffa52a2a" buttonText="1" connectedEdges="0" needsCallback="0"
+                radioGroupId="0" state="1"/>
   <IMAGEBUTTON name="reset button" id="99243fa27f37fff" memberName="reset_button"
                virtualName="" explicitFocusOrder="0" pos="916 320 70 25" tooltip="SID reset"
                buttonText="reset button" connectedEdges="0" needsCallback="0"
@@ -1460,29 +1658,31 @@ BEGIN_JUCER_METADATA
                opacityOver="1.0" colourOver="0" resourceDown="reset_png" opacityDown="1.0"
                colourDown="0"/>
   <GROUPCOMPONENT name="keyboard group" id="2120190faebacf62" memberName="keyboard_group"
-                  virtualName="" explicitFocusOrder="0" pos="8 440 1004 68" title="Keyboard"/>
+                  virtualName="" explicitFocusOrder="0" pos="8 440 1004 68" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Keyboard"/>
   <SLIDER name="pitchbend slider" id="ef7010e0cf15adf0" memberName="Pitchbend"
           virtualName="" explicitFocusOrder="0" pos="574 372 66 66" tooltip="Pitchbend"
-          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+          textboxoutline="ffffff" min="-8191.0" max="8191.0" int="1.0"
+          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <GROUPCOMPONENT name="pitch group" id="e1d015116f300e46" memberName="pitchgroup"
-                  virtualName="" explicitFocusOrder="0" pos="951 72 60 218" title="Pitch"/>
+                  virtualName="" explicitFocusOrder="0" pos="951 72 60 218" outlinecol="ff0000ff"
+                  textcol="ffffff00" title="Pitch"/>
   <SLIDER name="pitch1 slider" id="23be51e8dddcdf89" memberName="Pitch1"
-          virtualName="" explicitFocusOrder="0" pos="949 84 66 66" tooltip="Pitch 1 +/- 1Oct. "
-          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="949 90 66 66" tooltip="Pitch 1 +/- 1Oct. "
+          textboxoutline="ffffff" min="-8191.0" max="8191.0" int="1.0"
+          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="pitch2 slider" id="4f275676d819855a" memberName="Pitch2"
-          virtualName="" explicitFocusOrder="0" pos="949 153 66 66" tooltip="Pitch 2 +/- 1Oct. "
-          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="949 152 66 66" tooltip="Pitch 2 +/- 1Oct. "
+          textboxoutline="ffffff" min="-8191.0" max="8191.0" int="1.0"
+          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <SLIDER name="pitch3 slider" id="b3924ae17f6c68ba" memberName="Pitch3"
-          virtualName="" explicitFocusOrder="0" pos="949 218 66 66" tooltip="Pitch 3 +/- 1Oct. "
-          min="-8191.0" max="8191.0" int="1.0" style="RotaryVerticalDrag"
-          textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
+          virtualName="" explicitFocusOrder="0" pos="949 212 66 66" tooltip="Pitch 3 +/- 1Oct. "
+          textboxoutline="ffffff" min="-8191.0" max="8191.0" int="1.0"
+          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <IMAGEBUTTON name="init button" id="719fda4fb1f8aa48" memberName="init_button"
                virtualName="" explicitFocusOrder="0" pos="916 360 70 25" tooltip="Init +reset"
                buttonText="reset button" connectedEdges="0" needsCallback="0"

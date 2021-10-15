@@ -136,9 +136,9 @@
       <OutputFile>$(IntDir)\AIASS-Mono.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>xcopy /Q /Y &quot;$(TargetDir)$(TargetName).*&quot;  &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\&quot;
-del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\*.exp&quot;
-del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\*.lib&quot;</Command>
+      <Command>xcopy /Q /Y &quot;$(TargetDir)$(TargetName).*&quot;  &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\&quot;
+del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.exp&quot;
+del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

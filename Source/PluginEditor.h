@@ -176,6 +176,7 @@ private:
 	   std::unique_ptr<ComboBoxAttachment>NotePriorityModeAttachment;
        std::unique_ptr<ComboBoxAttachment>MidiChannelAttachment;
        std::unique_ptr<ButtonAttachment>ResetAttachment;
+       std::unique_ptr<ButtonAttachment>InitAttachment;
        std::unique_ptr<ButtonAttachment>LinkAttachment;
        std::unique_ptr<SliderAttachment>PitchbendAttachment;
 
@@ -203,34 +204,42 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<juce::GroupComponent> controlgroup;
-    std::unique_ptr<juce::GroupComponent> pulsewidhgroup;
     std::unique_ptr<juce::GroupComponent> tonegroup;
-    std::unique_ptr<juce::GroupComponent> waveformgroup;
+    std::unique_ptr<juce::GroupComponent> semigroup;
+    std::unique_ptr<juce::GroupComponent> octavegroup;
+    std::unique_ptr<juce::Slider> Semi1;
+    std::unique_ptr<juce::Slider> Cent1;
+    std::unique_ptr<juce::Slider> Attack1;
+    std::unique_ptr<juce::Slider> Decay1;
+    std::unique_ptr<juce::Slider> Sustain1;
     std::unique_ptr<juce::GroupComponent> soundgroup;
+    std::unique_ptr<juce::Slider> Release1;
+    std::unique_ptr<juce::Slider> Octave1;
+    std::unique_ptr<juce::GroupComponent> releasegroup;
+    std::unique_ptr<juce::GroupComponent> sustaingroup;
+    std::unique_ptr<juce::GroupComponent> decaygroup;
+    std::unique_ptr<juce::GroupComponent> attackgroup;
+    std::unique_ptr<juce::GroupComponent> centgroup;
+    std::unique_ptr<juce::Slider> Decay2;
+    std::unique_ptr<juce::GroupComponent> pulsewidhgroup;
+    std::unique_ptr<juce::Slider> Pulsew1;
+    std::unique_ptr<juce::GroupComponent> controlgroup;
+    std::unique_ptr<juce::GroupComponent> waveformgroup;
     std::unique_ptr<juce::GroupComponent> filtergroup;
     std::unique_ptr<juce::Slider> sidvolume;
     std::unique_ptr<juce::Slider> Octave2;
     std::unique_ptr<juce::Slider> Octave3;
-    std::unique_ptr<juce::Slider> Semi1;
     std::unique_ptr<juce::Slider> Semi2;
     std::unique_ptr<juce::Slider> Semi3;
-    std::unique_ptr<juce::Slider> Cent1;
     std::unique_ptr<juce::Slider> Cent2;
     std::unique_ptr<juce::Slider> Cent3;
-    std::unique_ptr<juce::Slider> Attack1;
     std::unique_ptr<juce::Slider> Attack2;
     std::unique_ptr<juce::Slider> Attack3;
-    std::unique_ptr<juce::Slider> Decay1;
-    std::unique_ptr<juce::Slider> Decay2;
     std::unique_ptr<juce::Slider> Decay3;
-    std::unique_ptr<juce::Slider> Sustain1;
     std::unique_ptr<juce::Slider> Sustain2;
     std::unique_ptr<juce::Slider> Sustain3;
-    std::unique_ptr<juce::Slider> Release1;
     std::unique_ptr<juce::Slider> Release2;
     std::unique_ptr<juce::Slider> Release3;
-    std::unique_ptr<juce::Slider> Pulsew1;
     std::unique_ptr<juce::Slider> Pulsew2;
     std::unique_ptr<juce::Slider> Pulsew3;
     std::unique_ptr<juce::ToggleButton> Velvol;
@@ -271,7 +280,6 @@ private:
     std::unique_ptr<juce::ImageButton> Led;
     std::unique_ptr<juce::ComboBox> midichannel;
     std::unique_ptr<juce::ToggleButton> link_button;
-    std::unique_ptr<juce::Slider> Octave1;
     std::unique_ptr<juce::ToggleButton> Voice1;
     std::unique_ptr<juce::ImageButton> reset_button;
     std::unique_ptr<juce::GroupComponent> keyboard_group;

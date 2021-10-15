@@ -869,6 +869,24 @@
 			0.0f,         // default value
 			nullptr,
 			nullptr));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("InitButton",       // parameterID
+			"InItbutton",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
+			0.0f,         // default value
+			[](float value)
+			{
+				// value to text function
+				return value < 0.5 ? "Off" : "On";
+			},
+			[](const String& text)
+			{
+				// text to value function
+				if (text == "Off") return 0.0f;
+				if (text == "On")  return 1.0f;
+				return 0.0f;
+			}));
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
@@ -936,6 +954,7 @@
 		parameters.addParameterListener("LinkButton",this);
 		parameters.addParameterListener("ResetButton", this);
 		parameters.addParameterListener("PitchBend", this);
+		parameters.addParameterListener("InitButton", this);
 
 		m_sid = new Sid();
 
@@ -1990,6 +2009,12 @@
 			setFilterMode(2, BANDPASS);
 			setFilterMode(3, HIGHPASS);
 			setFilterMode(4, F3OFF);
+		}
+		else if (parameterID == "InitButton")
+		{
+			INIT = (bool)newValue;
+			parameters.replaceState(ValueTree(Identifier("AIASS")));
+			//m_sid->init();
 		}
 		else if (parameterID == "PitchBend")
 		{
