@@ -101,12 +101,12 @@ public:
     static const int aiass_mono_typenschild_pngSize;
     static const char* reset_png;
     static const int reset_pngSize;
-    static const char* sidblaster_jpg;
-    static const int sidblaster_jpgSize;
     static const char* aiasshintergrund_png;
     static const int aiasshintergrund_pngSize;
     static const char* init_png;
     static const int init_pngSize;
+    static const char* sidblaster02_png;
+    static const int sidblaster02_pngSize;
 
 
 private:
@@ -291,7 +291,7 @@ private:
     std::unique_ptr<juce::ImageButton> init_button;
     juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
-    juce::Image cachedImage_sidblaster_jpg_3;
+    juce::Image cachedImage_sidblaster02_png_3;
 
 
     //==============================================================================
