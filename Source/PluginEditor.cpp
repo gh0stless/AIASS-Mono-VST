@@ -896,14 +896,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Filterbp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
     Filterlp->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
     Filterlp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
-
-
+    Filter8580->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filter8580->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
     Velvol->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
     Velvol->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
     link_button->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
     link_button->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
-
-
 
     addAndMakeVisible(keyboardComponent);
     keyboardState.addListener (this);
