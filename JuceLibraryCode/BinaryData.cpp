@@ -118,7 +118,7 @@ const char* hardsid_dll_how_to_and_hints_txt = (const char*) temp_binary_data_0;
 static const unsigned char temp_binary_data_1[] =
 "todo:\r\n"
 "-----\r\n"
-"- presets\r\n"
+"- some factory presets\r\n"
 "- some MIDI CC (switches)\r\n"
 "- Modulation\r\n"
 "- manual\r\n"
@@ -133,8 +133,8 @@ static const unsigned char temp_binary_data_1[] =
 "  - SID-Reset added\r\n"
 "  - CC added\r\n"
 "  - working on manual\r\n"
-"   -changed GUI\r\n"
-"   -Init added\r\n"
+"  - changed GUI\r\n"
+"  - Init added\r\n"
 "- 2021/10/01 - releasing v.0.4\r\n"
 "  - MIDI-play modes implemented\r\n"
 "- 2020/02/13 - releasing v.0.1b\r\n"
@@ -157,7 +157,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
-        case 0x64791dc8:  numBytes = 532; return README_md;
+        case 0x64791dc8:  numBytes = 545; return README_md;
         default: break;
     }
 

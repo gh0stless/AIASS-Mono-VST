@@ -547,21 +547,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Noise1->setConnectedEdges (juce::Button::ConnectedOnBottom);
     Noise1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Noise1->setBounds (560, 96, 66, 30);
+    Noise1->setBounds (560, 102, 66, 30);
 
     Noise2.reset (new juce::ToggleButton ("noise2 toggle button"));
     addAndMakeVisible (Noise2.get());
     Noise2->setButtonText (TRANS("Noise"));
     Noise2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Noise2->setBounds (560, 165, 66, 30);
+    Noise2->setBounds (560, 164, 66, 30);
 
     Noise3.reset (new juce::ToggleButton ("noise3 toggle button"));
     addAndMakeVisible (Noise3.get());
     Noise3->setButtonText (TRANS("Noise"));
     Noise3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Noise3->setBounds (560, 229, 66, 30);
+    Noise3->setBounds (560, 224, 66, 30);
 
     Pulse1.reset (new juce::ToggleButton ("pulse1 toggle button"));
     addAndMakeVisible (Pulse1.get());
@@ -569,21 +569,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pulse1->setConnectedEdges (juce::Button::ConnectedOnBottom);
     Pulse1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Pulse1->setBounds (630, 96, 66, 30);
+    Pulse1->setBounds (630, 102, 66, 30);
 
     Pulse2.reset (new juce::ToggleButton ("pulse2 toggle button"));
     addAndMakeVisible (Pulse2.get());
     Pulse2->setButtonText (TRANS("Pulse"));
     Pulse2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Pulse2->setBounds (630, 165, 66, 30);
+    Pulse2->setBounds (630, 164, 66, 30);
 
     Pulse3.reset (new juce::ToggleButton ("pulse3 toggle button"));
     addAndMakeVisible (Pulse3.get());
     Pulse3->setButtonText (TRANS("Pulse"));
     Pulse3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Pulse3->setBounds (630, 229, 66, 30);
+    Pulse3->setBounds (630, 224, 66, 30);
 
     Saw1.reset (new juce::ToggleButton ("saw1 toggle button"));
     addAndMakeVisible (Saw1.get());
@@ -591,21 +591,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Saw1->setConnectedEdges (juce::Button::ConnectedOnBottom);
     Saw1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Saw1->setBounds (700, 96, 66, 30);
+    Saw1->setBounds (700, 102, 66, 30);
 
     Saw2.reset (new juce::ToggleButton ("saw2 toggle button"));
     addAndMakeVisible (Saw2.get());
     Saw2->setButtonText (TRANS("Saw"));
     Saw2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Saw2->setBounds (700, 165, 66, 30);
+    Saw2->setBounds (700, 164, 66, 30);
 
     Saw3.reset (new juce::ToggleButton ("saw3 toggle button"));
     addAndMakeVisible (Saw3.get());
     Saw3->setButtonText (TRANS("Saw"));
     Saw3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Saw3->setBounds (700, 229, 66, 30);
+    Saw3->setBounds (700, 224, 66, 30);
 
     Tria1.reset (new juce::ToggleButton ("tria1 toggle button"));
     addAndMakeVisible (Tria1.get());
@@ -613,21 +613,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Tria1->setConnectedEdges (juce::Button::ConnectedOnBottom);
     Tria1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Tria1->setBounds (760, 96, 66, 30);
+    Tria1->setBounds (760, 102, 66, 30);
 
     Tria2.reset (new juce::ToggleButton ("tria2 toggle button"));
     addAndMakeVisible (Tria2.get());
     Tria2->setButtonText (TRANS("Tria"));
     Tria2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Tria2->setBounds (760, 165, 66, 30);
+    Tria2->setBounds (760, 164, 66, 30);
 
     Tria3.reset (new juce::ToggleButton ("tria3 toggle button"));
     addAndMakeVisible (Tria3.get());
     Tria3->setButtonText (TRANS("Tria"));
     Tria3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Tria3->setBounds (760, 229, 66, 30);
+    Tria3->setBounds (760, 224, 66, 30);
 
     Ringmod1.reset (new juce::ToggleButton ("ringmod1 toggle button"));
     addAndMakeVisible (Ringmod1.get());
@@ -635,21 +635,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Ringmod1->setConnectedEdges (juce::Button::ConnectedOnBottom);
     Ringmod1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Ringmod1->setBounds (820, 96, 66, 30);
+    Ringmod1->setBounds (820, 102, 66, 30);
 
     Ringmod2.reset (new juce::ToggleButton ("ringmod2 toggle button"));
     addAndMakeVisible (Ringmod2.get());
     Ringmod2->setButtonText (TRANS("Ring."));
     Ringmod2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Ringmod2->setBounds (820, 165, 66, 30);
+    Ringmod2->setBounds (820, 164, 66, 30);
 
     Ringmod3.reset (new juce::ToggleButton ("ringmod3 toggle button"));
     addAndMakeVisible (Ringmod3.get());
     Ringmod3->setButtonText (TRANS("Ring."));
     Ringmod3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Ringmod3->setBounds (820, 229, 66, 30);
+    Ringmod3->setBounds (820, 224, 66, 30);
 
     Sync1.reset (new juce::ToggleButton ("syn1 toggle button"));
     addAndMakeVisible (Sync1.get());
@@ -657,21 +657,21 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Sync1->setConnectedEdges (juce::Button::ConnectedOnBottom);
     Sync1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Sync1->setBounds (880, 96, 66, 30);
+    Sync1->setBounds (880, 102, 66, 30);
 
     Sync2.reset (new juce::ToggleButton ("sync2 toggle button"));
     addAndMakeVisible (Sync2.get());
     Sync2->setButtonText (TRANS("Sync."));
     Sync2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Sync2->setBounds (880, 165, 66, 30);
+    Sync2->setBounds (880, 164, 66, 30);
 
     Sync3.reset (new juce::ToggleButton ("sync3 toggle button"));
     addAndMakeVisible (Sync3.get());
     Sync3->setButtonText (TRANS("Sync."));
     Sync3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Sync3->setBounds (880, 229, 66, 30);
+    Sync3->setBounds (880, 224, 66, 30);
 
     Voice2.reset (new juce::ToggleButton ("voice2 toggle button"));
     addAndMakeVisible (Voice2.get());
@@ -680,7 +680,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Voice2->setToggleState (true, juce::dontSendNotification);
     Voice2->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Voice2->setBounds (26, 167, 33, 30);
+    Voice2->setBounds (26, 164, 33, 30);
 
     Voice3.reset (new juce::ToggleButton ("voice3 toggle button"));
     addAndMakeVisible (Voice3.get());
@@ -689,7 +689,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Voice3->setToggleState (true, juce::dontSendNotification);
     Voice3->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Voice3->setBounds (26, 228, 33, 30);
+    Voice3->setBounds (26, 224, 33, 30);
 
     Led.reset (new juce::ImageButton ("Power_LED"));
     addAndMakeVisible (Led.get());
@@ -745,7 +745,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Voice1->setToggleState (true, juce::dontSendNotification);
     Voice1->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Voice1->setBounds (26, 94, 33, 30);
+    Voice1->setBounds (26, 102, 33, 30);
 
     reset_button.reset (new juce::ImageButton ("reset button"));
     addAndMakeVisible (reset_button.get());
@@ -834,7 +834,76 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     midichannel->setSelectedItemIndex(0);
     reset_button->setClickingTogglesState(true);
     init_button->setClickingTogglesState(true);
-    //Noise1->setSize(66,132);
+
+    #define HakenFarbe juce::Colour (0xff239a0f)
+    #define BoxFarbe   juce::Colours::blue
+
+    Voice1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Voice1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Voice2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Voice2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Voice3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Voice3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Noise1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Noise1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Noise2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Noise2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Noise3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Noise3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Pulse1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Pulse1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Pulse2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Pulse2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Pulse3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Pulse3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Saw1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Saw1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Saw2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Saw2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Saw3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Saw3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Tria1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Tria1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Tria2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Tria2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Tria3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Tria3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Ringmod1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Ringmod1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Ringmod2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Ringmod2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Ringmod3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Ringmod3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Sync1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Sync1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Sync2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Sync2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Sync3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Sync3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filterin->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filterin->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filter3->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filter3->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filter2->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filter2->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filter1->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filter1->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filter3off->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filter3off->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filterhp->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filterhp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filterbp->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filterbp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filterlp->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filterlp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+
+
+    Velvol->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Velvol->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    link_button->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    link_button->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+
+
 
     addAndMakeVisible(keyboardComponent);
     keyboardState.addListener (this);
@@ -1552,83 +1621,83 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxBelow" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="12" skewFactor="1.0" needsCallback="0"/>
   <TOGGLEBUTTON name="noise1 toggle button" id="53248eb179f92afc" memberName="Noise1"
-                virtualName="" explicitFocusOrder="0" pos="560 96 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="560 102 66 30" txtcol="ffa52a2a"
                 buttonText="Noise" connectedEdges="8" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="noise2 toggle button" id="d83f77113f37d2ea" memberName="Noise2"
-                virtualName="" explicitFocusOrder="0" pos="560 165 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="560 164 66 30" txtcol="ffa52a2a"
                 buttonText="Noise" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="noise3 toggle button" id="1da77acd9957a585" memberName="Noise3"
-                virtualName="" explicitFocusOrder="0" pos="560 229 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="560 224 66 30" txtcol="ffa52a2a"
                 buttonText="Noise" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="pulse1 toggle button" id="3bbfb8f7a8ca0db0" memberName="Pulse1"
-                virtualName="" explicitFocusOrder="0" pos="630 96 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="630 102 66 30" txtcol="ffa52a2a"
                 buttonText="Pulse" connectedEdges="8" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="pulse2 toggle button" id="520ab3980bfa9711" memberName="Pulse2"
-                virtualName="" explicitFocusOrder="0" pos="630 165 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="630 164 66 30" txtcol="ffa52a2a"
                 buttonText="Pulse" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="pulse3 toggle button" id="1dd05bea0d3cdf7d" memberName="Pulse3"
-                virtualName="" explicitFocusOrder="0" pos="630 229 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="630 224 66 30" txtcol="ffa52a2a"
                 buttonText="Pulse" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="saw1 toggle button" id="a48dd1aa6574a3e4" memberName="Saw1"
-                virtualName="" explicitFocusOrder="0" pos="700 96 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="700 102 66 30" txtcol="ffa52a2a"
                 buttonText="Saw" connectedEdges="8" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="saw2 toggle button" id="ae3029edeecd4b14" memberName="Saw2"
-                virtualName="" explicitFocusOrder="0" pos="700 165 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="700 164 66 30" txtcol="ffa52a2a"
                 buttonText="Saw" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="saw3 toggle button" id="656ce7e680e8573a" memberName="Saw3"
-                virtualName="" explicitFocusOrder="0" pos="700 229 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="700 224 66 30" txtcol="ffa52a2a"
                 buttonText="Saw" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="tria1 toggle button" id="5747f6f8bb660f63" memberName="Tria1"
-                virtualName="" explicitFocusOrder="0" pos="760 96 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="760 102 66 30" txtcol="ffa52a2a"
                 buttonText="Tria" connectedEdges="8" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="tria2 toggle button" id="cc78b8161478c5a4" memberName="Tria2"
-                virtualName="" explicitFocusOrder="0" pos="760 165 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="760 164 66 30" txtcol="ffa52a2a"
                 buttonText="Tria" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="tria3 toggle button" id="d9035b35478c1c9b" memberName="Tria3"
-                virtualName="" explicitFocusOrder="0" pos="760 229 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="760 224 66 30" txtcol="ffa52a2a"
                 buttonText="Tria" connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="ringmod1 toggle button" id="11efaf86d1acf272" memberName="Ringmod1"
-                virtualName="" explicitFocusOrder="0" pos="820 96 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="820 102 66 30" txtcol="ffa52a2a"
                 buttonText="Ring." connectedEdges="8" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="ringmod2 toggle button" id="9d63104088c0485a" memberName="Ringmod2"
-                virtualName="" explicitFocusOrder="0" pos="820 165 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="820 164 66 30" txtcol="ffa52a2a"
                 buttonText="Ring." connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="ringmod3 toggle button" id="a97c9d37cd1a1d18" memberName="Ringmod3"
-                virtualName="" explicitFocusOrder="0" pos="820 229 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="820 224 66 30" txtcol="ffa52a2a"
                 buttonText="Ring." connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="syn1 toggle button" id="fb4637c0f86bc855" memberName="Sync1"
-                virtualName="" explicitFocusOrder="0" pos="880 96 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="880 102 66 30" txtcol="ffa52a2a"
                 buttonText="Sync." connectedEdges="8" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="sync2 toggle button" id="99a8550e2ad2c6da" memberName="Sync2"
-                virtualName="" explicitFocusOrder="0" pos="880 165 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="880 164 66 30" txtcol="ffa52a2a"
                 buttonText="Sync." connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="sync3 toggle button" id="880c3fcf4ab4a1f6" memberName="Sync3"
-                virtualName="" explicitFocusOrder="0" pos="880 229 66 30" txtcol="ffa52a2a"
+                virtualName="" explicitFocusOrder="0" pos="880 224 66 30" txtcol="ffa52a2a"
                 buttonText="Sync." connectedEdges="0" needsCallback="0" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="voice2 toggle button" id="3b39ff7f634b369" memberName="Voice2"
-                virtualName="" explicitFocusOrder="0" pos="26 167 33 30" tooltip="Voice 2 On/Off"
+                virtualName="" explicitFocusOrder="0" pos="26 164 33 30" tooltip="Voice 2 On/Off"
                 txtcol="ffa52a2a" buttonText="2" connectedEdges="0" needsCallback="0"
                 radioGroupId="0" state="1"/>
   <TOGGLEBUTTON name="voice3 toggle button" id="62c330b01d3c339c" memberName="Voice3"
-                virtualName="" explicitFocusOrder="0" pos="26 228 33 30" tooltip="Voice 3 On/Off"
+                virtualName="" explicitFocusOrder="0" pos="26 224 33 30" tooltip="Voice 3 On/Off"
                 txtcol="ffa52a2a" buttonText="3" connectedEdges="0" needsCallback="0"
                 radioGroupId="0" state="1"/>
   <IMAGEBUTTON name="Power_LED" id="77dead3478e9a659" memberName="Led" virtualName=""
@@ -1647,7 +1716,7 @@ BEGIN_JUCER_METADATA
                 txtcol="ffa52a2a" buttonText="link" connectedEdges="0" needsCallback="0"
                 radioGroupId="0" state="0"/>
   <TOGGLEBUTTON name="voice1 toggle button" id="883f3d3793f0f11b" memberName="Voice1"
-                virtualName="" explicitFocusOrder="0" pos="26 94 33 30" tooltip="Voice 1 On/Off"
+                virtualName="" explicitFocusOrder="0" pos="26 102 33 30" tooltip="Voice 1 On/Off"
                 txtcol="ffa52a2a" buttonText="1" connectedEdges="0" needsCallback="0"
                 radioGroupId="0" state="1"/>
   <IMAGEBUTTON name="reset button" id="99243fa27f37fff" memberName="reset_button"
