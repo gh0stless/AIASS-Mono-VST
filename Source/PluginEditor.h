@@ -159,7 +159,9 @@ private:
        std::unique_ptr<ButtonAttachment>InitAttachment;
        std::unique_ptr<ButtonAttachment>LinkAttachment;
        std::unique_ptr<SliderAttachment>PitchbendAttachment;
-
+       std::unique_ptr<ButtonAttachment>Bend1Attachment;
+       std::unique_ptr<ButtonAttachment>Bend2Attachment;
+       std::unique_ptr<ButtonAttachment>Bend3Attachment;
 
 	   TooltipWindow tooltipWindow; // to add tooltips to an application, you
 									// just need to create one of these and leave it
@@ -260,11 +262,10 @@ private:
     std::unique_ptr<juce::ImageButton> reset_button;
     std::unique_ptr<juce::GroupComponent> keyboard_group;
     std::unique_ptr<juce::Slider> Pitchbend;
-    std::unique_ptr<juce::GroupComponent> pitchgroup;
-    std::unique_ptr<juce::Slider> Pitch1;
-    std::unique_ptr<juce::Slider> Pitch2;
-    std::unique_ptr<juce::Slider> Pitch3;
     std::unique_ptr<juce::ImageButton> init_button;
+    std::unique_ptr<juce::ToggleButton> Bend1;
+    std::unique_ptr<juce::ToggleButton> Bend2;
+    std::unique_ptr<juce::ToggleButton> Bend3;
     juce::Image cachedImage_aiasshintergrund_png_1;
     juce::Image cachedImage_aiass_mono_typenschild_png_2;
     juce::Image cachedImage_sidblaster02_png_3;

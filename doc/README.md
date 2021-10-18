@@ -3,7 +3,7 @@ todo (for v.1.0):
 - some factory presets
 - some MIDI CC (switches)
 - manual
-- voice PitchBends
+-test and rework playmodes
 
 history
 -------

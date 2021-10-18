@@ -887,6 +887,60 @@
 				if (text == "On")  return 1.0f;
 				return 0.0f;
 			}));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("BeNd1",       // parameterID
+			"BeND1",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
+			1.0f,         // default value
+			[](float value)
+			{
+				// value to text function
+				return value < 0.5 ? "Off" : "On";
+			},
+			[](const String& text)
+			{
+				// text to value function
+				if (text == "Off") return 0.0f;
+				if (text == "On")  return 1.0f;
+				return 0.0f;
+			}));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("BeNd2",       // parameterID
+			"BeND2",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
+			1.0f,         // default value
+			[](float value)
+			{
+				// value to text function
+				return value < 0.5 ? "Off" : "On";
+			},
+			[](const String& text)
+			{
+				// text to value function
+				if (text == "Off") return 0.0f;
+				if (text == "On")  return 1.0f;
+				return 0.0f;
+			}));
+
+		parameters.createAndAddParameter(std::make_unique<Parameter>("BeNd3",       // parameterID
+			"BeND3",       // parameter name
+			String(),     // parameter label (suffix)
+			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
+			1.0f,         // default value
+			[](float value)
+			{
+				// value to text function
+				return value < 0.5 ? "Off" : "On";
+			},
+			[](const String& text)
+			{
+				// text to value function
+				if (text == "Off") return 0.0f;
+				if (text == "On")  return 1.0f;
+				return 0.0f;
+			}));
 		
 		parameters.state = ValueTree(Identifier("AIASS"));
 
@@ -955,6 +1009,9 @@
 		parameters.addParameterListener("ResetButton", this);
 		parameters.addParameterListener("PitchBend", this);
 		parameters.addParameterListener("InitButton", this);
+		parameters.addParameterListener("BeNd1", this);		//50
+		parameters.addParameterListener("BeNd2", this);
+		parameters.addParameterListener("BeNd3", this);
 
 		m_sid = new Sid();
 
@@ -2030,7 +2087,18 @@
 			handlepitch();
 
 		}
-
+		else if (parameterID == "BeNd1")
+		{
+			BEND1 = (bool)newValue;
+		}
+		else if (parameterID == "BeNd2")
+		{
+			BEND2 = (bool)newValue;
+		}
+		else if (parameterID == "BeNd3")
+		{
+			BEND3 = (bool)newValue;
+		}
 
 	}
 
@@ -2303,10 +2371,15 @@
 	void AiassAudioProcessor::handlepitch()
 	{
 		int newPitchwheel = PITCHBEND;
+		float newFreq1 = MyFreq1;
+		float newFreq2 = MyFreq2;
+		float newFreq3 = MyFreq3;
 		long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
-		float newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
-		float newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
-		float newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
+
+		if (BEND1) newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
+		if (BEND2) newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
+		if (BEND3) newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
+		
 		if (VOICE1) m_sid->set_freq(1, newFreq1);
 		if (VOICE2) m_sid->set_freq(2, newFreq2);
 		if (VOICE3) m_sid->set_freq(3, newFreq3);

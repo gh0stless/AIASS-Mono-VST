@@ -121,7 +121,7 @@ static const unsigned char temp_binary_data_1[] =
 "- some factory presets\r\n"
 "- some MIDI CC (switches)\r\n"
 "- manual\r\n"
-"- voice PitchBends\r\n"
+"-test and rework playmodes\r\n"
 "\r\n"
 "history\r\n"
 "-------\r\n"
@@ -156,7 +156,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
-        case 0x64791dc8:  numBytes = 547; return README_md;
+        case 0x64791dc8:  numBytes = 555; return README_md;
         default: break;
     }
 

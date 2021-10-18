@@ -144,6 +144,10 @@ private:
 
 	bool VELVOL = false;
 
+	bool BEND1 = true;
+	bool BEND2 = true;
+	bool BEND3 = true;
+
 	int SIDVOL = 15;
 	int ATTACK1 = 1;
 	int ATTACK2 = 1;
