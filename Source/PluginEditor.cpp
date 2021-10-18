@@ -33,7 +33,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     : AudioProcessorEditor (&p),
       valueTreeState (vts),
       m_sid(p.getSid()),
-      keyboardComponent (keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)
+      keyboardComponent (p.keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)
 {
     //[Constructor_pre] You can add your own custom stuff here..
 
@@ -951,11 +951,12 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Pitchbend->setColour(juce::Slider::thumbColourId, SliderFarbe);
 
     addAndMakeVisible(keyboardComponent);
-    keyboardState.addListener (this);
+    //keyboardState.addListener (this);
     keyboardComponent.setTopLeftPosition(15,452);
     keyboardComponent.setSize(991,50);
     keyboardComponent.setLowestVisibleKey(11);
     keyboardComponent.setEnabled(false);
+    keyboardComponent.setVelocity(1.0,true);
 
 	SidVolAttachment = std::make_unique<SliderAttachment>(valueTreeState, "SidVol", *sidvolume);
 	VelvolAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "VelVol", *Velvol);
@@ -1207,7 +1208,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 
     //[Destructor]. You can add your own custom destruction code here..
 
-    keyboardState.removeListener(this);
+    //keyboardState.removeListener(this);
 
     //[/Destructor]
 }
@@ -1307,8 +1308,6 @@ void AiassAudioProcessorEditor::comboBoxChanged (juce::ComboBox* comboBoxThatHas
 void AiassAudioProcessorEditor::timerCallback()
 {
 	int Error_State = (m_sid->error_state);
-
-    keyboardState.processNextMidiEvent(getProcessor().MIDIMESSAGE);
 
     if (Link_State != (getProcessor().LINK)) {
         Link_State = (getProcessor().LINK);
@@ -1422,9 +1421,9 @@ void AiassAudioProcessorEditor::timerCallback()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AiassAudioProcessorEditor"
-                 componentName="" parentClasses="public AudioProcessorEditor, private Timer, private juce::MidiKeyboardStateListener"
+                 componentName="" parentClasses="public AudioProcessorEditor, private Timer"
                  constructorParams="AiassAudioProcessor&amp; p, AudioProcessorValueTreeState&amp; vts"
-                 variableInitialisers="AudioProcessorEditor (&amp;p)&#10;valueTreeState (vts)&#10;m_sid(p.getSid())&#10;keyboardComponent (keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)&#10;"
+                 variableInitialisers="AudioProcessorEditor (&amp;p)&#10;valueTreeState (vts)&#10;m_sid(p.getSid())&#10;keyboardComponent (p.keyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)&#10;"
                  snapPixels="10" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="1024" initialHeight="530">
   <BACKGROUND backgroundColour="ffffff">

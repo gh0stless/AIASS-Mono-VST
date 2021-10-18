@@ -1,15 +1,14 @@
-todo:
+todo (for v.1.0):
 -----
 - some factory presets
 - some MIDI CC (switches)
-- Modulation
 - manual
 - voice PitchBends
 
 history
 -------
-- 2021/10/15 - work on v.0.5
-  - PianoRol added (displays playing notes)
+- 2021/10/18 - work on v.0.5
+  - PianoRol added (displays and playing notes)
   - PitchBend added
   - Link Mode added
   - SID-Reset added

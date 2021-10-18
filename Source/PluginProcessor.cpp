@@ -1079,6 +1079,7 @@
 	{
 		// Use this method as the place to do any pre-playback
 		// initialisation that you need..
+		keyboardState.reset();
 
 	}
 
@@ -1140,6 +1141,12 @@
 		MidiBuffer processedMidi;
 		int time;
 		MidiMessage m;
+
+		auto numSamples = buffer.getNumSamples();
+		// Now pass any incoming midi messages to our keyboard state object, and let it
+		// add messages to the buffer if the user is clicking on the on-screen keys	
+		keyboardState.processNextMidiBuffer(midiMessages, 0, numSamples, true);
+		
 
 		for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);)
 		{

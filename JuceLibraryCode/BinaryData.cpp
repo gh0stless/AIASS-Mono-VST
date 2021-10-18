@@ -116,18 +116,17 @@ const char* hardsid_dll_how_to_and_hints_txt = (const char*) temp_binary_data_0;
 
 //================== README.md ==================
 static const unsigned char temp_binary_data_1[] =
-"todo:\r\n"
+"todo (for v.1.0):\r\n"
 "-----\r\n"
 "- some factory presets\r\n"
 "- some MIDI CC (switches)\r\n"
-"- Modulation\r\n"
 "- manual\r\n"
 "- voice PitchBends\r\n"
 "\r\n"
 "history\r\n"
 "-------\r\n"
-"- 2021/10/15 - work on v.0.5\r\n"
-"  - PianoRol added (displays playing notes)\r\n"
+"- 2021/10/18 - work on v.0.5\r\n"
+"  - PianoRol added (displays and playing notes)\r\n"
 "  - PitchBend added\r\n"
 "  - Link Mode added\r\n"
 "  - SID-Reset added\r\n"
@@ -157,7 +156,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
-        case 0x64791dc8:  numBytes = 545; return README_md;
+        case 0x64791dc8:  numBytes = 547; return README_md;
         default: break;
     }
 

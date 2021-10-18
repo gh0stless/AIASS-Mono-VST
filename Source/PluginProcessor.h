@@ -176,5 +176,8 @@ private:
 	
 	int MyProgram = 0;
 	
+	public:
+	juce::MidiKeyboardState keyboardState; 
+	
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AiassAudioProcessor)
 };
