@@ -903,6 +903,53 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     link_button->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
     link_button->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
 
+    #define GroupFarbe   juce::Colours::black
+    tonegroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    soundgroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    pulsewidhgroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    waveformgroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    pitchgroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    filtergroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    controlgroup->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+    keyboard_group->setColour(juce::GroupComponent::outlineColourId, GroupFarbe);
+
+    #define SliderFarbe juce::Colours::blue
+    Octave1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Octave2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Octave3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Semi1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Semi2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Semi3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Cent1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Cent2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Cent3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+
+    Attack1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Attack2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Attack3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Decay1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Decay2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Decay3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Sustain1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Sustain2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Sustain3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Release1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Release2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Release3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+
+    Pulsew1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Pulsew2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Pulsew3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+
+    Pitch1->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Pitch2->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Pitch3->setColour(juce::Slider::thumbColourId, SliderFarbe);
+
+    CutOff->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Resonace->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    sidvolume->setColour(juce::Slider::thumbColourId, SliderFarbe);
+    Pitchbend->setColour(juce::Slider::thumbColourId, SliderFarbe);
+
     addAndMakeVisible(keyboardComponent);
     keyboardState.addListener (this);
     keyboardComponent.setTopLeftPosition(15,452);
