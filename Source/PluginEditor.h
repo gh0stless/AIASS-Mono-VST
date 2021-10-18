@@ -173,7 +173,6 @@ private:
 
 
   public:
-       juce::MidiKeyboardState keyboardState;
        juce::MidiKeyboardComponent keyboardComponent;
 
   private:
