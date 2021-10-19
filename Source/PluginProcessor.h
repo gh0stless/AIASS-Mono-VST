@@ -130,7 +130,7 @@ private:
 	int FILTERFREQ = 0;
 	int FILTERRES = 0;
 
-	bool FILTERSCALE = true;
+	bool FILTERSCALE = false;
 
 	bool FILTER1 = false;
 	bool FILTER2 = false;

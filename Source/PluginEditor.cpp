@@ -516,7 +516,6 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     addAndMakeVisible (Filterscale.get());
     Filterscale->setTooltip (TRANS("scales filterfreq. to 0-71"));
     Filterscale->setButtonText (TRANS("scale"));
-    Filterscale->setToggleState (true, juce::dontSendNotification);
     Filterscale->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
     Filterscale->setBounds (310, 381, 70, 30);
@@ -1238,7 +1237,7 @@ void AiassAudioProcessorEditor::paint (juce::Graphics& g)
 
     {
         int x = 353, y = 49, width = 40, height = 20;
-        juce::String text (TRANS("v. 0.5"));
+        juce::String text (TRANS("v. 0.9"));
         juce::Colour fillColour = juce::Colours::black;
         //[UserPaintCustomArguments] Customize the painting arguments here..
         //[/UserPaintCustomArguments]
@@ -1428,7 +1427,7 @@ BEGIN_JUCER_METADATA
            mode="0"/>
     <IMAGE pos="25 29 315 41" resource="aiass_mono_typenschild_png" opacity="1.0"
            mode="0"/>
-    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.5"
+    <TEXT pos="353 49 40 20" fill="solid: ff000000" hasStroke="0" text="v. 0.9"
           fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
           italic="0" justification="36"/>
     <IMAGE pos="728 312 159 125" resource="sidblaster02_png" opacity="1.0"
@@ -1650,7 +1649,7 @@ BEGIN_JUCER_METADATA
   <TOGGLEBUTTON name="scale toggle button" id="1f267441a830f9ff" memberName="Filterscale"
                 virtualName="" explicitFocusOrder="0" pos="310 381 70 30" tooltip="scales filterfreq. to 0-71"
                 txtcol="ffa52a2a" buttonText="scale" connectedEdges="0" needsCallback="0"
-                radioGroupId="0" state="1"/>
+                radioGroupId="0" state="0"/>
   <SLIDER name="cutoff slider" id="b104465dc77b15ae" memberName="CutOff"
           virtualName="" explicitFocusOrder="0" pos="250 372 66 66" tooltip="Cutoff (CC74)"
           textboxoutline="ffffff" min="0.0" max="2047.0" int="1.0" style="RotaryVerticalDrag"

@@ -644,7 +644,7 @@
 			"Filterscale",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
-			1.0f,         // default value
+			0.0f,         // default value
 			[](float value)
 		{
 			// value to text function
