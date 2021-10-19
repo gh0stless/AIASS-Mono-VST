@@ -512,14 +512,14 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
     Filterbp->setBounds (148, 381, 66, 30);
 
-    Filter8580.reset (new juce::ToggleButton ("scale toggle button"));
-    addAndMakeVisible (Filter8580.get());
-    Filter8580->setTooltip (TRANS("scales filterfreq. to 0-71"));
-    Filter8580->setButtonText (TRANS("scale"));
-    Filter8580->setToggleState (true, juce::dontSendNotification);
-    Filter8580->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
+    Filterscale.reset (new juce::ToggleButton ("scale toggle button"));
+    addAndMakeVisible (Filterscale.get());
+    Filterscale->setTooltip (TRANS("scales filterfreq. to 0-71"));
+    Filterscale->setButtonText (TRANS("scale"));
+    Filterscale->setToggleState (true, juce::dontSendNotification);
+    Filterscale->setColour (juce::ToggleButton::textColourId, juce::Colours::brown);
 
-    Filter8580->setBounds (310, 381, 70, 30);
+    Filterscale->setBounds (310, 381, 70, 30);
 
     CutOff.reset (new juce::Slider ("cutoff slider"));
     addAndMakeVisible (CutOff.get());
@@ -886,8 +886,8 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
     Filterbp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
     Filterlp->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
     Filterlp->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
-    Filter8580->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
-    Filter8580->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
+    Filterscale->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
+    Filterscale->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
     Velvol->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
     Velvol->setColour(juce::ToggleButton::tickDisabledColourId, BoxFarbe);
     link_button->setColour(juce::ToggleButton::tickColourId, HakenFarbe);
@@ -1008,7 +1008,7 @@ AiassAudioProcessorEditor::AiassAudioProcessorEditor (AiassAudioProcessor& p, Au
 
 	FilterfreqAttachment = std::make_unique<SliderAttachment>(valueTreeState, "FilterFreq", *CutOff);
 	ResonanceAttachment = std::make_unique<SliderAttachment>(valueTreeState, "ResoNance", *Resonace);
-	Filter8580Attachment = std::make_unique<ButtonAttachment>(valueTreeState, "FilTer8580", *Filter8580);
+	FilterscaleAttachment = std::make_unique<ButtonAttachment>(valueTreeState, "FilterScale", *Filterscale);
 
 	Filter1Attachment = std::make_unique<ButtonAttachment>(valueTreeState, "FilTer1", *Filter1);
 	Filter2Attachment = std::make_unique<ButtonAttachment>(valueTreeState, "FilTer2", *Filter2);
@@ -1095,7 +1095,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
 	Sync3Attachment = nullptr;
 	FilterfreqAttachment = nullptr;
 	ResonanceAttachment = nullptr;
-	Filter8580Attachment = nullptr;
+	FilterscaleAttachment = nullptr;
 	Filter1Attachment = nullptr;
 	Filter2Attachment = nullptr;
 	Filter3Attachment = nullptr;
@@ -1167,7 +1167,7 @@ AiassAudioProcessorEditor::~AiassAudioProcessorEditor()
     Filterlp = nullptr;
     Filterhp = nullptr;
     Filterbp = nullptr;
-    Filter8580 = nullptr;
+    Filterscale = nullptr;
     CutOff = nullptr;
     Resonace = nullptr;
     Noise1 = nullptr;
@@ -1647,7 +1647,7 @@ BEGIN_JUCER_METADATA
                 virtualName="" explicitFocusOrder="0" pos="148 381 66 30" tooltip="Band Pass"
                 txtcol="ffa52a2a" buttonText="BP" connectedEdges="0" needsCallback="0"
                 radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="scale toggle button" id="1f267441a830f9ff" memberName="Filter8580"
+  <TOGGLEBUTTON name="scale toggle button" id="1f267441a830f9ff" memberName="Filterscale"
                 virtualName="" explicitFocusOrder="0" pos="310 381 70 30" tooltip="scales filterfreq. to 0-71"
                 txtcol="ffa52a2a" buttonText="scale" connectedEdges="0" needsCallback="0"
                 radioGroupId="0" state="1"/>

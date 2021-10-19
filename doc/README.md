@@ -3,11 +3,10 @@ todo (for v.1.0):
 - some factory presets
 - some MIDI CC (switches)
 - manual
--test and rework playmodes
 
 history
 -------
-- 2021/10/18 - work on v.0.5
+- 2021/10/19 - working on v.0.5
   - PianoRol added (displays and playing notes)
   - PitchBend added
   - Link Mode added

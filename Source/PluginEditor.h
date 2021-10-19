@@ -143,7 +143,7 @@ private:
 	   std::unique_ptr<ButtonAttachment>Sync3Attachment;
 	   std::unique_ptr<SliderAttachment>FilterfreqAttachment;
 	   std::unique_ptr<SliderAttachment>ResonanceAttachment;
-	   std::unique_ptr<ButtonAttachment>Filter8580Attachment;
+	   std::unique_ptr<ButtonAttachment>FilterscaleAttachment;
 	   std::unique_ptr<ButtonAttachment>Filter1Attachment;
 	   std::unique_ptr<ButtonAttachment>Filter2Attachment;
 	   std::unique_ptr<ButtonAttachment>Filter3Attachment;
@@ -232,7 +232,7 @@ private:
     std::unique_ptr<juce::ToggleButton> Filterlp;
     std::unique_ptr<juce::ToggleButton> Filterhp;
     std::unique_ptr<juce::ToggleButton> Filterbp;
-    std::unique_ptr<juce::ToggleButton> Filter8580;
+    std::unique_ptr<juce::ToggleButton> Filterscale;
     std::unique_ptr<juce::Slider> CutOff;
     std::unique_ptr<juce::Slider> Resonace;
     std::unique_ptr<juce::ToggleButton> Noise1;

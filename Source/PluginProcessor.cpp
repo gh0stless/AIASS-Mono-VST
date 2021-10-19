@@ -640,8 +640,8 @@
 			nullptr,
 			nullptr));
 
-		parameters.createAndAddParameter(std::make_unique<Parameter>("FilTer8580",       // parameterID
-			"8580",       // parameter name
+		parameters.createAndAddParameter(std::make_unique<Parameter>("FilterScale",       // parameterID
+			"Filterscale",       // parameter name
 			String(),     // parameter label (suffix)
 			NormalisableRange<float>(0.0f, 1.0f, 1.0f),    // range
 			1.0f,         // default value
@@ -993,7 +993,7 @@
 		parameters.addParameterListener("SynC3", this);
 		parameters.addParameterListener("FilterFreq", this);
 		parameters.addParameterListener("ResoNance", this);
-		parameters.addParameterListener("FilTer8580", this);
+		parameters.addParameterListener("FilterScale", this);
 		parameters.addParameterListener("FilTer1", this);		//50
 		parameters.addParameterListener("FilTer2", this);
 		parameters.addParameterListener("FilTer3", this);
@@ -1009,7 +1009,7 @@
 		parameters.addParameterListener("ResetButton", this);
 		parameters.addParameterListener("PitchBend", this);
 		parameters.addParameterListener("InitButton", this);
-		parameters.addParameterListener("BeNd1", this);		//50
+		parameters.addParameterListener("BeNd1", this);		//65
 		parameters.addParameterListener("BeNd2", this);
 		parameters.addParameterListener("BeNd3", this);
 
@@ -1251,7 +1251,7 @@
 										break;
 									case LastStep:
 										isPlaying = m;
-										noteOn(m, true);
+										noteOn(m, false);
 										break;
 								}
 								break;
@@ -1277,7 +1277,7 @@
 										if (lowestNote >= m.getNoteNumber())
 										{
 											isPlaying = MIDImsgWithLowestNote;
-											noteOn(MIDImsgWithLowestNote, true);
+											noteOn(MIDImsgWithLowestNote, false);
 										}
 										break;
 								}
@@ -1304,7 +1304,7 @@
 										if (highestNote <= m.getNoteNumber())
 										{
 											isPlaying = MIDImsgWithHighestNote;
-											noteOn(MIDImsgWithHighestNote, true);
+											noteOn(MIDImsgWithHighestNote, false);
 										}
 										break;
 								}
@@ -1356,15 +1356,15 @@
 											noteOn(heldNotesList.getLast(), true);
 											isPlaying = heldNotesList.getLast();
 											break;
+										case Legato:
+											//noteOff(m);
+											heldNotesList.remove(j);
+											noteOn(heldNotesList.getLast(), true);
+											isPlaying = heldNotesList.getLast();
+											break;
 										case LastStep:
 											heldNotesList.remove(j);
 											noteOn(heldNotesList.getLast(), false);
-											isPlaying = heldNotesList.getLast();
-											break;
-										case Legato:
-											noteOff(m);
-											heldNotesList.remove(j);
-											noteOn(heldNotesList.getLast(), true);
 											isPlaying = heldNotesList.getLast();
 											break;
 									}
@@ -1378,17 +1378,18 @@
 											noteOn(MIDImsgWithLowestNote, true);
 											isPlaying = MIDImsgWithLowestNote;
 											break;
+										case Legato:
+											//noteOff(isPlaying);
+											heldNotesList.remove(j);
+											noteOn(MIDImsgWithLowestNote, true);
+											isPlaying = MIDImsgWithLowestNote;
+											break;
 										case LastStep:
 											heldNotesList.remove(j);
 											noteOn(MIDImsgWithLowestNote, false);
 											isPlaying = MIDImsgWithLowestNote;
 											break;
-										case Legato:
-											noteOff(isPlaying);
-											heldNotesList.remove(j);
-											noteOn(MIDImsgWithLowestNote, true);
-											isPlaying = MIDImsgWithLowestNote;
-											break;
+
 									}
 										break;
 								case HighNote:
@@ -1400,15 +1401,15 @@
 											noteOn(MIDImsgWithHighestNote, true);
 											isPlaying = MIDImsgWithHighestNote;
 											break;
+										case Legato:
+											//noteOff(isPlaying);
+											heldNotesList.remove(j);
+											noteOn(MIDImsgWithHighestNote, true);
+											isPlaying = MIDImsgWithHighestNote;
+											break;
 										case LastStep:
 											heldNotesList.remove(j);
 											noteOn(MIDImsgWithHighestNote, false);
-											isPlaying = MIDImsgWithHighestNote;
-											break;
-										case Legato:
-											noteOff(isPlaying);
-											heldNotesList.remove(j);
-											noteOn(MIDImsgWithHighestNote, true);
 											isPlaying = MIDImsgWithHighestNote;
 											break;
 									}
@@ -1930,7 +1931,7 @@
 		}
 		else if (parameterID == "FilterFreq")
 		{
-			if (!FILTER8580) {
+			if (!FILTERSCALE) {
 				FILTERFREQ = (int)newValue;
 			}
 			else { //scale
@@ -1943,10 +1944,10 @@
 			m_sid->set_filterres((Uint8)newValue);
 			FILTERRES = (int)newValue;
 		}
-		else if (parameterID == "FilTer8580")
+		else if (parameterID == "FilterScale")
 		{
-			if (newValue == 0) FILTER8580 = false;
-			else FILTER8580 = true;
+			if (newValue == 0) FILTERSCALE = false;
+			else FILTERSCALE = true;
 		}
 		else if (parameterID == "FilTer1")
 		{
@@ -2296,7 +2297,7 @@
 			m_sid->set_freq(1, (float)MyFreq1);
 			if (triggernote)
 			{
-				if (V1isPlaying) m_sid->stop(1);
+				//if (V1isPlaying) m_sid->stop(1);
 				m_sid->play(1);
 			}
 			V1isPlaying = true;
@@ -2307,7 +2308,7 @@
 			m_sid->set_freq(2, (float)MyFreq2);
 			if (triggernote)
 			{
-				if (V2isPlaying) m_sid->stop(2);
+				//if (V2isPlaying) m_sid->stop(2);
 				m_sid->play(2);
 			}
 			V2isPlaying = true;
@@ -2317,7 +2318,7 @@
 			m_sid->set_freq(3, (float)MyFreq3);
 			if (triggernote)
 			{
-				if (V3isPlaying) m_sid->stop(3);
+				//if (V3isPlaying) m_sid->stop(3);
 				m_sid->play(3);
 			}
 			V3isPlaying = true;
