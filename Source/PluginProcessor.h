@@ -45,7 +45,7 @@ public:
 	bool LINK = false;
 	bool RESET = false;
 	bool INIT = false;
-	MidiMessage MIDIMESSAGE = NULL;
+	MidiMessage MIDIMESSAGE;
 	float PITCHBEND = 0.0f;
 	bool MIDIBENDACTIVE = false;
 
@@ -175,7 +175,7 @@ private:
 	int	MIDICHANNEL = 0;
 
 	Array<MidiMessage> heldNotesList{};
-	MidiMessage isPlaying = NULL;
+	MidiMessage isPlaying;
 
 	
 	int MyProgram = 0;

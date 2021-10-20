@@ -1214,8 +1214,8 @@
 				{
 					int lowestNote = 127;
 					int highestNote = 0;
-					MidiMessage MIDImsgWithLowestNote = NULL;
-					MidiMessage MIDImsgWithHighestNote = NULL;
+					MidiMessage MIDImsgWithLowestNote;
+					MidiMessage MIDImsgWithHighestNote;
 					heldNotesList.add(m);  //add held notes to a Juce Array so we can use for note memory, arpeggiator or other 
 					for (int j = 0; j < heldNotesList.size(); ++j)
 					{
@@ -1319,8 +1319,8 @@
 				{
 					int lowestNote = 127;
 					int highestNote = 0;
-					MidiMessage MIDImsgWithLowestNote = NULL;
-					MidiMessage MIDImsgWithHighestNote = NULL;
+					MidiMessage MIDImsgWithLowestNote;
+					MidiMessage MIDImsgWithHighestNote;
 					for (int j = 0; j < heldNotesList.size(); ++j)
 					{
 						if (heldNotesList[j].getNoteNumber() < lowestNote) {
@@ -1340,7 +1340,7 @@
 							if (heldNotesList.size() == 1)
 							{
 								noteOff(j);
-								isPlaying = NULL;
+								//isPlaying = NULL;
 								heldNotesList.remove(j);
 							}
 							if (heldNotesList.size() > 1)
