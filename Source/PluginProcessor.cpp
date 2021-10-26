@@ -1195,18 +1195,15 @@
 		}
 
 		buffer.clear();
-		MidiBuffer processedMidi;
-		int time;
-		MidiMessage m;
 
 		auto numSamples = buffer.getNumSamples();
 		// Now pass any incoming midi messages to our keyboard state object, and let it
 		// add messages to the buffer if the user is clicking on the on-screen keys	
 		keyboardState.processNextMidiBuffer(midiMessages, 0, numSamples, true);
 		
-
-		for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);)
+		for (auto meta : midiMessages)
 		{
+			auto m = meta.getMessage();
 			MIDIMESSAGE = m;
 			if (m.isNoteOn())
 			{	
