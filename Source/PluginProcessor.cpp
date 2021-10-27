@@ -1204,7 +1204,7 @@
 		for (auto meta : midiMessages)
 		{
 			auto m = meta.getMessage();
-			MIDIMESSAGE = m;
+
 			if (m.isNoteOn())
 			{	
 				if ((m.getChannel()) == MIDICHANNEL || (MIDICHANNEL == 0))

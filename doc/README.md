@@ -6,7 +6,7 @@ todo (for v.1.0):
 
 history
 -------
-- 2021/10/20 - releasing v.0.9
+- 2021/10/27 - releasing v.0.9
   - PianoRol added (displays and playing notes)
   - PitchBend added
   - Link Mode added

@@ -45,7 +45,6 @@ public:
 	bool LINK = false;
 	bool RESET = false;
 	bool INIT = false;
-	MidiMessage MIDIMESSAGE;
 	float PITCHBEND = 0.0f;
 	bool MIDIBENDACTIVE = false;
 
