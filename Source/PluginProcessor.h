@@ -81,7 +81,8 @@ private:
 	void setFilterMode(BYTE FilterModeBit, bool State);
 	void noteOn(MidiMessage m, bool triggernote);
 	void noteOff(MidiMessage m);
-	void handlepitch();
+	void handlepitch(bool newnote);
+	float scaleInterval(float  Wert, float minActualInterval, float maxActualInterval, float minDesiredInterval, float maxDesiredInterval);
 		
     //==============================================================================
 
@@ -167,6 +168,9 @@ private:
 	double MyFreq1 = 0.0;
 	double MyFreq2 = 0.0;
 	double MyFreq3 = 0.0;
+	double newFreq1 = 0.0;
+	double newFreq2 = 0.0;
+	double newFreq3 = 0.0;
 
 	PlayModes LEGATOMODE = Retrigger;
 	PriorityModes NOTEPRIORITYMODE = LastNote;

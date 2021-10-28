@@ -2081,8 +2081,8 @@
 		else if (parameterID == "PitchBend")
 		{
 			PITCHBEND = newValue;
-			PITCHBEND = PITCHBEND + 8192;
-			handlepitch();
+			//PITCHBEND = PITCHBEND + 8192;
+			handlepitch(false);
 
 		}
 		else if (parameterID == "BeNd1")
@@ -2289,9 +2289,11 @@
 		MyFreq3 = m.getMidiNoteInHertz(MyNote3, 440.0);
 		MyFreq3 = MyFreq3 * pow(2, (CENT3 / 1200.0));
 
+		handlepitch(true);
+
 		if (VOICE1)
-		{
-			m_sid->set_freq(1, (float)MyFreq1);
+		{	
+			m_sid->set_freq(1, (float)newFreq1);
 			if (triggernote)
 			{
 				//if (V1isPlaying) m_sid->stop(1);
@@ -2302,7 +2304,7 @@
 
 		if (VOICE2)
 		{
-			m_sid->set_freq(2, (float)MyFreq2);
+			m_sid->set_freq(2, (float)newFreq2);
 			if (triggernote)
 			{
 				//if (V2isPlaying) m_sid->stop(2);
@@ -2312,7 +2314,7 @@
 		}
 		if (VOICE3)
 		{
-			m_sid->set_freq(3, (float)MyFreq3);
+			m_sid->set_freq(3, (float)newFreq3);
 			if (triggernote)
 			{
 				//if (V3isPlaying) m_sid->stop(3);
@@ -2320,6 +2322,7 @@
 			}
 			V3isPlaying = true;
 		}
+		
 	}
 
 	void AiassAudioProcessor::noteOff(MidiMessage m)
@@ -2366,21 +2369,26 @@
 		}
 	}
 
-	void AiassAudioProcessor::handlepitch()
+	void AiassAudioProcessor::handlepitch(bool newnote)
 	{
-		int newPitchwheel = PITCHBEND;
-		float newFreq1 = MyFreq1;
-		float newFreq2 = MyFreq2;
-		float newFreq3 = MyFreq3;
-		long double percentage = (((float)newPitchwheel - 8191.0f) - -8191.0f) / (-8191.0f - 8191.0f);
+		newFreq1 = MyFreq1;
+		newFreq2 = MyFreq2;
+		newFreq3 = MyFreq3;
 
-		if (BEND1) newFreq1 = percentage * ((MyFreq1 / 2.0f) - (MyFreq1 * 2.0f)) + (MyFreq1 / 2.0f);
-		if (BEND2) newFreq2 = percentage * ((MyFreq2 / 2.0f) - (MyFreq2 * 2.0f)) + (MyFreq2 / 2.0f);
-		if (BEND3) newFreq3 = percentage * ((MyFreq3 / 2.0f) - (MyFreq3 * 2.0f)) + (MyFreq3 / 2.0f);
-		
-		if (VOICE1) m_sid->set_freq(1, newFreq1);
-		if (VOICE2) m_sid->set_freq(2, newFreq2);
-		if (VOICE3) m_sid->set_freq(3, newFreq3);
+		if (BEND1 && (PITCHBEND != 0)) newFreq1 = scaleInterval(PITCHBEND, -8191, 8191, MyFreq1 / 2, MyFreq1 * 2);
+		if (BEND2 && (PITCHBEND != 0)) newFreq2 = scaleInterval(PITCHBEND, -8191, 8191, MyFreq2 / 2, MyFreq2 * 2);
+		if (BEND3 && (PITCHBEND != 0)) newFreq3 = scaleInterval(PITCHBEND, -8191, 8191, MyFreq3 / 2, MyFreq3 * 2);
+
+		if (!newnote) {
+			if (VOICE1) m_sid->set_freq(1, newFreq1);
+			if (VOICE2) m_sid->set_freq(2, newFreq2);
+			if (VOICE3) m_sid->set_freq(3, newFreq3);
+		}
+	}
+
+	float AiassAudioProcessor::scaleInterval(float  Wert,	float minActualInterval, float maxActualInterval,	float minDesiredInterval, float maxDesiredInterval)
+	{
+		return ((Wert - minActualInterval) / (maxActualInterval - minActualInterval)) * (maxDesiredInterval - minDesiredInterval) + minDesiredInterval;
 	}
 
 	//==============================================================================
