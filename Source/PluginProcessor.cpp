@@ -2375,9 +2375,9 @@
 		newFreq2 = MyFreq2;
 		newFreq3 = MyFreq3;
 
-		if (BEND1 && (PITCHBEND != 0)) newFreq1 = scaleInterval(PITCHBEND, -8191, 8191, MyFreq1 / 2, MyFreq1 * 2);
-		if (BEND2 && (PITCHBEND != 0)) newFreq2 = scaleInterval(PITCHBEND, -8191, 8191, MyFreq2 / 2, MyFreq2 * 2);
-		if (BEND3 && (PITCHBEND != 0)) newFreq3 = scaleInterval(PITCHBEND, -8191, 8191, MyFreq3 / 2, MyFreq3 * 2);
+		if (BEND1 && (PITCHBEND != 0)) newFreq1 = scaleInterval(PITCHBEND, -8191.0f, 8191.0f, MyFreq1 / 2.0f, MyFreq1 * 2.0f);
+		if (BEND2 && (PITCHBEND != 0)) newFreq2 = scaleInterval(PITCHBEND, -8191.0f, 8191.0f, MyFreq2 / 2.0f, MyFreq2 * 2.0f);
+		if (BEND3 && (PITCHBEND != 0)) newFreq3 = scaleInterval(PITCHBEND, -8191.0f, 8191.0f, MyFreq3 / 2.0f, MyFreq3 * 2.0f);
 
 		if (!newnote) {
 			if (VOICE1) m_sid->set_freq(1, newFreq1);
