@@ -29,9 +29,9 @@
       <FILE id="X3DTcp" name="Sid.cpp" compile="1" resource="0" file="Source/Sid.cpp"/>
       <FILE id="o2CCZE" name="Sid.h" compile="0" resource="0" file="Source/Sid.h"/>
     </GROUP>
-    <FILE id="ks6had" name="hardsid.dll how to and hints.txt" compile="0"
-          resource="1" file="doc/hardsid.dll how to and hints.txt"/>
-    <FILE id="DJ0Gej" name="README.md" compile="0" resource="1" file="doc/README.md"/>
+    <FILE id="siDp7Y" name="hardsid.dll how to and hints.txt" compile="0"
+          resource="1" file="docs/hardsid.dll how to and hints.txt"/>
+    <FILE id="A3xJbT" name="README.md" compile="0" resource="1" file="docs/README.md"/>
   </MAINGROUP>
   <EXPORTFORMATS>
     <VS2019 targetFolder="VisualStudio2019" windowsTargetPlatformVersion="10.0.16299.0"

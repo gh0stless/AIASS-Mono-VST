@@ -10,9 +10,12 @@ Perhaps you are also interested in the sister project AIASS for Max4Live:
 
 https://github.com/gh0stless/AIASS-for-MAX4LIVE
 
-![](./doc/AIASS-Mono%20VST%20Preview.jpg)
+![](./docs/AIASS-Mono%20VST%20Preview.jpg)
 
 ## Description
+In the event of errors (wrong or missing DLL, no SIDBlaster connected) the red LED flashes.
+
+## Build
 
 ##### windows
 
@@ -20,11 +23,11 @@ Open project in Projucer (part of juce package)(status: version 6.1.2) and expor
 
 Under Windows, the correct DLL (32 or 64 bit) must be in the same folder as the host exe or, in the case of the standalone version, in its folder.
 
-In the event of errors (wrong or missing DLL, no SIDBlaster connected) the red LED flashes.
-
 ##### linux
+Open project in Projucer then build with "make CONFIG=Release".
 
 ##### macOS
+Open Project in Projucer and export an build with XCode.
 
 ## Hardware
 
@@ -40,7 +43,7 @@ https://haendel.ddns.net/~ken/sidblaster.html
 
 AIASS Mono VST is under GPL v3:
 
- https://www.gnu.org/licenses/gpl-3.0.en.html
+https://www.gnu.org/licenses/gpl-3.0.en.html
 
 Please also note the end user license of Juce: 
 
@@ -62,11 +65,11 @@ https://haendel.ddns.net/~ken/sidblaster.html
 
 ## Thanks
 
-Thanks a lot: Wilfred Bos & Stein Pedersen for your help. 
+Thanks a lot: Wilfred Bos, Stein Pedersen & Ken Händel for your help. 
 
 Thanks Davey for the SIDBlaster-USB.
 
 And to my bride-to-be, Borjana Konstantinowa,  for your patience with me 
 
-***-Andreas Schumm (gh0stless) in September 2021***
+***-Andreas Schumm (gh0stless) in November 2021***
 
