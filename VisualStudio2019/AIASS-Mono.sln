@@ -1,5 +1,6 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2019
+# Visual Studio Version 16
 
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIASS-Mono - Standalone Plugin", "AIASS-Mono_StandalonePlugin.vcxproj", "{412C055F-BD56-FF4C-9994-1CB392E09F78}"
 	ProjectSection(ProjectDependencies) = postProject

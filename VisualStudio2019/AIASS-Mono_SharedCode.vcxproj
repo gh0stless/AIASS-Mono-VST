@@ -1349,6 +1349,9 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClCompile Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\geometry\juce_PathStrokeType.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\geometry\juce_Rectangle_test.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\image_formats\jpglib\jcapimin.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2410,7 +2413,6 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_CarbonVisibility.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_CheckSettingMacros.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_CreatePluginFilter.h"/>
-    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_FakeMouseMoveGenerator.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_IncludeModuleHeaders.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_IncludeSystemHeaders.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_plugin_client\utility\juce_LinuxMessageThread.h"/>
@@ -2501,6 +2503,7 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\processors\juce_AudioProcessorParameter.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\processors\juce_AudioProcessorParameterGroup.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\processors\juce_GenericAudioProcessorEditor.h"/>
+    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\processors\juce_HostedAudioProcessorParameter.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\processors\juce_PluginDescription.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\scanning\juce_KnownPluginList.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_audio_processors\scanning\juce_PluginDirectoryScanner.h"/>
@@ -2545,6 +2548,7 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_PropertySet.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_ReferenceCountedArray.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_ScopedValueSetter.h"/>
+    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_SingleThreadedAbstractFifo.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_SortedSet.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_SparseSet.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\containers\juce_Variant.h"/>
@@ -2580,6 +2584,7 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_MemoryBlock.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_OptionalScopedPointer.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_ReferenceCountedObject.h"/>
+    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_Reservoir.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_ScopedPointer.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_SharedResourcePointer.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_core\memory\juce_Singleton.h"/>
@@ -2767,6 +2772,7 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\images\juce_ImageCache.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\images\juce_ImageConvolutionKernel.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\images\juce_ImageFileFormat.h"/>
+    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\images\juce_ScaledImage.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\native\juce_mac_CoreGraphicsContext.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\native\juce_mac_CoreGraphicsHelpers.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_graphics\native\juce_RenderingHelpers.h"/>
@@ -2903,6 +2909,7 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\native\x11\juce_linux_X11_Symbols.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\native\x11\juce_linux_XWindowSystem.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\native\juce_MultiTouchMapper.h"/>
+    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\native\juce_ScopedDPIAwarenessDisabler.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\native\juce_win32_ScopedThreadDPIAwarenessSetter.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\positioning\juce_MarkerList.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_basics\positioning\juce_RelativeCoordinate.h"/>
@@ -2957,7 +2964,6 @@ del /Q &quot;$(TargetDir)\..\..\..\..\AIASS-Mono-VST\Windows\beta\*.lib&quot;</C
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\embedding\juce_AndroidViewComponent.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\embedding\juce_HWNDComponent.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\embedding\juce_NSViewComponent.h"/>
-    <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\embedding\juce_ScopedDPIAwarenessDisabler.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\embedding\juce_UIViewComponent.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\embedding\juce_XEmbedComponent.h"/>
     <ClInclude Include="..\..\..\Frameworks\JUCE\modules\juce_gui_extra\misc\juce_AnimatedAppComponent.h"/>

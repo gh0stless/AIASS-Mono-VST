@@ -129,11 +129,13 @@ static const unsigned char temp_binary_data_1[] =
 "  - Link Mode added\r\n"
 "  - SID-Reset added\r\n"
 "  - CC added\r\n"
-"  - working on manual\r\n"
+"  - created a manual\r\n"
 "  - changed GUI\r\n"
 "  - Init added\r\n"
+"  - changing depricaded juce code\r\n"
 "- 2021/10/01 - releasing v.0.4\r\n"
 "  - MIDI-play modes implemented\r\n"
+"  - MIDI channel select added\r\n"
 "- 2020/02/13 - releasing v.0.1b\r\n"
 "- 2020/02/12 - changing depricaded juce code\r\n"
 "- 2018/10/27 - releasing v.0.1a\r\n"
@@ -154,7 +156,7 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes)
     switch (hash)
     {
         case 0xc1b26097:  numBytes = 4164; return hardsid_dll_how_to_and_hints_txt;
-        case 0x64791dc8:  numBytes = 519; return README_md;
+        case 0x64791dc8:  numBytes = 584; return README_md;
         default: break;
     }
 
